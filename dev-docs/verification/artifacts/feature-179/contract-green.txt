@@ -1,0 +1,14 @@
+Native macOS GREEN (author-run; independent static audit recorded separately)
+Source: d0c16a0d37a393a393992218084bd5168d9fcdeb
+Run: https://github.com/anguslilei/AdaptiveReader/actions/runs/37122191150
+Job: 111200347601
+Runner: macos-15; selected stable Xcode26.3; strict Swift6 concurrency
+Exact production XML sources and three test suites; no stubbed parser.
+Build complete: 9.38s
+Test run with29 tests in3 suites passed after0.013s (2026-10-03T12:14:31Z).
+Covers logical tree, original-byte hash, namespace metadata suppression rejection,
+literal Unicode URI identity, CJK names, canonical-name ambiguity rejection,
+DTD/encoding/malformed input, finite budgets, actual worker cancellation and
+no publication. iOS/compiler verification is separate in feature evidence.
+Earlier7c00c21 also passed29 in3 suites (run37121628079); d0 changes only the
+workflow branch filter and removes two unused local variables.

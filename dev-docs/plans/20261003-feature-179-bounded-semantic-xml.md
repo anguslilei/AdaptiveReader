@@ -1,6 +1,6 @@
 # Feature179 — bounded native XML structural parser
 
-Status: PLANNED; independent Gate2 PASS after3 rounds. Author: root; base8ac6931 (PR3 open).
+Status: IN PROGRESS (unmerged); independent Gate2 PASS after3 rounds; Gate4 PASS after2 rounds. Author: root; base8ac6931 (PR3 open).
 This is the next independent foundational WI of the semantic extraction proposal.
 
 ## Problem and scope
@@ -213,3 +213,26 @@ namespace error suppression. One extra focusedsource file, stillbounded WI size.
 No change to Data-only API, output tree, reader wiring or source-map exclusions.
 
 Independent Gate2 round3 PASS, zero open findings; implementation proof remains pending.
+
+## Gate4 implementation audit (PASS2)
+
+Round1 found one Medium (Mac workflow PR base typo) and one Low (unused delimiter
+helper variables). Both corrected atd0c16a0d37a393a393992218084bd5168d9fcdeb.
+Round2 independent PASS; zero open findings. Earlier canonical-key preflight
+rejection is optional defense in depth, with no demonstrated current defect;
+existing rejection fixture must execute on iOS before acceptance. No production
+wiring or source-map claim. See committed implementation audit for all findings.
+
+## Final foundational native evidence
+
+Frozen sourced0c16a0d37a393a393992218084bd5168d9fcdeb: Mac29 tests/3 suites
+pass in run37122191150. Native run37122191127 passes Debug and Release builds,
+then155 distinct tests on iPhone17Pro/iOS26.2, failed0/skipped0; all six
+EPUB/XML suites explicitly Passed. Parameter executions are counted separately.
+Canonical-equivalent qualified attribute rejection and literal Unicode namespace
+URI identity fixtures execute and pass on iOS. Gate2 PASS3/Gate4 PASS2, zero open
+findings. Foundation run37122191139 also passes. See final verification evidence
+and artifact manifest for actual tools, counts and source/generation hashes.
+The actual XcodeGen pair is copied unchanged into the final two-file generation/
+version commit3.67.11(1053); code remains identical to the passing source.
+No OPF/spine/source-map or production behavior is claimed; unmerged status remains.

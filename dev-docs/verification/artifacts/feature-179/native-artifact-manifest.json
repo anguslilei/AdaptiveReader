@@ -1,0 +1,76 @@
+{
+  "source_commit": "d0c16a0d37a393a393992218084bd5168d9fcdeb",
+  "run_id": 37122191127,
+  "artifact_id": 11273643981,
+  "artifact_zip_sha256": "c01a93c9bfe93b82c1215f4d7746431e48158db78935ca932887a6702ae932b6",
+  "members": {
+    "debug-build.log": {
+      "bytes": 1541820,
+      "sha256": "3f0acfa44596ca45ba75ccca0911a34a4e230ee52d09a910fce04ceb2ca9db74"
+    },
+    "devices.json": {
+      "bytes": 71890,
+      "sha256": "e33b983720174c7990e81276aa21d6fe07715c036855d2a80842545e48823ffd"
+    },
+    "generator-version.txt": {
+      "bytes": 16,
+      "sha256": "bf8aa757345fcd22d1fd26e760aa058f02991e2d930686b8eaf750cd6e5f8532"
+    },
+    "input-commit.txt": {
+      "bytes": 41,
+      "sha256": "046447b9e657646ac4cfecc83b479a009f26f532182a5aae6feff7118607a1bb"
+    },
+    "project.pbxproj": {
+      "bytes": 911734,
+      "sha256": "6ddfcca8ccc17a5954048216045c43f8c88268a5f89e4ac472068b97b0bb5bdb"
+    },
+    "project.yml": {
+      "bytes": 19678,
+      "sha256": "78072acf96d47c2926800d742d319385534bc01831d3f66fd7a30c1f934b1d71"
+    },
+    "release-build.log": {
+      "bytes": 2260389,
+      "sha256": "3d1005e3b90e063a4a89d5b3af43eda7194f0cefaf60756b88fde92d2cb7589a"
+    },
+    "test-command-status.txt": {
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    "test-full.log": {
+      "bytes": 10167985,
+      "sha256": "d40612e0af6a950c1267c6fd1d803cf4129cdd03c91b4c57bf3443a31ab82575"
+    },
+    "test-result-path.txt": {
+      "bytes": 144,
+      "sha256": "c213a597fa832cf3edca348ff1dcc4db638430f2e72713d5a54be1d503715a1e"
+    },
+    "test-start.txt": {
+      "bytes": 11,
+      "sha256": "6e88cc7087feca9dc9576ec539871d5f0034e97e04ecb529c2cb2fa5a5306a04"
+    },
+    "test-summary.json": {
+      "bytes": 1242,
+      "sha256": "3fe5955cd0b780f91785503896e0250801c5aed81a96abe74f41085cdd9bd954"
+    },
+    "test-tree.json": {
+      "bytes": 105487,
+      "sha256": "9ecfa2e4a1a12d768a0590d4ae8e1a6ead09abd60c75e10034671dd52619076a"
+    },
+    "test-udid.txt": {
+      "bytes": 36,
+      "sha256": "3ef64c57b83279813dfd3d5401b5dfcf6184347f50e8441fdf64f6dda4188759"
+    },
+    "test-wrapper.log": {
+      "bytes": 1947,
+      "sha256": "0fab74cb8b136f057ac775938f63753c65c922d0b31e404c50eb26dfe792ec5b"
+    },
+    "test-xcode-version.txt": {
+      "bytes": 32,
+      "sha256": "bb7fc9a8f5e063e81975b33054b3a526c91bcccff263ad11d5bd8bcdbe8f0973"
+    },
+    "xcode-version.txt": {
+      "bytes": 32,
+      "sha256": "bb7fc9a8f5e063e81975b33054b3a526c91bcccff263ad11d5bd8bcdbe8f0973"
+    }
+  }
+}
