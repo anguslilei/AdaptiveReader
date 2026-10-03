@@ -33,7 +33,6 @@ enum EPUBSemanticPackageError: Error, Sendable, Equatable {
     case invalidLimits, invalidContainer, invalidPackage, unsupportedPackage
     case unsupportedReference, unsafePath, missingResource, duplicateManifestID
     case duplicateResourcePath, invalidSpine, metadataLimit, inconsistentSource
-    case unimplemented // Removed after captured native behavioral RED.
 }
 
 enum EPUBPackageStage: Sendable, Equatable {
