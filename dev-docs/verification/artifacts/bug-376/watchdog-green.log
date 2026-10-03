@@ -1,0 +1,12 @@
+== run-tests.sh sibling-safe daemon kill ==
+ok   — wedge → TIMEOUT (exit 3)
+ok   — no sibling → daemon cleared
+ok   — wedge with sibling → still TIMEOUT
+ok   — sibling alive → daemon spared
+ok   — watchdog names the sibling decision
+ok   — natural finish → SUCCEEDED
+ok   — natural finish → no pkill at all
+ok   — default sibling check is 'pgrep -x xcodebuild'
+ok   — default path: no sibling → daemon cleared
+
+ALL PASS
