@@ -76,12 +76,14 @@ jobs:
           xcrun simctl boot "$TEST_SIM"
           xcrun simctl bootstatus "$TEST_SIM" -b
       - name: Debug compiler regression
+        if: ${{ github.event_name != 'push' || !contains(github.event.head_commit.message, '[diagnose-native]') }}
         run: |
           set -o pipefail
           xcodebuild build -project vreader.xcodeproj -scheme vreader \
             -configuration Debug -destination "platform=iOS Simulator,id=$TEST_UDID" \
             CODE_SIGNING_ALLOWED=NO 2>&1 | tee preparation/debug-build.log
       - name: Release compiler regression
+        if: ${{ github.event_name != 'push' || !contains(github.event.head_commit.message, '[diagnose-native]') }}
         run: |
           set -o pipefail
           xcodebuild build -project vreader.xcodeproj -scheme vreader \
@@ -91,8 +93,8 @@ jobs:
         env:
           TIMEOUT_SECS: '1200'
         run: |
-          set -o pipefail
           xcodebuild -version > preparation/test-xcode-version.txt
+          set +e
           date +%s > preparation/test-start.txt
           bash scripts/run-tests.sh \
             vreaderTests/EPUBReaderViewModelOpenTests \
@@ -109,8 +111,26 @@ jobs:
             vreaderTests/EPUBSemanticResourceReaderTests \
             vreaderTests/EPUBSourceZIPValidationTests \
             vreaderTests/EPUBSourceBudgetTests \
-            2>&1 | tee preparation/test-wrapper.log
+            > preparation/test-wrapper.log 2>&1
+          TEST_EXIT=$?
+          set -e
+          printf '%s\n' "$TEST_EXIT" > preparation/test-command-status.txt
+          python3 - <<'PY'
+          from pathlib import Path
+          import re, shutil
+          wrapper = Path('preparation/test-wrapper.log').read_text()
+          print(wrapper)
+          first = wrapper.splitlines()[0] if wrapper else ''
+          match = re.search(r' log=(/var/folders/[^/]+/[^/]+/T/run-tests\.[^\s]+)$', first)
+          if match and Path(match[1]).is_file():
+              shutil.copyfile(match[1], 'preparation/test-full.log')
+              for line in Path(match[1]).read_text(errors='replace').splitlines():
+                  if any(term in line for term in ['✘', 'Expectation failed', 'Issue recorded', 'error:']):
+                      print(line)
+          PY
+          exit "$TEST_EXIT"
       - name: Verify actual test results are nonempty
+        if: always()
         run: |
           python3 - <<'PY'
           from pathlib import Path

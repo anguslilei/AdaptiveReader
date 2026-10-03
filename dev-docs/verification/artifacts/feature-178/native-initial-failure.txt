@@ -1,0 +1,15 @@
+Source: 7e19006ce44fdf9d0650e9e5e1781d2d9da68933
+Own native run: https://github.com/anguslilei/AdaptiveReader/actions/runs/37105061493
+Artifact: 11269110119
+ZIP SHA256: fde8b7c578d89a783d347833b8bde00098c36202b2a70656210d0060534258cc
+Xcode26.3 stable. Debug and Release both BUILD SUCCEEDED.
+Actual iOS execution: 94 Swift Testing tests / 12 suites, one issue in
+Semantic EPUB budgets and cancellation; TEST FAILED / wrapper exit65.
+Not a GREEN result, not a watchdog timeout.
+The wrapper captures only its final12 raw lines. The first failing test/message
+is absent, and success-only xcresult harvest was skipped. Diagnosis is pending.
+Test finished07:47:47 UTC; piping wrapper output to tee stayed alive until the
+watchdog's orphaned sleep expired07:57:28 UTC. CI-only capture now uses a regular
+file, saves the wrapper's actual full raw log, and harvests xcresult on failure.
+A [diagnose-native] push skips redundant app builds on unchanged Swift sources;
+PR events and ordinary pushes retain both compiler gates. No API/test weakening.
