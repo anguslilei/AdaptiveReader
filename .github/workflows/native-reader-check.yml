@@ -1,9 +1,9 @@
 name: Reader and semantic source native regression
 on:
   push:
-    branches: ['fix/376-epub-view-typecheck', 'feature/178-native-epub-source-reader']
+    branches: ['fix/376-epub-view-typecheck', 'feature/178-native-epub-source-reader', 'feature/179-bounded-semantic-xml']
   pull_request:
-    branches: ['feature/177-epub-semantic-source-spike', main]
+    branches: ['feature/177-epub-semantic-source-spike', 'feature/178-native-epub-source-reader', main]
 permissions:
   contents: read
 concurrency:
@@ -49,9 +49,9 @@ jobs:
           import re
           p = Path('project.yml')
           s = p.read_text()
-          s = re.sub(r'CURRENT_PROJECT_VERSION: (1051|1052)\b', 'CURRENT_PROJECT_VERSION: 1052', s)
-          s = re.sub(r'MARKETING_VERSION: 3\.67\.(9|10)\b', 'MARKETING_VERSION: 3.67.10', s)
-          if 'MARKETING_VERSION: 3.67.10' not in s or 'CURRENT_PROJECT_VERSION: 1052' not in s:
+          s = re.sub(r'CURRENT_PROJECT_VERSION: (1051|1052|1053)\b', 'CURRENT_PROJECT_VERSION: 1053', s)
+          s = re.sub(r'MARKETING_VERSION: 3\.67\.(9|10|11)\b', 'MARKETING_VERSION: 3.67.11', s)
+          if 'MARKETING_VERSION: 3.67.11' not in s or 'CURRENT_PROJECT_VERSION: 1053' not in s:
               raise SystemExit('Unexpected candidate version baseline')
           p.write_text(s)
           PY
@@ -111,6 +111,9 @@ jobs:
             vreaderTests/EPUBSemanticResourceReaderTests \
             vreaderTests/EPUBSourceZIPValidationTests \
             vreaderTests/EPUBSourceBudgetTests \
+            vreaderTests/SemanticXMLParserTests \
+            vreaderTests/SemanticXMLSafetyTests \
+            vreaderTests/SemanticXMLCancellationTests \
             > preparation/test-wrapper.log 2>&1
           TEST_EXIT=$?
           set -e
@@ -162,12 +165,15 @@ jobs:
               ('EPUBSemanticResourceReaderTests', 'Semantic EPUB resources'),
               ('EPUBSourceZIPValidationTests', 'Semantic EPUB ZIP grammar'),
               ('EPUBSourceBudgetTests', 'Semantic EPUB budgets and cancellation'),
+              ('SemanticXMLParserTests', 'Semantic XML logical structure'),
+              ('SemanticXMLSafetyTests', 'Semantic XML safety and budgets'),
+              ('SemanticXMLCancellationTests', 'Semantic XML cancellation'),
           ]
           for names in aliases:
               found = [n for n in nodes(tree) if any(name in str(n.get('name', '')) or name in str(n.get('nodeIdentifier', '')) for name in names)]
               if not any(n.get('result') == 'Passed' for n in found):
                   raise SystemExit('Missing executed passing source suite: ' + names[0])
-          print('Native tests:', counts[0], 'passed:', counts[1], 'all three new suites executed')
+          print('Native tests:', counts[0], 'passed:', counts[1], 'all six semantic suites executed')
           PY
       - name: Save compiler and test evidence
         if: always()

@@ -132,8 +132,11 @@ integrated into the iOS or Android reader.
 The native [EPUB source reader](vreader/Services/Semantic/EPUB/EPUBSemanticResourceReader.swift)
 provides bounded immutable ZIP snapshots and integrity-checked original resource
 bytes for future semantic extraction. Run its native Swift6 contracts on macOS
-with `bash scripts/test-epub-source-contract.sh`. XML/manifest/source maps and
+with `bash scripts/test-epub-source-contract.sh`. Package/manifest/source maps and
 reader integration are separate follow-up work.
+The independent [bounded XML utility](vreader/Services/Semantic/XML/SemanticXMLParser.swift)
+preserves logical nodes and validates original tag metadata for the next extraction
+phase. Run `bash scripts/test-semantic-xml-contract.sh` on macOS.
 
 The native regression lane builds Debug and Release with the selected stable
 Xcode and runs targeted reader tests on an isolated simulator. The test wrapper

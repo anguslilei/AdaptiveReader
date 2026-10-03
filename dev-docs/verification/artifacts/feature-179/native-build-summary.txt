@@ -1,0 +1,36 @@
+Native author-run evidence; independent source audit is separate.
+{
+  "source_commit": "d0c16a0d37a393a393992218084bd5168d9fcdeb",
+  "run_id": 37122191127,
+  "artifact_id": 11273643981,
+  "counts": [
+    155,
+    155,
+    0,
+    0
+  ],
+  "device": {
+    "architecture": "arm64",
+    "deviceId": "E952A9B0-CC78-435C-BF08-06AD47FE1076",
+    "deviceName": "iPhone 17 Pro",
+    "modelName": "iPhone 17 Pro",
+    "osBuildNumber": "23C54",
+    "osVersion": "26.2",
+    "platform": "iOS Simulator"
+  },
+  "parameter_executions": 213,
+  "xcode": "Xcode 26.3\nBuild version 17C529",
+  "generator": "Version: 2.46.0",
+  "swift_testing_footer": [
+    "Test run with 124 tests in 15 suites passed after 3.118 seconds."
+  ],
+  "generated_pair_sha256": {
+    "project.yml": "78072acf96d47c2926800d742d319385534bc01831d3f66fd7a30c1f934b1d71",
+    "project.pbxproj": "6ddfcca8ccc17a5954048216045c43f8c88268a5f89e4ac472068b97b0bb5bdb"
+  }
+}
+Debug and Release: ** BUILD SUCCEEDED **
+Watchdog result: RUN-TESTS RESULT: SUCCEEDED; exit0.
+All six source suites and Unicode qualified-name/URI regressions Passed.
+Complete bundle/nonempty positive counts/failed0/skipped0 guards passed.
+Artifact ZIP/member hashes are in native-artifact-manifest.json.

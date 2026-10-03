@@ -24,3 +24,10 @@ spike and reader compiler fixes. Feature178 adds the independent Swift byte-read
 foundation under Services/Semantic/EPUB; its33 native Mac contracts and126 iOS tests pass,
 with Debug/Release builds at4264fee. See [evidence](../../dev-docs/verification/feature-178-20261003.md). The proposed SemanticDocument/DOM/source-map pipeline
 is still a later phase, with no renderer or AI entry point introduced here.
+
+Feature179 next WI: independent bounded native XML logical-tree utility. Mac29
+contracts and155 iOS tests pass atd0c16a0 with Debug/Release builds; Gate2 PASS3 and Gate4 PASS2.
+It retains source structure without claiming OPF/spine, browser DOM/source-map
+or CFI compatibility. See [plan](../../dev-docs/plans/20261003-feature-179-bounded-semantic-xml.md).
+
+See [verification evidence](../../dev-docs/verification/feature-179-20261003.md).

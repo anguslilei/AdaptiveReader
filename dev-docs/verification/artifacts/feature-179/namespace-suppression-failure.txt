@@ -1,0 +1,9 @@
+Source6d0827c9686e7fe7d30b0de300451f8ec362fcf5
+Own Mac run37120843444, job111196480425.
+Build complete! (14.16s);27 tests/3 suites failed4 issues.
+Foundation suppressed wrong xml binding, xmlns prefix binding, default XML URI
+binding and prefixed namespace undeclaration. The callback-only guard could not
+observe declarations omitted by Foundation. These are actual negative evidence.
+Gate2 round3 independently passed original start-tag name metadata comparison,
+literal namespace identity and bounded fail-closed representation policy.
+New source must execute and pass; no native GREEN is claimed by this record.

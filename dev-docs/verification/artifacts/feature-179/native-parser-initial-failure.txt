@@ -1,0 +1,7 @@
+Source dcfcb8ce2937f9dad92e7e176c2335d5914d0eae
+Own Mac run37120549878, job111195640459.
+Build complete! (14.87s);27 tests/3 suites executed,4 issues.
+Undeclared element/attribute prefixes were accepted by Foundation XMLParser.
+Unknown entity references triggered resolver callback and returned forbiddenDTD
+rather than required invalidXML. Native evidence prompted explicit namespace
+validation and corrected undeclared-reference error mapping. Not GREEN evidence.

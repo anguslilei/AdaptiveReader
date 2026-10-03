@@ -902,3 +902,22 @@ separate work. Snapshot remains the pinned revision if its path changes after
 open. Strict subset rejects ZIP64/encrypted/symlink/CP437 and ambiguous paths.
 Plan: dev-docs/plans/20261003-feature-178-native-epub-source-reader.md; source
 reviews PASS and actual native verification tracked in dev-docs/verification/.
+
+## AdaptiveReader bounded XML utility (feature179)
+
+`Services/Semantic/XML/SemanticXMLParser` consumes original Data on an isolated
+worker and returns immutable logical XML nodes with ordered child/parent indices
+and raw input SHA256. It imports no EPUB-reader type. A worker-local Foundation
+delegate owns parsing, namespace declarations, text/CDATA coalescing and finite
+input/node/depth/attribute/retained-UTF16 accounting. Original lexical start-tag
+names are compared with actual callback metadata to reject silently omitted
+namespace declarations/attributes; URI/qualified-name identity is literal UTF8.
+Parent cancellation forwards to the worker and completed results are withheld
+when cancelled. No parser/delegate crosses isolation boundaries.
+
+The strict XML1.0/UTF8 utility forbids DTDs/external resolution and publishes no
+partial/repaired tree. Some otherwise-valid delegate/dictionary representations
+are unsupported and rejected. Its logical text coordinates are not serialized
+byte offsets, browser DOM paths, source maps or CFIs. Container/OPF/spine parsing,
+semantic classification and reader wiring remain separate work. No app schema or
+production call site is introduced. Plan/evidence: feature179 in dev-docs/.
