@@ -29,12 +29,26 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           persist-credentials: false
+      - name: Select latest installed stable Xcode
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+          paths = [(tuple(map(int, m[1].split('.'))), p) for p in Path('/Applications').glob('Xcode_*.app') if (m := re.fullmatch(r'Xcode_([0-9.]+)\.app', p.name))]
+          if not paths:
+              raise SystemExit('No stable Xcode installation found')
+          selected = max(paths)[1] / 'Contents/Developer'
+          import os
+          with open(os.environ['GITHUB_ENV'], 'a') as f:
+              f.write(f'DEVELOPER_DIR={selected}\n')
+          PY
       - name: Install generator and prepare next version
         run: |
           brew install xcodegen
           mkdir -p preparation
           xcodegen --version > preparation/generator-version.txt
           git rev-parse HEAD > preparation/input-commit.txt
+          xcodebuild -version > preparation/xcode-version.txt
           python3 - <<'PY'
           from pathlib import Path
           p = Path('project.yml')
