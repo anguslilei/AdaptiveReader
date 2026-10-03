@@ -138,3 +138,40 @@ class ResourceTests(unittest.TestCase):
     def test_normal_deflate_roundtrip(self):
         book(self.path,compression=zipfile.ZIP_DEFLATED)
         with EpubSourceReader(self.path) as r: self.assertEqual(r.read('OPS/chapter.xhtml').data,CHAPTER)
+    def test_raw_nul_filename(self):
+        book(self.path,extra=[('xZsuffix',b'x')]);data=self.path.read_bytes().replace(b'xZsuffix',b'x\x00suffix');self.path.write_bytes(data)
+        with self.assertRaises(SourceError): EpubSourceReader(self.path)
+    def test_unicode_percent_href_lookup(self):
+        opf=OPF.replace(b'chapter.xhtml','../章节%20%25.xhtml'.encode())
+        book(self.path,opf=opf,extra=[('章节 %.xhtml',CHAPTER)])
+        with EpubSourceReader(self.path) as r:
+            path=r.manifest()['spine'][0]['path'];self.assertEqual(path,'章节 %.xhtml');self.assertEqual(r.read(path).data,CHAPTER)
+    def test_missing_duplicate_package_parts(self):
+        for opf in [OPF.replace(b'<spine><itemref idref="c"/></spine>',b''),OPF.replace(b'</package>',b'<spine/></package>'),OPF.replace(b'</package>',b'<manifest/></package>'),OPF.replace(b'<manifest>',b'<unused>').replace(b'</manifest>',b'</unused>')]:
+            book(self.path,opf=opf)
+            with self.assertRaises(SourceError):
+                with EpubSourceReader(self.path) as r: r.manifest()
+        book(self.path,container=CONTAINER.replace(b'<rootfile full-path="OPS/book.opf" media-type="application/oebps-package+xml"/>',b''))
+        with self.assertRaises(SourceError):
+            with EpubSourceReader(self.path) as r: r.manifest()
+    def test_failed_open_descriptor_cleanup(self):
+        from unittest.mock import patch
+        original=Path.open;opened=[]
+        def capture(path,*args,**kwargs):
+            f=original(path,*args,**kwargs);opened.append(f);return f
+        with patch.object(Path,'open',capture), self.assertRaises(SourceError): EpubSourceReader(self.path,'0'*64)
+        self.assertEqual(len(opened),1);self.assertTrue(opened[0].closed)
+    def test_late_hash_stream_cancel(self):
+        book(self.path,chapter=b'<p>'+b'a'*200000+b'</p>');calls=0
+        def cancel_hash():
+            nonlocal calls
+            calls+=1;return calls>=3
+        with self.assertRaises(SourceError): EpubSourceReader(self.path,cancelled=cancel_hash)
+        self.assertGreaterEqual(calls,3)
+        r=EpubSourceReader(self.path);calls=0
+        def cancel_stream():
+            nonlocal calls
+            calls+=1;return calls>=3
+        r.cancelled=cancel_stream
+        with self.assertRaises(SourceError): r.read('OPS/chapter.xhtml')
+        self.assertTrue(r.closed);self.assertGreaterEqual(calls,3)

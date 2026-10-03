@@ -12,3 +12,8 @@ This directory describes the proposed evolution of the fork into an adaptive AI 
 Audited baseline: `b996ab4d828a180ae4b23d0b07d045b3d318c34f` (inherited iOS marketing version `3.67.7`, build `1049`). The source and the existing cross-platform identity contracts take precedence over historical README claims.
 
 The first code phase is deterministic EPUB semantic extraction alongside the existing reader. Adaptive rendering, LLM assistance, PDF reconstruction, and Windows support remain later phases. An implementation feature must be registered and pass the repository's six gates before entering TDD; this foundation does not mark a tracker item PLANNED, DONE, or VERIFIED.
+
+The next checkpoint is [feature #177's executable reference prototype](../../dev-docs/prototypes/epub-semantics/README.md)
+and [verification evidence](../../dev-docs/verification/feature-177-20261003.md).
+It tests byte/source mapping algorithms without delivering the native adapter.
+Original audit/build results above remain historical baseline evidence.

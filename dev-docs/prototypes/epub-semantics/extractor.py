@@ -3,7 +3,7 @@ import hashlib
 import json
 from lxml import etree
 from errors import SourceError, check_cancelled
-from xml_source import parse_source, node_path, text_runs, run_for
+from xml_source import parse_source, node_path, text_runs, run_for, visible_descendants, excluded, source_paths
 
 XHTML = 'http://www.w3.org/1999/xhtml'
 VERSION = 'adaptive-epub-reference/1'
@@ -19,6 +19,7 @@ def extract_section(resource, spine_occurrence, cancelled=lambda: False, version
     if hashlib.sha256(resource.data).hexdigest() != resource.sha256:
         raise SourceError('resource digest mismatch')
     root, encoding = parse_source(resource.data, max_nodes, max_depth, cancelled)
+    paths = source_paths(root, cancelled)
     ns = '{' + XHTML + '}'
     bodies = root.findall(ns + 'body')
     if root.tag != ns + 'html' or len(bodies) != 1:
@@ -36,23 +37,23 @@ def extract_section(resource, spine_occurrence, cancelled=lambda: False, version
 
     def base(node, kind, selector=None):
         check_cancelled(cancelled)
-        source = selector or {'path': node_path(node)}
+        source = selector or {'path': node_path(node, paths)}
         return {'id': identity(kind, source), 'kind': kind, 'source': source}
 
     def prose(node, kind):
         b = base(node, kind)
-        runs = text_runs(node, cancelled)
+        runs = text_runs(node, cancelled, paths)
         b.update(runs=runs, text=''.join(r['text'] for r in runs))
-        b['inline'] = [{'kind': name(child), 'source': {'path': node_path(child)},
+        b['inline'] = [{'kind': name(child), 'source': {'path': node_path(child, paths)},
                         'attributes': dict(child.attrib)}
-                       for child in node.iterdescendants()
+                       for child in visible_descendants(node)
                        if isinstance(child.tag, str) and etree.QName(child).namespace == XHTML
                        and name(child) in INLINE]
         return b
 
     def segment(node, slot):
-        run = run_for(node, slot)
-        if run is None or not run['text'].strip():
+        run = run_for(node, slot, paths)
+        if run is None:
             return []
         b = base(node, 'paragraph', run['selector'])
         b.update(runs=[run], text=run['text'], inline=[])
@@ -71,7 +72,7 @@ def extract_section(resource, spine_occurrence, cancelled=lambda: False, version
             return []
         tag = name(node)
         namespace = etree.QName(node).namespace
-        if namespace == XHTML and tag in ('script', 'style'):
+        if excluded(node):
             return []
         if namespace != XHTML:
             return [opaque(node)]
@@ -85,7 +86,7 @@ def extract_section(resource, spine_occurrence, cancelled=lambda: False, version
             if tag in ('ul', 'ol'):
                 b['ordered'] = tag == 'ol'
             if tag == 'figure':
-                b['assets'] = [dict(n.attrib) for n in node.iter(ns + 'img')]
+                b['assets'] = [dict(n.attrib) for n in visible_descendants(node) if n.tag == ns + 'img']
                 b['caption_ids'] = [c['id'] for c in b['children'] if c['kind'] == 'caption']
             return [b]
         if tag == 'img':
@@ -95,7 +96,7 @@ def extract_section(resource, spine_occurrence, cancelled=lambda: False, version
             # Unsupported/nested structural descendants retain opaque source identity.
             if any(isinstance(n.tag, str) and (
                     etree.QName(n).namespace != XHTML or name(n) not in INLINE | {'script', 'style'})
-                    for n in node.iterdescendants()):
+                    for n in visible_descendants(node)):
                 return [opaque(node)]
             kind = 'caption' if tag == 'figcaption' else 'heading' if tag.startswith('h') else 'paragraph'
             b = prose(node, kind)

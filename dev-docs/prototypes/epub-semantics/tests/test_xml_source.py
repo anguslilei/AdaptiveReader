@@ -33,3 +33,29 @@ class XMLTests(unittest.TestCase):
         root,_=parse_source(b'<p><!--x--><em>a</em></p>')
         for selector in [{'path':[9],'slot':'text'},{'path':[0],'slot':'text'},{'path':[],'slot':'bad'},{'path':[-1],'slot':'tail'}]:
             with self.assertRaises(SourceError): resolve_run(root,selector)
+    def test_bomless_utf16_utf32_rejected(self):
+        for encoding in ['utf-16-le','utf-16-be','utf-32-le','utf-32-be']:
+            for xml in ['<p>ascii</p>','<?xml version="1.0" encoding="UTF-16"?><p/>','<!DOCTYPE p [<!ENTITY x "hidden">]><p>&x;</p>']:
+                with self.subTest(encoding=encoding,xml=xml), self.assertRaises(SourceError): parse_source(xml.encode(encoding))
+    def test_rtl_and_late_cancel(self):
+        root,_=parse_source('<p>עברית العربية &amp; 😀</p>'.encode());runs=text_runs(root)
+        self.assertEqual(runs[0]['text'],'עברית العربية & 😀')
+        self.assertEqual(resolve_run(root,runs[0]['selector']),runs[0]['text'])
+        calls=0
+        def cancel():
+            nonlocal calls
+            calls+=1;return calls>=4
+        with self.assertRaises(SourceError): parse_source(b'<p><em>a</em></p>',cancelled=cancel)
+        self.assertGreaterEqual(calls,4)
+    def test_cached_paths_match_original(self):
+        from xml_source import source_paths
+        root,_=parse_source(CHAPTER);paths=source_paths(root)
+        for node in root.iter(): self.assertEqual(node_path(node,paths),node_path(node))
+        self.assertEqual(text_runs(root,paths=paths),text_runs(root))
+    def test_cancel_text_traversal_after_start(self):
+        root,_=parse_source(CHAPTER);calls=0
+        def cancel():
+            nonlocal calls
+            calls+=1;return calls>=4
+        with self.assertRaises(SourceError): text_runs(root,cancelled=cancel)
+        self.assertEqual(calls,4)

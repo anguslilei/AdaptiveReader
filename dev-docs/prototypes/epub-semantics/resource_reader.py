@@ -77,7 +77,9 @@ class EpubSourceReader:
             self._entries = {}
             for entry in entries:
                 check_cancelled(cancelled)
-                safe_entry_path(entry.filename)
+                safe_entry_path(entry.orig_filename)
+                if entry.orig_filename != entry.filename:
+                    raise SourceError('sanitized ZIP filename')
                 if entry.filename in self._entries:
                     raise SourceError('duplicate ZIP entry')
                 if stat.S_ISLNK(entry.external_attr >> 16):

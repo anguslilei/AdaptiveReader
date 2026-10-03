@@ -59,3 +59,23 @@ class ExtractionTests(unittest.TestCase):
             for bad in [b'<p>',b'<p/>']:
                 book(path,chapter=bad);p=run();self.assertEqual(p.returncode,2);self.assertEqual(p.stdout,'')
             path.write_bytes(b'bad');p=run();self.assertEqual(p.returncode,2);self.assertEqual(p.stdout,'')
+    def test_inline_separator_whitespace(self):
+        src=self.resource('<html xmlns="http://www.w3.org/1999/xhtml"><body><div><span>a</span> <span>b</span>\u00a0<span>c</span></div></body></html>'.encode())
+        blocks=list(self.blocks(extract_section(src,0)['blocks']))
+        self.assertEqual(''.join(b.get('text','') for b in blocks),'a b\u00a0c')
+    def test_excluded_subtree_metadata(self):
+        src=self.resource(b'<html xmlns="http://www.w3.org/1999/xhtml"><body><p>ok<script><a href="excluded-link">bad</a></script>tail</p><figure><style><img src="excluded-image"/><figcaption>excluded-caption</figcaption></style><figcaption>good</figcaption></figure></body></html>')
+        result=extract_section(src,0)
+        self.assertNotIn('excluded',json.dumps(result))
+        self.assertEqual(next(b for b in result['blocks'] if b['kind']=='paragraph')['text'],'oktail')
+    def test_cli_interrupt_contract(self):
+        import contextlib
+        import io
+        import runpy
+        from unittest.mock import patch
+        cli=runpy.run_path(str(Path(__file__).resolve().parents[1]/'__main__.py'))
+        def interrupt(*args,**kwargs): raise KeyboardInterrupt()
+        out,err=io.StringIO(),io.StringIO()
+        with patch.dict(cli['main'].__globals__,{'EpubSourceReader':interrupt}), contextlib.redirect_stdout(out), contextlib.redirect_stderr(err):
+            self.assertEqual(cli['main'](['unused.epub']),130)
+        self.assertEqual(out.getvalue(),'');self.assertIn('interrupted',err.getvalue())

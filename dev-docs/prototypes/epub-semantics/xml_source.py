@@ -13,15 +13,19 @@ def parse_source(data, max_nodes=50000, max_depth=96, cancelled=lambda: False):
         else:
             decoded = data.decode('utf-8-sig')
             encoding = 'UTF-8'
+        if '\x00' in decoded:
+            raise SourceError('unsupported XML byte encoding/NUL')
         declaration = re.match(r'\s*<\?xml\s+[^?]*encoding\s*=\s*[\'"]([^\'"]+)', decoded)
         if declaration and declaration[1].upper() != encoding:
             raise SourceError('unsupported or inconsistent XML encoding')
         if '<!DOCTYPE' in decoded or '<!ENTITY' in decoded:
             raise SourceError('DOCTYPE/entities unsupported')
-        parser = etree.XMLParser(resolve_entities=False, load_dtd=False, no_network=True,
+        parser = etree.XMLParser(encoding=encoding, resolve_entities=False, load_dtd=False, no_network=True,
                                  recover=False, huge_tree=False, remove_comments=False,
                                  remove_pis=False, remove_blank_text=False, strip_cdata=False)
         root = etree.fromstring(data, parser)
+        if root.getroottree().docinfo.doctype:
+            raise SourceError('DOCTYPE unsupported')
     except (UnicodeError, etree.XMLSyntaxError, ValueError) as exc:
         if isinstance(exc, SourceError):
             raise
@@ -39,7 +43,9 @@ def parse_source(data, max_nodes=50000, max_depth=96, cancelled=lambda: False):
     return root, encoding
 
 
-def node_path(node):
+def node_path(node, paths=None):
+    if paths is not None:
+        return paths[node]
     indices = []
     while node.getparent() is not None:
         parent = node.getparent()
@@ -48,15 +54,15 @@ def node_path(node):
     return list(reversed(indices))
 
 
-def run_for(node, slot):
+def run_for(node, slot, paths=None):
     text = getattr(node, slot)
     if not text:
         return None
-    return {'selector': {'path': node_path(node), 'slot': slot}, 'text': text,
+    return {'selector': {'path': node_path(node, paths), 'slot': slot}, 'text': text,
             'start_utf16': 0, 'end_utf16': len(text.encode('utf-16-le')) // 2}
 
 
-def text_runs(element, cancelled=lambda: False):
+def text_runs(element, cancelled=lambda: False, paths=None):
     """No root tail; descendants include comment/PI tails, excluding their content."""
     runs = []
     def visit(node):
@@ -64,13 +70,13 @@ def text_runs(element, cancelled=lambda: False):
         if not isinstance(node.tag, str):
             return
         # Content excluded by semantic policy; following tail belongs to parent prose.
-        if etree.QName(node).localname in ('script', 'style'):
+        if excluded(node):
             return
-        if run := run_for(node, 'text'):
+        if run := run_for(node, 'text', paths):
             runs.append(run)
         for child in node:
             visit(child)
-            if run := run_for(child, 'tail'):
+            if run := run_for(child, 'tail', paths):
                 runs.append(run)
     visit(element)
     return runs
@@ -92,3 +98,29 @@ def resolve_run(root, selector):
     if text is None:
         raise SourceError('source text slot absent')
     return text
+
+
+def excluded(node):
+    return isinstance(node.tag, str) and etree.QName(node).localname in ('script', 'style')
+
+
+def visible_descendants(node):
+    """Shared exclusion policy for structural classification and metadata."""
+    for child in node:
+        if not isinstance(child.tag, str) or excluded(child):
+            continue
+        yield child
+        yield from visible_descendants(child)
+
+
+def source_paths(root, cancelled=lambda: False):
+    """Compute all-child paths once, avoiding repeated wide-sibling searches."""
+    paths = {root: []}
+    stack = [root]
+    while stack:
+        check_cancelled(cancelled)
+        node = stack.pop()
+        for index, child in enumerate(node):
+            paths[child] = paths[node] + [index]
+            stack.append(child)
+    return paths

@@ -16,12 +16,8 @@ jobs:
           persist-credentials: false
       - name: Reference tests
         run: |
-          if [ -f dev-docs/prototypes/epub-semantics/requirements.txt ]; then
-            python3 -m pip install -r dev-docs/prototypes/epub-semantics/requirements.txt
-            python3 -m unittest discover -s dev-docs/prototypes/epub-semantics/tests -v
-          else
-            echo 'CI bootstrap: reference implementation has not landed yet.'
-          fi
+          python3 -m pip install -r dev-docs/prototypes/epub-semantics/requirements.txt
+          python3 -m unittest discover -s dev-docs/prototypes/epub-semantics/tests -v
   native-preparation:
     runs-on: macos-15
     timeout-minutes: 35

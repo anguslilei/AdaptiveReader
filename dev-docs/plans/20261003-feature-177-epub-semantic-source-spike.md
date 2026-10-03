@@ -64,3 +64,12 @@ Gate 2 rounds/dispositions are recorded in `.claude/codex-audits/plan-feature-17
 - CLI contract: complete extraction and serialize before writing stdout. Validation/extraction errors exit 2 with useful stderr and no result JSON; invalid/negative spine indices fail. Keyboard interruption exits 130 with empty stdout. Actual subprocess tests cover good output, invalid archive/XML/index and budget rejection.
 - Native submission contract: the macOS lane regenerates with XcodeGen and runs `xcodebuild build` for a generic iOS Simulator without signing. A final bumped source revision must have generation/build evidence; generation alone is never recorded as build success. If the capable lane is blocked, document it and keep PR draft/unready (or withhold PR if no regenerated pair), rather than bypassing rule 40.
 - WI-0 estimate: approximately 12–18 files and 1,000–1,600 new lines, including tests/documents/workflow. Keep each Python module around 300 lines or less and split package/URI helpers if needed. Foundation audit documents are additional already-reviewed documentation. Record material estimate variance at Gate 4.
+
+## Gate 3–5 outcome
+
+43 unittest methods GREEN after recorded regression RED; controlled CLI runs
+round-trip original selectors. Gate4 independent round2 PASS, no open findings.
+Native XcodeGen2.46.0 generated the bump, but builds are blocked: Xcode16.4
+schema Sendable checks, and Xcode26.3 existing EPUBReaderContainerView expression
+type-check timeout. No native runtime source was modified. Submission stays
+draft/unready for merge; real-book/device/native integration remains unverified.

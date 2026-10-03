@@ -872,3 +872,13 @@ under `repeatOnLifecycle(RESUMED)`. Verified on the emulator by
   `scripts/run-android-verify.sh` (rule 49/52/53 watchdogs).
 - Version lives in `android/version.properties` (`versionName`/`versionCode`);
   releases tag `android/vX.Y.Z` (iOS keeps plain `vX.Y.Z` — rule 40).
+
+## AdaptiveReader reference tooling
+
+[Feature #177](../dev-docs/plans/20261003-feature-177-epub-semantic-source-spike.md)
+adds developer-only original-byte EPUB and DOM-text mapping experiments under
+`dev-docs/prototypes/epub-semantics`. It bypasses renderer caches, checks scoped
+resource identity and outputs reversible local selectors. These are not CFIs;
+no existing reader, anchor model, persistence or shipped dependency changes.
+Native adapter selection/build and real-book validation remain prerequisites;
+see the [target architecture](adaptive-reader/01-target-architecture.md).

@@ -121,6 +121,14 @@ What sets VReader apart from a conventional e-reader:
 - **`scripts/reserve-id.sh`** — atomic tracker row-ID allocation for `docs/bugs.md` / `docs/features.md` (mkdir-atomic locking via `scripts/lib/lock.sh`; closes the concurrent-session ID race). Part of the feature #130 agent-lane harness.
 - **`/dispatch`** — parallel lane orchestrator (feature #130): fans bug fixes / feature WIs out to worktree-isolated implementer subagents on leased simulators (≤2 lanes), then integrates serially (version-at-slot, merge from the lane worktree, per-PR tags). Contract: [`.claude/rules/55-lane-dispatch.md`](.claude/rules/55-lane-dispatch.md); playbook: `.claude/skills/dispatch/SKILL.md`; kill switch: `.claude/state/dispatch-kill`.
 
+## AdaptiveReader development
+
+This fork's [foundation audit and roadmap](docs/adaptive-reader/README.md)
+tracks SemanticDocument and source-location prerequisites.
+The [EPUB source reference prototype](dev-docs/prototypes/epub-semantics/README.md)
+is a Python developer CLI with strict byte/source validation tests; it is not
+integrated into the iOS or Android reader.
+
 ## Tech Stack
 
 | Component   | Technology                                                                                      |
