@@ -1,6 +1,6 @@
 # Feature179 — bounded native XML structural parser
 
-Status: IN PROGRESS (unmerged); independent Gate2 PASS after3 rounds; Gate4 PASS after2 rounds. Author: root; base8ac6931 (PR3 open).
+Status: DONE after PR4 merge55719b27c62c0f0d37556618d4525a0ea8e1135e; independent Gate2 PASS after3 rounds; Gate4 PASS after2 rounds. Author: root; base8ac6931 (PR3 open).
 This is the next independent foundational WI of the semantic extraction proposal.
 
 ## Problem and scope

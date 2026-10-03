@@ -1,8 +1,8 @@
 # Feature180 — bounded native EPUB package and spine resolution
 
-Status: PLANNED; Gate1 complete; independent Gate2 PASS after2 rounds. Gate3 blocked by unmerged prerequisites. Baseline b0c0a249 (PR4 open).
-Prerequisites: feature178 (PR3) and feature179 (PR4), both unmerged/IN PROGRESS.
-Gate3 is blocked until both are merged/DONE. Planning/audit only on this branch.
+Status: PLANNED; Gate2 PASS2; Gate3 ready. Reconciled main55719b2 after user-authorized PR3/PR4 merges.
+Prerequisites: feature178 and feature179 are merged/DONE; their APIs/contracts are unchanged from reviewed b0c0a249.
+No Gate2 repeat needed for ancestry/status reconciliation; implementation may now begin.
 
 ## Problem and scope
 
@@ -311,3 +311,11 @@ are explicit. Source/API/wiring, finite independent budgets, non-inflating catal
 digest identity and WI cohesion confirmed. See committed plan audit for every
 finding/disposition and primary-source-disproven assumption. No code/tests/builds
 or feature180 runtime evidence exist yet; Gate3 waits for178+179 merged/DONE.
+
+## Prerequisites resolved2026-10-03
+
+User explicitly approved merging PR3/4. PR3 merged b0904eaae1572321c12b1ba9aa08b4b2199cd39f,
+PR4 retargeted main and merged55719b27c62c0f0d37556618d4525a0ea8e1135e. Exact heads
+had passing final native/compiler/reference/Mac checks; merged tree equals reviewed
+b0c0a249 tree. Feature178/179 marked DONE in this reconciliation commit. Interfaces
+unchanged, Gate2 PASS2 remains applicable. Gate3 may proceed; no release/tag made.

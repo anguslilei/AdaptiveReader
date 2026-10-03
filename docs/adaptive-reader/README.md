@@ -34,5 +34,6 @@ See [verification evidence](../../dev-docs/verification/feature-179-20261003.md)
 
 Next: [feature180's audited package/spine plan](../../dev-docs/plans/20261003-feature-180-native-epub-package.md),
 Gate2 PASS2. It composes the native byte/XML utilities with strict local URL
-resolution and a non-inflating resource catalog. Implementation is blocked until
-features178/179 are merged/DONE. No package/chapter/AI code is delivered by the plan.
+resolution and a non-inflating resource catalog. Prerequisites178/179 are merged/DONE onmain55719b2; implementation may now begin. No package/chapter/AI code is delivered by the plan.
+
+PR3 and PR4 merged at user confirmation2026-10-03; native foundations are DONE.
