@@ -20,7 +20,15 @@ struct EPUBSemanticLimits: Sendable {
         self.ratio = ratio
     }
 
-    func validate() throws { /* RED: contract not yet implemented. */ }
+    func validate() throws {
+        let standard = EPUBSemanticLimits()
+        let values = [archiveBytes, entries, compressedBytes, resourceBytes, totalBytes, ratio]
+        let ceilings = [standard.archiveBytes, standard.entries, standard.compressedBytes,
+                        standard.resourceBytes, standard.totalBytes, standard.ratio]
+        guard zip(values, ceilings).allSatisfy({ pair in pair.0 > 0 && pair.0 <= pair.1 }) else {
+            throw EPUBSemanticSourceError.invalidLimits
+        }
+    }
 }
 
 struct EPUBSemanticResource: Sendable {
@@ -33,5 +41,5 @@ struct EPUBSemanticResource: Sendable {
 enum EPUBSemanticSourceError: Error, Sendable, Equatable {
     case invalidLimits, invalidDigest, invalidArchive, unsafePath, duplicatePath
     case unsupportedEntry, limitExceeded, integrityMismatch, resourceNotFound
-    case closed, sourceChanged, invalidSource, ioFailure, unimplemented
+    case closed, sourceChanged, invalidSource, ioFailure
 }

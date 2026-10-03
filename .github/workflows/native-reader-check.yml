@@ -1,9 +1,9 @@
-name: EPUB native compiler regression
+name: Reader and semantic source native regression
 on:
   push:
-    branches: ['fix/376-epub-view-typecheck']
+    branches: ['fix/376-epub-view-typecheck', 'feature/178-native-epub-source-reader']
   pull_request:
-    branches: ['feature/177-epub-semantic-source-spike']
+    branches: ['feature/177-epub-semantic-source-spike', main]
 permissions:
   contents: read
 concurrency:
@@ -49,27 +49,15 @@ jobs:
           import re
           p = Path('project.yml')
           s = p.read_text()
-          s = re.sub(r'CURRENT_PROJECT_VERSION: (1050|1051)\b', 'CURRENT_PROJECT_VERSION: 1051', s)
-          s = re.sub(r'MARKETING_VERSION: 3\.67\.(8|9)\b', 'MARKETING_VERSION: 3.67.9', s)
-          if 'MARKETING_VERSION: 3.67.9' not in s or 'CURRENT_PROJECT_VERSION: 1051' not in s:
+          s = re.sub(r'CURRENT_PROJECT_VERSION: (1051|1052)\b', 'CURRENT_PROJECT_VERSION: 1052', s)
+          s = re.sub(r'MARKETING_VERSION: 3\.67\.(9|10)\b', 'MARKETING_VERSION: 3.67.10', s)
+          if 'MARKETING_VERSION: 3.67.10' not in s or 'CURRENT_PROJECT_VERSION: 1052' not in s:
               raise SystemExit('Unexpected candidate version baseline')
           p.write_text(s)
           PY
           xcodegen generate
           cp project.yml preparation/project.yml
           cp vreader.xcodeproj/project.pbxproj preparation/project.pbxproj
-      - name: Debug compiler regression
-        run: |
-          set -o pipefail
-          xcodebuild build -project vreader.xcodeproj -scheme vreader \
-            -configuration Debug -destination 'generic/platform=iOS Simulator' \
-            CODE_SIGNING_ALLOWED=NO 2>&1 | tee preparation/debug-build.log
-      - name: Release compiler regression
-        run: |
-          set -o pipefail
-          xcodebuild build -project vreader.xcodeproj -scheme vreader \
-            -configuration Release -destination 'generic/platform=iOS Simulator' \
-            CODE_SIGNING_ALLOWED=NO 2>&1 | tee preparation/release-build.log
       - name: Boot isolated test simulator
         run: |
           xcrun simctl list devices available --json > preparation/devices.json
@@ -87,6 +75,18 @@ jobs:
           TEST_SIM=$(cat preparation/test-udid.txt)
           xcrun simctl boot "$TEST_SIM"
           xcrun simctl bootstatus "$TEST_SIM" -b
+      - name: Debug compiler regression
+        run: |
+          set -o pipefail
+          xcodebuild build -project vreader.xcodeproj -scheme vreader \
+            -configuration Debug -destination "platform=iOS Simulator,id=$TEST_UDID" \
+            CODE_SIGNING_ALLOWED=NO 2>&1 | tee preparation/debug-build.log
+      - name: Release compiler regression
+        run: |
+          set -o pipefail
+          xcodebuild build -project vreader.xcodeproj -scheme vreader \
+            -configuration Release -destination "platform=iOS Simulator,id=$TEST_UDID" \
+            CODE_SIGNING_ALLOWED=NO 2>&1 | tee preparation/release-build.log
       - name: Related EPUB tests through watchdog wrapper
         env:
           TIMEOUT_SECS: '1200'
@@ -106,6 +106,9 @@ jobs:
             vreaderTests/ReaderEngineTests \
             vreaderTests/ReaderContainerViewEngineDispatchTests \
             vreaderTests/EPUBBilingualOrchestratorTests \
+            vreaderTests/EPUBSemanticResourceReaderTests \
+            vreaderTests/EPUBSourceZIPValidationTests \
+            vreaderTests/EPUBSourceBudgetTests \
             2>&1 | tee preparation/test-wrapper.log
       - name: Verify actual test results are nonempty
         run: |
@@ -119,6 +122,7 @@ jobs:
           PY
           RESULT_PATH=$(cat preparation/test-result-path.txt)
           xcrun xcresulttool get test-results summary --path "$RESULT_PATH" > preparation/test-summary.json
+          xcrun xcresulttool get test-results tests --path "$RESULT_PATH" > preparation/test-tree.json
           python3 - <<'PY'
           import json
           d = json.load(open('preparation/test-summary.json'))

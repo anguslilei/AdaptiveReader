@@ -158,3 +158,15 @@ checkCancellation/descriptorObserved closures with real production defaults;
 tests interrupt actual file reads and confirm observed fd is EBADF afterward.
 These are test seams on the isolated loader, not a public fake byte-source path.
 Resource cancellation tests cancel the calling task before the actual actor read.
+
+## Native RED and implementation start
+
+Own run37103962526 atc8bb313eac4189ff0df66785d21a1b7dd7c59984 compiles the
+stub API/test harness with native Swift6, then29 tests fail74 assertions/errors
+because behavior is unimplemented. No compiler-only RED is claimed. Native CI
+is extended for this branch: boot simulator before building its active architecture,
+record generated3.67.10 (1052), Debug/Release and existing+new suites through the
+watchdog with aggregate xcresult checks. XML/OPF/CFI remain outside this WI.
+Limits are immutable configuration; validate() runs at the actual open/load
+boundary and allows only positive values up to defaults. Constructor itself is
+nonthrowing so invalid user configuration can be exercised at that boundary.
