@@ -122,11 +122,23 @@ struct EPUBSourceBudgetTests {
     @Test func fileURLNULMustNotSelectAnExistingPrefix() async throws {
         let url = ZIP.temporaryURL(); defer { try? FileManager.default.removeItem(at: url) }
         try ZIP().write(to: url)
-        let evil = URL(fileURLWithPath: url.path + "\0suffix")
-        do {
-            let reader = try await EPUBSemanticResourceReader.open(fileURL: evil)
-            await reader.close(); Issue.record("NUL prefix path accepted")
-        } catch { #expect(error as? EPUBSemanticSourceError == .invalidSource) }
+        let encoded = try #require(URL(string: url.absoluteString + "%00suffix"))
+        for evil in [URL(fileURLWithPath: url.path + "\0suffix"), encoded] {
+            do {
+                let reader = try await EPUBSemanticResourceReader.open(fileURL: evil)
+                await reader.close(); Issue.record("NUL prefix path accepted")
+            } catch { #expect(error as? EPUBSemanticSourceError == .invalidSource) }
+        }
+    }
+
+    @Test func percentEncodedSourcePathsAreDecodedOnce() async throws {
+        let url = FileManager.default.temporaryDirectory
+            .appendingPathComponent("reader space-%00-中-" + UUID().uuidString + ".zip")
+        defer { try? FileManager.default.removeItem(at: url) }
+        try ZIP().write(to: url)
+        let reader = try await EPUBSemanticResourceReader.open(fileURL: url)
+        #expect(try await reader.read(path: "chapter.xhtml").bytes == Data("hello".utf8))
+        await reader.close()
     }
 
     @Test func changedDuringSnapshotReadIsRejected() throws {

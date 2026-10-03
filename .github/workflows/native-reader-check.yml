@@ -21,7 +21,7 @@ jobs:
       - run: bash scripts/__tests__/run-tests-watchdog.test.sh
   native:
     runs-on: macos-15
-    timeout-minutes: 55
+    timeout-minutes: 75
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
@@ -58,7 +58,7 @@ jobs:
           xcodegen generate
           cp project.yml preparation/project.yml
           cp vreader.xcodeproj/project.pbxproj preparation/project.pbxproj
-      - name: Boot isolated test simulator
+      - name: Select isolated test simulator
         run: |
           xcrun simctl list devices available --json > preparation/devices.json
           python3 - <<'PY'
@@ -72,26 +72,26 @@ jobs:
           with open(os.environ['GITHUB_ENV'], 'a') as f:
               f.write(f'TEST_UDID={chosen}\n')
           PY
-          TEST_SIM=$(cat preparation/test-udid.txt)
-          xcrun simctl boot "$TEST_SIM"
-          xcrun simctl bootstatus "$TEST_SIM" -b
       - name: Debug compiler regression
-        if: ${{ github.event_name != 'push' || !contains(github.event.head_commit.message, '[diagnose-native]') }}
         run: |
           set -o pipefail
           xcodebuild build -project vreader.xcodeproj -scheme vreader \
             -configuration Debug -destination "platform=iOS Simulator,id=$TEST_UDID" \
             CODE_SIGNING_ALLOWED=NO 2>&1 | tee preparation/debug-build.log
       - name: Release compiler regression
-        if: ${{ github.event_name != 'push' || !contains(github.event.head_commit.message, '[diagnose-native]') }}
         run: |
           set -o pipefail
           xcodebuild build -project vreader.xcodeproj -scheme vreader \
             -configuration Release -destination "platform=iOS Simulator,id=$TEST_UDID" \
             CODE_SIGNING_ALLOWED=NO 2>&1 | tee preparation/release-build.log
+      - name: Boot isolated test simulator
+        run: |
+          TEST_SIM=$(cat preparation/test-udid.txt)
+          xcrun simctl boot "$TEST_SIM"
+          xcrun simctl bootstatus "$TEST_SIM" -b
       - name: Related EPUB tests through watchdog wrapper
         env:
-          TIMEOUT_SECS: '1200'
+          TIMEOUT_SECS: '1800'
         run: |
           xcodebuild -version > preparation/test-xcode-version.txt
           set +e
@@ -135,7 +135,7 @@ jobs:
           python3 - <<'PY'
           from pathlib import Path
           start = float(Path('preparation/test-start.txt').read_text())
-          results = [p for p in (Path.home() / 'Library/Developer/Xcode/DerivedData').glob('*/Logs/Test/*.xcresult') if p.stat().st_mtime >= start]
+          results = [p for p in (Path.home() / 'Library/Developer/Xcode/DerivedData').glob('*/Logs/Test/*.xcresult') if p.stat().st_mtime >= start and (p / 'Info.plist').is_file()]
           if not results:
               raise SystemExit('No result bundle from this test invocation')
           Path('preparation/test-result-path.txt').write_text(str(max(results, key=lambda p: p.stat().st_mtime)))

@@ -14,14 +14,17 @@ struct EPUBSourceSnapshot: Sendable {
                      descriptorObserved: (Int32) -> Void = { _ in },
                      descriptorClosed: (Int32, Int32) -> Void = { _, _ in }) throws -> Self {
         try limits.validate(); try checkCancellation()
-        guard fileURL.isFileURL, !fileURL.path.contains("\0") else { throw EPUBSemanticSourceError.invalidSource }
+        // Decode the encoded URL path exactly once; legacy .path differs for NUL on iOS.
+        guard fileURL.isFileURL,
+              let path = fileURL.path(percentEncoded: true).removingPercentEncoding,
+              !path.contains("\0") else { throw EPUBSemanticSourceError.invalidSource }
         if let digest = expectedSHA256 {
             guard digest.utf8.count == 64,
                   digest.utf8.allSatisfy({ (48...57).contains($0) || (97...102).contains($0) }) else {
                 throw EPUBSemanticSourceError.invalidDigest
             }
         }
-        let fd = fileURL.path.withCString { Darwin.open($0, O_RDONLY | O_NONBLOCK | O_NOFOLLOW | O_CLOEXEC) }
+        let fd = path.withCString { Darwin.open($0, O_RDONLY | O_NONBLOCK | O_NOFOLLOW | O_CLOEXEC) }
         guard fd >= 0 else {
             throw errno == ELOOP ? EPUBSemanticSourceError.invalidSource : .ioFailure
         }

@@ -1,0 +1,16 @@
+Diagnostic source input: c546b9fa8e3e45132d9b537ff04d78e47d0caf5c
+Swift source unchanged from7e19006.
+Own run: https://github.com/anguslilei/AdaptiveReader/actions/runs/37108560412
+Artifact11269540827 ZIP SHA256 ddd22ed56425ee6c7dfda179a59375c10afafea491080a3c644d38659a23f4dd
+Full raw output identifies fileURLNULMustNotSelectAnExistingPrefix():
+EPUBSourceBudgetTests.swift:129:19:
+Expectation failed: (error as? EPUBSemanticSourceError -> .ioFailure) == .invalidSource
+94 Swift Testing tests /12 suites executed with one issue. No GREEN claim.
+The cold app+test build plus finalization exceeded1200s; watchdog killed xcodebuild,
+leaving an incomplete xcresult without Info.plist. Full raw log retained the assertion.
+Correction: decode encoded URL path once, reject NUL on the exact decoded path
+passed to open. Add explicit percent-NUL URI and legitimate space/CJK/literal%00
+filename contracts. Keep assertions intact. Test watchdog1800s, job75min remain
+hard finite deadlines. Select UDID before compiler gates, boot after compiler gates.
+Remove temporary diagnostic-only build skipping; complete native proof is still pending.
+Apple API: https://developer.apple.com/documentation/foundation/url/path(percentencoded:)
