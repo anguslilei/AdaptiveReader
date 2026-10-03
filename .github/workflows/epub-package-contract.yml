@@ -1,7 +1,7 @@
 name: Native EPUB package contract
 on:
   push:
-    branches: ['feature/180-native-epub-package']
+    branches: ['feature/180-native-epub-package', 'feature/180-package-property-red']
   pull_request:
     branches: [main]
     paths: ['vreader/Services/Semantic/**', 'vreaderTests/Services/Semantic/**', 'vreaderTests/Helpers/EPUBSemanticZIPFixture.swift', 'vreaderTests/Helpers/EPUBPackageFixture.swift', 'scripts/test-epub-package-contract.sh', '.github/workflows/epub-package-contract.yml']

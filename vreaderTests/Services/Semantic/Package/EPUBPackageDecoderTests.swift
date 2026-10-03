@@ -102,6 +102,12 @@ struct EPUBPackageDecoderTests {
             try EPUBContainerDecoder.decode(document: await SemanticXMLParser.parse(Data(c.utf8)), catalog: EPUBPackageFixture.catalog())
         }
     }
+    @Test(arguments: [1, 64])
+    func trailingXMLWhitespaceDoesNotConsumePropertySlots(_ cap: Int) async throws {
+        let tokens = (0..<cap).map { "p" + String($0) }
+        let xml = EPUBPackageFixture.opf(items: EPUBPackageFixture.item(extra: "properties='" + tokens.joined(separator: " ") + "   '"))
+        #expect(try await EPUBPackageFixture.decode(xml, limits: .init(propertiesPerItem: cap)).manifestItems[0].properties == tokens)
+    }
     @Test func exactAndExceededIndependentBudgets() async throws {
         // Independently counted: packagePath12 + id1 + path17 + media21 = 51 UTF16 units.
         #expect(try await EPUBPackageFixture.decode(limits: .init(manifestItems: 1, spineEntries: 1, retainedUTF16: 51)).spine.count == 1)
