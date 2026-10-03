@@ -1,0 +1,63 @@
+name: AdaptiveReader foundation
+on:
+  push:
+    branches: ['feature/**']
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  reference:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Reference tests
+        run: |
+          if [ -f dev-docs/prototypes/epub-semantics/requirements.txt ]; then
+            python3 -m pip install -r dev-docs/prototypes/epub-semantics/requirements.txt
+            python3 -m unittest discover -s dev-docs/prototypes/epub-semantics/tests -v
+          else
+            echo 'CI bootstrap: reference implementation has not landed yet.'
+          fi
+  native-preparation:
+    runs-on: macos-15
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Install generator and prepare next version
+        run: |
+          brew install xcodegen
+          mkdir -p preparation
+          xcodegen --version > preparation/generator-version.txt
+          git rev-parse HEAD > preparation/input-commit.txt
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('project.yml')
+          s = p.read_text()
+          s = s.replace('CURRENT_PROJECT_VERSION: 1049', 'CURRENT_PROJECT_VERSION: 1050')
+          s = s.replace('MARKETING_VERSION: 3.67.7', 'MARKETING_VERSION: 3.67.8')
+          p.write_text(s)
+          PY
+          xcodegen generate
+          cp project.yml preparation/project.yml
+          cp vreader.xcodeproj/project.pbxproj preparation/project.pbxproj
+      - name: Build regenerated project
+        run: |
+          set -o pipefail
+          xcodebuild build -project vreader.xcodeproj -scheme vreader \
+            -destination 'generic/platform=iOS Simulator' \
+            -derivedDataPath /tmp/adaptive-reader-build \
+            CODE_SIGNING_ALLOWED=NO 2>&1 | tee preparation/build.log
+      - name: Save generation and build evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: native-preparation-${{ github.sha }}
+          path: preparation/
+          retention-days: 7
+          if-no-files-found: error
