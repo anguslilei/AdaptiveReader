@@ -1,0 +1,16 @@
+[run-tests] targets=-only-testing:vreaderTests/EPUBReaderViewModelOpenTests -only-testing:vreaderTests/EPUBReaderViewModelCloseTests -only-testing:vreaderTests/EPUBReaderViewModelNavigationTests -only-testing:vreaderTests/EPUBReaderViewModelLifecycleTests -only-testing:vreaderTests/EPUBReaderViewModelEdgeCaseTests -only-testing:vreaderTests/EPUBChapterNavigationRouterTests -only-testing:vreaderTests/EPUBChapterWrapPendingTargetTests -only-testing:vreaderTests/EPUBReaderHostLifecycleTests -only-testing:vreaderTests/ReaderEngineTests -only-testing:vreaderTests/ReaderContainerViewEngineDispatchTests -only-testing:vreaderTests/EPUBBilingualOrchestratorTests udid=E952A9B0-CC78-435C-BF08-06AD47FE1076 timeout=1200s log=/var/folders/nj/vtw8zd2j31d1gdrtntc5y4600000gn/T/run-tests.XXXXXX.T8rvgp0Tmc
+----- last log lines -----
+✔ Suite "EPUBReaderHost lifecycle (bug #252 / GH #1089)" passed after 0.122 seconds.
+✔ Test run with 62 tests in 9 suites passed after 0.123 seconds.
+2026-10-03 03:13:43.444 xcodebuild[67807:172777] [MT] IDETestOperationsObserverDebug: 53.481 elapsed -- Testing started completed.
+2026-10-03 03:13:43.444 xcodebuild[67807:172777] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-03 03:13:43.444 xcodebuild[67807:172777] [MT] IDETestOperationsObserverDebug: 53.481 sec, +53.481 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/runner/Library/Developer/Xcode/DerivedData/vreader-czakmjxnxcejyjbvvbadvbjgnehb/Logs/Test/Test-vreader-2026.10.03_03-02-53-+0000.xcresult
+
+** TEST SUCCEEDED **
+
+Testing started
+--------------------------
+RUN-TESTS RESULT: SUCCEEDED

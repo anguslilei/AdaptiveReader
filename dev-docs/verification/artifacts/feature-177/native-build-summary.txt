@@ -1,0 +1,4 @@
+Input SHA: 4a974328724e777a1046d2dfd3291d00b7b2fd9a
+Xcode26.3 / 17C529; XcodeGen2.46.0
+/Users/runner/work/AdaptiveReader/AdaptiveReader/vreader/Views/Reader/EPUBReaderContainerView.swift:143:25: error: the compiler is unable to type-check this expression in reasonable time; try breaking up the expression into distinct sub-expressions
+** BUILD FAILED **

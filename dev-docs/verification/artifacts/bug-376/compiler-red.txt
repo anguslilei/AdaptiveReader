@@ -1,0 +1,5 @@
+Commit: 328ff01bf4d336fdd9961e7bd10ab9f7d2bae803
+Own Actions run: 37089271133; artifact 11262101005
+Xcode26.3 / 17C529; XcodeGen2.46.0
+EPUBReaderContainerView.swift:143:25: error: the compiler is unable to type-check this expression in reasonable time; try breaking up the expression into distinct sub-expressions
+** BUILD FAILED **

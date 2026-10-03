@@ -141,6 +141,45 @@ struct EPUBReaderContainerView: View {
     }
 
     var body: some View {
+        appearanceReader
+        // Feature #56 WI-10: bilingual reading wiring lives in a
+        // dedicated `ViewModifier` to keep this body under the
+        // compiler's type-inference budget.
+        .modifier(bilingualSurfacesModifier)
+        // Feature #99 WI-4: keyed re-entry — present the edit-framed
+        // translation-settings sheet.
+        .bilingualTranslationSettingsObserver(
+            bookFingerprintKey: viewModel.bookFingerprintKey
+        ) { handleTranslationSettingsRequest(bookTitle: $0) }
+        #if DEBUG
+        // Feature #77 — DebugBridge bilingual-driver observer (enable/disable/
+        // status CU-free, bypassing the setup sheet + the idb-unreliable menu).
+        .modifier(ReaderDebugBridgeBilingualObserver(
+            onEnable: { lang, gran in handleDebugBilingualEnable(lang: lang, granularity: gran) },
+            onDisable: { handleDebugBilingualDisable() },
+            onStatus: { dest in handleDebugBilingualStatus(dest: dest) }
+        ))
+        #endif
+        // Bug #220 / GH #845 — DebugBridge highlight-driver observer.
+        // DEBUG-only; attached inside the EPUB host (not the generic
+        // `ReaderContainerView`) so the orchestration can JS-walk the
+        // active WebView to map UTF-16 offsets to a real DOM
+        // `EPUBSerializedRange`, then persist via the same
+        // `HighlightCoordinator.create(...)` entry the gesture path
+        // uses. Format scoping mirrors the TXT/MD observers in
+        // PR #1047 — Release builds replace the modifier with an
+        // `EmptyModifier` so no DebugBridge symbols leak.
+        .modifier(debugBridgeHighlightObserverModifier)
+        // Feature #71 WI-6b — DebugBridge scroll-boundary-driver observer.
+        // DEBUG-only; lives in its own `ViewModifier` (like the highlight
+        // observer above) so this body stays within the compiler's
+        // type-inference budget. Release builds replace it with an
+        // `EmptyModifier` so no DebugBridge symbols leak.
+        .modifier(debugBridgeScrollBoundaryObserverModifier)
+    }
+
+    // Bug #376: opaque expression boundaries limit SwiftUI type inference.
+    private var lifecycleReader: some View {
         ZStack {
             // Bug #214 / GH #834: scope `epubReaderContainer` to the
             // content subtree so the container identifier does not
@@ -265,6 +304,10 @@ struct EPUBReaderContainerView: View {
                 break
             }
         }
+    }
+
+    private var navigableReader: some View {
+        lifecycleReader
         .onReceive(NotificationCenter.default.publisher(for: .readerBookmarkRequested)) { _ in
             guard let container = modelContainer,
                   let locator = viewModel.makeCurrentLocator() else { return }
@@ -378,6 +421,10 @@ struct EPUBReaderContainerView: View {
         // legacy host still relayouts via its own `.onChange(of: epubLayout)`
         // below — it just no longer needs its own notification observer.
         #endif
+    }
+
+    private var annotatedReader: some View {
+        navigableReader
         // Bug #88: re-render highlights after annotation import
         .onReceive(NotificationCenter.default.publisher(for: .readerHighlightsDidImport)) { _ in
             if let coordinator = highlightCoordinator {
@@ -452,6 +499,10 @@ struct EPUBReaderContainerView: View {
             mutating: highlightCoordinator,
             theme: settingsStore?.theme ?? .paper
         )
+    }
+
+    private var appearanceReader: some View {
+        annotatedReader
         // Feature #60 WI-12 (#795): keep the Photo background-image data
         // URL fresh. Driven by theme + custom-background changes — never
         // by scroll — so the file read + base64 encode stays off the
@@ -475,40 +526,6 @@ struct EPUBReaderContainerView: View {
                 continuousScrollConfig = nil
             }
         }
-        // Feature #56 WI-10: bilingual reading wiring lives in a
-        // dedicated `ViewModifier` to keep this body under the
-        // compiler's type-inference budget.
-        .modifier(bilingualSurfacesModifier)
-        // Feature #99 WI-4: keyed re-entry — present the edit-framed
-        // translation-settings sheet.
-        .bilingualTranslationSettingsObserver(
-            bookFingerprintKey: viewModel.bookFingerprintKey
-        ) { handleTranslationSettingsRequest(bookTitle: $0) }
-        #if DEBUG
-        // Feature #77 — DebugBridge bilingual-driver observer (enable/disable/
-        // status CU-free, bypassing the setup sheet + the idb-unreliable menu).
-        .modifier(ReaderDebugBridgeBilingualObserver(
-            onEnable: { lang, gran in handleDebugBilingualEnable(lang: lang, granularity: gran) },
-            onDisable: { handleDebugBilingualDisable() },
-            onStatus: { dest in handleDebugBilingualStatus(dest: dest) }
-        ))
-        #endif
-        // Bug #220 / GH #845 — DebugBridge highlight-driver observer.
-        // DEBUG-only; attached inside the EPUB host (not the generic
-        // `ReaderContainerView`) so the orchestration can JS-walk the
-        // active WebView to map UTF-16 offsets to a real DOM
-        // `EPUBSerializedRange`, then persist via the same
-        // `HighlightCoordinator.create(...)` entry the gesture path
-        // uses. Format scoping mirrors the TXT/MD observers in
-        // PR #1047 — Release builds replace the modifier with an
-        // `EmptyModifier` so no DebugBridge symbols leak.
-        .modifier(debugBridgeHighlightObserverModifier)
-        // Feature #71 WI-6b — DebugBridge scroll-boundary-driver observer.
-        // DEBUG-only; lives in its own `ViewModifier` (like the highlight
-        // observer above) so this body stays within the compiler's
-        // type-inference budget. Release builds replace it with an
-        // `EmptyModifier` so no DebugBridge symbols leak.
-        .modifier(debugBridgeScrollBoundaryObserverModifier)
     }
 
     // MARK: - Subviews
