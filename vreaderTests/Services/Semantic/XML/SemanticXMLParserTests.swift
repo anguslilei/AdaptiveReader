@@ -100,4 +100,13 @@ struct SemanticXMLParserTests {
         let d = try await parse("<r>" + String(repeating: "a&amp;", count: 4096) + "</r>")
         #expect(d.nodes.count == 2 && d.nodes[1].kind == .text(String(repeating: "a&", count: 4096)))
     }
+    @Test func UnicodeNamesAndLiteralNamespaceURIsRemainDistinct() async throws {
+        let a = try await parse("<书 属性='中'><节/></书>")
+        #expect(a.nodes[0].attributes == ["属性": "中"])
+        #expect(a.nodes[1].kind == .element(SemanticXMLName(localName: "节", namespaceURI: nil, qualifiedName: "节")))
+        let d = try await parse("<r xmlns:x='urn:é' xmlns:y='urn:e\u{301}' x:a='1' y:a='2'/>")
+        #expect(d.nodes[0].attributes["x:a"] == "1" && d.nodes[0].attributes["y:a"] == "2")
+        let uri = try #require(d.nodes[0].attributes["xmlns:y"])
+        #expect(Array(uri.utf8) == Array("urn:e\u{301}".utf8))
+    }
 }

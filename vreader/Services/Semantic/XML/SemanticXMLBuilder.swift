@@ -9,6 +9,8 @@ final class SemanticXMLBuilder: NSObject, XMLParserDelegate {
         var children: [Int] = []
         var text = ""
     }
+    private let startTags: [SemanticXMLStartTag]
+    private var tagIndex = 0
     private let limits: SemanticXMLLimits
     private let check: @Sendable () throws -> Void
     private var drafts: [Draft] = []
@@ -18,14 +20,14 @@ final class SemanticXMLBuilder: NSObject, XMLParserDelegate {
     private var root: Int?
     private(set) var failure: (any Error)?
 
-    init(limits: SemanticXMLLimits, check: @escaping @Sendable () throws -> Void) {
-        self.limits = limits; self.check = check
+    init(limits: SemanticXMLLimits, startTags: [SemanticXMLStartTag], check: @escaping @Sendable () throws -> Void) {
+        self.limits = limits; self.startTags = startTags; self.check = check
     }
 
     func finish(digest: String) throws -> SemanticXMLDocument {
         if let failure { throw failure }
         try check()
-        guard let root, stack.isEmpty, pendingNamespaces.isEmpty else { throw SemanticXMLError.invalidXML }
+        guard let root, stack.isEmpty, pendingNamespaces.isEmpty, tagIndex == startTags.count else { throw SemanticXMLError.invalidXML }
         let nodes = drafts.map { draft in
             let kind: SemanticXMLNodeKind
             if case .text = draft.kind { kind = .text(draft.text) } else { kind = draft.kind }
@@ -80,7 +82,7 @@ final class SemanticXMLBuilder: NSObject, XMLParserDelegate {
             var attributes = pendingNamespaces
             for (key, value) in attributeDict {
                 if let previous = attributes[key] {
-                    guard previous == value else { throw SemanticXMLError.invalidXML }
+                    guard SemanticXMLNamespace.literal(previous, value) else { throw SemanticXMLError.invalidXML }
                 } else {
                     guard attributes.count < limits.attributes else { throw SemanticXMLError.attributeLimit }
                     try charge([key, value]); attributes[key] = value
@@ -88,6 +90,14 @@ final class SemanticXMLBuilder: NSObject, XMLParserDelegate {
             }
             let uri = namespaceURI.flatMap { $0.isEmpty ? nil : $0 }
             let qualified = qName ?? elementName
+            guard tagIndex < startTags.count else { throw SemanticXMLError.invalidXML }
+            let original = startTags[tagIndex]
+            guard SemanticXMLNamespace.literal(qualified, original.qualifiedName),
+                  attributes.count == original.attributes.count,
+                  original.attributes.allSatisfy({ key in attributes.keys.contains { SemanticXMLNamespace.literal(key, $0) } }) else {
+                throw SemanticXMLError.invalidXML
+            }
+            tagIndex += 1
             try charge([elementName, uri ?? "", qualified])
             try SemanticXMLNamespace.validateElement(local: elementName, qualified: qualified, uri: uri,
                                                      attributes: attributes, ancestors: stack.map { drafts[$0].attributes })

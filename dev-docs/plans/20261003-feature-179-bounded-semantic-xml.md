@@ -1,6 +1,6 @@
 # Feature179 — bounded native XML structural parser
 
-Status: PLANNED; independent Gate2 PASS after2 rounds. Author: root; base8ac6931 (PR3 open).
+Status: PLANNED; independent Gate2 PASS after3 rounds. Author: root; base8ac6931 (PR3 open).
 This is the next independent foundational WI of the semantic extraction proposal.
 
 ## Problem and scope
@@ -180,3 +180,36 @@ validates attributes, without adding expanded names to the output contract.
 DTD declarations remain rejected before parsing; undeclared references are
 malformed XML. Namespace regressions expanded to reserved/rebound aliases and
 duplicate expanded attributes. The actual failing original tests remain intact.
+
+## Gate2 round3 feasibility refinement (PASS)
+
+Mac run37120843444 at6d0827c compiles all27 tests but accepts four invalid
+namespace declarations that Foundation silently suppresses: wrong xml binding,
+xmlns-prefix rebinding, binding default namespace to XML URI, prefixed undeclaration.
+A namespace-only callback guard cannot see suppressed source. Add independent
+lexical start-tag metadata (SemanticXMLStartTags.swift): ordered exact UTF8
+qualified element spelling and ordered attribute spellings from original bytes.
+This is a preflight/token-fidelity check, not a second DOM or semantic parser.
+The existing quote/comment/CDATA/PI-aware scanner returns metadata to the worker;
+closing tags do not create records. Bound retained records bynode cap, per-tag
+attribute cap and lexical-name UTF16 bythe same aggregate text cap; cancellation
+every4096 bytes while scanning names and quoted values. XMLParser still owns
+structural grammar, entity/attribute-value decoding and tree construction.
+
+Each didStartElement consumes exactly one record and must match exact qualified
+spelling and full combined namespace/ordinary attribute name count/set, using
+UTF8 literal equality. End of parse consumes every record. Suppressed declarations
+or canonical-equivalent keys collapsed by Foundation/Swift dictionaries fail
+invalidXML; never synthesize omitted declarations or silently lose source. This
+strict supported subset may reject otherwise-valid inputs the Foundation delegate
+cannot represent faithfully (including canonical-equivalent distinct qualified
+attributes or suppressed redundant declarations); record this limitation, no
+full XML conformance or real-book claim. Single Unicode names/text remain allowed.
+Explicit namespace resolution/expanded-attribute uniqueness compares literal
+UTF8 scalar sequences, not Swift String canonical equivalence, without allocating
+concatenated namespace-URI identity keys. New fixtures cover Unicode names/value
+fidelity, canonical URI distinction, canonical-name ambiguity fail-closed and
+namespace error suppression. One extra focusedsource file, stillbounded WI size.
+No change to Data-only API, output tree, reader wiring or source-map exclusions.
+
+Independent Gate2 round3 PASS, zero open findings; implementation proof remains pending.

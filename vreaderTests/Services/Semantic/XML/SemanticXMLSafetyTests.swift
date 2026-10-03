@@ -93,4 +93,7 @@ struct SemanticXMLSafetyTests {
         await expectXMLError(Data("<r>a&amp;<![CDATA[b]]></r>".utf8), .textLimit, limits: SemanticXMLLimits(textUTF16: 4))
         await expectXMLError(Data("<!--a--><r/><!--b-->".utf8), .nodeLimit, limits: SemanticXMLLimits(nodes: 2))
     }
+    @Test func canonicalEquivalentAttributeSpellingsCannotCollapseSilently() async {
+        await expectXMLError(Data("<r é='1' e\u{301}='2'/>".utf8), .invalidXML)
+    }
 }

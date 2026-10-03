@@ -3,7 +3,7 @@ import Foundation
 
 enum SemanticXMLPreflight {
     static func validate(_ data: Data, limits: SemanticXMLLimits,
-                         check: @Sendable () throws -> Void) throws {
+                         check: @Sendable () throws -> Void) throws -> [SemanticXMLStartTag] {
         try check()
         guard data.count <= limits.inputBytes else { throw SemanticXMLError.inputLimit }
         guard String(data: data, encoding: .utf8) != nil, !data.contains(0) else {
@@ -25,6 +25,8 @@ enum SemanticXMLPreflight {
             }
         }
         var i = start
+        var tags: [SemanticXMLStartTag] = []
+        var lexicalUnits = 0
         while i < bytes.count {
             if i % 4096 == 0 { try check() }
             guard bytes[i] == 60 else { i += 1; continue }
@@ -36,6 +38,9 @@ enum SemanticXMLPreflight {
                 i = try after(bytes, start: i + 2, end: [63, 62], check: check)
             } else if matches(bytes, Array("<!DOCTYPE".utf8), at: i) || matches(bytes, Array("<!ENTITY".utf8), at: i) {
                 throw SemanticXMLError.forbiddenDTD
+            } else if i + 1 < bytes.count && bytes[i + 1] != 47 && bytes[i + 1] != 33 {
+                guard tags.count < limits.nodes else { throw SemanticXMLError.nodeLimit }
+                tags.append(try SemanticXMLStartTags.read(bytes, at: &i, units: &lexicalUnits, limits: limits, check: check))
             } else {
                 i += 1
                 var quote: UInt8?
@@ -50,6 +55,7 @@ enum SemanticXMLPreflight {
             }
         }
         try check()
+        return tags
     }
 
     private static func field(_ key: String, in declaration: String) throws -> String? {
@@ -67,6 +73,8 @@ enum SemanticXMLPreflight {
     private static func after(_ bytes: [UInt8], start: Int, end: [UInt8],
                               check: @Sendable () throws -> Void) throws -> Int {
         var i = start
+        var tags: [SemanticXMLStartTag] = []
+        var lexicalUnits = 0
         while i < bytes.count {
             if i % 4096 == 0 { try check() }
             if matches(bytes, end, at: i) { return i + end.count }

@@ -26,8 +26,8 @@ enum SemanticXMLParser {
     static func parseBlocking(_ bytes: Data, limits: SemanticXMLLimits,
                               observation: SemanticXMLParseObservation? = nil) throws -> SemanticXMLDocument {
         try limits.validate()
-        try SemanticXMLPreflight.validate(bytes, limits: limits, check: { try Task.checkCancellation() })
-        let builder = SemanticXMLBuilder(limits: limits, check: {
+        let startTags = try SemanticXMLPreflight.validate(bytes, limits: limits, check: { try Task.checkCancellation() })
+        let builder = SemanticXMLBuilder(limits: limits, startTags: startTags, check: {
             try Task.checkCancellation()
             try observation?.beforeEvent()
             try Task.checkCancellation()
