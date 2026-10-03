@@ -1,0 +1,51 @@
+name: Native EPUB source contract
+on:
+  push:
+    branches: ['feature/178-native-epub-source-reader']
+  pull_request:
+    branches: [main]
+    paths: ['vreader/Services/Semantic/**', 'vreaderTests/Services/Semantic/**', 'scripts/test-epub-source-contract.sh', '.github/workflows/epub-source-contract.yml']
+permissions:
+  contents: read
+concurrency:
+  group: epub-source-${{ github.head_ref || github.ref_name }}
+  cancel-in-progress: true
+jobs:
+  contract:
+    runs-on: macos-15
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Select native Swift toolchain
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re, os
+          paths = [(tuple(map(int, m[1].split('.'))), p) for p in Path('/Applications').glob('Xcode_*.app') if (m := re.fullmatch(r'Xcode_([0-9.]+)\.app', p.name))]
+          with open(os.environ['GITHUB_ENV'], 'a') as f:
+              f.write(f'DEVELOPER_DIR={max(paths)[1]}/Contents/Developer\n')
+          PY
+      - name: Real source contracts
+        run: |
+          set -o pipefail
+          mkdir -p evidence
+          git rev-parse HEAD > evidence/input-commit.txt
+          xcodebuild -version > evidence/xcode-version.txt
+          xcrun swift --version > evidence/swift-version.txt
+          bash scripts/test-epub-source-contract.sh 2>&1 | tee evidence/contract.log
+          python3 - <<'PY'
+          import re
+          s = open('evidence/contract.log').read()
+          matches = re.findall(r'Test run with (\d+) tests.*passed', s)
+          if not matches or int(matches[-1]) <= 0:
+              raise SystemExit('Expected actual passing Swift Testing execution')
+          PY
+      - name: Keep contract evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: epub-source-contract-${{ github.sha }}
+          path: evidence/
+          retention-days: 7
