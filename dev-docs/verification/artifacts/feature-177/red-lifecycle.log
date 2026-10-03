@@ -1,0 +1,44 @@
+test_cli_success_failures (test_extractor.ExtractionTests.test_cli_success_failures) ... ok
+test_distinct_identity (test_extractor.ExtractionTests.test_distinct_identity) ... ok
+test_empty_cancel_and_invalid_root (test_extractor.ExtractionTests.test_empty_cancel_and_invalid_root) ... ok
+test_structure_and_roundtrip (test_extractor.ExtractionTests.test_structure_and_roundtrip) ... ok
+test_wrappers_opaque_and_no_duplicate (test_extractor.ExtractionTests.test_wrappers_opaque_and_no_duplicate) ... ok
+test_aggregate_and_failed_read_closes (test_resources.ResourceTests.test_aggregate_and_failed_read_closes) ... ok
+test_bad_zip_and_crc (test_resources.ResourceTests.test_bad_zip_and_crc) ... ok
+test_bounds (test_resources.ResourceTests.test_bounds) ... ok
+test_bytes_identity_and_spine (test_resources.ResourceTests.test_bytes_identity_and_spine) ... ok
+test_cancellation (test_resources.ResourceTests.test_cancellation) ... ok
+test_changed_source (test_resources.ResourceTests.test_changed_source) ... ok
+test_declared_size_mismatch (test_resources.ResourceTests.test_declared_size_mismatch) ... ok
+test_expected_mismatch (test_resources.ResourceTests.test_expected_mismatch) ... ok
+test_href_contract (test_resources.ResourceTests.test_href_contract) ... ok
+test_manifest_rejections (test_resources.ResourceTests.test_manifest_rejections) ... ok
+test_missing_read_closes (test_resources.ResourceTests.test_missing_read_closes) ... ok
+test_nested_context (test_resources.ResourceTests.test_nested_context) ... FAIL
+test_repeated_spine (test_resources.ResourceTests.test_repeated_spine) ... ok
+test_replacement_and_same_name_digest (test_resources.ResourceTests.test_replacement_and_same_name_digest) ... ok
+test_rootfile_ambiguity_and_namespace (test_resources.ResourceTests.test_rootfile_ambiguity_and_namespace) ... ok
+test_symlink_encryption_and_method (test_resources.ResourceTests.test_symlink_encryption_and_method) ... ok
+test_thread_and_reentrancy (test_resources.ResourceTests.test_thread_and_reentrancy) ... ok
+test_unsafe_entries (test_resources.ResourceTests.test_unsafe_entries) ... /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/zipfile/__init__.py:1625: UserWarning: Duplicate name: 'OPS/chapter.xhtml'
+  return self._open_to_write(zinfo, force_zip64=force_zip64)
+ok
+test_bad_selectors (test_xml_source.XMLTests.test_bad_selectors) ... ok
+test_consecutive_comment_tails (test_xml_source.XMLTests.test_consecutive_comment_tails) ... ok
+test_encoding (test_xml_source.XMLTests.test_encoding) ... ok
+test_runs_unicode_comments_pi (test_xml_source.XMLTests.test_runs_unicode_comments_pi) ... ok
+test_unsafe_malformed_limits (test_xml_source.XMLTests.test_unsafe_malformed_limits) ... ok
+
+======================================================================
+FAIL: test_nested_context (test_resources.ResourceTests.test_nested_context)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/065912e1ece9/AdaptiveReader/dev-docs/prototypes/epub-semantics/tests/test_resources.py", line 119, in test_nested_context
+    with self.assertRaises(SourceError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: SourceError not raised
+
+----------------------------------------------------------------------
+Ran 28 tests in 0.347s
+
+FAILED (failures=1)

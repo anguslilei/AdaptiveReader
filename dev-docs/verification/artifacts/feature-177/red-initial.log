@@ -1,0 +1,53 @@
+test_extractor (unittest.loader._FailedTest.test_extractor) ... ERROR
+test_resources (unittest.loader._FailedTest.test_resources) ... ERROR
+test_xml_source (unittest.loader._FailedTest.test_xml_source) ... ERROR
+
+======================================================================
+ERROR: test_extractor (unittest.loader._FailedTest.test_extractor)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_extractor
+Traceback (most recent call last):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/workspace/scratch/065912e1ece9/AdaptiveReader/dev-docs/prototypes/epub-semantics/tests/test_extractor.py", line 10, in <module>
+    from resource_reader import SourceResource, SourceError
+ModuleNotFoundError: No module named 'resource_reader'
+
+
+======================================================================
+ERROR: test_resources (unittest.loader._FailedTest.test_resources)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_resources
+Traceback (most recent call last):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/workspace/scratch/065912e1ece9/AdaptiveReader/dev-docs/prototypes/epub-semantics/tests/test_resources.py", line 10, in <module>
+    from resource_reader import EpubSourceReader, Limits, SourceError
+ModuleNotFoundError: No module named 'resource_reader'
+
+
+======================================================================
+ERROR: test_xml_source (unittest.loader._FailedTest.test_xml_source)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_xml_source
+Traceback (most recent call last):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/workspace/scratch/065912e1ece9/AdaptiveReader/dev-docs/prototypes/epub-semantics/tests/test_xml_source.py", line 3, in <module>
+    from resource_reader import SourceError
+ModuleNotFoundError: No module named 'resource_reader'
+
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.000s
+
+FAILED (errors=3)

@@ -1,0 +1,159 @@
+test_cli_success_failures (test_extractor.ExtractionTests.test_cli_success_failures) ... ok
+test_distinct_identity (test_extractor.ExtractionTests.test_distinct_identity) ... ok
+test_empty_cancel_and_invalid_root (test_extractor.ExtractionTests.test_empty_cancel_and_invalid_root) ... ok
+test_excluded_subtree_metadata (test_extractor.ExtractionTests.test_excluded_subtree_metadata) ... FAIL
+test_inline_separator_whitespace (test_extractor.ExtractionTests.test_inline_separator_whitespace) ... FAIL
+test_structure_and_roundtrip (test_extractor.ExtractionTests.test_structure_and_roundtrip) ... ok
+test_wrappers_opaque_and_no_duplicate (test_extractor.ExtractionTests.test_wrappers_opaque_and_no_duplicate) ... ok
+test_aggregate_and_failed_read_closes (test_resources.ResourceTests.test_aggregate_and_failed_read_closes) ... ok
+test_bad_zip_and_crc (test_resources.ResourceTests.test_bad_zip_and_crc) ... ok
+test_bounds (test_resources.ResourceTests.test_bounds) ... ok
+test_bytes_identity_and_spine (test_resources.ResourceTests.test_bytes_identity_and_spine) ... ok
+test_cancellation (test_resources.ResourceTests.test_cancellation) ... ok
+test_changed_source (test_resources.ResourceTests.test_changed_source) ... ok
+test_declared_size_mismatch (test_resources.ResourceTests.test_declared_size_mismatch) ... ok
+test_expected_mismatch (test_resources.ResourceTests.test_expected_mismatch) ... ok
+test_failed_open_descriptor_cleanup (test_resources.ResourceTests.test_failed_open_descriptor_cleanup) ... ok
+test_forged_prefix_length_and_crc (test_resources.ResourceTests.test_forged_prefix_length_and_crc) ... ok
+test_href_contract (test_resources.ResourceTests.test_href_contract) ... ok
+test_interrupted_read_closes (test_resources.ResourceTests.test_interrupted_read_closes) ... ok
+test_late_hash_stream_cancel (test_resources.ResourceTests.test_late_hash_stream_cancel) ... ok
+test_manifest_rejections (test_resources.ResourceTests.test_manifest_rejections) ... ok
+test_missing_duplicate_package_parts (test_resources.ResourceTests.test_missing_duplicate_package_parts) ... ok
+test_missing_read_closes (test_resources.ResourceTests.test_missing_read_closes) ... ok
+test_nested_context (test_resources.ResourceTests.test_nested_context) ... ok
+test_normal_deflate_roundtrip (test_resources.ResourceTests.test_normal_deflate_roundtrip) ... ok
+test_raw_nul_filename (test_resources.ResourceTests.test_raw_nul_filename) ... /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/zipfile/__init__.py:1977: ResourceWarning: unclosed file <_io.BufferedReader name='/tmp/tmpur81hfuf/b.epub'>
+  self.close()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+FAIL
+test_repeated_spine (test_resources.ResourceTests.test_repeated_spine) ... ok
+test_replacement_and_same_name_digest (test_resources.ResourceTests.test_replacement_and_same_name_digest) ... ok
+test_rootfile_ambiguity_and_namespace (test_resources.ResourceTests.test_rootfile_ambiguity_and_namespace) ... ok
+test_symlink_encryption_and_method (test_resources.ResourceTests.test_symlink_encryption_and_method) ... ok
+test_thread_and_reentrancy (test_resources.ResourceTests.test_thread_and_reentrancy) ... ok
+test_unicode_percent_href_lookup (test_resources.ResourceTests.test_unicode_percent_href_lookup) ... ok
+test_unsafe_entries (test_resources.ResourceTests.test_unsafe_entries) ... /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/zipfile/__init__.py:1625: UserWarning: Duplicate name: 'OPS/chapter.xhtml'
+  return self._open_to_write(zinfo, force_zip64=force_zip64)
+ok
+test_bad_selectors (test_xml_source.XMLTests.test_bad_selectors) ... ok
+test_bomless_utf16_utf32_rejected (test_xml_source.XMLTests.test_bomless_utf16_utf32_rejected) ... 
+  test_bomless_utf16_utf32_rejected (test_xml_source.XMLTests.test_bomless_utf16_utf32_rejected) (encoding='utf-16-le', xml='<?xml version="1.0" encoding="UTF-16"?><p/>') ... FAIL
+  test_bomless_utf16_utf32_rejected (test_xml_source.XMLTests.test_bomless_utf16_utf32_rejected) (encoding='utf-16-be', xml='<?xml version="1.0" encoding="UTF-16"?><p/>') ... FAIL
+  test_bomless_utf16_utf32_rejected (test_xml_source.XMLTests.test_bomless_utf16_utf32_rejected) (encoding='utf-32-le', xml='<p>ascii</p>') ... FAIL
+  test_bomless_utf16_utf32_rejected (test_xml_source.XMLTests.test_bomless_utf16_utf32_rejected) (encoding='utf-32-le', xml='<?xml version="1.0" encoding="UTF-16"?><p/>') ... FAIL
+  test_bomless_utf16_utf32_rejected (test_xml_source.XMLTests.test_bomless_utf16_utf32_rejected) (encoding='utf-32-le', xml='<!DOCTYPE p [<!ENTITY x "hidden">]><p>&x;</p>') ... FAIL
+  test_bomless_utf16_utf32_rejected (test_xml_source.XMLTests.test_bomless_utf16_utf32_rejected) (encoding='utf-32-be', xml='<p>ascii</p>') ... FAIL
+  test_bomless_utf16_utf32_rejected (test_xml_source.XMLTests.test_bomless_utf16_utf32_rejected) (encoding='utf-32-be', xml='<?xml version="1.0" encoding="UTF-16"?><p/>') ... FAIL
+  test_bomless_utf16_utf32_rejected (test_xml_source.XMLTests.test_bomless_utf16_utf32_rejected) (encoding='utf-32-be', xml='<!DOCTYPE p [<!ENTITY x "hidden">]><p>&x;</p>') ... FAIL
+test_consecutive_comment_tails (test_xml_source.XMLTests.test_consecutive_comment_tails) ... ok
+test_encoding (test_xml_source.XMLTests.test_encoding) ... ok
+test_rtl_and_late_cancel (test_xml_source.XMLTests.test_rtl_and_late_cancel) ... ok
+test_runs_unicode_comments_pi (test_xml_source.XMLTests.test_runs_unicode_comments_pi) ... ok
+test_unsafe_malformed_limits (test_xml_source.XMLTests.test_unsafe_malformed_limits) ... ok
+
+======================================================================
+FAIL: test_excluded_subtree_metadata (test_extractor.ExtractionTests.test_excluded_subtree_metadata)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/065912e1ece9/AdaptiveReader/dev-docs/prototypes/epub-semantics/tests/test_extractor.py", line 69, in test_excluded_subtree_metadata
+    self.assertNotIn('excluded',json.dumps(result))
+AssertionError: 'excluded' unexpectedly found in '{"schema": "adaptive-epub-reference/1", "precision": "original-DOM-text-node-UTF16; not-CFI", "source": {"archive_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "path": "OPS/chapter.xhtml", "sha256": "85ea277571c3c0cbdf70af182bf252342122b7f00ed62591db801f15f33b6ddb", "encoding": "UTF-8", "spine_occurrence": 0}, "blocks": [{"id": "66aa7f48556c7b082d814a23d50dbb952080abfc8b169f9b5f4cdd65d10f3459", "kind": "paragraph", "source": {"path": [0, 0]}, "runs": [{"selector": {"path": [0, 0], "slot": "text"}, "text": "ok", "start_utf16": 0, "end_utf16": 2}, {"selector": {"path": [0, 0, 0], "slot": "tail"}, "text": "tail", "start_utf16": 0, "end_utf16": 4}], "text": "oktail", "inline": [{"kind": "a", "source": {"path": [0, 0, 0, 0]}, "attributes": {"href": "excluded-link"}}]}, {"id": "cc8fcb5740ed46681cd2103a24f55fc42bbe60ac890894ecd92f9945d3855078", "kind": "figure", "source": {"path": [0, 1]}, "children": [{"id": "913618d564e6a6b3307e0d9eb3d59829df4a32eaa6f5789edd2241d5dc880cff", "kind": "caption", "source": {"path": [0, 1, 1]}, "runs": [{"selector": {"path": [0, 1, 1], "slot": "text"}, "text": "good", "start_utf16": 0, "end_utf16": 4}], "text": "good", "inline": []}], "assets": [{"src": "excluded-image"}], "caption_ids": ["913618d564e6a6b3307e0d9eb3d59829df4a32eaa6f5789edd2241d5dc880cff"]}]}'
+
+======================================================================
+FAIL: test_inline_separator_whitespace (test_extractor.ExtractionTests.test_inline_separator_whitespace)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/065912e1ece9/AdaptiveReader/dev-docs/prototypes/epub-semantics/tests/test_extractor.py", line 65, in test_inline_separator_whitespace
+    self.assertEqual(''.join(b.get('text','') for b in blocks),'a b\u00a0c')
+AssertionError: 'abc' != 'a b\xa0c'
+- abc
++ a b c
+?  + +
+
+
+======================================================================
+FAIL: test_raw_nul_filename (test_resources.ResourceTests.test_raw_nul_filename)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/065912e1ece9/AdaptiveReader/dev-docs/prototypes/epub-semantics/tests/test_resources.py", line 143, in test_raw_nul_filename
+    with self.assertRaises(SourceError): EpubSourceReader(self.path)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: SourceError not raised
+
+======================================================================
+FAIL: test_bomless_utf16_utf32_rejected (test_xml_source.XMLTests.test_bomless_utf16_utf32_rejected) (encoding='utf-16-le', xml='<?xml version="1.0" encoding="UTF-16"?><p/>')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/065912e1ece9/AdaptiveReader/dev-docs/prototypes/epub-semantics/tests/test_xml_source.py", line 39, in test_bomless_utf16_utf32_rejected
+    with self.subTest(encoding=encoding,xml=xml), self.assertRaises(SourceError): parse_source(xml.encode(encoding))
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: SourceError not raised
+
+======================================================================
+FAIL: test_bomless_utf16_utf32_rejected (test_xml_source.XMLTests.test_bomless_utf16_utf32_rejected) (encoding='utf-16-be', xml='<?xml version="1.0" encoding="UTF-16"?><p/>')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/065912e1ece9/AdaptiveReader/dev-docs/prototypes/epub-semantics/tests/test_xml_source.py", line 39, in test_bomless_utf16_utf32_rejected
+    with self.subTest(encoding=encoding,xml=xml), self.assertRaises(SourceError): parse_source(xml.encode(encoding))
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: SourceError not raised
+
+======================================================================
+FAIL: test_bomless_utf16_utf32_rejected (test_xml_source.XMLTests.test_bomless_utf16_utf32_rejected) (encoding='utf-32-le', xml='<p>ascii</p>')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/065912e1ece9/AdaptiveReader/dev-docs/prototypes/epub-semantics/tests/test_xml_source.py", line 39, in test_bomless_utf16_utf32_rejected
+    with self.subTest(encoding=encoding,xml=xml), self.assertRaises(SourceError): parse_source(xml.encode(encoding))
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: SourceError not raised
+
+======================================================================
+FAIL: test_bomless_utf16_utf32_rejected (test_xml_source.XMLTests.test_bomless_utf16_utf32_rejected) (encoding='utf-32-le', xml='<?xml version="1.0" encoding="UTF-16"?><p/>')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/065912e1ece9/AdaptiveReader/dev-docs/prototypes/epub-semantics/tests/test_xml_source.py", line 39, in test_bomless_utf16_utf32_rejected
+    with self.subTest(encoding=encoding,xml=xml), self.assertRaises(SourceError): parse_source(xml.encode(encoding))
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: SourceError not raised
+
+======================================================================
+FAIL: test_bomless_utf16_utf32_rejected (test_xml_source.XMLTests.test_bomless_utf16_utf32_rejected) (encoding='utf-32-le', xml='<!DOCTYPE p [<!ENTITY x "hidden">]><p>&x;</p>')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/065912e1ece9/AdaptiveReader/dev-docs/prototypes/epub-semantics/tests/test_xml_source.py", line 39, in test_bomless_utf16_utf32_rejected
+    with self.subTest(encoding=encoding,xml=xml), self.assertRaises(SourceError): parse_source(xml.encode(encoding))
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: SourceError not raised
+
+======================================================================
+FAIL: test_bomless_utf16_utf32_rejected (test_xml_source.XMLTests.test_bomless_utf16_utf32_rejected) (encoding='utf-32-be', xml='<p>ascii</p>')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/065912e1ece9/AdaptiveReader/dev-docs/prototypes/epub-semantics/tests/test_xml_source.py", line 39, in test_bomless_utf16_utf32_rejected
+    with self.subTest(encoding=encoding,xml=xml), self.assertRaises(SourceError): parse_source(xml.encode(encoding))
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: SourceError not raised
+
+======================================================================
+FAIL: test_bomless_utf16_utf32_rejected (test_xml_source.XMLTests.test_bomless_utf16_utf32_rejected) (encoding='utf-32-be', xml='<?xml version="1.0" encoding="UTF-16"?><p/>')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/065912e1ece9/AdaptiveReader/dev-docs/prototypes/epub-semantics/tests/test_xml_source.py", line 39, in test_bomless_utf16_utf32_rejected
+    with self.subTest(encoding=encoding,xml=xml), self.assertRaises(SourceError): parse_source(xml.encode(encoding))
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: SourceError not raised
+
+======================================================================
+FAIL: test_bomless_utf16_utf32_rejected (test_xml_source.XMLTests.test_bomless_utf16_utf32_rejected) (encoding='utf-32-be', xml='<!DOCTYPE p [<!ENTITY x "hidden">]><p>&x;</p>')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/065912e1ece9/AdaptiveReader/dev-docs/prototypes/epub-semantics/tests/test_xml_source.py", line 39, in test_bomless_utf16_utf32_rejected
+    with self.subTest(encoding=encoding,xml=xml), self.assertRaises(SourceError): parse_source(xml.encode(encoding))
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: SourceError not raised
+
+----------------------------------------------------------------------
+Ran 40 tests in 0.440s
+
+FAILED (failures=11)
