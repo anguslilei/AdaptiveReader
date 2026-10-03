@@ -8,7 +8,15 @@ enum EPUBPackageReference {
     static func resolve(href: String, packagePath: String) throws -> String {
         try EPUBSourceZIPBytes.validatePath(packagePath)
         guard !packagePath.hasSuffix("/") else { throw EPUBSemanticPackageError.unsafePath }
-        return try resolve(href, base: packagePath.split(separator: "/").dropLast().map(String.init))
+        let parts = components(packagePath)
+        guard parts.allSatisfy({ !$0.isEmpty && $0 != "." && $0 != ".." }) else {
+            throw EPUBSemanticPackageError.unsafePath
+        }
+        return try resolve(href, base: Array(parts.dropLast()))
+    }
+    private static func components(_ path: String) -> [String] {
+        // ASCII slash is a delimiter even when the next scalar joins its grapheme.
+        path.utf8.split(separator: 47, omittingEmptySubsequences: false).map { String(decoding: $0, as: UTF8.self) }
     }
     private static func hex(_ byte: UInt8) -> UInt8? {
         switch byte {
@@ -56,7 +64,7 @@ enum EPUBPackageReference {
     }
     private static func resolve(_ reference: String, base: [String]) throws -> String {
         let decoded = try decode(reference)
-        let parts = decoded.split(separator: "/", omittingEmptySubsequences: false)
+        let parts = components(decoded)
         guard !parts.contains(where: \.isEmpty), let last = parts.last, last != ".", last != ".." else {
             throw EPUBSemanticPackageError.unsafePath
         }

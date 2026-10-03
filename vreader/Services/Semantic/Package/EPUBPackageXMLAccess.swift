@@ -48,19 +48,19 @@ enum EPUBPackageXMLAccess {
         }
         return result
     }
-    static func whitespace(_ c: Character) -> Bool { c == " " || c == "\t" || c == "\n" || c == "\r" }
+    static func whitespace(_ scalar: Unicode.Scalar) -> Bool { [UInt32(9), 10, 13, 32].contains(scalar.value) }
     static func token(_ value: String, error: EPUBSemanticPackageError) throws {
         guard !value.isEmpty, !value.utf8.contains(where: { $0 <= 32 || $0 == 127 }) else { throw error }
     }
     static func properties(_ node: SemanticXMLNode, limits: EPUBSemanticPackageLimits,
                            budget: inout EPUBPackageBudget) throws -> [String] {
         guard let raw = attribute(node, "properties") else { return [] }
-        let parts = raw.split(maxSplits: limits.propertiesPerItem, whereSeparator: whitespace)
+        let parts = raw.unicodeScalars.split(maxSplits: limits.propertiesPerItem, whereSeparator: whitespace)
         guard parts.count <= limits.propertiesPerItem else { throw EPUBSemanticPackageError.metadataLimit }
         var seen = Set<EPUBPackageLiteralKey>(), result = [String]()
         for part in parts {
             try Task.checkCancellation()
-            let value = String(part)
+            let value = String(String.UnicodeScalarView(part))
             try token(value, error: .invalidPackage)
             guard seen.insert(.init(value)).inserted else { throw EPUBSemanticPackageError.invalidPackage }
             try budget.charge(value); result.append(value)
