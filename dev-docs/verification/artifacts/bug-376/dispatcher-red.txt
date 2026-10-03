@@ -1,0 +1,3 @@
+Input:740dfab9e2ac16027363614255329c178cc342c1; run37090216334; artifact11262222577
+/Users/runner/work/AdaptiveReader/AdaptiveReader/vreader/Views/Reader/ReaderContainerView.swift:268:25: error: the compiler is unable to type-check this expression in reasonable time; try breaking up the expression into distinct sub-expressions
+** BUILD FAILED **

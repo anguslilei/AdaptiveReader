@@ -65,3 +65,21 @@ in each CI lane. Five expressions mean four private properties (`lifecycleReader
 `navigableReader`, `annotatedReader`, `appearanceReader`) plus existing `body`.
 Boundaries: ZStack→scenePhase; bookmark→DEBUG navigation; import→unified popover;
 photo→layout observer; final body bilingual/settings/debug modifiers.
+
+## Candidate compiler result / scope correction
+
+Own run37090216334 at740dfab9e2ac16027363614255329c178cc342c1 compiles the
+originally failing EPUB view, then fails the same type-check timeout in the
+unchanged upper dispatcher ReaderContainerView.swift:268. Debug fails there,
+so Release/tests do not run. Bug scope now includes both existing reader
+container expressions; no algorithm/product behavior is added.
+
+ReaderContainerView's body is ~775 lines. Add eight private opaque properties
+plus body, keeping nine contiguous regions: original content ZStack; chrome
+observers/style; AI sheets; selection/dictionary/AI handlers; bilingual/provider/
+TOC/position/retranslate observers; the complete DEBUG observer block; deferred
+setup + settings/annotations/search/share sheets; book-details/mirror/banner;
+existing body with search setup and task/probe disappearance/DEBUG registration.
+Every closure, order and conditional remains verbatim. No extra containers or
+state extraction. Independent scope review and final implementation comparison
+must cover both views. Baseline compiler evidence now includes the second run.

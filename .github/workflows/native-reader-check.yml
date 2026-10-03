@@ -93,6 +93,7 @@ jobs:
         run: |
           set -o pipefail
           xcodebuild -version > preparation/test-xcode-version.txt
+          date +%s > preparation/test-start.txt
           bash scripts/run-tests.sh \
             vreaderTests/EPUBReaderViewModelOpenTests \
             vreaderTests/EPUBReaderViewModelCloseTests \
@@ -102,8 +103,30 @@ jobs:
             vreaderTests/EPUBChapterNavigationRouterTests \
             vreaderTests/EPUBChapterWrapPendingTargetTests \
             vreaderTests/EPUBReaderHostLifecycleTests \
+            vreaderTests/ReaderEngineTests \
+            vreaderTests/ReaderContainerViewEngineDispatchTests \
             vreaderTests/EPUBBilingualOrchestratorTests \
             2>&1 | tee preparation/test-wrapper.log
+      - name: Verify actual test results are nonempty
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          start = float(Path('preparation/test-start.txt').read_text())
+          results = [p for p in (Path.home() / 'Library/Developer/Xcode/DerivedData').glob('*/Logs/Test/*.xcresult') if p.stat().st_mtime >= start]
+          if not results:
+              raise SystemExit('No result bundle from this test invocation')
+          Path('preparation/test-result-path.txt').write_text(str(max(results, key=lambda p: p.stat().st_mtime)))
+          PY
+          RESULT_PATH=$(cat preparation/test-result-path.txt)
+          xcrun xcresulttool get test-results summary --path "$RESULT_PATH" > preparation/test-summary.json
+          python3 - <<'PY'
+          import json
+          d = json.load(open('preparation/test-summary.json'))
+          counts = [d.get(key) for key in ['totalTestCount', 'passedTests', 'failedTests']]
+          if any(type(value) is not int for value in counts) or counts[0] <= 0 or counts[1] <= 0 or counts[2] != 0:
+              raise SystemExit('Expected executed passing native tests and complete count fields')
+          print('Native tests:', counts[0], 'passed:', counts[1])
+          PY
       - name: Save compiler and test evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02

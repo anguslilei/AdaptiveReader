@@ -3,7 +3,7 @@ gate: 2
 kind: plan
 bug: 376
 plan: dev-docs/plans/20261003-bug-376-epub-view-typecheck.md
-rounds: 2
+rounds: 3
 final_verdict: PASS
 ---
 
@@ -17,3 +17,5 @@ properties plus body, preserving five contiguous modifier-chain segments.
 
 Compiler/test GREEN and implementation audit remain pending. Compilation is the
 regression check; no source-text assertion substitutes for the actual compiler.
+
+Scope review round3 PASS after own second compiler RED in ReaderContainerView. Nine contiguous dispatcher regions approved; preserve sheet/task/DEBUG/probe order and add ReaderEngineTests + ReaderContainerViewEngineDispatchTests. No new blocking findings.

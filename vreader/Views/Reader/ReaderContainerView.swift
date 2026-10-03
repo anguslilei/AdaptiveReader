@@ -266,620 +266,7 @@ struct ReaderContainerView: View {
     #endif
 
     var body: some View {
-        ZStack {
-            if settingsStore.useCustomBackground {
-                ThemeBackgroundView(settingsStore: settingsStore)
-            }
-
-            Group {
-                if let fingerprint = DocumentFingerprint(canonicalKey: book.fingerprintKey) {
-                    // Route by ReaderEngine (feature #54). Tap handling lives
-                    // in each UIKit bridge (UITapGestureRecognizer with
-                    // shouldRecognizeSimultaneously). Do NOT add a SwiftUI
-                    // overlay — it blocks scroll gestures. (bug #70)
-                    engineReaderView(fingerprint: fingerprint)
-                } else {
-                    fingerprintErrorView
-                }
-            }
-
-            // Custom chrome overlay — floats on top of content, never changes layout. (bug #62 v3)
-            if isChromeVisible {
-                readerChromeOverlay
-                    .transition(.move(edge: .top).combined(with: .opacity))
-            }
-
-            // Feature #56 WI-14: reader-side translate-entire-book
-            // banner — appears when a global translate job is in flight
-            // for the open book. Tapping the banner body opens the
-            // status sheet; the trailing close pill presents the cancel
-            // confirmation. Anchored under the chrome.
-            if let vm = translateBookVM, vm.progress.isRunning {
-                VStack {
-                    Spacer().frame(height: 88)
-                    ReaderTranslateBanner(
-                        progress: vm.progress,
-                        targetLanguageLabel: "Chinese",
-                        theme: settingsStore.theme,
-                        onOpen: { vm.openStatusSheet() },
-                        onCancel: { vm.requestCancel() })
-                        .padding(.horizontal, 14)
-                    Spacer()
-                }
-                .transition(.opacity)
-                .allowsHitTesting(true)
-            }
-
-            // TTS control bar at the bottom (WI-B03)
-            if ttsService.state != .idle {
-                VStack {
-                    Spacer()
-                    TTSControlBar(
-                        ttsService: ttsService,
-                        settingsStore: settingsStore
-                    )
-                }
-                .transition(.move(edge: .bottom).combined(with: .opacity))
-            }
-
-            // Feature #60 WI-6c: the reader More-menu popover, anchored
-            // to the `⋯` button in the top chrome. Floats above all
-            // content + chrome; only present while the chrome is too,
-            // so hiding the chrome dismisses it.
-            if showMorePopover && isChromeVisible {
-                readerMorePopoverOverlay
-                    .transition(.opacity)
-            }
-        }
-        .onReceive(NotificationCenter.default.publisher(for: .readerContentTapped)) { _ in
-            // A content tap toggles the chrome. If the More popover is
-            // open, the tap should dismiss it rather than (also)
-            // flipping the chrome out from under it.
-            if showMorePopover {
-                showMorePopover = false
-            } else {
-                toggleChrome()
-            }
-        }
-        // Feature #60 WI-6b: the shared `ReaderBottomChrome` toolbar
-        // posts these instead of threading handler closures through
-        // every per-format host view. Contents/Notes open the
-        // annotations panel on the matching tab; Display opens reader
-        // settings; AI opens the assistant when configured. Bundled
-        // into one modifier so `body` stays inside the type-checker's
-        // complexity budget.
-        .readerToolbarActionObservers(
-            onContents: {
-                // Feature #62: Contents opens `TOCSheet`; Notes opens
-                // `HighlightsSheet` on the All filter — the design's
-                // bottom-chrome routing.
-                annotationsRoute = AnnotationsSheetRoute.route(forChromeButton: .contents)
-            },
-            onNotes: {
-                annotationsRoute = AnnotationsSheetRoute.route(forChromeButton: .notes)
-            },
-            onDisplay: { showSettings = true },
-            onAI: {
-                if resolvedAICoordinator.isAIAvailable {
-                    showAIPanel = true
-                } else {
-                    // Bug #308 (Feature #82): instead of a silent no-op, route the
-                    // unconfigured tap to the in-reader AI readiness sheet so the
-                    // user can enable AI + grant consent + add a provider in place.
-                    showAIReadiness = true
-                }
-            }
-        )
-        // Feature #60 WI-6c: the More-menu popover posts the five
-        // `.readerMore*` notifications; each maps 1:1 from a
-        // `ReaderMoreMenuRow`. Bundled into one modifier so `body`
-        // stays inside the type-checker's complexity budget (same
-        // reason as the WI-6b toolbar observers above). Action
-        // semantics live in `handleMoreMenuAction(_:)`.
-        .readerMoreMenuActionObservers { row in
-            handleMoreMenuAction(row)
-        }
-        // Page turn from tap zones — handled by unified renderer directly.
-        // Native mode bridges handle taps internally (center=chrome toggle).
-        // Left/right zones only functional in unified paged mode. (bug #81)
-        .accessibilityAction(named: isChromeVisible ? "Hide toolbar" : "Show toolbar") {
-            toggleChrome()
-        }
-        .toolbar(.hidden, for: .navigationBar)
-        .statusBarHidden(!isChromeVisible)
-        // Feature #60 WI-10: tint the status bar to match the reader
-        // theme. `preferredColorScheme` resolves to `.dark` for the
-        // dark-family themes (Dark / OLED / Photo) so the status-bar
-        // text stays light-on-dark, and `.light` for Paper / Sepia so
-        // it stays dark-on-light. WI-11 migrated `theme` to
-        // `ReaderThemeV2`, so the token is read directly.
-        .preferredColorScheme(settingsStore.theme.preferredColorScheme)
-        .ignoresSafeArea(edges: .top)
-        .sheet(isPresented: $showAIPanel, onDismiss: {
-            aiInitialTab = .summarize
-            #if DEBUG
-            // Bug #256: reset the DebugBridge-driven detent to the production
-            // default on dismiss, so a prior `present?sheet=ai&detent=large`
-            // open never carries `.large` into a later default open (toolbar /
-            // selection-translate / readerOpenAITranslate). DEBUG-only — the
-            // binding only exists in DEBUG; Release has no detent state.
-            aiPanelDetent = .medium
-            #endif
-        }) { aiSheet }
-        // Bug #308 (Feature #82): the readiness sheet for the unconfigured
-        // AI-button tap. On the ready transition it dismisses + opens the AI
-        // panel — the availability gate now mirrors the active-provider
-        // per-profile key, so the panel actually opens (no loop back).
-        .sheet(isPresented: $showAIReadiness, onDismiss: {
-            // Sibling-sheet handoff: open the AI panel only after readiness has
-            // fully dismissed (matches the #81 .sheet(onDismiss:) pattern).
-            if pendingOpenAIPanelAfterReadiness {
-                pendingOpenAIPanelAfterReadiness = false
-                showAIPanel = true
-            } else {
-                // Feature #78: readiness ABANDONED (dismissed without becoming
-                // ready). Drop any parked Ask-AI seed + restore the default tab
-                // so a stale selection / `.chat` target can't leak into a later
-                // manual AI open.
-                pendingAskAIText = nil
-                aiInitialTab = .summarize
-            }
-        }) {
-            ReaderAIReadinessSheet(
-                theme: settingsStore.theme,
-                onReady: {
-                    pendingOpenAIPanelAfterReadiness = true
-                    showAIReadiness = false
-                }
-            )
-        }
-        .onReceive(NotificationCenter.default.publisher(for: .readerDefineRequested)) { notification in
-            guard let info = notification.object as? TextSelectionInfo else { return }
-            if let word = DictionaryLookup.extractWord(from: info.selectedText) {
-                dictionaryWord = word
-                showDictionary = true
-            }
-        }
-        .onReceive(NotificationCenter.default.publisher(for: .readerTranslateRequested)) { notification in
-            guard let info = notification.object as? TextSelectionInfo else { return }
-            // Bug #90: even if a stale UI path or out-of-tree caller posts the
-            // notification, refuse to open the panel when AI consent isn't
-            // granted. The toolbar button + edit-menu translate action both
-            // gate on AIReaderAvailability.isAvailable already; this is the
-            // defense-in-depth layer at the sheet-presentation seam.
-            guard resolvedAICoordinator.isAIAvailable else { return }
-            ensureAIReady()
-            // Bug #314: park the selection for the apply path.
-            pendingTranslateSelection = info.selectedText
-            aiInitialTab = .translate // bug #95
-            // Bug #314 (re-fix): if the panel is ALREADY open, `onChange(of:
-            // showAIPanel)` will NOT fire (no state change), so apply the selection
-            // NOW — otherwise a selection-translate-while-open dropped to the cold
-            // context path (front-matter). For a closed panel, opening it triggers
-            // onChange, which calls the same `applyPendingTranslateSelection()`.
-            if showAIPanel {
-                applyPendingTranslateSelection()
-            } else {
-                showAIPanel = true
-            }
-        }
-        // Feature #78: "Ask AI" / "Read" on a selection. Extracted to a
-        // ViewModifier so the body stays under SwiftUI's type-inference budget
-        // (mirrors `ReaderOpenAITranslateObserver`). The Ask-AI seed flows
-        // through `pendingAskAIText` + the `onChange(of: showAIPanel)` drain
-        // (which fetches the chat VM AFTER ensureAIReady), so no stale-VM capture.
-        .modifier(ReaderAskAIReadObserver(
-            isAIAvailable: resolvedAICoordinator.isAIAvailable,
-            setPendingAskAIText: { pendingAskAIText = $0 },
-            setInitialTab: { aiInitialTab = $0 },
-            setShowAIPanel: { showAIPanel = $0 },
-            setShowAIReadiness: { showAIReadiness = $0 },
-            speakSelection: { ttsService.startSpeaking(text: $0, fromOffset: 0) }
-        ))
-        .sheet(isPresented: $showDictionary) {
-            DictionarySheet(word: dictionaryWord)
-        }
-        // Feature #56 WI-13: PDF below-page bilingual panel's
-        // offline-state "Open AI tab" button posts
-        // `.readerOpenAITranslate` to open the AI sheet on the
-        // `.translate` tab without a selection. Routed through a
-        // dedicated `ViewModifier` so the body stays under SwiftUI's
-        // type-inference budget after WI-14's additions.
-        .modifier(ReaderOpenAITranslateObserver(
-            isAIAvailable: resolvedAICoordinator.isAIAvailable,
-            translationViewModel: resolvedAICoordinator.translationViewModel,
-            ensureAIReady: { ensureAIReady() },
-            setInitialTab: { aiInitialTab = $0 },
-            setShowAIPanel: { showAIPanel = $0 }
-        ))
-        // AI setup + text loading deferred until AI/TTS is invoked (bug #64)
-        .onChange(of: showAIPanel) { _, isShowing in
-            if isShowing {
-                ensureAIReady()
-                // Feature #78: drain a parked Ask-AI seed now that the panel is
-                // opening and `ensureAIReady()` has created the chat VM (fetched
-                // AFTER ensureAIReady — avoids the cold-first-tap nil-VM drop).
-                // Unifies the seed path for both the AI-available open and the
-                // post-readiness handoff open.
-                if let text = pendingAskAIText {
-                    pendingAskAIText = nil
-                    resolvedAICoordinator.chatViewModel?.seedInput(text)
-                }
-                // Bug #314: apply (or clear) the explicit translate-selection on
-                // EVERY open — a cold open (toolbar / readiness / Ask-AI) parks no
-                // selection, so `hasExplicitSelection` is cleared and the Translate
-                // tab falls back to the context window; a selection-translate parked
-                // one, so it's translated verbatim. Whitespace-only → cleared.
-                // (Shared with the already-open path in the `.readerTranslateRequested`
-                // handler — see `applyPendingTranslateSelection()`.)
-                applyPendingTranslateSelection()
-            }
-        }
-        .onReceive(NotificationCenter.default.publisher(for: .readerBilingualDidChange)) { notification in
-            // Feature #56 WI-10: mirror the per-format host's
-            // bilingual VM state into the parent so the chrome
-            // (pill + More-menu row) can render without crossing the
-            // host boundary. The host posts on enable/disable +
-            // language/granularity change; the userInfo carries the
-            // book's `fingerprintKey` so an unrelated host (e.g. a
-            // second reader off-screen) does not pollute this state.
-            let key = notification.userInfo?["fingerprintKey"] as? String
-            guard key == book.fingerprintKey else { return }
-            let enabled = notification.userInfo?["isEnabled"] as? Bool
-            let language = notification.userInfo?["targetLanguage"] as? String
-            // The current `postDidChange()` in BilingualReadingViewModel
-            // only sends `fingerprintKey`; fall back to a paint based
-            // on the presence of the notification — if we got here for
-            // this book, the host wants the chrome refreshed. The
-            // explicit fields are forward-looking for richer payloads.
-            if let enabled { bilingualActive = enabled }
-            if let language { bilingualLanguage = language }
-            // Feature #99 WI-3: the granularity key is additive (older
-            // posts lack it) — only overwrite when present.
-            if let granularity = notification.userInfo?["granularity"] as? String {
-                bilingualGranularity = granularity
-            }
-        }
-        .onReceive(NotificationCenter.default.publisher(
-            for: .readerBookTranslationTextProviderAvailable)) { notification in
-            // Feature #56 WI-14 — the active per-format reader container
-            // has constructed its ChapterTextProviding adapter and is
-            // publishing it to the host so the Book Details translate-
-            // book entry point can use it. Cache the provider for this
-            // book; the VM is constructed lazily so we don't pay the
-            // cost for users who never open Book Details. **Provider
-            // config is NOT resolved here** — a user may not tap the
-            // translate row for minutes, and the active profile could
-            // have changed in the meantime. We re-resolve at confirm
-            // time so the snapshot reflects the user's choices at the
-            // moment they commit (Codex Gate-4 medium-finding follow-up).
-            let key = notification.userInfo?["fingerprintKey"] as? String
-            guard key == book.fingerprintKey else { return }
-            guard let provider = notification.object as? (any ChapterTextProviding) else { return }
-            translateBookTextProvider = provider
-            if translateBookVM == nil {
-                let vm = BookTranslationViewModel(
-                    bookFingerprintKey: book.fingerprintKey,
-                    coordinator: BookTranslationCoordinator.shared)
-                translateBookVM = vm
-                // Reader-side observation — keeps `ReaderTranslateBanner`
-                // in sync regardless of whether Book Details is open.
-                // Without this the banner only updated while the Book
-                // Details overlay was mounted (Codex Gate-4 round-2 H1).
-                Task { @MainActor in await vm.startObserving() }
-            }
-            // Feature #98 WI-2: provider arrival is the resume trigger
-            // for an expiry-interrupted whole-book job (the only moment
-            // a text provider exists). The coordinator's one-job-per-book
-            // invariant absorbs duplicate calls; on an actual resume,
-            // re-subscribe the VM — its previous stream (if any)
-            // finished at the expiry.
-            let resumeKey = book.fingerprintKey
-            Task { @MainActor in
-                let resumed = await BookTranslationCoordinator.shared
-                    .resumeInterruptedJob(
-                        bookFingerprintKey: resumeKey, textProvider: provider)
-                if resumed { await translateBookVM?.restartObserving() }
-            }
-        }
-        // Bug #262 / GH #1136: the live AZW3/MOBI Contents source. Folded
-        // into a dedicated `ViewModifier` (not an inline `.onReceive`)
-        // because the body expression is already at SwiftUI's type-inference
-        // ceiling — an inline observer trips "unable to type-check in
-        // reasonable time" (the same constraint the `ReaderReTranslateObserver`
-        // modifier below already works around).
-        .modifier(FoliateTOCAvailableObserver(
-            bookFingerprintKey: book.fingerprintKey,
-            onEntries: { entries in
-                tocEntries = entries
-                tocDidLoad = true
-                // Feature #86 WI-1: sync the TOC to the AI coordinator + refresh,
-                // so a TOC that lands AFTER text upgrades the chat to chapter scope.
-                resolvedAICoordinator.tocEntries = entries
-                resolvedAICoordinator.refreshChatContext()
-            }
-        ))
-        .onReceive(NotificationCenter.default.publisher(for: .readerPositionDidChange)) { notification in
-            guard let locator = notification.object as? Locator else { return }
-            currentLocator = locator
-            resolvedAICoordinator.currentLocator = locator
-            // Feature #86 WI-1: re-resolve the chapter on every relocate via the
-            // funnel — never a section snapshot that a scroll would freeze in.
-            resolvedAICoordinator.refreshChatContext()
-            #if DEBUG
-            // Bug #257: surface the live reading position into the DebugBridge
-            // probe so `snapshot.position` reflects where the reader actually
-            // is — including after an `open?position=N` seek. The string shape
-            // mirrors the `open?position=` URL grammar per format so a
-            // round-trip (seek then snapshot) is symmetric for TXT / MD.
-            debugProbe?.livePositionString = Self.debugPositionString(for: locator)
-            #endif
-        }
-        // Feature #56 WI-15: per-chapter re-translation picker. The
-        // observer fires on `.readerMoreReTranslateChapter`, resolves the
-        // current unit, builds the VM lazily, and raises the sheet.
-        // Factored into `ReaderReTranslateObserver` so the body stays under
-        // SwiftUI's type-inference budget (WI-13 / WI-14 precedent).
-        .modifier(ReaderReTranslateObserver(
-            isPresented: reTranslatePickerBinding,
-            sheetContent: { reTranslateSheetContent },
-            onTrigger: { handleReTranslateChapterRequested() }
-        ))
-        #if DEBUG
-        // Bug #144: pull bridge-driven theme changes into the live store.
-        // `RealDebugBridgeContext.theme(_:_:)` writes UserDefaults via a
-        // short-lived `ReaderSettingsStore`; this observer mirrors the
-        // change into the @State-owned store so an open reader re-themes
-        // without an app relaunch.
-        //
-        // Bug #145: respect per-book override semantics. The bridge
-        // command writes the GLOBAL default. When the active book has
-        // a per-book override that explicitly sets a field
-        // (`themeName != nil` / `fontSize != nil`), per-book wins for
-        // that field — skip applying the bridge's value to keep
-        // session state consistent with what reopen would re-apply.
-        // Fields the per-book override leaves nil still inherit from
-        // global, so the bridge change does take effect there.
-        .onReceive(NotificationCenter.default.publisher(for: .debugBridgeThemeChanged)) { notification in
-            guard let userInfo = notification.userInfo else { return }
-            let perBook = PerBookSettingsStore.settings(
-                for: book.fingerprintKey,
-                baseURL: Self.perBookSettingsBaseURL
-            )
-            // Theme: skip when per-book themeName is explicitly set.
-            // Feature #60 WI-11: decode the bridge's `mode` string via
-            // `ReaderThemeV2(recognized:)` — it accepts both the new
-            // rawValues the bridge now posts (`paper` / `dark`) and a
-            // legacy `light` from any older notification, and yields
-            // nil for an unrecognized string (no clobber).
-            if perBook?.themeName == nil,
-               let modeRaw = userInfo["mode"] as? String,
-               let theme = ReaderThemeV2(recognized: modeRaw),
-               settingsStore.theme != theme {
-                settingsStore.theme = theme
-            }
-            // Font size: skip when per-book fontSize is explicitly set.
-            if perBook?.fontSize == nil,
-               let fontSize = userInfo["fontSize"] as? Int {
-                var typography = settingsStore.typography
-                let newSize = Double(fontSize)
-                if typography.fontSize != newSize {
-                    typography.fontSize = newSize
-                    settingsStore.typography = typography
-                }
-            }
-        }
-        // Feature #45 WI-4c-b: drive TTS from outside the play-button tap.
-        // XCUITest's gesture path cannot reliably activate AVSpeechSynthesizer's
-        // audio session under iOS 26.5, so verification tests fire
-        // `vreader-debug://tts?action=start` after opening a book.
-        // Reuses startTTS() so the audio-session activation path is identical
-        // to a real user tap — that's the property we need spike-0 to verify.
-        .onReceive(NotificationCenter.default.publisher(for: .debugBridgeTTSCommand)) { notification in
-            guard let action = notification.userInfo?["action"] as? String else { return }
-            switch action {
-            case "start":
-                if ttsService.state == .idle {
-                    startTTS()
-                }
-            case "stop":
-                if ttsService.state != .idle {
-                    ttsService.stop()
-                }
-            default:
-                break
-            }
-        }
-        // Bug #238 — drive the in-reader search sheet from outside the
-        // chrome. Factored into a dedicated `ViewModifier` (same precedent
-        // as `ReaderOpenAITranslateObserver`) so adding the new observer
-        // doesn't push `body` over SwiftUI's type-inference budget.
-        .modifier(ReaderDebugBridgeSearchObserver(
-            onCommand: { query, index in
-                handleDebugBridgeSearchCommand(query: query, index: index)
-            }
-        ))
-        // Bug #253 — present a reader sheet from outside the chrome so the
-        // sheet's rendered content becomes CU-free verifiable via `snapshot`
-        // + `eval`. Factored into a dedicated `ViewModifier` (same precedent
-        // as the search observer above) so adding it doesn't push `body` over
-        // SwiftUI's type-inference budget. The handler sets the SAME `@State`
-        // / `annotationsRoute` the chrome buttons set — no parallel logic.
-        .modifier(ReaderDebugBridgePresentObserver(
-            onCommand: { sheet, tab, detent in
-                handleDebugBridgePresentSheet(sheet: sheet, tab: tab, detent: detent)
-            }
-        ))
-        // Bug #1218 — surface the active TXT reader's rendered (post-Simp→Trad)
-        // text into the DebugBridge probe so the `txt-content` command can read
-        // it CU-free. iOS 26 SwiftUI flattens the chunked TXT reader's inner
-        // cells into the container, whose accessibility VALUE is the
-        // load-bearing `restoredOffset:…` state probe, so XCUITest cannot read
-        // the rendered content directly. `TXTReaderContainerView` posts the
-        // converted display text on `.debugBridgeRenderedTextChanged`; this
-        // observer writes it onto the SAME `debugProbe` instance registered in
-        // `.onAppear` (mirrors the bug #257 `livePositionString` wiring), gated
-        // on a matching `fingerprintKey` (guards a stale post from an outgoing
-        // reader). Factored into a dedicated `ViewModifier` (same precedent as
-        // the search / present observers above) so it doesn't push `body` over
-        // SwiftUI's type-inference budget. Only meaningful for TXT; harmless
-        // for other formats (they never post it).
-        .modifier(ReaderDebugBridgeRenderedTextObserver(
-            onText: { fingerprintKey, text in
-                guard fingerprintKey == book.fingerprintKey else { return }
-                debugProbe?.renderedText = text
-            }
-        ))
-        // Feature #74 — surface the active TXT/MD reader's persisted locate-bloom
-        // counters into the DebugBridge probe so a post-settle `snapshot` proves
-        // the bloom fired (the ~1.5s sub-second visual can't be screenshot /
-        // video-captured on the Screen-Sharing virtual display).
-        // `HighlightableTextView` posts `(count, peakIntensity)` on each play +
-        // tick; this caches the latest tuple onto the active probe's
-        // `landingBloomProbe` closure (which the snapshot reads). Same dedicated-
-        // ViewModifier precedent as the rendered-text observer above so it
-        // doesn't push `body` over SwiftUI's type-inference budget.
-        .modifier(ReaderDebugBridgeLandingBloomObserver(
-            onBloom: { count, peakIntensity in
-                debugProbe?.landingBloomProbe = { (count: count, peakIntensity: peakIntensity) }
-            }
-        ))
-        // Feature #75 — CU-free EPUB layout switch (paged/scroll). Lives HERE at
-        // the dispatcher (not inside the EPUB host) so it sets the shared
-        // `settingsStore.epubLayout` that BOTH engines read reactively — the
-        // legacy `EPUBReaderContainerView` (.onChange) AND the Readium
-        // `ReadiumEPUBHost` (.onChange → re-renders the navigator with the new
-        // `EPUBPreferences(scroll:)`). The earlier host-scoped observer only
-        // reached the legacy engine; moving it up unblocks verifying paged
-        // vertical-rl / RTL page nav on the now-default Readium engine.
-        .modifier(ReaderDebugBridgeSetLayoutObserver { layout in
-            // Codex audit: this observer now mounts for EVERY format, so guard on
-            // EPUB — `epubLayout` is EPUB-specific and TXT/MD/Foliate/PDF also
-            // read it, so a `set-layout` fired while a non-EPUB reader is open
-            // must NOT mutate it (preserves the prior EPUB-only behavior). Both
-            // EPUB engines (legacy + Readium) are `.epub`, so the goal — reaching
-            // the Readium host — is unaffected.
-            guard DocumentFingerprint(canonicalKey: book.fingerprintKey)?.format == .epub else { return }
-            settingsStore.epubLayout = layout
-        })
-        // Bug #237 — DebugBridge highlight-driver observer lives in the
-        // TXT and MD format hosts, NOT here. Format hosts have the source
-        // text + chapter index they need to build canonical Locators via
-        // `LocatorFactory`, and they own a `HighlightCoordinator`. Wiring
-        // the observer here would mean any EPUB/PDF/AZW3 reader receiving
-        // a stray `vreader-debug://highlight` URL would persist a
-        // TXT-shaped highlight against its own book — invisible because
-        // EPUB/PDF require an anchor, and a dedupe mismatch (canonicalHash
-        // includes textQuote/context). See TXTReaderContainerView and
-        // MDReaderContainerView for the per-format observer wiring.
-        #endif
-        // PERF: Single deferred .task for all non-critical setup.
-        // Per-book settings + TOC prep deferred to avoid contending with the
-        // format host's file-open .task.
-        .task {
-            // Per-book settings (bug #84) — fast file read, do first
-            let perBook = PerBookSettingsStore.settings(
-                for: book.fingerprintKey,
-                baseURL: Self.perBookSettingsBaseURL
-            )
-            if perBook != nil {
-                let resolved = PerBookSettingsStore.resolve(
-                    perBook: perBook, global: settingsStore
-                )
-                settingsStore.applyResolvedSettings(resolved)
-            }
-            // Feature #62: build the TOC eagerly on reader load — for
-            // TXT it feeds the chapter progress bar (bug #31), and for
-            // every format it gets `tocEntries` populated before the
-            // user can reach the Contents chrome button. The eager
-            // build alone is best-effort (the build is async); the
-            // hard guarantee that `TOCSheet`'s "No table of contents"
-            // empty state means "this book ships no TOC" rather than
-            // "still loading" is the `tocDidLoad` flag passed into the
-            // sheet — it withholds the empty state until the build
-            // resolves. `ensureTOCReady()` is idempotent.
-            ensureTOCReady()
-            // Bug #79 (REOPENED): eagerly prepare the search pipeline on reader
-            // open so the FIRST search of a session shows the real search field
-            // immediately instead of the "Preparing search…" placeholder. The
-            // eager call was removed in fd12ab0e because the cold SQLite open
-            // ran on the MainActor (bug #89 stall); `prepareEagerly` now builds
-            // the store OFF the MainActor, so reader open is not blocked.
-            if let fp = DocumentFingerprint(canonicalKey: book.fingerprintKey) {
-                await searchCoordinator.prepareEagerly(fingerprint: fp)
-            }
-        }
-        .sheet(isPresented: $showSettings) {
-            ReaderSettingsPanel(
-                store: settingsStore,
-                bookFingerprintKey: book.fingerprintKey,
-                perBookBaseURL: Self.perBookSettingsBaseURL,
-                formatCapabilities: BookFormat(rawValue: book.format.lowercased())?.capabilities,
-                bookFormat: BookFormat(rawValue: book.format.lowercased())
-            )
-                .presentationDetents([.medium])
-                .presentationDragIndicator(.visible)
-        }
-        // Feature #62: the annotations panel split — Contents/Bookmarks
-        // present `TOCSheet`, the review filters present `HighlightsSheet`.
-        // One `.sheet(item:)` over the `AnnotationsSheetRoute` replaces the
-        // legacy `.sheet(isPresented:)` over the unified `AnnotationsPanelView`.
-        .sheet(item: $annotationsRoute, onDismiss: {
-            // The TOCSheet "Open Search" CTA defers the search sheet to
-            // this dismiss handler — TOCSheet is itself a sheet, so
-            // presenting `showSearch` while it is up risks the
-            // double-sheet drop (the feature-#61 sibling-sheet pattern).
-            if openSearchAfterAnnotationsDismiss {
-                openSearchAfterAnnotationsDismiss = false
-                showSearch = true
-            }
-        }) { route in
-            annotationsSheet(for: route)
-                .presentationDetents([.medium, .large])
-                .presentationDragIndicator(.visible)
-        }
-        .sheet(isPresented: $showSearch) {
-            searchSheet
-                .presentationDetents([.large])
-                .presentationDragIndicator(.visible)
-        }
-        // Feature #60 WI-6c: the More-menu "Share book" row presents
-        // the system share sheet for the book file. Reuses the
-        // library's `ShareSheet` (book-file `UIActivityViewController`).
-        .sheet(isPresented: $showShareSheet) {
-            ShareSheet(book: book)
-        }
-        // Feature #61 WI-3: the More-menu "Book details" row presents
-        // the reader Book Details sheet. Content composed in
-        // `bookDetailsSheet` (ReaderContainerView+Sheets.swift) so the
-        // body stays inside the type-checker's complexity budget.
-        .sheet(isPresented: $showBookDetails, onDismiss: {
-            // Feature #61 WI-4 / #62: the "Export annotations…" row
-            // routes to `HighlightsSheet` (Highlights filter) — opened
-            // here, after Book Details has fully dismissed, because the
-            // two are sibling sheets sharing this view's presenter.
-            if exportAnnotationsAfterBookDetailsDismiss {
-                exportAnnotationsAfterBookDetailsDismiss = false
-                annotationsRoute = .highlights(initialFilter: .highlights)
-            }
-        }) {
-            // Design `vreader-book-details.jsx` sizes the stacked sheet
-            // at 660pt — a tall partial sheet, not full-height; `.large`
-            // is offered so the user can expand it.
-            bookDetailsSheet
-                .presentationDetents([.height(660), .large])
-                .presentationDragIndicator(.visible)
-        }
-        // Feature #101 WI-2b: mirror the live session display + fetch the
-        // Reading time stats when Book details presents. Bundled into one
-        // modifier (ReaderContainerView+Sheets) — this body is near the
-        // type-checker's expression-complexity ceiling.
-        .modifier(bookDetailsReadingTimeMirror)
-        // Feature #99 WI-4: the re-translate confirmation banner (one
-        // self-contained chain link — observer + overlay + auto-dismiss).
-        .modifier(BilingualRetranslateBannerHost(
-            theme: settingsStore.theme,
-            bookFingerprintKey: book.fingerprintKey))
+        detailsPresentedReader
         // Search setup deferred until search sheet opens (bug #64)
         .onChange(of: showSearch) { _, isShowing in
             if isShowing { ensureSearchReady() }
@@ -1040,6 +427,652 @@ struct ReaderContainerView: View {
             }
         }
         #endif
+    }
+
+    // Bug #376: preserve the chain while bounding each type-check expression.
+    private var rootContentReader: some View {
+        ZStack {
+            if settingsStore.useCustomBackground {
+                ThemeBackgroundView(settingsStore: settingsStore)
+            }
+
+            Group {
+                if let fingerprint = DocumentFingerprint(canonicalKey: book.fingerprintKey) {
+                    // Route by ReaderEngine (feature #54). Tap handling lives
+                    // in each UIKit bridge (UITapGestureRecognizer with
+                    // shouldRecognizeSimultaneously). Do NOT add a SwiftUI
+                    // overlay — it blocks scroll gestures. (bug #70)
+                    engineReaderView(fingerprint: fingerprint)
+                } else {
+                    fingerprintErrorView
+                }
+            }
+
+            // Custom chrome overlay — floats on top of content, never changes layout. (bug #62 v3)
+            if isChromeVisible {
+                readerChromeOverlay
+                    .transition(.move(edge: .top).combined(with: .opacity))
+            }
+
+            // Feature #56 WI-14: reader-side translate-entire-book
+            // banner — appears when a global translate job is in flight
+            // for the open book. Tapping the banner body opens the
+            // status sheet; the trailing close pill presents the cancel
+            // confirmation. Anchored under the chrome.
+            if let vm = translateBookVM, vm.progress.isRunning {
+                VStack {
+                    Spacer().frame(height: 88)
+                    ReaderTranslateBanner(
+                        progress: vm.progress,
+                        targetLanguageLabel: "Chinese",
+                        theme: settingsStore.theme,
+                        onOpen: { vm.openStatusSheet() },
+                        onCancel: { vm.requestCancel() })
+                        .padding(.horizontal, 14)
+                    Spacer()
+                }
+                .transition(.opacity)
+                .allowsHitTesting(true)
+            }
+
+            // TTS control bar at the bottom (WI-B03)
+            if ttsService.state != .idle {
+                VStack {
+                    Spacer()
+                    TTSControlBar(
+                        ttsService: ttsService,
+                        settingsStore: settingsStore
+                    )
+                }
+                .transition(.move(edge: .bottom).combined(with: .opacity))
+            }
+
+            // Feature #60 WI-6c: the reader More-menu popover, anchored
+            // to the `⋯` button in the top chrome. Floats above all
+            // content + chrome; only present while the chrome is too,
+            // so hiding the chrome dismisses it.
+            if showMorePopover && isChromeVisible {
+                readerMorePopoverOverlay
+                    .transition(.opacity)
+            }
+        }
+    }
+
+    private var chromeConfiguredReader: some View {
+        rootContentReader
+        .onReceive(NotificationCenter.default.publisher(for: .readerContentTapped)) { _ in
+            // A content tap toggles the chrome. If the More popover is
+            // open, the tap should dismiss it rather than (also)
+            // flipping the chrome out from under it.
+            if showMorePopover {
+                showMorePopover = false
+            } else {
+                toggleChrome()
+            }
+        }
+        // Feature #60 WI-6b: the shared `ReaderBottomChrome` toolbar
+        // posts these instead of threading handler closures through
+        // every per-format host view. Contents/Notes open the
+        // annotations panel on the matching tab; Display opens reader
+        // settings; AI opens the assistant when configured. Bundled
+        // into one modifier so `body` stays inside the type-checker's
+        // complexity budget.
+        .readerToolbarActionObservers(
+            onContents: {
+                // Feature #62: Contents opens `TOCSheet`; Notes opens
+                // `HighlightsSheet` on the All filter — the design's
+                // bottom-chrome routing.
+                annotationsRoute = AnnotationsSheetRoute.route(forChromeButton: .contents)
+            },
+            onNotes: {
+                annotationsRoute = AnnotationsSheetRoute.route(forChromeButton: .notes)
+            },
+            onDisplay: { showSettings = true },
+            onAI: {
+                if resolvedAICoordinator.isAIAvailable {
+                    showAIPanel = true
+                } else {
+                    // Bug #308 (Feature #82): instead of a silent no-op, route the
+                    // unconfigured tap to the in-reader AI readiness sheet so the
+                    // user can enable AI + grant consent + add a provider in place.
+                    showAIReadiness = true
+                }
+            }
+        )
+        // Feature #60 WI-6c: the More-menu popover posts the five
+        // `.readerMore*` notifications; each maps 1:1 from a
+        // `ReaderMoreMenuRow`. Bundled into one modifier so `body`
+        // stays inside the type-checker's complexity budget (same
+        // reason as the WI-6b toolbar observers above). Action
+        // semantics live in `handleMoreMenuAction(_:)`.
+        .readerMoreMenuActionObservers { row in
+            handleMoreMenuAction(row)
+        }
+        // Page turn from tap zones — handled by unified renderer directly.
+        // Native mode bridges handle taps internally (center=chrome toggle).
+        // Left/right zones only functional in unified paged mode. (bug #81)
+        .accessibilityAction(named: isChromeVisible ? "Hide toolbar" : "Show toolbar") {
+            toggleChrome()
+        }
+        .toolbar(.hidden, for: .navigationBar)
+        .statusBarHidden(!isChromeVisible)
+        // Feature #60 WI-10: tint the status bar to match the reader
+        // theme. `preferredColorScheme` resolves to `.dark` for the
+        // dark-family themes (Dark / OLED / Photo) so the status-bar
+        // text stays light-on-dark, and `.light` for Paper / Sepia so
+        // it stays dark-on-light. WI-11 migrated `theme` to
+        // `ReaderThemeV2`, so the token is read directly.
+        .preferredColorScheme(settingsStore.theme.preferredColorScheme)
+        .ignoresSafeArea(edges: .top)
+    }
+
+    private var presentedAIReader: some View {
+        chromeConfiguredReader
+        .sheet(isPresented: $showAIPanel, onDismiss: {
+            aiInitialTab = .summarize
+            #if DEBUG
+            // Bug #256: reset the DebugBridge-driven detent to the production
+            // default on dismiss, so a prior `present?sheet=ai&detent=large`
+            // open never carries `.large` into a later default open (toolbar /
+            // selection-translate / readerOpenAITranslate). DEBUG-only — the
+            // binding only exists in DEBUG; Release has no detent state.
+            aiPanelDetent = .medium
+            #endif
+        }) { aiSheet }
+        // Bug #308 (Feature #82): the readiness sheet for the unconfigured
+        // AI-button tap. On the ready transition it dismisses + opens the AI
+        // panel — the availability gate now mirrors the active-provider
+        // per-profile key, so the panel actually opens (no loop back).
+        .sheet(isPresented: $showAIReadiness, onDismiss: {
+            // Sibling-sheet handoff: open the AI panel only after readiness has
+            // fully dismissed (matches the #81 .sheet(onDismiss:) pattern).
+            if pendingOpenAIPanelAfterReadiness {
+                pendingOpenAIPanelAfterReadiness = false
+                showAIPanel = true
+            } else {
+                // Feature #78: readiness ABANDONED (dismissed without becoming
+                // ready). Drop any parked Ask-AI seed + restore the default tab
+                // so a stale selection / `.chat` target can't leak into a later
+                // manual AI open.
+                pendingAskAIText = nil
+                aiInitialTab = .summarize
+            }
+        }) {
+            ReaderAIReadinessSheet(
+                theme: settingsStore.theme,
+                onReady: {
+                    pendingOpenAIPanelAfterReadiness = true
+                    showAIReadiness = false
+                }
+            )
+        }
+    }
+
+    private var selectionConfiguredReader: some View {
+        presentedAIReader
+        .onReceive(NotificationCenter.default.publisher(for: .readerDefineRequested)) { notification in
+            guard let info = notification.object as? TextSelectionInfo else { return }
+            if let word = DictionaryLookup.extractWord(from: info.selectedText) {
+                dictionaryWord = word
+                showDictionary = true
+            }
+        }
+        .onReceive(NotificationCenter.default.publisher(for: .readerTranslateRequested)) { notification in
+            guard let info = notification.object as? TextSelectionInfo else { return }
+            // Bug #90: even if a stale UI path or out-of-tree caller posts the
+            // notification, refuse to open the panel when AI consent isn't
+            // granted. The toolbar button + edit-menu translate action both
+            // gate on AIReaderAvailability.isAvailable already; this is the
+            // defense-in-depth layer at the sheet-presentation seam.
+            guard resolvedAICoordinator.isAIAvailable else { return }
+            ensureAIReady()
+            // Bug #314: park the selection for the apply path.
+            pendingTranslateSelection = info.selectedText
+            aiInitialTab = .translate // bug #95
+            // Bug #314 (re-fix): if the panel is ALREADY open, `onChange(of:
+            // showAIPanel)` will NOT fire (no state change), so apply the selection
+            // NOW — otherwise a selection-translate-while-open dropped to the cold
+            // context path (front-matter). For a closed panel, opening it triggers
+            // onChange, which calls the same `applyPendingTranslateSelection()`.
+            if showAIPanel {
+                applyPendingTranslateSelection()
+            } else {
+                showAIPanel = true
+            }
+        }
+        // Feature #78: "Ask AI" / "Read" on a selection. Extracted to a
+        // ViewModifier so the body stays under SwiftUI's type-inference budget
+        // (mirrors `ReaderOpenAITranslateObserver`). The Ask-AI seed flows
+        // through `pendingAskAIText` + the `onChange(of: showAIPanel)` drain
+        // (which fetches the chat VM AFTER ensureAIReady), so no stale-VM capture.
+        .modifier(ReaderAskAIReadObserver(
+            isAIAvailable: resolvedAICoordinator.isAIAvailable,
+            setPendingAskAIText: { pendingAskAIText = $0 },
+            setInitialTab: { aiInitialTab = $0 },
+            setShowAIPanel: { showAIPanel = $0 },
+            setShowAIReadiness: { showAIReadiness = $0 },
+            speakSelection: { ttsService.startSpeaking(text: $0, fromOffset: 0) }
+        ))
+        .sheet(isPresented: $showDictionary) {
+            DictionarySheet(word: dictionaryWord)
+        }
+        // Feature #56 WI-13: PDF below-page bilingual panel's
+        // offline-state "Open AI tab" button posts
+        // `.readerOpenAITranslate` to open the AI sheet on the
+        // `.translate` tab without a selection. Routed through a
+        // dedicated `ViewModifier` so the body stays under SwiftUI's
+        // type-inference budget after WI-14's additions.
+        .modifier(ReaderOpenAITranslateObserver(
+            isAIAvailable: resolvedAICoordinator.isAIAvailable,
+            translationViewModel: resolvedAICoordinator.translationViewModel,
+            ensureAIReady: { ensureAIReady() },
+            setInitialTab: { aiInitialTab = $0 },
+            setShowAIPanel: { showAIPanel = $0 }
+        ))
+        // AI setup + text loading deferred until AI/TTS is invoked (bug #64)
+        .onChange(of: showAIPanel) { _, isShowing in
+            if isShowing {
+                ensureAIReady()
+                // Feature #78: drain a parked Ask-AI seed now that the panel is
+                // opening and `ensureAIReady()` has created the chat VM (fetched
+                // AFTER ensureAIReady — avoids the cold-first-tap nil-VM drop).
+                // Unifies the seed path for both the AI-available open and the
+                // post-readiness handoff open.
+                if let text = pendingAskAIText {
+                    pendingAskAIText = nil
+                    resolvedAICoordinator.chatViewModel?.seedInput(text)
+                }
+                // Bug #314: apply (or clear) the explicit translate-selection on
+                // EVERY open — a cold open (toolbar / readiness / Ask-AI) parks no
+                // selection, so `hasExplicitSelection` is cleared and the Translate
+                // tab falls back to the context window; a selection-translate parked
+                // one, so it's translated verbatim. Whitespace-only → cleared.
+                // (Shared with the already-open path in the `.readerTranslateRequested`
+                // handler — see `applyPendingTranslateSelection()`.)
+                applyPendingTranslateSelection()
+            }
+        }
+    }
+
+    private var contextObservedReader: some View {
+        selectionConfiguredReader
+        .onReceive(NotificationCenter.default.publisher(for: .readerBilingualDidChange)) { notification in
+            // Feature #56 WI-10: mirror the per-format host's
+            // bilingual VM state into the parent so the chrome
+            // (pill + More-menu row) can render without crossing the
+            // host boundary. The host posts on enable/disable +
+            // language/granularity change; the userInfo carries the
+            // book's `fingerprintKey` so an unrelated host (e.g. a
+            // second reader off-screen) does not pollute this state.
+            let key = notification.userInfo?["fingerprintKey"] as? String
+            guard key == book.fingerprintKey else { return }
+            let enabled = notification.userInfo?["isEnabled"] as? Bool
+            let language = notification.userInfo?["targetLanguage"] as? String
+            // The current `postDidChange()` in BilingualReadingViewModel
+            // only sends `fingerprintKey`; fall back to a paint based
+            // on the presence of the notification — if we got here for
+            // this book, the host wants the chrome refreshed. The
+            // explicit fields are forward-looking for richer payloads.
+            if let enabled { bilingualActive = enabled }
+            if let language { bilingualLanguage = language }
+            // Feature #99 WI-3: the granularity key is additive (older
+            // posts lack it) — only overwrite when present.
+            if let granularity = notification.userInfo?["granularity"] as? String {
+                bilingualGranularity = granularity
+            }
+        }
+        .onReceive(NotificationCenter.default.publisher(
+            for: .readerBookTranslationTextProviderAvailable)) { notification in
+            // Feature #56 WI-14 — the active per-format reader container
+            // has constructed its ChapterTextProviding adapter and is
+            // publishing it to the host so the Book Details translate-
+            // book entry point can use it. Cache the provider for this
+            // book; the VM is constructed lazily so we don't pay the
+            // cost for users who never open Book Details. **Provider
+            // config is NOT resolved here** — a user may not tap the
+            // translate row for minutes, and the active profile could
+            // have changed in the meantime. We re-resolve at confirm
+            // time so the snapshot reflects the user's choices at the
+            // moment they commit (Codex Gate-4 medium-finding follow-up).
+            let key = notification.userInfo?["fingerprintKey"] as? String
+            guard key == book.fingerprintKey else { return }
+            guard let provider = notification.object as? (any ChapterTextProviding) else { return }
+            translateBookTextProvider = provider
+            if translateBookVM == nil {
+                let vm = BookTranslationViewModel(
+                    bookFingerprintKey: book.fingerprintKey,
+                    coordinator: BookTranslationCoordinator.shared)
+                translateBookVM = vm
+                // Reader-side observation — keeps `ReaderTranslateBanner`
+                // in sync regardless of whether Book Details is open.
+                // Without this the banner only updated while the Book
+                // Details overlay was mounted (Codex Gate-4 round-2 H1).
+                Task { @MainActor in await vm.startObserving() }
+            }
+            // Feature #98 WI-2: provider arrival is the resume trigger
+            // for an expiry-interrupted whole-book job (the only moment
+            // a text provider exists). The coordinator's one-job-per-book
+            // invariant absorbs duplicate calls; on an actual resume,
+            // re-subscribe the VM — its previous stream (if any)
+            // finished at the expiry.
+            let resumeKey = book.fingerprintKey
+            Task { @MainActor in
+                let resumed = await BookTranslationCoordinator.shared
+                    .resumeInterruptedJob(
+                        bookFingerprintKey: resumeKey, textProvider: provider)
+                if resumed { await translateBookVM?.restartObserving() }
+            }
+        }
+        // Bug #262 / GH #1136: the live AZW3/MOBI Contents source. Folded
+        // into a dedicated `ViewModifier` (not an inline `.onReceive`)
+        // because the body expression is already at SwiftUI's type-inference
+        // ceiling — an inline observer trips "unable to type-check in
+        // reasonable time" (the same constraint the `ReaderReTranslateObserver`
+        // modifier below already works around).
+        .modifier(FoliateTOCAvailableObserver(
+            bookFingerprintKey: book.fingerprintKey,
+            onEntries: { entries in
+                tocEntries = entries
+                tocDidLoad = true
+                // Feature #86 WI-1: sync the TOC to the AI coordinator + refresh,
+                // so a TOC that lands AFTER text upgrades the chat to chapter scope.
+                resolvedAICoordinator.tocEntries = entries
+                resolvedAICoordinator.refreshChatContext()
+            }
+        ))
+        .onReceive(NotificationCenter.default.publisher(for: .readerPositionDidChange)) { notification in
+            guard let locator = notification.object as? Locator else { return }
+            currentLocator = locator
+            resolvedAICoordinator.currentLocator = locator
+            // Feature #86 WI-1: re-resolve the chapter on every relocate via the
+            // funnel — never a section snapshot that a scroll would freeze in.
+            resolvedAICoordinator.refreshChatContext()
+            #if DEBUG
+            // Bug #257: surface the live reading position into the DebugBridge
+            // probe so `snapshot.position` reflects where the reader actually
+            // is — including after an `open?position=N` seek. The string shape
+            // mirrors the `open?position=` URL grammar per format so a
+            // round-trip (seek then snapshot) is symmetric for TXT / MD.
+            debugProbe?.livePositionString = Self.debugPositionString(for: locator)
+            #endif
+        }
+        // Feature #56 WI-15: per-chapter re-translation picker. The
+        // observer fires on `.readerMoreReTranslateChapter`, resolves the
+        // current unit, builds the VM lazily, and raises the sheet.
+        // Factored into `ReaderReTranslateObserver` so the body stays under
+        // SwiftUI's type-inference budget (WI-13 / WI-14 precedent).
+        .modifier(ReaderReTranslateObserver(
+            isPresented: reTranslatePickerBinding,
+            sheetContent: { reTranslateSheetContent },
+            onTrigger: { handleReTranslateChapterRequested() }
+        ))
+    }
+
+    private var debugObservedReader: some View {
+        contextObservedReader
+        #if DEBUG
+        // Bug #144: pull bridge-driven theme changes into the live store.
+        // `RealDebugBridgeContext.theme(_:_:)` writes UserDefaults via a
+        // short-lived `ReaderSettingsStore`; this observer mirrors the
+        // change into the @State-owned store so an open reader re-themes
+        // without an app relaunch.
+        //
+        // Bug #145: respect per-book override semantics. The bridge
+        // command writes the GLOBAL default. When the active book has
+        // a per-book override that explicitly sets a field
+        // (`themeName != nil` / `fontSize != nil`), per-book wins for
+        // that field — skip applying the bridge's value to keep
+        // session state consistent with what reopen would re-apply.
+        // Fields the per-book override leaves nil still inherit from
+        // global, so the bridge change does take effect there.
+        .onReceive(NotificationCenter.default.publisher(for: .debugBridgeThemeChanged)) { notification in
+            guard let userInfo = notification.userInfo else { return }
+            let perBook = PerBookSettingsStore.settings(
+                for: book.fingerprintKey,
+                baseURL: Self.perBookSettingsBaseURL
+            )
+            // Theme: skip when per-book themeName is explicitly set.
+            // Feature #60 WI-11: decode the bridge's `mode` string via
+            // `ReaderThemeV2(recognized:)` — it accepts both the new
+            // rawValues the bridge now posts (`paper` / `dark`) and a
+            // legacy `light` from any older notification, and yields
+            // nil for an unrecognized string (no clobber).
+            if perBook?.themeName == nil,
+               let modeRaw = userInfo["mode"] as? String,
+               let theme = ReaderThemeV2(recognized: modeRaw),
+               settingsStore.theme != theme {
+                settingsStore.theme = theme
+            }
+            // Font size: skip when per-book fontSize is explicitly set.
+            if perBook?.fontSize == nil,
+               let fontSize = userInfo["fontSize"] as? Int {
+                var typography = settingsStore.typography
+                let newSize = Double(fontSize)
+                if typography.fontSize != newSize {
+                    typography.fontSize = newSize
+                    settingsStore.typography = typography
+                }
+            }
+        }
+        // Feature #45 WI-4c-b: drive TTS from outside the play-button tap.
+        // XCUITest's gesture path cannot reliably activate AVSpeechSynthesizer's
+        // audio session under iOS 26.5, so verification tests fire
+        // `vreader-debug://tts?action=start` after opening a book.
+        // Reuses startTTS() so the audio-session activation path is identical
+        // to a real user tap — that's the property we need spike-0 to verify.
+        .onReceive(NotificationCenter.default.publisher(for: .debugBridgeTTSCommand)) { notification in
+            guard let action = notification.userInfo?["action"] as? String else { return }
+            switch action {
+            case "start":
+                if ttsService.state == .idle {
+                    startTTS()
+                }
+            case "stop":
+                if ttsService.state != .idle {
+                    ttsService.stop()
+                }
+            default:
+                break
+            }
+        }
+        // Bug #238 — drive the in-reader search sheet from outside the
+        // chrome. Factored into a dedicated `ViewModifier` (same precedent
+        // as `ReaderOpenAITranslateObserver`) so adding the new observer
+        // doesn't push `body` over SwiftUI's type-inference budget.
+        .modifier(ReaderDebugBridgeSearchObserver(
+            onCommand: { query, index in
+                handleDebugBridgeSearchCommand(query: query, index: index)
+            }
+        ))
+        // Bug #253 — present a reader sheet from outside the chrome so the
+        // sheet's rendered content becomes CU-free verifiable via `snapshot`
+        // + `eval`. Factored into a dedicated `ViewModifier` (same precedent
+        // as the search observer above) so adding it doesn't push `body` over
+        // SwiftUI's type-inference budget. The handler sets the SAME `@State`
+        // / `annotationsRoute` the chrome buttons set — no parallel logic.
+        .modifier(ReaderDebugBridgePresentObserver(
+            onCommand: { sheet, tab, detent in
+                handleDebugBridgePresentSheet(sheet: sheet, tab: tab, detent: detent)
+            }
+        ))
+        // Bug #1218 — surface the active TXT reader's rendered (post-Simp→Trad)
+        // text into the DebugBridge probe so the `txt-content` command can read
+        // it CU-free. iOS 26 SwiftUI flattens the chunked TXT reader's inner
+        // cells into the container, whose accessibility VALUE is the
+        // load-bearing `restoredOffset:…` state probe, so XCUITest cannot read
+        // the rendered content directly. `TXTReaderContainerView` posts the
+        // converted display text on `.debugBridgeRenderedTextChanged`; this
+        // observer writes it onto the SAME `debugProbe` instance registered in
+        // `.onAppear` (mirrors the bug #257 `livePositionString` wiring), gated
+        // on a matching `fingerprintKey` (guards a stale post from an outgoing
+        // reader). Factored into a dedicated `ViewModifier` (same precedent as
+        // the search / present observers above) so it doesn't push `body` over
+        // SwiftUI's type-inference budget. Only meaningful for TXT; harmless
+        // for other formats (they never post it).
+        .modifier(ReaderDebugBridgeRenderedTextObserver(
+            onText: { fingerprintKey, text in
+                guard fingerprintKey == book.fingerprintKey else { return }
+                debugProbe?.renderedText = text
+            }
+        ))
+        // Feature #74 — surface the active TXT/MD reader's persisted locate-bloom
+        // counters into the DebugBridge probe so a post-settle `snapshot` proves
+        // the bloom fired (the ~1.5s sub-second visual can't be screenshot /
+        // video-captured on the Screen-Sharing virtual display).
+        // `HighlightableTextView` posts `(count, peakIntensity)` on each play +
+        // tick; this caches the latest tuple onto the active probe's
+        // `landingBloomProbe` closure (which the snapshot reads). Same dedicated-
+        // ViewModifier precedent as the rendered-text observer above so it
+        // doesn't push `body` over SwiftUI's type-inference budget.
+        .modifier(ReaderDebugBridgeLandingBloomObserver(
+            onBloom: { count, peakIntensity in
+                debugProbe?.landingBloomProbe = { (count: count, peakIntensity: peakIntensity) }
+            }
+        ))
+        // Feature #75 — CU-free EPUB layout switch (paged/scroll). Lives HERE at
+        // the dispatcher (not inside the EPUB host) so it sets the shared
+        // `settingsStore.epubLayout` that BOTH engines read reactively — the
+        // legacy `EPUBReaderContainerView` (.onChange) AND the Readium
+        // `ReadiumEPUBHost` (.onChange → re-renders the navigator with the new
+        // `EPUBPreferences(scroll:)`). The earlier host-scoped observer only
+        // reached the legacy engine; moving it up unblocks verifying paged
+        // vertical-rl / RTL page nav on the now-default Readium engine.
+        .modifier(ReaderDebugBridgeSetLayoutObserver { layout in
+            // Codex audit: this observer now mounts for EVERY format, so guard on
+            // EPUB — `epubLayout` is EPUB-specific and TXT/MD/Foliate/PDF also
+            // read it, so a `set-layout` fired while a non-EPUB reader is open
+            // must NOT mutate it (preserves the prior EPUB-only behavior). Both
+            // EPUB engines (legacy + Readium) are `.epub`, so the goal — reaching
+            // the Readium host — is unaffected.
+            guard DocumentFingerprint(canonicalKey: book.fingerprintKey)?.format == .epub else { return }
+            settingsStore.epubLayout = layout
+        })
+        // Bug #237 — DebugBridge highlight-driver observer lives in the
+        // TXT and MD format hosts, NOT here. Format hosts have the source
+        // text + chapter index they need to build canonical Locators via
+        // `LocatorFactory`, and they own a `HighlightCoordinator`. Wiring
+        // the observer here would mean any EPUB/PDF/AZW3 reader receiving
+        // a stray `vreader-debug://highlight` URL would persist a
+        // TXT-shaped highlight against its own book — invisible because
+        // EPUB/PDF require an anchor, and a dedupe mismatch (canonicalHash
+        // includes textQuote/context). See TXTReaderContainerView and
+        // MDReaderContainerView for the per-format observer wiring.
+        #endif
+    }
+
+    private var preparedReader: some View {
+        debugObservedReader
+        // PERF: Single deferred .task for all non-critical setup.
+        // Per-book settings + TOC prep deferred to avoid contending with the
+        // format host's file-open .task.
+        .task {
+            // Per-book settings (bug #84) — fast file read, do first
+            let perBook = PerBookSettingsStore.settings(
+                for: book.fingerprintKey,
+                baseURL: Self.perBookSettingsBaseURL
+            )
+            if perBook != nil {
+                let resolved = PerBookSettingsStore.resolve(
+                    perBook: perBook, global: settingsStore
+                )
+                settingsStore.applyResolvedSettings(resolved)
+            }
+            // Feature #62: build the TOC eagerly on reader load — for
+            // TXT it feeds the chapter progress bar (bug #31), and for
+            // every format it gets `tocEntries` populated before the
+            // user can reach the Contents chrome button. The eager
+            // build alone is best-effort (the build is async); the
+            // hard guarantee that `TOCSheet`'s "No table of contents"
+            // empty state means "this book ships no TOC" rather than
+            // "still loading" is the `tocDidLoad` flag passed into the
+            // sheet — it withholds the empty state until the build
+            // resolves. `ensureTOCReady()` is idempotent.
+            ensureTOCReady()
+            // Bug #79 (REOPENED): eagerly prepare the search pipeline on reader
+            // open so the FIRST search of a session shows the real search field
+            // immediately instead of the "Preparing search…" placeholder. The
+            // eager call was removed in fd12ab0e because the cold SQLite open
+            // ran on the MainActor (bug #89 stall); `prepareEagerly` now builds
+            // the store OFF the MainActor, so reader open is not blocked.
+            if let fp = DocumentFingerprint(canonicalKey: book.fingerprintKey) {
+                await searchCoordinator.prepareEagerly(fingerprint: fp)
+            }
+        }
+        .sheet(isPresented: $showSettings) {
+            ReaderSettingsPanel(
+                store: settingsStore,
+                bookFingerprintKey: book.fingerprintKey,
+                perBookBaseURL: Self.perBookSettingsBaseURL,
+                formatCapabilities: BookFormat(rawValue: book.format.lowercased())?.capabilities,
+                bookFormat: BookFormat(rawValue: book.format.lowercased())
+            )
+                .presentationDetents([.medium])
+                .presentationDragIndicator(.visible)
+        }
+        // Feature #62: the annotations panel split — Contents/Bookmarks
+        // present `TOCSheet`, the review filters present `HighlightsSheet`.
+        // One `.sheet(item:)` over the `AnnotationsSheetRoute` replaces the
+        // legacy `.sheet(isPresented:)` over the unified `AnnotationsPanelView`.
+        .sheet(item: $annotationsRoute, onDismiss: {
+            // The TOCSheet "Open Search" CTA defers the search sheet to
+            // this dismiss handler — TOCSheet is itself a sheet, so
+            // presenting `showSearch` while it is up risks the
+            // double-sheet drop (the feature-#61 sibling-sheet pattern).
+            if openSearchAfterAnnotationsDismiss {
+                openSearchAfterAnnotationsDismiss = false
+                showSearch = true
+            }
+        }) { route in
+            annotationsSheet(for: route)
+                .presentationDetents([.medium, .large])
+                .presentationDragIndicator(.visible)
+        }
+        .sheet(isPresented: $showSearch) {
+            searchSheet
+                .presentationDetents([.large])
+                .presentationDragIndicator(.visible)
+        }
+        // Feature #60 WI-6c: the More-menu "Share book" row presents
+        // the system share sheet for the book file. Reuses the
+        // library's `ShareSheet` (book-file `UIActivityViewController`).
+        .sheet(isPresented: $showShareSheet) {
+            ShareSheet(book: book)
+        }
+    }
+
+    private var detailsPresentedReader: some View {
+        preparedReader
+        // Feature #61 WI-3: the More-menu "Book details" row presents
+        // the reader Book Details sheet. Content composed in
+        // `bookDetailsSheet` (ReaderContainerView+Sheets.swift) so the
+        // body stays inside the type-checker's complexity budget.
+        .sheet(isPresented: $showBookDetails, onDismiss: {
+            // Feature #61 WI-4 / #62: the "Export annotations…" row
+            // routes to `HighlightsSheet` (Highlights filter) — opened
+            // here, after Book Details has fully dismissed, because the
+            // two are sibling sheets sharing this view's presenter.
+            if exportAnnotationsAfterBookDetailsDismiss {
+                exportAnnotationsAfterBookDetailsDismiss = false
+                annotationsRoute = .highlights(initialFilter: .highlights)
+            }
+        }) {
+            // Design `vreader-book-details.jsx` sizes the stacked sheet
+            // at 660pt — a tall partial sheet, not full-height; `.large`
+            // is offered so the user can expand it.
+            bookDetailsSheet
+                .presentationDetents([.height(660), .large])
+                .presentationDragIndicator(.visible)
+        }
+        // Feature #101 WI-2b: mirror the live session display + fetch the
+        // Reading time stats when Book details presents. Bundled into one
+        // modifier (ReaderContainerView+Sheets) — this body is near the
+        // type-checker's expression-complexity ceiling.
+        .modifier(bookDetailsReadingTimeMirror)
+        // Feature #99 WI-4: the re-translate confirmation banner (one
+        // self-contained chain link — observer + overlay + auto-dismiss).
+        .modifier(BilingualRetranslateBannerHost(
+            theme: settingsStore.theme,
+            bookFingerprintKey: book.fingerprintKey))
     }
 
     // MARK: - Resolved Helpers
