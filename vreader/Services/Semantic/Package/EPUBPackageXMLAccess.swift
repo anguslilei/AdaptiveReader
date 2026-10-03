@@ -55,15 +55,27 @@ enum EPUBPackageXMLAccess {
     static func properties(_ node: SemanticXMLNode, limits: EPUBSemanticPackageLimits,
                            budget: inout EPUBPackageBudget) throws -> [String] {
         guard let raw = attribute(node, "properties") else { return [] }
-        let parts = raw.unicodeScalars.split(maxSplits: limits.propertiesPerItem, whereSeparator: whitespace)
-        guard parts.count <= limits.propertiesPerItem else { throw EPUBSemanticPackageError.metadataLimit }
-        var seen = Set<EPUBPackageLiteralKey>(), result = [String]()
-        for part in parts {
+        var seen = Set<EPUBPackageLiteralKey>(), result = [String](), current = ""
+        for scalar in raw.unicodeScalars {
             try Task.checkCancellation()
-            let value = String(String.UnicodeScalarView(part))
-            try token(value, error: .invalidPackage)
-            guard seen.insert(.init(value)).inserted else { throw EPUBSemanticPackageError.invalidPackage }
-            try budget.charge(value); result.append(value)
+            if whitespace(scalar) {
+                if !current.isEmpty {
+                    guard seen.insert(.init(current)).inserted else { throw EPUBSemanticPackageError.invalidPackage }
+                    result.append(current); current = ""
+                }
+            } else {
+                guard scalar.value > 32 && scalar.value != 127 else { throw EPUBSemanticPackageError.invalidPackage }
+                if current.isEmpty && result.count == limits.propertiesPerItem {
+                    throw EPUBSemanticPackageError.metadataLimit
+                }
+                // Charge the actual retained scalar before growing the output token.
+                try budget.charge(String(scalar))
+                current.unicodeScalars.append(scalar)
+            }
+        }
+        if !current.isEmpty {
+            guard seen.insert(.init(current)).inserted else { throw EPUBSemanticPackageError.invalidPackage }
+            result.append(current)
         }
         return result
     }

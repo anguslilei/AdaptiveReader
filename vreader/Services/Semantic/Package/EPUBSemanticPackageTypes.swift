@@ -6,6 +6,12 @@ struct EPUBSemanticManifestItem: Sendable, Equatable {
     let path: String
     let mediaType: String
     let properties: [String]
+    static func == (lhs: Self, rhs: Self) -> Bool {
+        EPUBPackageLiteralKey(lhs.id) == EPUBPackageLiteralKey(rhs.id) &&
+        EPUBPackageLiteralKey(lhs.path) == EPUBPackageLiteralKey(rhs.path) &&
+        EPUBPackageLiteralKey(lhs.mediaType) == EPUBPackageLiteralKey(rhs.mediaType) &&
+        EPUBPackageLiteralKey.same(lhs.properties, rhs.properties)
+    }
 }
 
 struct EPUBSemanticSpineEntry: Sendable, Equatable {
@@ -13,6 +19,10 @@ struct EPUBSemanticSpineEntry: Sendable, Equatable {
     let manifestIndex: Int
     let linear: Bool
     let properties: [String]
+    static func == (lhs: Self, rhs: Self) -> Bool {
+        lhs.occurrence == rhs.occurrence && lhs.manifestIndex == rhs.manifestIndex &&
+        lhs.linear == rhs.linear && EPUBPackageLiteralKey.same(lhs.properties, rhs.properties)
+    }
 }
 
 struct EPUBPackageParts: Sendable, Equatable {
@@ -27,6 +37,13 @@ struct EPUBSemanticPackage: Sendable, Equatable {
     let packageSHA256: String
     let manifestItems: [EPUBSemanticManifestItem]
     let spine: [EPUBSemanticSpineEntry]
+    static func == (lhs: Self, rhs: Self) -> Bool {
+        EPUBPackageLiteralKey(lhs.archiveSHA256) == EPUBPackageLiteralKey(rhs.archiveSHA256) &&
+        EPUBPackageLiteralKey(lhs.containerSHA256) == EPUBPackageLiteralKey(rhs.containerSHA256) &&
+        EPUBPackageLiteralKey(lhs.packagePath) == EPUBPackageLiteralKey(rhs.packagePath) &&
+        EPUBPackageLiteralKey(lhs.packageSHA256) == EPUBPackageLiteralKey(rhs.packageSHA256) &&
+        lhs.manifestItems == rhs.manifestItems && lhs.spine == rhs.spine
+    }
 }
 
 enum EPUBSemanticPackageError: Error, Sendable, Equatable {
