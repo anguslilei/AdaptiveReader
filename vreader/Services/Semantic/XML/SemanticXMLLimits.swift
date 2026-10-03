@@ -12,4 +12,13 @@ struct SemanticXMLLimits: Sendable {
         self.inputBytes = inputBytes; self.nodes = nodes; self.depth = depth
         self.attributes = attributes; self.textUTF16 = textUTF16; self.declarationBytes = declarationBytes
     }
+    func validate() throws {
+        let standard = SemanticXMLLimits()
+        let values = [inputBytes, nodes, depth, attributes, textUTF16, declarationBytes]
+        let ceilings = [standard.inputBytes, standard.nodes, standard.depth, standard.attributes,
+                        standard.textUTF16, standard.declarationBytes]
+        guard zip(values, ceilings).allSatisfy({ $0.0 > 0 && $0.0 <= $0.1 }) else {
+            throw SemanticXMLError.invalidLimits
+        }
+    }
 }

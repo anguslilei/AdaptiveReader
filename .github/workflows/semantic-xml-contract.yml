@@ -4,7 +4,7 @@ on:
     branches: ['feature/179-bounded-semantic-xml']
   pull_request:
     branches: [main, feature/178-native-semantic-xml-reader]
-    paths: ['vreader/Services/Semantic/**', 'vreaderTests/Services/Semantic/**', 'scripts/test-semantic-xml-contract.sh', '.github/workflows/semantic-xml-contract.yml']
+    paths: ['vreader/Services/Semantic/**', 'vreaderTests/Services/Semantic/**', 'vreaderTests/Helpers/SemanticXMLProbe.swift', 'scripts/test-semantic-xml-contract.sh', '.github/workflows/semantic-xml-contract.yml']
 permissions:
   contents: read
 concurrency:

@@ -29,7 +29,7 @@ struct SemanticXMLDocument: Sendable, Equatable {
 
 enum SemanticXMLError: Error, Sendable, Equatable {
     case invalidLimits, inputLimit, nodeLimit, depthLimit, attributeLimit, textLimit
-    case unsupportedEncoding, forbiddenDTD, invalidXML, unimplemented
+    case unsupportedEncoding, forbiddenDTD, invalidXML
 }
 
 struct SemanticXMLParseObservation: Sendable {

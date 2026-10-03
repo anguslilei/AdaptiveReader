@@ -158,3 +158,13 @@ cover default/prefixed/attribute-only/rebound/empty declarations and limits.
 No remedy rejected. Expanded attribute namespaces remain outside this WI.
 
 Gate2 round2 independent PASS, no open findings. See .claude/codex-audits/plan-feature-179-gate2-audit.md.
+
+## Gate3 executed RED
+
+Native Swift6 run37120195492 at495756d3b1865c2ec71278b05b388f2dc0369920
+compiles in10.93s;27 tests/3 suites fail82 issues on the unimplemented API.
+Behavioral RED precedes implementation; cancelled-worker probes remain bounded.
+Implementation adds worker-local Foundation delegate, mutable private drafts with
+in-place text append (no per-callback whole-text copy), final immutable values,
+pre-parser lexical security checks, namespace declaration accounting and forwarding
+notification test seam. Actual native GREEN and source audit remain pending.

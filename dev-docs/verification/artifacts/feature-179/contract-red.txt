@@ -1,0 +1,7 @@
+Source495756d3b1865c2ec71278b05b388f2dc0369920
+Own run: https://github.com/anguslilei/AdaptiveReader/actions/runs/37120195492
+Native Swift6 module compiled successfully: Build complete! (10.93s)
+27 tests in3 suites failed after25.410s with82 issues.
+Failure cause: unimplemented API / expected behavior absent; not a compiler-only RED.
+Bounded cancellation probes time out on stub instead of wedging; all parse assertions
+exercise real API calls. Concrete platform evidence is retained by own CI artifact.
