@@ -90,6 +90,18 @@ struct EPUBPackageDecoderTests {
         #expect(try await EPUBPackageFixture.decode(xml, paths: ["OPS/chapter.xhtml", "OPS/i.png"]).manifestItems.count == 2)
         await #expect(throws: EPUBSemanticPackageError.missingResource) { try await EPUBPackageFixture.decode(xml) }
     }
+    @Test func propertyXMLWhitespaceIncludesAdjacentCRLFReferences() async throws {
+        let p = try await EPUBPackageFixture.decode(EPUBPackageFixture.opf(items: EPUBPackageFixture.item(extra: "properties='a&#13;&#10;b'")))
+        #expect(p.manifestItems[0].properties == ["a", "b"])
+    }
+    @Test func validNestedWrappersCannotReplaceDirectWrappers() async {
+        let xml = EPUBPackageFixture.opf().replacingOccurrences(of: "<manifest>", with: "<wrapper><manifest>").replacingOccurrences(of: "</manifest>", with: "</manifest></wrapper>")
+        await #expect(throws: EPUBSemanticPackageError.invalidPackage) { try await EPUBPackageFixture.decode(xml) }
+        let c = EPUBPackageFixture.container().replacingOccurrences(of: "<rootfiles>", with: "<wrapper><rootfiles>").replacingOccurrences(of: "</rootfiles>", with: "</rootfiles></wrapper>")
+        await #expect(throws: EPUBSemanticPackageError.invalidContainer) {
+            try EPUBContainerDecoder.decode(document: await SemanticXMLParser.parse(Data(c.utf8)), catalog: EPUBPackageFixture.catalog())
+        }
+    }
     @Test func exactAndExceededIndependentBudgets() async throws {
         // Independently counted: packagePath12 + id1 + path17 + media21 = 51 UTF16 units.
         #expect(try await EPUBPackageFixture.decode(limits: .init(manifestItems: 1, spineEntries: 1, retainedUTF16: 51)).spine.count == 1)

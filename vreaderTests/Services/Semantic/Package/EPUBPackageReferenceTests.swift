@@ -35,6 +35,10 @@ struct EPUBPackageReferenceTests {
         // The same subset applies to rootfile URLs, relative to the archive root.
         #expect(throws: (any Error).self) { try EPUBPackageReference.rootfilePath(href) }
     }
+    @Test func separatorsRemainSeparatorsBeforeCombiningMarks() throws {
+        #expect(try EPUBPackageReference.resolve(href: "sub/\u{301}x/../a.xhtml", packagePath: "OPS/book.opf") == "OPS/sub/a.xhtml")
+        #expect(try EPUBPackageReference.resolve(href: "a.xhtml", packagePath: "OPS/\u{301}book.opf") == "OPS/a.xhtml")
+    }
     @Test func UnicodeAndCaseStayLiteral() throws {
         let a = try EPUBPackageReference.resolve(href: "é.xhtml", packagePath: "OPS/book.opf")
         let b = try EPUBPackageReference.resolve(href: "e\u{301}.xhtml", packagePath: "OPS/book.opf")

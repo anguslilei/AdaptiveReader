@@ -133,7 +133,7 @@ struct EPUBPackageLoaderTests {
             })
             let p = try await EPUBSemanticPackageLoader.load(fileURL: url, observation: observation)
             #expect(p.spine.count == 1 && p.packageSHA256 == "e5790a7af90ec4b308d87ac31c1d829f1527601100107b911f37a4fe4de92549")
-            await #expect(throws: EPUBSemanticSourceError.sourceChanged) { try await EPUBSemanticPackageLoader.load(fileURL: url, expectedArchiveSHA256: p.archiveSHA256) }
+            await #expect(throws: EPUBSemanticSourceError.integrityMismatch) { try await EPUBSemanticPackageLoader.load(fileURL: url, expectedArchiveSHA256: p.archiveSHA256) }
         }
     }
     @Test func deflatedMetadataUsesSameRealSubsystems() async throws {
