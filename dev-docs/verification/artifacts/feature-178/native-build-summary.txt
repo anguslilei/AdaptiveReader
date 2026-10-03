@@ -1,0 +1,16 @@
+Source4264feed0b360c5d2423ea227fc5ff3fa999c280
+Own run: https://github.com/anguslilei/AdaptiveReader/actions/runs/37110508591
+Artifact11270635550; ZIP SHA256 d31e7f6be2da67cf626f01329340f195f479d4e91b12f0d749e334f158279018
+Xcode26.3 (17C529), XcodeGen2.46.0; candidate3.67.10 (1052).
+iPhone17Pro arm64, iOS26.2 (23C54), macOS15.7.9 runner.
+Debug BUILD SUCCEEDED; Release BUILD SUCCEEDED.
+Wrapper exit0; RUN-TESTS RESULT: SUCCEEDED; completed xcresult Info.plist required.
+xcresult top-level: total126, passed126, failed0, skipped0.
+Parameterized device execution count151; not additional distinct tests.
+Swift Testing footer95 tests/12 suites; xcresult126 also includes XCTest.
+All3 new Semantic EPUB suites explicitly Passed in retained test-tree.json.
+Source URL NUL regression and valid literal%00/space/CJK path test passed.
+Repository retains actual summary/tree/wrapper and a digest manifest.
+Full raw test and Debug/Release logs remain in own CI artifact (7-day retention);
+this summary is an author-written digest, not a replacement full compiler log.
+Generated project.yml/project.pbxproj are copied verbatim in the version tail.

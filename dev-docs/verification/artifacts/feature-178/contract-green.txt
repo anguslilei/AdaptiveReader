@@ -1,0 +1,10 @@
+Source4264feed0b360c5d2423ea227fc5ff3fa999c280
+Own run: https://github.com/anguslilei/AdaptiveReader/actions/runs/37110508550
+Exact six production source files copied into native Swift6 strict-concurrency module.
+Build complete! (10.86s)
+Test run with 33 tests in 3 suites passed after 0.018 seconds.
+Includes real files/zlib, metadata/integrity/budget cases, deterministic worker-start
+and pre-publication cancellation, actual descriptor closure, source mutation,
+valid overlap rejection and once-decoded space/CJK/literal %00 paths.
+Earlier source7e19006/run37105061416 passed32; final source33 is recorded above.
+iOS integration evidence is recorded separately.

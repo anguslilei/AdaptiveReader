@@ -1,6 +1,6 @@
 # Feature #178 — native bounded EPUB source resource reader
 
-Status: PLANNED, Gate 2 PASS after 2 rounds. Baseline main95b5ec0 (PR #2→#1 merged at user request).
+Status: IN PROGRESS; Gate2 PASS2, Gate4 PASS3, foundational Gate5 passed. Baseline main95b5ec0 (PR #2→#1 merged at user request).
 Feature177 now merged; its reference algorithms and both compiler fixes are on main.
 
 ## Problem / scope
@@ -164,7 +164,8 @@ Resource cancellation tests cancel the calling task before the actual actor read
 Own run37103962526 atc8bb313eac4189ff0df66785d21a1b7dd7c59984 compiles the
 stub API/test harness with native Swift6, then29 tests fail74 assertions/errors
 because behavior is unimplemented. No compiler-only RED is claimed. Native CI
-is extended for this branch: boot simulator before building its active architecture,
+is extended for this branch: select the simulator UDID, compile Debug/Release,
+then boot the isolated simulator before tests,
 record generated3.67.10 (1052), Debug/Release and existing+new suites through the
 watchdog with aggregate xcresult checks. XML/OPF/CFI remain outside this WI.
 Limits are immutable configuration; validate() runs at the actual open/load
@@ -179,5 +180,34 @@ local-header overlap fixture; CI requires passed xcresult nodes for all3 new
 suites and zero skips; deterministic factory cancellation after worker start and
 before publication, plus changed-during-read rejection. Internal Sendable load
 observations are test synchronization seams; they do not supply alternate bytes
-or bypass actual IO/inflate. Re-review pending. Mac29 contracts GREEN at8e4f56e,
+or bypass actual IO/inflate. Round2 independent implementation PASS, no open findings. Mac29 contracts GREEN at8e4f56e,
 prior to these stronger regression tests; no iOS GREEN claim yet.
+
+
+Updated Mac source7e19006ce44fdf9d0650e9e5e1781d2d9da68933, own run37105061416:
+32 tests/3 suites pass including factory start/publication cancellation, actual
+close observation, source mutation and valid-overlap rejection. This historical
+Mac result is superseded by the final source validation below.
+
+## Final platform correction and Gate5 evidence
+
+Initial iOS validation of7e19006 built Debug/Release but failed one NUL-path
+typed-error expectation. The diagnostic run atc546b9f exposed `.ioFailure`
+instead of `.invalidSource` and hit its1200s deadline during xcresult finalization;
+the incomplete bundle is not positive evidence. Source4264fee decodes the encoded
+URL path once before NUL validation and uses that exact string in POSIX open.
+Both NUL URL forms and a real space/CJK/literal `%00` filename are exercised.
+Independent Gate4 round3 PASS, zero open findings. No round4 was needed.
+
+CI uses regular-file wrapper capture, preserves exit status, retains the full raw
+log and always harvests a completed result bundle. The isolated simulator boots
+after compiler stages; test watchdog1800s and job75min bound cold-build overhead.
+All compiler/test/result guards run. Final source4264feed0b360c5d2423ea227fc5ff3fa999c280:
+Mac33 tests/3 suites pass (run37110508550); iOS126 distinct tests pass, zero
+failures/skips, all three new suites explicitly Passed (run37110508591). Debug and
+Release pass using actual generated3.67.10 (1052), Xcode26.3/XcodeGen2.46.0 on
+iPhone17Pro iOS26.2. Parameterized device executions151 are not extra distinct
+tests. Foundational Gate5 is satisfied by actual file/zlib integration and audit.
+See [evidence](../verification/feature-178-20261003.md). Production semantic
+reader wiring, real-book compatibility, XML/package/source-map/CFI and AI remain
+separate work. The row stays IN PROGRESS until merge; no release/tag is created.

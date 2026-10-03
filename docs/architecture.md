@@ -882,3 +882,23 @@ resource identity and outputs reversible local selectors. These are not CFIs;
 no existing reader, anchor model, persistence or shipped dependency changes.
 Native adapter selection/build and real-book validation remain prerequisites;
 see the [target architecture](adaptive-reader/01-target-architecture.md).
+
+
+## AdaptiveReader semantic source foundation (feature178)
+
+`Services/Semantic/EPUB/EPUBSemanticResourceReader` is an independent actor that
+owns a bounded immutable archive snapshot, strict classic ZIP index and aggregate
+read budget. `open` loads/hashes one regular local file off the main actor; `read`
+returns original Data plus archive/resource SHA-256. The encoded file URL path
+is decoded once and checked for NUL before the same path reaches POSIX open. Stored/raw-DEFLATE extraction
+checks actual output, exact stream end/size and CRC; failures/cancellation close
+the session. Defaults cap archive64MiB, compressed resource8MiB, output4MiB,
+aggregate16MiB,4096 entries, ratio200; configuration only lowers these maxima.
+
+The utility has no production call site in import, EPUBParser, reader hosts or AI.
+Existing renderer/persistence/locators stay intact. This is a foundational byte
+boundary: XML/OPF/encoding/source maps/CFI and real-book corpus validation require
+separate work. Snapshot remains the pinned revision if its path changes after
+open. Strict subset rejects ZIP64/encrypted/symlink/CP437 and ambiguous paths.
+Plan: dev-docs/plans/20261003-feature-178-native-epub-source-reader.md; source
+reviews PASS and actual native verification tracked in dev-docs/verification/.

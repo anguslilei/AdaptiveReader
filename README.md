@@ -129,6 +129,12 @@ The [EPUB source reference prototype](dev-docs/prototypes/epub-semantics/README.
 is a Python developer CLI with strict byte/source validation tests; it is not
 integrated into the iOS or Android reader.
 
+The native [EPUB source reader](vreader/Services/Semantic/EPUB/EPUBSemanticResourceReader.swift)
+provides bounded immutable ZIP snapshots and integrity-checked original resource
+bytes for future semantic extraction. Run its native Swift6 contracts on macOS
+with `bash scripts/test-epub-source-contract.sh`. XML/manifest/source maps and
+reader integration are separate follow-up work.
+
 The native regression lane builds Debug and Release with the selected stable
 Xcode and runs targeted reader tests on an isolated simulator. The test wrapper
 `scripts/run-tests.sh` preserves a caller-supplied `DEVELOPER_DIR`, falling back

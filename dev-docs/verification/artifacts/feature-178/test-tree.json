@@ -1,0 +1,1338 @@
+{
+  "devices" : [
+    {
+      "architecture" : "arm64",
+      "deviceId" : "E952A9B0-CC78-435C-BF08-06AD47FE1076",
+      "deviceName" : "iPhone 17 Pro",
+      "modelName" : "iPhone 17 Pro",
+      "osBuildNumber" : "23C54",
+      "osVersion" : "26.2",
+      "platform" : "iOS Simulator"
+    }
+  ],
+  "testNodes" : [
+    {
+      "children" : [
+        {
+          "children" : [
+            {
+              "children" : [
+                {
+                  "duration" : "0.0081s",
+                  "durationInSeconds" : 0.008127093315124512,
+                  "name" : "test_nextAtLastPageOfOnlyChapter_bouncesAtEndOfBook()",
+                  "nodeIdentifier" : "EPUBChapterNavigationRouterTests/test_nextAtLastPageOfOnlyChapter_bouncesAtEndOfBook()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBChapterNavigationRouterTests/test_nextAtLastPageOfOnlyChapter_bouncesAtEndOfBook",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "0.0022s",
+                  "durationInSeconds" : 0.0021959543228149414,
+                  "name" : "test_nextFromLastPageOfFinalChapter_bouncesAtEndOfBook()",
+                  "nodeIdentifier" : "EPUBChapterNavigationRouterTests/test_nextFromLastPageOfFinalChapter_bouncesAtEndOfBook()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBChapterNavigationRouterTests/test_nextFromLastPageOfFinalChapter_bouncesAtEndOfBook",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "0.0018s",
+                  "durationInSeconds" : 0.0018310546875,
+                  "name" : "test_nextFromLastPageOfNonFinalChapter_wrapsToNextChapter()",
+                  "nodeIdentifier" : "EPUBChapterNavigationRouterTests/test_nextFromLastPageOfNonFinalChapter_wrapsToNextChapter()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBChapterNavigationRouterTests/test_nextFromLastPageOfNonFinalChapter_wrapsToNextChapter",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "0.00059s",
+                  "durationInSeconds" : 0.0005879402160644531,
+                  "name" : "test_nextFromMiddleOfChapter_resolvesToWithinChapter()",
+                  "nodeIdentifier" : "EPUBChapterNavigationRouterTests/test_nextFromMiddleOfChapter_resolvesToWithinChapter()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBChapterNavigationRouterTests/test_nextFromMiddleOfChapter_resolvesToWithinChapter",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "0.0022s",
+                  "durationInSeconds" : 0.0021800994873046875,
+                  "name" : "test_nextFromSinglePageChapter_isBothFirstAndLastPage()",
+                  "nodeIdentifier" : "EPUBChapterNavigationRouterTests/test_nextFromSinglePageChapter_isBothFirstAndLastPage()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBChapterNavigationRouterTests/test_nextFromSinglePageChapter_isBothFirstAndLastPage",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "0.0024s",
+                  "durationInSeconds" : 0.0024329423904418945,
+                  "name" : "test_nextWithEmptyBook_resolvesToBounceAtEndOfBook()",
+                  "nodeIdentifier" : "EPUBChapterNavigationRouterTests/test_nextWithEmptyBook_resolvesToBounceAtEndOfBook()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBChapterNavigationRouterTests/test_nextWithEmptyBook_resolvesToBounceAtEndOfBook",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "0.0019s",
+                  "durationInSeconds" : 0.0018879175186157227,
+                  "name" : "test_nextWithNegativeSpineIndex_treatsAsBounceNotWrap()",
+                  "nodeIdentifier" : "EPUBChapterNavigationRouterTests/test_nextWithNegativeSpineIndex_treatsAsBounceNotWrap()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBChapterNavigationRouterTests/test_nextWithNegativeSpineIndex_treatsAsBounceNotWrap",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "0.22s",
+                  "durationInSeconds" : 0.21941006183624268,
+                  "name" : "test_nextWithSpineIndexBeyondCount_treatsAsFinalChapter()",
+                  "nodeIdentifier" : "EPUBChapterNavigationRouterTests/test_nextWithSpineIndexBeyondCount_treatsAsFinalChapter()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBChapterNavigationRouterTests/test_nextWithSpineIndexBeyondCount_treatsAsFinalChapter",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "0.0018s",
+                  "durationInSeconds" : 0.0017540454864501953,
+                  "name" : "test_nextWithZeroTotalPages_resolvesToWithinChapter()",
+                  "nodeIdentifier" : "EPUBChapterNavigationRouterTests/test_nextWithZeroTotalPages_resolvesToWithinChapter()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBChapterNavigationRouterTests/test_nextWithZeroTotalPages_resolvesToWithinChapter",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "0.0011s",
+                  "durationInSeconds" : 0.001145005226135254,
+                  "name" : "test_previousAtFirstPageOfOnlyChapter_bouncesAtStartOfBook()",
+                  "nodeIdentifier" : "EPUBChapterNavigationRouterTests/test_previousAtFirstPageOfOnlyChapter_bouncesAtStartOfBook()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBChapterNavigationRouterTests/test_previousAtFirstPageOfOnlyChapter_bouncesAtStartOfBook",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "0.00075s",
+                  "durationInSeconds" : 0.0007460117340087891,
+                  "name" : "test_previousFromFirstPageOfInitialChapter_bouncesAtStartOfBook()",
+                  "nodeIdentifier" : "EPUBChapterNavigationRouterTests/test_previousFromFirstPageOfInitialChapter_bouncesAtStartOfBook()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBChapterNavigationRouterTests/test_previousFromFirstPageOfInitialChapter_bouncesAtStartOfBook",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "0.002s",
+                  "durationInSeconds" : 0.0020090341567993164,
+                  "name" : "test_previousFromFirstPageOfNonInitialChapter_wrapsToPreviousChapter()",
+                  "nodeIdentifier" : "EPUBChapterNavigationRouterTests/test_previousFromFirstPageOfNonInitialChapter_wrapsToPreviousChapter()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBChapterNavigationRouterTests/test_previousFromFirstPageOfNonInitialChapter_wrapsToPreviousChapter",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "0.001s",
+                  "durationInSeconds" : 0.000995039939880371,
+                  "name" : "test_previousFromMiddleOfChapter_resolvesToWithinChapter()",
+                  "nodeIdentifier" : "EPUBChapterNavigationRouterTests/test_previousFromMiddleOfChapter_resolvesToWithinChapter()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBChapterNavigationRouterTests/test_previousFromMiddleOfChapter_resolvesToWithinChapter",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "0.0005s",
+                  "durationInSeconds" : 0.0004990100860595703,
+                  "name" : "test_previousFromSinglePageChapter_isBothFirstAndLastPage()",
+                  "nodeIdentifier" : "EPUBChapterNavigationRouterTests/test_previousFromSinglePageChapter_isBothFirstAndLastPage()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBChapterNavigationRouterTests/test_previousFromSinglePageChapter_isBothFirstAndLastPage",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "0.12s",
+                  "durationInSeconds" : 0.11563801765441895,
+                  "name" : "test_previousWithEmptyBook_resolvesToBounceAtStartOfBook()",
+                  "nodeIdentifier" : "EPUBChapterNavigationRouterTests/test_previousWithEmptyBook_resolvesToBounceAtStartOfBook()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBChapterNavigationRouterTests/test_previousWithEmptyBook_resolvesToBounceAtStartOfBook",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "0.0011s",
+                  "durationInSeconds" : 0.0010750293731689453,
+                  "name" : "test_previousWithNegativeSpineIndex_treatsAsInitialChapter()",
+                  "nodeIdentifier" : "EPUBChapterNavigationRouterTests/test_previousWithNegativeSpineIndex_treatsAsInitialChapter()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBChapterNavigationRouterTests/test_previousWithNegativeSpineIndex_treatsAsInitialChapter",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "0.00087s",
+                  "durationInSeconds" : 0.000867009162902832,
+                  "name" : "test_previousWithSpineIndexEqualToCount_treatsAsBounceNotWrap()",
+                  "nodeIdentifier" : "EPUBChapterNavigationRouterTests/test_previousWithSpineIndexEqualToCount_treatsAsBounceNotWrap()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBChapterNavigationRouterTests/test_previousWithSpineIndexEqualToCount_treatsAsBounceNotWrap",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "0.0014s",
+                  "durationInSeconds" : 0.001416921615600586,
+                  "name" : "test_previousWithZeroTotalPages_resolvesToWithinChapter()",
+                  "nodeIdentifier" : "EPUBChapterNavigationRouterTests/test_previousWithZeroTotalPages_resolvesToWithinChapter()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBChapterNavigationRouterTests/test_previousWithZeroTotalPages_resolvesToWithinChapter",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                }
+              ],
+              "name" : "EPUBChapterNavigationRouterTests",
+              "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBChapterNavigationRouterTests",
+              "nodeType" : "Test Suite",
+              "result" : "Passed"
+            },
+            {
+              "children" : [
+                {
+                  "duration" : "0.00064s",
+                  "durationInSeconds" : 0.0006380081176757812,
+                  "name" : "test_armAndClear_clearsWithoutResolving()",
+                  "nodeIdentifier" : "EPUBChapterWrapPendingTargetTests/test_armAndClear_clearsWithoutResolving()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBChapterWrapPendingTargetTests/test_armAndClear_clearsWithoutResolving",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "0.0017s",
+                  "durationInSeconds" : 0.001659989356994629,
+                  "name" : "test_cancelBecauseUnrelatedNavigationStarted_dropsIntent()",
+                  "nodeIdentifier" : "EPUBChapterWrapPendingTargetTests/test_cancelBecauseUnrelatedNavigationStarted_dropsIntent()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBChapterWrapPendingTargetTests/test_cancelBecauseUnrelatedNavigationStarted_dropsIntent",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "0.014s",
+                  "durationInSeconds" : 0.013743042945861816,
+                  "name" : "test_cancelBecauseUnrelatedNavigationStarted_isIdempotentWhenUnarmed()",
+                  "nodeIdentifier" : "EPUBChapterWrapPendingTargetTests/test_cancelBecauseUnrelatedNavigationStarted_isIdempotentWhenUnarmed()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBChapterWrapPendingTargetTests/test_cancelBecauseUnrelatedNavigationStarted_isIdempotentWhenUnarmed",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "0.0023s",
+                  "durationInSeconds" : 0.002333998680114746,
+                  "name" : "test_clearAfterArm_consumeReturnsNilEvenWithValidTotalPages()",
+                  "nodeIdentifier" : "EPUBChapterWrapPendingTargetTests/test_clearAfterArm_consumeReturnsNilEvenWithValidTotalPages()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBChapterWrapPendingTargetTests/test_clearAfterArm_consumeReturnsNilEvenWithValidTotalPages",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "0.0014s",
+                  "durationInSeconds" : 0.001381993293762207,
+                  "name" : "test_consume_doesNotReArmForSubsequentChapterLoad()",
+                  "nodeIdentifier" : "EPUBChapterWrapPendingTargetTests/test_consume_doesNotReArmForSubsequentChapterLoad()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBChapterWrapPendingTargetTests/test_consume_doesNotReArmForSubsequentChapterLoad",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "0.0093s",
+                  "durationInSeconds" : 0.009315967559814453,
+                  "name" : "test_consume_returnsResolvedPageAndClears()",
+                  "nodeIdentifier" : "EPUBChapterWrapPendingTargetTests/test_consume_returnsResolvedPageAndClears()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBChapterWrapPendingTargetTests/test_consume_returnsResolvedPageAndClears",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "0.00058s",
+                  "durationInSeconds" : 0.0005789995193481445,
+                  "name" : "test_consumeWithNegativeTotalPages_returnsNil()",
+                  "nodeIdentifier" : "EPUBChapterWrapPendingTargetTests/test_consumeWithNegativeTotalPages_returnsNil()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBChapterWrapPendingTargetTests/test_consumeWithNegativeTotalPages_returnsNil",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "0.001s",
+                  "durationInSeconds" : 0.0010279417037963867,
+                  "name" : "test_consumeWithoutArming_returnsNil()",
+                  "nodeIdentifier" : "EPUBChapterWrapPendingTargetTests/test_consumeWithoutArming_returnsNil()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBChapterWrapPendingTargetTests/test_consumeWithoutArming_returnsNil",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "0.0011s",
+                  "durationInSeconds" : 0.0011290311813354492,
+                  "name" : "test_consumeWithSinglePage_returnsZero()",
+                  "nodeIdentifier" : "EPUBChapterWrapPendingTargetTests/test_consumeWithSinglePage_returnsZero()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBChapterWrapPendingTargetTests/test_consumeWithSinglePage_returnsZero",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "0.068s",
+                  "durationInSeconds" : 0.06800806522369385,
+                  "name" : "test_consumeWithZeroTotalPages_returnsNil()",
+                  "nodeIdentifier" : "EPUBChapterWrapPendingTargetTests/test_consumeWithZeroTotalPages_returnsNil()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBChapterWrapPendingTargetTests/test_consumeWithZeroTotalPages_returnsNil",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "0.00064s",
+                  "durationInSeconds" : 0.0006430149078369141,
+                  "name" : "test_doubleClear_isIdempotent()",
+                  "nodeIdentifier" : "EPUBChapterWrapPendingTargetTests/test_doubleClear_isIdempotent()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBChapterWrapPendingTargetTests/test_doubleClear_isIdempotent",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "0.00064s",
+                  "durationInSeconds" : 0.0006389617919921875,
+                  "name" : "test_initiallyHasNoPendingTarget()",
+                  "nodeIdentifier" : "EPUBChapterWrapPendingTargetTests/test_initiallyHasNoPendingTarget()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBChapterWrapPendingTargetTests/test_initiallyHasNoPendingTarget",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "0.00057s",
+                  "durationInSeconds" : 0.0005739927291870117,
+                  "name" : "test_setWantsLastPage_marksTrueOneShot()",
+                  "nodeIdentifier" : "EPUBChapterWrapPendingTargetTests/test_setWantsLastPage_marksTrueOneShot()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBChapterWrapPendingTargetTests/test_setWantsLastPage_marksTrueOneShot",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                }
+              ],
+              "name" : "EPUBChapterWrapPendingTargetTests",
+              "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBChapterWrapPendingTargetTests",
+              "nodeType" : "Test Suite",
+              "result" : "Passed"
+            },
+            {
+              "children" : [
+                {
+                  "duration" : "1s",
+                  "durationInSeconds" : 1,
+                  "name" : "close ends reading session",
+                  "nodeIdentifier" : "EPUBReaderViewModelCloseTests/closeEndsSession()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBReaderViewModelCloseTests/closeEndsSession()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "1s",
+                  "durationInSeconds" : 1,
+                  "name" : "close calls parser close",
+                  "nodeIdentifier" : "EPUBReaderViewModelCloseTests/closeCallsParser()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBReaderViewModelCloseTests/closeCallsParser()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "1s",
+                  "durationInSeconds" : 1,
+                  "name" : "close saves final position",
+                  "nodeIdentifier" : "EPUBReaderViewModelCloseTests/closeSavesPosition()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBReaderViewModelCloseTests/closeSavesPosition()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                }
+              ],
+              "name" : "EPUBReaderViewModel - Close",
+              "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBReaderViewModelCloseTests",
+              "nodeType" : "Test Suite",
+              "result" : "Passed"
+            },
+            {
+              "children" : [
+                {
+                  "name" : "invalidHardLimits()",
+                  "nodeIdentifier" : "EPUBSourceBudgetTests/invalidHardLimits()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBSourceBudgetTests/invalidHardLimits()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "declaredArchiveEntryResourceAndRatioLimits()",
+                  "nodeIdentifier" : "EPUBSourceBudgetTests/declaredArchiveEntryResourceAndRatioLimits()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBSourceBudgetTests/declaredArchiveEntryResourceAndRatioLimits()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "dishonestActualOutputLimitAndSize()",
+                  "nodeIdentifier" : "EPUBSourceBudgetTests/dishonestActualOutputLimitAndSize()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBSourceBudgetTests/dishonestActualOutputLimitAndSize()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "repeatedReadsChargeAggregateAndFailureCloses()",
+                  "nodeIdentifier" : "EPUBSourceBudgetTests/repeatedReadsChargeAggregateAndFailureCloses()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBSourceBudgetTests/repeatedReadsChargeAggregateAndFailureCloses()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "truncatedCorruptAndTrailingDeflate()",
+                  "nodeIdentifier" : "EPUBSourceBudgetTests/truncatedCorruptAndTrailingDeflate()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBSourceBudgetTests/truncatedCorruptAndTrailingDeflate()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "cancelledOpenAndReadNeverPublish()",
+                  "nodeIdentifier" : "EPUBSourceBudgetTests/cancelledOpenAndReadNeverPublish()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBSourceBudgetTests/cancelledOpenAndReadNeverPublish()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "midSnapshotCancellationClosesActualDescriptor()",
+                  "nodeIdentifier" : "EPUBSourceBudgetTests/midSnapshotCancellationClosesActualDescriptor()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBSourceBudgetTests/midSnapshotCancellationClosesActualDescriptor()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "nonregularAndFinalSymlinkSourcesRejected()",
+                  "nodeIdentifier" : "EPUBSourceBudgetTests/nonregularAndFinalSymlinkSourcesRejected()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBSourceBudgetTests/nonregularAndFinalSymlinkSourcesRejected()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "fileURLNULMustNotSelectAnExistingPrefix()",
+                  "nodeIdentifier" : "EPUBSourceBudgetTests/fileURLNULMustNotSelectAnExistingPrefix()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBSourceBudgetTests/fileURLNULMustNotSelectAnExistingPrefix()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "percentEncodedSourcePathsAreDecodedOnce()",
+                  "nodeIdentifier" : "EPUBSourceBudgetTests/percentEncodedSourcePathsAreDecodedOnce()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBSourceBudgetTests/percentEncodedSourcePathsAreDecodedOnce()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "changedDuringSnapshotReadIsRejected()",
+                  "nodeIdentifier" : "EPUBSourceBudgetTests/changedDuringSnapshotReadIsRejected()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBSourceBudgetTests/changedDuringSnapshotReadIsRejected()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "children" : [
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : ".open",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : ".publication",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    }
+                  ],
+                  "name" : "cancellationAfterWorkerStarts(_:)",
+                  "nodeIdentifier" : "EPUBSourceBudgetTests/cancellationAfterWorkerStarts(_:)",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBSourceBudgetTests/cancellationAfterWorkerStarts(_:)",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                }
+              ],
+              "name" : "Semantic EPUB budgets and cancellation",
+              "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBSourceBudgetTests",
+              "nodeType" : "Test Suite",
+              "result" : "Passed"
+            },
+            {
+              "children" : [
+                {
+                  "duration" : "1s",
+                  "durationInSeconds" : 1,
+                  "name" : "dispatchRoutesThroughReaderEngineResolve()",
+                  "nodeIdentifier" : "ReaderContainerViewEngineDispatchTests/dispatchRoutesThroughReaderEngineResolve()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/ReaderContainerViewEngineDispatchTests/dispatchRoutesThroughReaderEngineResolve()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "readerUnifiedDispatchFileIsDeleted()",
+                  "nodeIdentifier" : "ReaderContainerViewEngineDispatchTests/readerUnifiedDispatchFileIsDeleted()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/ReaderContainerViewEngineDispatchTests/readerUnifiedDispatchFileIsDeleted()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "engineReaderViewMapsEachEngineCaseToItsHost()",
+                  "nodeIdentifier" : "ReaderContainerViewEngineDispatchTests/engineReaderViewMapsEachEngineCaseToItsHost()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/ReaderContainerViewEngineDispatchTests/engineReaderViewMapsEachEngineCaseToItsHost()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "unifiedPlaceholderViewFileIsDeleted()",
+                  "nodeIdentifier" : "ReaderContainerViewEngineDispatchTests/unifiedPlaceholderViewFileIsDeleted()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/ReaderContainerViewEngineDispatchTests/unifiedPlaceholderViewFileIsDeleted()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "engineDispatchReadsCanonicalFingerprintFormat()",
+                  "nodeIdentifier" : "ReaderContainerViewEngineDispatchTests/engineDispatchReadsCanonicalFingerprintFormat()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/ReaderContainerViewEngineDispatchTests/engineDispatchReadsCanonicalFingerprintFormat()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "dispatchDoesNotBranchOnReadingMode()",
+                  "nodeIdentifier" : "ReaderContainerViewEngineDispatchTests/dispatchDoesNotBranchOnReadingMode()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/ReaderContainerViewEngineDispatchTests/dispatchDoesNotBranchOnReadingMode()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "fingerprintErrorViewMovedIntoContainer()",
+                  "nodeIdentifier" : "ReaderContainerViewEngineDispatchTests/fingerprintErrorViewMovedIntoContainer()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/ReaderContainerViewEngineDispatchTests/fingerprintErrorViewMovedIntoContainer()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "unsupportedFormatViewMovedIntoContainer()",
+                  "nodeIdentifier" : "ReaderContainerViewEngineDispatchTests/unsupportedFormatViewMovedIntoContainer()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/ReaderContainerViewEngineDispatchTests/unsupportedFormatViewMovedIntoContainer()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "everyBookFormatResolvesToItsExpectedEngine()",
+                  "nodeIdentifier" : "ReaderContainerViewEngineDispatchTests/everyBookFormatResolvesToItsExpectedEngine()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/ReaderContainerViewEngineDispatchTests/everyBookFormatResolvesToItsExpectedEngine()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "unifiedReaderViewDispatchIsRemoved()",
+                  "nodeIdentifier" : "ReaderContainerViewEngineDispatchTests/unifiedReaderViewDispatchIsRemoved()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/ReaderContainerViewEngineDispatchTests/unifiedReaderViewDispatchIsRemoved()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "engineResolutionIsTotalOverBookFormat()",
+                  "nodeIdentifier" : "ReaderContainerViewEngineDispatchTests/engineResolutionIsTotalOverBookFormat()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/ReaderContainerViewEngineDispatchTests/engineResolutionIsTotalOverBookFormat()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                }
+              ],
+              "name" : "ReaderContainerView engine dispatch (feature #54 WI-3)",
+              "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/ReaderContainerViewEngineDispatchTests",
+              "nodeType" : "Test Suite",
+              "result" : "Passed"
+            },
+            {
+              "children" : [
+                {
+                  "name" : "rapid position updates don't crash",
+                  "nodeIdentifier" : "EPUBReaderViewModelEdgeCaseTests/rapidPositionUpdates()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBReaderViewModelEdgeCaseTests/rapidPositionUpdates()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "close without open is safe",
+                  "nodeIdentifier" : "EPUBReaderViewModelEdgeCaseTests/closeWithoutOpen()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBReaderViewModelEdgeCaseTests/closeWithoutOpen()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "updatePosition before open is safe",
+                  "nodeIdentifier" : "EPUBReaderViewModelEdgeCaseTests/updatePositionBeforeOpen()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBReaderViewModelEdgeCaseTests/updatePositionBeforeOpen()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "close without position change reports no error",
+                  "nodeIdentifier" : "EPUBReaderViewModelEdgeCaseTests/closeWithoutPositionChange()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBReaderViewModelEdgeCaseTests/closeWithoutPositionChange()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "second open call re-initializes state",
+                  "nodeIdentifier" : "EPUBReaderViewModelEdgeCaseTests/secondOpenReinitializes()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBReaderViewModelEdgeCaseTests/secondOpenReinitializes()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                }
+              ],
+              "name" : "EPUBReaderViewModel - Edge Cases",
+              "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBReaderViewModelEdgeCaseTests",
+              "nodeType" : "Test Suite",
+              "result" : "Passed"
+            },
+            {
+              "children" : [
+                {
+                  "name" : "open updates lastOpenedAt",
+                  "nodeIdentifier" : "EPUBReaderViewModelOpenTests/openUpdatesLastOpened()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBReaderViewModelOpenTests/openUpdatesLastOpened()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "open with fixed layout metadata succeeds",
+                  "nodeIdentifier" : "EPUBReaderViewModelOpenTests/openFixedLayout()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBReaderViewModelOpenTests/openFixedLayout()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "open starts reading session",
+                  "nodeIdentifier" : "EPUBReaderViewModelOpenTests/openStartsSession()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBReaderViewModelOpenTests/openStartsSession()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "open with RTL metadata succeeds",
+                  "nodeIdentifier" : "EPUBReaderViewModelOpenTests/openRTL()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBReaderViewModelOpenTests/openRTL()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "open loads metadata and sets initial position",
+                  "nodeIdentifier" : "EPUBReaderViewModelOpenTests/openLoadsMetadata()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBReaderViewModelOpenTests/openLoadsMetadata()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "open restores saved position",
+                  "nodeIdentifier" : "EPUBReaderViewModelOpenTests/openRestoresPosition()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBReaderViewModelOpenTests/openRestoresPosition()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "open with empty spine sets nil position",
+                  "nodeIdentifier" : "EPUBReaderViewModelOpenTests/openEmptySpine()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBReaderViewModelOpenTests/openEmptySpine()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "open handles invalid format error",
+                  "nodeIdentifier" : "EPUBReaderViewModelOpenTests/openHandlesInvalidFormat()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBReaderViewModelOpenTests/openHandlesInvalidFormat()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "open handles parser error",
+                  "nodeIdentifier" : "EPUBReaderViewModelOpenTests/openHandlesError()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBReaderViewModelOpenTests/openHandlesError()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                }
+              ],
+              "name" : "EPUBReaderViewModel - Open",
+              "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBReaderViewModelOpenTests",
+              "nodeType" : "Test Suite",
+              "result" : "Passed"
+            },
+            {
+              "children" : [
+                {
+                  "name" : "currentBlocks reflects the last updateBlocks call",
+                  "nodeIdentifier" : "EPUBBilingualOrchestratorTests/currentBlocksObservable()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBBilingualOrchestratorTests/currentBlocksObservable()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "buildInjectJS is nil on a count mismatch — source-only, never a wrong pairing (Bug #266)",
+                  "nodeIdentifier" : "EPUBBilingualOrchestratorTests/buildInjectJSMismatchIsSourceOnly()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBBilingualOrchestratorTests/buildInjectJSMismatchIsSourceOnly()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "buildInjectJS returns nil when translation array is empty",
+                  "nodeIdentifier" : "EPUBBilingualOrchestratorTests/buildInjectJSEmptyTranslations()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBBilingualOrchestratorTests/buildInjectJSEmptyTranslations()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "updateBlocks replaces prior blocks",
+                  "nodeIdentifier" : "EPUBBilingualOrchestratorTests/updateBlocksReplaces()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBBilingualOrchestratorTests/updateBlocksReplaces()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "buildInjectJS returns nil when no translations are cached",
+                  "nodeIdentifier" : "EPUBBilingualOrchestratorTests/buildInjectJSNoTranslations()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBBilingualOrchestratorTests/buildInjectJSNoTranslations()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "targetIsCJK flows into buildLoadingJS and buildInjectJS",
+                  "nodeIdentifier" : "EPUBBilingualOrchestratorTests/cjkFlagFlowsIntoBuilders()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBBilingualOrchestratorTests/cjkFlagFlowsIntoBuilders()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "buildInjectJS produces JS containing every block's bid",
+                  "nodeIdentifier" : "EPUBBilingualOrchestratorTests/buildInjectJSContainsBidKeys()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBBilingualOrchestratorTests/buildInjectJSContainsBidKeys()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "emitted enumerate JS is exactly EPUBBilingualJS.bilingualEnumerateJS()",
+                  "nodeIdentifier" : "EPUBBilingualOrchestratorTests/enumerateJSMatchesProducer()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBBilingualOrchestratorTests/enumerateJSMatchesProducer()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "clear JS emits the bilingualClearJS payload",
+                  "nodeIdentifier" : "EPUBBilingualOrchestratorTests/clearJSMatchesProducer()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBBilingualOrchestratorTests/clearJSMatchesProducer()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "buildInjectJS returns nil when no blocks are known",
+                  "nodeIdentifier" : "EPUBBilingualOrchestratorTests/buildInjectJSNoBlocks()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBBilingualOrchestratorTests/buildInjectJSNoBlocks()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                }
+              ],
+              "name" : "Feature #56 WI-10 — EPUBBilingualOrchestrator",
+              "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBBilingualOrchestratorTests",
+              "nodeType" : "Test Suite",
+              "result" : "Passed"
+            },
+            {
+              "children" : [
+                {
+                  "name" : "viewModel.close closes the parser — explains why an inappropriate close kills resourceBaseURL",
+                  "nodeIdentifier" : "EPUBReaderHostLifecycleTests/case2_closeClosesParser_explainsWhyInnerOnDisappearMustNotCallIt()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBReaderHostLifecycleTests/case2_closeClosesParser_explainsWhyInnerOnDisappearMustNotCallIt()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "a fresh viewModel can open after a previous one closed",
+                  "nodeIdentifier" : "EPUBReaderHostLifecycleTests/case3_freshViewModelOpens_afterPreviousClosed()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBReaderHostLifecycleTests/case3_freshViewModelOpens_afterPreviousClosed()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "viewModel.open succeeds again after viewModel.close on the same instance",
+                  "nodeIdentifier" : "EPUBReaderHostLifecycleTests/case4_sameViewModelReOpens_afterClose()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBReaderHostLifecycleTests/case4_sameViewModelReOpens_afterClose()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "after viewModel.open succeeds, parser exposes its directories",
+                  "nodeIdentifier" : "EPUBReaderHostLifecycleTests/case1_openSucceeds_parserExposesDirectories()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBReaderHostLifecycleTests/case1_openSucceeds_parserExposesDirectories()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                }
+              ],
+              "name" : "EPUBReaderHost lifecycle (bug #252 / GH #1089)",
+              "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBReaderHostLifecycleTests",
+              "nodeType" : "Test Suite",
+              "result" : "Passed"
+            },
+            {
+              "children" : [
+                {
+                  "name" : "onForeground resumes session tracker",
+                  "nodeIdentifier" : "EPUBReaderViewModelLifecycleTests/onForegroundResumes()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBReaderViewModelLifecycleTests/onForegroundResumes()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "onBackground saves position and pauses",
+                  "nodeIdentifier" : "EPUBReaderViewModelLifecycleTests/onBackgroundPauses()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBReaderViewModelLifecycleTests/onBackgroundPauses()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                }
+              ],
+              "name" : "EPUBReaderViewModel - Background/Foreground",
+              "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBReaderViewModelLifecycleTests",
+              "nodeType" : "Test Suite",
+              "result" : "Passed"
+            },
+            {
+              "children" : [
+                {
+                  "name" : "storedBytesAndIndependentDigests()",
+                  "nodeIdentifier" : "EPUBSemanticResourceReaderTests/storedBytesAndIndependentDigests()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBSemanticResourceReaderTests/storedBytesAndIndependentDigests()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "children" : [
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"7bb277c1d3a57b3fcc9fd90400\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"0300\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"cb48cdc9c90700\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    }
+                  ],
+                  "name" : "deflatedRealBytes(_:)",
+                  "nodeIdentifier" : "EPUBSemanticResourceReaderTests/deflatedRealBytes(_:)",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBSemanticResourceReaderTests/deflatedRealBytes(_:)",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "unicodeNamesAndEmptyStoredResource()",
+                  "nodeIdentifier" : "EPUBSemanticResourceReaderTests/unicodeNamesAndEmptyStoredResource()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBSemanticResourceReaderTests/unicodeNamesAndEmptyStoredResource()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "snapshotSurvivesPathReplacementAndIndependentRevision()",
+                  "nodeIdentifier" : "EPUBSemanticResourceReaderTests/snapshotSurvivesPathReplacementAndIndependentRevision()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBSemanticResourceReaderTests/snapshotSurvivesPathReplacementAndIndependentRevision()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "expectedDigestAndCloseFailureLifecycle()",
+                  "nodeIdentifier" : "EPUBSemanticResourceReaderTests/expectedDigestAndCloseFailureLifecycle()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBSemanticResourceReaderTests/expectedDigestAndCloseFailureLifecycle()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "failedReadClosesSession()",
+                  "nodeIdentifier" : "EPUBSemanticResourceReaderTests/failedReadClosesSession()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBSemanticResourceReaderTests/failedReadClosesSession()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "descriptorVariants()",
+                  "nodeIdentifier" : "EPUBSemanticResourceReaderTests/descriptorVariants()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBSemanticResourceReaderTests/descriptorVariants()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "unsignedDescriptorCRCEqualsMagicIsParsedWithoutGuessing()",
+                  "nodeIdentifier" : "EPUBSemanticResourceReaderTests/unsignedDescriptorCRCEqualsMagicIsParsedWithoutGuessing()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBSemanticResourceReaderTests/unsignedDescriptorCRCEqualsMagicIsParsedWithoutGuessing()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                }
+              ],
+              "name" : "Semantic EPUB resources",
+              "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBSemanticResourceReaderTests",
+              "nodeType" : "Test Suite",
+              "result" : "Passed"
+            },
+            {
+              "children" : [
+                {
+                  "name" : "resolve_md_isMarkdownNative()",
+                  "nodeIdentifier" : "ReaderEngineTests/resolve_md_isMarkdownNative()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/ReaderEngineTests/resolve_md_isMarkdownNative()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "hashable_usableInSet()",
+                  "nodeIdentifier" : "ReaderEngineTests/hashable_usableInSet()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/ReaderEngineTests/hashable_usableInSet()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "resolve_epub_isEPUBWKWebView()",
+                  "nodeIdentifier" : "ReaderEngineTests/resolve_epub_isEPUBWKWebView()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/ReaderEngineTests/resolve_epub_isEPUBWKWebView()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "resolve_coversEveryBookFormat()",
+                  "nodeIdentifier" : "ReaderEngineTests/resolve_coversEveryBookFormat()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/ReaderEngineTests/resolve_coversEveryBookFormat()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "sendable_compiles()",
+                  "nodeIdentifier" : "ReaderEngineTests/sendable_compiles()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/ReaderEngineTests/sendable_compiles()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "rawValues_areStable()",
+                  "nodeIdentifier" : "ReaderEngineTests/rawValues_areStable()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/ReaderEngineTests/rawValues_areStable()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "caseIterable_containsAllExpectedCases()",
+                  "nodeIdentifier" : "ReaderEngineTests/caseIterable_containsAllExpectedCases()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/ReaderEngineTests/caseIterable_containsAllExpectedCases()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "resolve_azw3_isFoliateWeb()",
+                  "nodeIdentifier" : "ReaderEngineTests/resolve_azw3_isFoliateWeb()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/ReaderEngineTests/resolve_azw3_isFoliateWeb()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "caseIterable_hasSixCases()",
+                  "nodeIdentifier" : "ReaderEngineTests/caseIterable_hasSixCases()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/ReaderEngineTests/caseIterable_hasSixCases()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "resolve_pdf_isPDFKit()",
+                  "nodeIdentifier" : "ReaderEngineTests/resolve_pdf_isPDFKit()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/ReaderEngineTests/resolve_pdf_isPDFKit()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "resolve_txt_isTextNative()",
+                  "nodeIdentifier" : "ReaderEngineTests/resolve_txt_isTextNative()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/ReaderEngineTests/resolve_txt_isTextNative()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "initFromRawValue_roundTrips()",
+                  "nodeIdentifier" : "ReaderEngineTests/initFromRawValue_roundTrips()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/ReaderEngineTests/initFromRawValue_roundTrips()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                }
+              ],
+              "name" : "ReaderEngine",
+              "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/ReaderEngineTests",
+              "nodeType" : "Test Suite",
+              "result" : "Passed"
+            },
+            {
+              "children" : [
+                {
+                  "name" : "eocdAccountingAndDiskMismatch()",
+                  "nodeIdentifier" : "EPUBSourceZIPValidationTests/eocdAccountingAndDiskMismatch()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBSourceZIPValidationTests/eocdAccountingAndDiskMismatch()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "duplicatesAndUnicodeEquivalentNames()",
+                  "nodeIdentifier" : "EPUBSourceZIPValidationTests/duplicatesAndUnicodeEquivalentNames()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBSourceZIPValidationTests/duplicatesAndUnicodeEquivalentNames()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "unsupportedMethodSymlinkAndUnflaggedUnicode()",
+                  "nodeIdentifier" : "EPUBSourceZIPValidationTests/unsupportedMethodSymlinkAndUnflaggedUnicode()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBSourceZIPValidationTests/unsupportedMethodSymlinkAndUnflaggedUnicode()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "wrongStoredCRCClosesReader()",
+                  "nodeIdentifier" : "EPUBSourceZIPValidationTests/wrongStoredCRCClosesReader()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBSourceZIPValidationTests/wrongStoredCRCClosesReader()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "corruptDescriptor()",
+                  "nodeIdentifier" : "EPUBSourceZIPValidationTests/corruptDescriptor()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBSourceZIPValidationTests/corruptDescriptor()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "falseEOCDInsideComment()",
+                  "nodeIdentifier" : "EPUBSourceZIPValidationTests/falseEOCDInsideComment()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBSourceZIPValidationTests/falseEOCDInsideComment()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "localNameMismatchOverlapAndMissingDescriptor()",
+                  "nodeIdentifier" : "EPUBSourceZIPValidationTests/localNameMismatchOverlapAndMissingDescriptor()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBSourceZIPValidationTests/localNameMismatchOverlapAndMissingDescriptor()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "malformedExtraAndDirectoryPayload()",
+                  "nodeIdentifier" : "EPUBSourceZIPValidationTests/malformedExtraAndDirectoryPayload()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBSourceZIPValidationTests/malformedExtraAndDirectoryPayload()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "children" : [
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "1",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "16",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "64",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "256",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "8192",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    }
+                  ],
+                  "name" : "unsupportedFlags(_:)",
+                  "nodeIdentifier" : "EPUBSourceZIPValidationTests/unsupportedFlags(_:)",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBSourceZIPValidationTests/unsupportedFlags(_:)",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "children" : [
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"../x\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"./x\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"/x\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"a",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"a/../x\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"a//b\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"a\\b\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"C:/x\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    }
+                  ],
+                  "name" : "unsafePaths(_:)",
+                  "nodeIdentifier" : "EPUBSourceZIPValidationTests/unsafePaths(_:)",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBSourceZIPValidationTests/unsafePaths(_:)",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "children" : [
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "6",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "8",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "14",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "18",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "22",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    }
+                  ],
+                  "name" : "localMetadataMismatch(_:)",
+                  "nodeIdentifier" : "EPUBSourceZIPValidationTests/localMetadataMismatch(_:)",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBSourceZIPValidationTests/localMetadataMismatch(_:)",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "children" : [
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "0",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "1",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "21",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "30",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "50",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    }
+                  ],
+                  "name" : "truncation(_:)",
+                  "nodeIdentifier" : "EPUBSourceZIPValidationTests/truncation(_:)",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBSourceZIPValidationTests/truncation(_:)",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "children" : [
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "1",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "8",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "28789",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    }
+                  ],
+                  "name" : "unsupportedExtraFields(_:)",
+                  "nodeIdentifier" : "EPUBSourceZIPValidationTests/unsupportedExtraFields(_:)",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBSourceZIPValidationTests/unsupportedExtraFields(_:)",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                }
+              ],
+              "name" : "Semantic EPUB ZIP grammar",
+              "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBSourceZIPValidationTests",
+              "nodeType" : "Test Suite",
+              "result" : "Passed"
+            },
+            {
+              "children" : [
+                {
+                  "name" : "navigateNext does nothing at last chapter",
+                  "nodeIdentifier" : "EPUBReaderViewModelNavigationTests/navigateNextAtEnd()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBReaderViewModelNavigationTests/navigateNextAtEnd()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "navigateToSpine updates position",
+                  "nodeIdentifier" : "EPUBReaderViewModelNavigationTests/navigateToSpine()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBReaderViewModelNavigationTests/navigateToSpine()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "navigatePrevious does nothing at first chapter",
+                  "nodeIdentifier" : "EPUBReaderViewModelNavigationTests/navigatePreviousAtStart()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBReaderViewModelNavigationTests/navigatePreviousAtStart()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "navigateToSpine ignores negative index",
+                  "nodeIdentifier" : "EPUBReaderViewModelNavigationTests/navigateNegativeIndex()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBReaderViewModelNavigationTests/navigateNegativeIndex()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "navigateNext moves to next spine item",
+                  "nodeIdentifier" : "EPUBReaderViewModelNavigationTests/navigateNext()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBReaderViewModelNavigationTests/navigateNext()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "navigateToSpine ignores out-of-bounds index",
+                  "nodeIdentifier" : "EPUBReaderViewModelNavigationTests/navigateOutOfBounds()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBReaderViewModelNavigationTests/navigateOutOfBounds()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                }
+              ],
+              "name" : "EPUBReaderViewModel - Navigation",
+              "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBReaderViewModelNavigationTests",
+              "nodeType" : "Test Suite",
+              "result" : "Passed"
+            }
+          ],
+          "name" : "vreaderTests",
+          "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests",
+          "nodeType" : "Unit test bundle",
+          "result" : "Passed"
+        }
+      ],
+      "name" : "All",
+      "nodeType" : "Test Plan",
+      "result" : "Passed"
+    }
+  ],
+  "testPlanConfigurations" : [
+    {
+      "configurationId" : "1",
+      "configurationName" : "All"
+    }
+  ]
+}
