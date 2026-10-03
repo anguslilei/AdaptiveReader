@@ -129,6 +129,12 @@ The [EPUB source reference prototype](dev-docs/prototypes/epub-semantics/README.
 is a Python developer CLI with strict byte/source validation tests; it is not
 integrated into the iOS or Android reader.
 
+The native regression lane builds Debug and Release with the selected stable
+Xcode and runs targeted reader tests on an isolated simulator. The test wrapper
+`scripts/run-tests.sh` preserves a caller-supplied `DEVELOPER_DIR`, falling back
+to `Xcode.app` when unset or empty. Boot a simulator before local native tests;
+CI checks that result bundles contain executed passing tests.
+
 ## Tech Stack
 
 | Component   | Technology                                                                                      |

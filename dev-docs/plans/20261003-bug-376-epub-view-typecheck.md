@@ -1,4 +1,4 @@
-# Bug #376: EPUB reader expression fails native compilation
+# Bug #376: reader container expressions fail native compilation
 
 Branch `fix/376-epub-view-typecheck`, stacked on feature177 at
 `328ff01bf4d336fdd9961e7bd10ab9f7d2bae803`. No dependency on the prototype's
@@ -22,7 +22,7 @@ compiler evidence; decomposing into opaque view expressions is the tested remedy
 
 ## Minimal change
 
-Split the single expression into five private `some View` computed properties
+Split the EPUB expression into four private `some View` computed properties plus body
 within the same struct/file: base lifecycle, navigation, annotations,
 appearance/layout and final bilingual/debug body. Keep the same modifier order,
 closures, State storage, access controls, DEBUG conditionals and accessibility
@@ -83,3 +83,13 @@ existing body with search setup and task/probe disappearance/DEBUG registration.
 Every closure, order and conditional remains verbatim. No extra containers or
 state extraction. Independent scope review and final implementation comparison
 must cover both views. Baseline compiler evidence now includes the second run.
+
+## Candidate verification outcome
+
+Own run37090899757 at07c27cdcf1032b473ddf8eedd41bbfdbfc3a34ae passes Debug,
+Release and 93 related native tests (zero failures/skips), with Xcode26.3 /17C529
+and iPhone17Pro /iOS26.2. Independent expanded plan and implementation audits
+PASS after3 rounds. The candidate's actual XcodeGen2.46.0 version pair3.67.9
+(1051) is copied into the final version-only commit. Evidence and precise scope
+are in dev-docs/verification/bug-376-20261003.md. Draft submission is separate
+from the merge gate; the tracker remains IN PROGRESS until merged.

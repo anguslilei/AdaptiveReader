@@ -1,0 +1,16 @@
+Own native run: https://github.com/anguslilei/AdaptiveReader/actions/runs/37090899757
+Source input: 07c27cdcf1032b473ddf8eedd41bbfdbfc3a34ae
+Artifact: 11263711611 (native-reader-07c27cdcf1032b473ddf8eedd41bbfdbfc3a34ae)
+Xcode: 26.3, build 17C529 (same compiler for builds and tests)
+XcodeGen: 2.46.0
+Generated candidate: 3.67.9 (1051)
+Runner: macOS 15.7.9
+Simulator: iPhone 17 Pro, arm64, iOS 26.2 (23C54)
+Debug: BUILD SUCCEEDED
+Release: BUILD SUCCEEDED
+Wrapper: RUN-TESTS RESULT: SUCCEEDED
+xcresult: total 93, passed 93, failed 0, skipped 0, expected failures 0
+Selected filters: 11 related EPUB/reader suite types
+Audit: plan Gate 2 and implementation Gate 4 PASS after 3 rounds
+project.yml SHA-256: c4b1b5a12864295814fc167113f7d02d07366f5829cd75767ed8ba177b3aa17d
+project.pbxproj SHA-256: fdc72f80977d5f3ee4090183f5bbda208880954156528bd5800144102c8bea1a
