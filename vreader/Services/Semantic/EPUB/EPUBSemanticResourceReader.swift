@@ -53,4 +53,8 @@ actor EPUBSemanticResourceReader {
         }
     }
     func close() { snapshot = nil; index.removeAll(keepingCapacity: false) }
+
+    func catalog() throws -> EPUBSemanticResourceCatalog {
+        throw EPUBSemanticSourceError.closed // Behavioral RED stub.
+    }
 }
