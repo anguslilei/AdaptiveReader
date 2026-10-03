@@ -73,8 +73,6 @@ enum SemanticXMLPreflight {
     private static func after(_ bytes: [UInt8], start: Int, end: [UInt8],
                               check: @Sendable () throws -> Void) throws -> Int {
         var i = start
-        var tags: [SemanticXMLStartTag] = []
-        var lexicalUnits = 0
         while i < bytes.count {
             if i % 4096 == 0 { try check() }
             if matches(bytes, end, at: i) { return i + end.count }
