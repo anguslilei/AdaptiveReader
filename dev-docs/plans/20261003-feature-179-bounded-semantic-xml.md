@@ -168,3 +168,15 @@ Implementation adds worker-local Foundation delegate, mutable private drafts wit
 in-place text append (no per-callback whole-text copy), final immutable values,
 pre-parser lexical security checks, namespace declaration accounting and forwarding
 notification test seam. Actual native GREEN and source audit remain pending.
+
+## Native implementation refinement
+
+First Mac implementation run37120549878 compiles and runs all27 tests, but fails
+four assertions: Foundation accepts undeclared element/attribute prefixes, and
+its resolver callback for unknown references was classified as forbiddenDTD
+instead of invalidXML. No GREEN claim. Add explicit qualified-name/reserved-prefix/
+expanded-attribute-uniqueness validation in SemanticXMLNamespace.swift; it only
+validates attributes, without adding expanded names to the output contract.
+DTD declarations remain rejected before parsing; undeclared references are
+malformed XML. Namespace regressions expanded to reserved/rebound aliases and
+duplicate expanded attributes. The actual failing original tests remain intact.

@@ -63,6 +63,7 @@ final class SemanticXMLBuilder: NSObject, XMLParserDelegate {
 
     func parser(_ parser: XMLParser, didStartMappingPrefix prefix: String, toURI namespaceURI: String) {
         event(parser) {
+            try SemanticXMLNamespace.validateDeclaration(prefix: prefix, uri: namespaceURI)
             let key = prefix.isEmpty ? "xmlns" : "xmlns:" + prefix
             guard pendingNamespaces[key] == nil else { throw SemanticXMLError.invalidXML }
             guard pendingNamespaces.count < limits.attributes else { throw SemanticXMLError.attributeLimit }
@@ -88,6 +89,8 @@ final class SemanticXMLBuilder: NSObject, XMLParserDelegate {
             let uri = namespaceURI.flatMap { $0.isEmpty ? nil : $0 }
             let qualified = qName ?? elementName
             try charge([elementName, uri ?? "", qualified])
+            try SemanticXMLNamespace.validateElement(local: elementName, qualified: qualified, uri: uri,
+                                                     attributes: attributes, ancestors: stack.map { drafts[$0].attributes })
             pendingNamespaces.removeAll(keepingCapacity: false)
             let name = SemanticXMLName(localName: elementName, namespaceURI: uri, qualifiedName: qualified)
             let index = try append(.element(name), attributes: attributes)
@@ -140,7 +143,8 @@ final class SemanticXMLBuilder: NSObject, XMLParserDelegate {
     func parser(_ parser: XMLParser, parseErrorOccurred parseError: any Error) { stop(SemanticXMLError.invalidXML, parser) }
     func parser(_ parser: XMLParser, validationErrorOccurred validationError: any Error) { stop(SemanticXMLError.invalidXML, parser) }
     func parser(_ parser: XMLParser, resolveExternalEntityName name: String, systemID: String?) -> Data? {
-        stop(SemanticXMLError.forbiddenDTD, parser); return nil
+        // DTDs have already been rejected. An undeclared entity reference is malformed XML.
+        stop(SemanticXMLError.invalidXML, parser); return nil
     }
     func parser(_ parser: XMLParser, foundInternalEntityDeclarationWithName name: String, value: String?) {
         stop(SemanticXMLError.forbiddenDTD, parser)

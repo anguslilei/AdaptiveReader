@@ -11,7 +11,10 @@ func expectXMLError(_ bytes: Data, _ expected: SemanticXMLError,
 
 @Suite("Semantic XML safety and budgets")
 struct SemanticXMLSafetyTests {
-    @Test(arguments: ["", "<r>", "<a/><b/>", "<r a='1' a='2'/>", "<x:r/>", "<r x:a='1'/>",
+    @Test(arguments: ["", "<r>", "<a/><b/>", "<r a='1' a='2'/>", "<x:r/>", "<r x:a='1'/>", "<x:y:r/>", "<r x:y:a='1'/>",
+                      "<r xmlns:x='urn:u' xmlns:y='urn:u' x:a='1' y:a='2'/>",
+                      "<r xmlns:xml='urn:wrong'/>", "<r xmlns:xmlns='urn:x'/>", "<r xmlns:x=''/>",
+                      "<r xmlns='http://www.w3.org/XML/1998/namespace'/>",
                       "<r>&nbsp;</r>", "<r>&unknown;</r>", "<r>&#0;</r>", "<!--bad--comment--><r/>"])
     func malformedNeverPublishesPartialTree(_ xml: String) async {
         await expectXMLError(Data(xml.utf8), .invalidXML)
