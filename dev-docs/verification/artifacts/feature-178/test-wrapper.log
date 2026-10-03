@@ -1,0 +1,16 @@
+[run-tests] targets=-only-testing:vreaderTests/EPUBReaderViewModelOpenTests -only-testing:vreaderTests/EPUBReaderViewModelCloseTests -only-testing:vreaderTests/EPUBReaderViewModelNavigationTests -only-testing:vreaderTests/EPUBReaderViewModelLifecycleTests -only-testing:vreaderTests/EPUBReaderViewModelEdgeCaseTests -only-testing:vreaderTests/EPUBChapterNavigationRouterTests -only-testing:vreaderTests/EPUBChapterWrapPendingTargetTests -only-testing:vreaderTests/EPUBReaderHostLifecycleTests -only-testing:vreaderTests/ReaderEngineTests -only-testing:vreaderTests/ReaderContainerViewEngineDispatchTests -only-testing:vreaderTests/EPUBBilingualOrchestratorTests -only-testing:vreaderTests/EPUBSemanticResourceReaderTests -only-testing:vreaderTests/EPUBSourceZIPValidationTests -only-testing:vreaderTests/EPUBSourceBudgetTests udid=E952A9B0-CC78-435C-BF08-06AD47FE1076 timeout=1800s log=/var/folders/nj/vtw8zd2j31d1gdrtntc5y4600000gn/T/run-tests.XXXXXX.0sN4WOVLGw
+----- last log lines -----
+✔ Suite "Semantic EPUB budgets and cancellation" passed after 0.468 seconds.
+✔ Test run with 95 tests in 12 suites passed after 0.505 seconds.
+2026-10-03 09:24:34.500 xcodebuild[46696:121415] [MT] IDETestOperationsObserverDebug: 72.820 elapsed -- Testing started completed.
+2026-10-03 09:24:34.500 xcodebuild[46696:121415] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-03 09:24:34.501 xcodebuild[46696:121415] [MT] IDETestOperationsObserverDebug: 72.820 sec, +72.820 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/runner/Library/Developer/Xcode/DerivedData/vreader-czakmjxnxcejyjbvvbadvbjgnehb/Logs/Test/Test-vreader-2026.10.03_09-06-52-+0000.xcresult
+
+** TEST SUCCEEDED **
+
+Testing started
+--------------------------
+RUN-TESTS RESULT: SUCCEEDED

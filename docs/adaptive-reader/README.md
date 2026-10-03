@@ -17,3 +17,10 @@ The next checkpoint is [feature #177's executable reference prototype](../../dev
 and [verification evidence](../../dev-docs/verification/feature-177-20261003.md).
 It tests byte/source mapping algorithms without delivering the native adapter.
 Original audit/build results above remain historical baseline evidence.
+
+
+Continuation2026-10-03: PR #2→#1 merged to main95b5ec0, delivering the reference
+spike and reader compiler fixes. Feature178 adds the independent Swift byte-reader
+foundation under Services/Semantic/EPUB; its33 native Mac contracts and126 iOS tests pass,
+with Debug/Release builds at4264fee. See [evidence](../../dev-docs/verification/feature-178-20261003.md). The proposed SemanticDocument/DOM/source-map pipeline
+is still a later phase, with no renderer or AI entry point introduced here.

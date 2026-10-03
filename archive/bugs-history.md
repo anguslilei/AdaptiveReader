@@ -2120,3 +2120,13 @@ The scroll math (`attemptScrollRestore`, `scrollToMatchedOffset`) is unchanged �
 - **Solution (FIXED 2026-07-09)**: assertion-guarded mechanical move of all 119 terminal-row entries, verbatim, into this file's "Archived Open-Bug-Detail entries (2026-07-09 reconciliation)" section; Summary/Rules regions asserted byte-identical; post-fix stale scan = 0.
 - **Lesson**: a prose invariant with no scan drifts; the reconciliation scan (detail-entry id → row status) is cheap and should be re-run whenever the section looks bloated.
 
+
+
+## Bug #376 — Reader container Xcode26.3 compiler timeout (2026-10-03)
+
+- Merged PR #2 into #1, then main95b5ec0ce2517a3c4361391fa6bdd96842704ff0 at explicit user request. Version3.67.9 (1051).
+- Cause: ~370/775-line SwiftUI expressions exceeded type-checker tractability. Preserve exact closures/state/modifier order in contiguous opaque computed-view regions, 4 EPUB and 8 dispatcher boundaries.
+- Test wrapper also preserves selected DEVELOPER_DIR with existing unset/empty fallback.
+- Own compiler REDs at328ff01 and740dfab; expanded source07c27cdc passes Debug/Release plus93 native tests, no failures/skips. Main's app/test/wrapper sources and generated pair match that tested source/candidate pair; final-head CI reruns separately.
+- Lesson: retain opacity boundaries for large modifier chains, verify both configurations and selected compiler, require actual executed-test counts.
+- Evidence: [bug376](../dev-docs/verification/bug-376-20261003.md). Plan/implementation independent audits PASS3 rounds. No UI/device UX or full-library compatibility claim.

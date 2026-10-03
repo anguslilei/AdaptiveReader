@@ -1,0 +1,6 @@
+Source c8bb313eac4189ff0df66785d21a1b7dd7c59984
+Own run https://github.com/anguslilei/AdaptiveReader/actions/runs/37103962526
+Mac Swift6 contract target compiled: Build complete! (8.91s)
+Actual execution: 29 tests in 3 suites failed with74 issues
+Representative: storedBytesAndIndependentDigests caught unimplemented; invalid ZIP expected invalidArchive but observed unimplemented.
+This is behavioral RED, not a compiler/missing-API failure.
