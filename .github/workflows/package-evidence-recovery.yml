@@ -1,0 +1,68 @@
+name: Recover pinned EPUB package evidence
+on:
+  push:
+    branches: ['feature/180-package-evidence-recovery']
+permissions:
+  contents: read
+  actions: read
+jobs:
+  recover:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Check exact exporter syntax
+        run: python3 -m py_compile scripts/export-native-package-evidence.py
+      - name: Validate own pinned native provenance
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          test "$GITHUB_REPOSITORY" = anguslilei/AdaptiveReader
+          gh api repos/anguslilei/AdaptiveReader/actions/runs/37160519963 > native-run.json
+          gh api repos/anguslilei/AdaptiveReader/actions/runs/37160519963/jobs > native-jobs.json
+          python3 - <<'PY'
+          import json
+          r = json.load(open('native-run.json'))
+          assert r['head_sha'] == 'fda86fbb6f90500ce9449bb5c0d5bd302da10b0a'
+          assert r['repository']['full_name'] == 'anguslilei/AdaptiveReader'
+          j = next(j for j in json.load(open('native-jobs.json'))['jobs'] if j['id'] == 111312824769)
+          assert j['status'] == 'completed'
+          steps = {s['name']: s['conclusion'] for s in j['steps']}
+          for n in ['Generate candidate version', 'Debug compiler regression', 'Release compiler regression', 'Related EPUB tests through watchdog wrapper', 'Save compiler and test evidence']:
+              assert steps[n] == 'success', (n, steps[n])
+          assert steps['Export source-pinned evidence for review'] == 'failure'
+          PY
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: native-reader-fda86fbb6f90500ce9449bb5c0d5bd302da10b0a
+          repository: anguslilei/AdaptiveReader
+          run-id: 37160519963
+          github-token: ${{ github.token }}
+          path: preparation
+      - name: Validate saved real lane results
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import json, re
+          root = Path('preparation')
+          assert (root / 'input-commit.txt').read_text().strip() == 'fda86fbb6f90500ce9449bb5c0d5bd302da10b0a'
+          paths = []
+          for lane, count in [('base', 155), ('package', 30)]:
+              assert (root / f'{lane}-test-command-status.txt').read_text().strip() == '0'
+              d = json.loads((root / f'{lane}-test-summary.json').read_text())
+              assert [d[k] for k in ['totalTestCount', 'passedTests', 'failedTests', 'skippedTests']] == [count, count, 0, 0]
+              assert 'RUN-TESTS RESULT: SUCCEEDED' in (root / f'{lane}-test-wrapper.log').read_text()
+              assert re.search(r'Test run with [1-9]\d* tests.*passed', (root / f'{lane}-test-full.log').read_text())
+              paths.append((root / f'{lane}-test-result-path.txt').read_text())
+          assert paths[0] != paths[1]
+          PY
+      - name: Export exact evidence text
+        run: python3 scripts/export-native-package-evidence.py
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: recovered-package-evidence-${{ github.sha }}
+          path: preparation/
+          retention-days: 7
+          if-no-files-found: error
