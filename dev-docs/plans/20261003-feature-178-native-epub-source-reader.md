@@ -155,7 +155,7 @@ Explicit tests include directory/FIFO/final-symlink source rejection, cancelled
 parent publication, deterministic mid-load cancellation with descriptor cleanup,
 and unsigned descriptor CRC equal to0x08074b50. Snapshot has internal synchronous
 checkCancellation/descriptorObserved closures with real production defaults;
-tests interrupt actual file reads and confirm observed fd is EBADF afterward.
+tests interrupt actual file reads and observe the actual deferred POSIX close status, once for the same fd, avoiding fd-reuse races.
 These are test seams on the isolated loader, not a public fake byte-source path.
 Resource cancellation tests cancel the calling task before the actual actor read.
 
@@ -170,3 +170,14 @@ watchdog with aggregate xcresult checks. XML/OPF/CFI remain outside this WI.
 Limits are immutable configuration; validate() runs at the actual open/load
 boundary and allows only positive values up to defaults. Constructor itself is
 nonthrowing so invalid user configuration can be exercised at that boundary.
+
+## Implementation audit round1 corrections
+
+Five Medium findings: reject fileURL NUL before CString; replace racy post-close
+F_GETFD assertion with actual deferred-close callback; otherwise-valid embedded
+local-header overlap fixture; CI requires passed xcresult nodes for all3 new
+suites and zero skips; deterministic factory cancellation after worker start and
+before publication, plus changed-during-read rejection. Internal Sendable load
+observations are test synchronization seams; they do not supply alternate bytes
+or bypass actual IO/inflate. Re-review pending. Mac29 contracts GREEN at8e4f56e,
+prior to these stronger regression tests; no iOS GREEN claim yet.

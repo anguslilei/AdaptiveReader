@@ -11,9 +11,10 @@ struct EPUBSourceSnapshot: Sendable {
     static func load(fileURL: URL, expectedSHA256: String? = nil,
                      limits: EPUBSemanticLimits = EPUBSemanticLimits(),
                      checkCancellation: () throws -> Void = { try Task.checkCancellation() },
-                     descriptorObserved: (Int32) -> Void = { _ in }) throws -> Self {
+                     descriptorObserved: (Int32) -> Void = { _ in },
+                     descriptorClosed: (Int32, Int32) -> Void = { _, _ in }) throws -> Self {
         try limits.validate(); try checkCancellation()
-        guard fileURL.isFileURL else { throw EPUBSemanticSourceError.invalidSource }
+        guard fileURL.isFileURL, !fileURL.path.contains("\0") else { throw EPUBSemanticSourceError.invalidSource }
         if let digest = expectedSHA256 {
             guard digest.utf8.count == 64,
                   digest.utf8.allSatisfy({ (48...57).contains($0) || (97...102).contains($0) }) else {
@@ -25,7 +26,9 @@ struct EPUBSourceSnapshot: Sendable {
             throw errno == ELOOP ? EPUBSemanticSourceError.invalidSource : .ioFailure
         }
         defer {
-            if Darwin.close(fd) != 0 {
+            let status = Darwin.close(fd)
+            descriptorClosed(fd, status)
+            if status != 0 {
                 Logger(subsystem: "com.vreader.app", category: "SemanticSource").error("Source descriptor cleanup failed")
             }
         }
@@ -68,4 +71,11 @@ struct EPUBSourceSnapshot: Sendable {
                      changedSeconds: Int64(s.st_ctimespec.tv_sec), changedNanoseconds: Int64(s.st_ctimespec.tv_nsec),
                      regular: (s.st_mode & mode_t(S_IFMT)) == mode_t(S_IFREG))
     }
+}
+
+// Internal observation seam; defaults never change source bytes or IO ownership.
+struct EPUBSourceLoadObservation: Sendable {
+    var opened: @Sendable (Int32) -> Void = { _ in }
+    var closed: @Sendable (Int32, Int32) -> Void = { _, _ in }
+    var beforePublication: @Sendable (EPUBSemanticResourceReader) -> Void = { _ in }
 }

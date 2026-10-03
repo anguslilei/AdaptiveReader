@@ -1,6 +1,7 @@
 // Purpose: Exact classic ZIP fixtures and corruption mutations for semantic source contracts.
 import Foundation
 import zlib
+@testable import vreader
 
 struct EPUBSemanticZIPFixture {
     enum Descriptor: Equatable, Sendable { case none, signed, unsigned }
@@ -96,4 +97,44 @@ extension Data {
     mutating func set32(_ offset: Int, _ value: UInt32) {
         var d = Data(); d.add32(value); replaceSubrange(offset..<(offset + 4), with: d)
     }
+}
+
+
+// All mutable probe state is lock protected; semaphores coordinate only tests.
+final class EPUBSourceWorkerProbe: @unchecked Sendable {
+    enum Stage: Sendable, Equatable { case open, publication }
+    struct Facts: Sendable {
+        var fd: Int32 = -1, closedFD: Int32 = -1, closeStatus: Int32 = -1
+        var closeCount = 0, workerCancelled = false, timedOut = false
+        var reader: EPUBSemanticResourceReader?
+    }
+    private let stage: Stage
+    private let lock = NSLock()
+    private let started = DispatchSemaphore(value: 0)
+    private let released = DispatchSemaphore(value: 0)
+    private var state = Facts()
+    init(stage: Stage) { self.stage = stage }
+    private func locked<T>(_ body: () -> T) -> T {
+        lock.lock(); defer { lock.unlock() }; return body()
+    }
+    var facts: Facts { locked { state } }
+    var observation: EPUBSourceLoadObservation {
+        EPUBSourceLoadObservation(opened: { [self] fd in
+            locked { state.fd = fd }
+            if stage == .open { pause() }
+        }, closed: { [self] fd, result in
+            locked { state.closedFD = fd; state.closeStatus = result; state.closeCount += 1 }
+        }, beforePublication: { [self] reader in
+            locked { state.reader = reader }
+            if stage == .publication { pause() }
+        })
+    }
+    private func pause() {
+        started.signal()
+        let timeout = released.wait(timeout: .now() + 5) != .success
+        let cancelled = Task.isCancelled
+        locked { state.timedOut = timeout; state.workerCancelled = cancelled }
+    }
+    func waitForStart() -> Bool { started.wait(timeout: .now() + 5) == .success }
+    func resume() { released.signal() }
 }

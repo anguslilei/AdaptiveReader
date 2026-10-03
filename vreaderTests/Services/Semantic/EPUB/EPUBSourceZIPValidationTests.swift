@@ -83,8 +83,13 @@ struct EPUBSourceZIPValidationTests {
         var f = ZIP(); f.bytes[f.localOffsets[0] + 30] ^= 1
         await expectSemanticOpenFailure(f, error: .invalidArchive)
         var m = ZIP.Member(); m.path = "another.xhtml"; f = ZIP([ZIP.Member(),m])
-        // Second central record points at the first local record, a forbidden overlapping span.
-        f.bytes.set32(f.centralOffsets[1] + 42, 0)
+        // The embedded local record exactly matches the second central record;
+        // both are otherwise valid, so only the overlapping-span guard rejects.
+        let inner = ZIP([m])
+        var outer = ZIP.Member(); outer.path = "outer"
+        outer.bytes = Data(inner.bytes.prefix(inner.directoryOffset))
+        f = ZIP([outer, m])
+        f.bytes.set32(f.centralOffsets[1] + 42, UInt32(30 + outer.path.utf8.count))
         await expectSemanticOpenFailure(f, error: .invalidArchive)
         m = ZIP.Member(); m.flags |= 8
         await expectSemanticOpenFailure(ZIP([m]), error: .invalidArchive)

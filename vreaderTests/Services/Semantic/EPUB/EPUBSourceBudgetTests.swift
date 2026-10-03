@@ -90,16 +90,17 @@ struct EPUBSourceBudgetTests {
         let url = ZIP.temporaryURL(); defer { try? FileManager.default.removeItem(at: url) }
         var m = ZIP.Member(); m.bytes = Data(repeating: 1, count: 100000)
         try ZIP([m]).write(to: url)
-        var checks = 0, observedFD: Int32 = -1
+        var checks = 0, closeCount = 0, observedFD: Int32 = -1, closedFD: Int32 = -1, closeStatus: Int32 = -1
         do {
             _ = try EPUBSourceSnapshot.load(fileURL: url, checkCancellation: {
                 checks += 1; if checks == 3 { throw CancellationError() }
-            }, descriptorObserved: { observedFD = $0 })
+            }, descriptorObserved: { observedFD = $0 }, descriptorClosed: {
+                closedFD = $0; closeStatus = $1; closeCount += 1
+            })
             Issue.record("Expected snapshot cancellation")
         } catch { #expect(error is CancellationError) }
         #expect(observedFD >= 0)
-        let result = fcntl(observedFD, F_GETFD), observedErrno = errno
-        #expect(result == -1 && observedErrno == EBADF)
+        #expect(closedFD == observedFD && closeCount == 1 && closeStatus == 0)
     }
 
     @Test func nonregularAndFinalSymlinkSourcesRejected() async throws {
@@ -117,4 +118,51 @@ struct EPUBSourceBudgetTests {
             } catch { #expect(error as? EPUBSemanticSourceError == .invalidSource) }
         }
     }
+
+    @Test func fileURLNULMustNotSelectAnExistingPrefix() async throws {
+        let url = ZIP.temporaryURL(); defer { try? FileManager.default.removeItem(at: url) }
+        try ZIP().write(to: url)
+        let evil = URL(fileURLWithPath: url.path + "\0suffix")
+        do {
+            let reader = try await EPUBSemanticResourceReader.open(fileURL: evil)
+            await reader.close(); Issue.record("NUL prefix path accepted")
+        } catch { #expect(error as? EPUBSemanticSourceError == .invalidSource) }
+    }
+
+    @Test func changedDuringSnapshotReadIsRejected() throws {
+        let url = ZIP.temporaryURL(); defer { try? FileManager.default.removeItem(at: url) }
+        let fixture = ZIP(); try fixture.write(to: url)
+        var mutationFailed = false
+        do {
+            _ = try EPUBSourceSnapshot.load(fileURL: url, descriptorObserved: { _ in
+                do { try (fixture.bytes + Data([0])).write(to: url) }
+                catch { mutationFailed = true }
+            })
+            Issue.record("Changed source accepted")
+        } catch { #expect(error as? EPUBSemanticSourceError == .sourceChanged) }
+        #expect(!mutationFailed)
+    }
+
+    @Test(arguments: [EPUBSourceWorkerProbe.Stage.open, .publication])
+    func cancellationAfterWorkerStarts(_ stage: EPUBSourceWorkerProbe.Stage) async throws {
+        let url = ZIP.temporaryURL(); defer { try? FileManager.default.removeItem(at: url) }
+        try ZIP().write(to: url)
+        let probe = EPUBSourceWorkerProbe(stage: stage)
+        let task = Task { try await EPUBSemanticResourceReader.open(fileURL: url, observation: probe.observation) }
+        let started = await Task.detached { probe.waitForStart() }.value
+        #expect(started)
+        task.cancel(); probe.resume()
+        do {
+            let reader = try await task.value
+            await reader.close(); Issue.record("Cancelled factory published a reader")
+        } catch { #expect(error is CancellationError) }
+        let facts = probe.facts
+        #expect(!facts.timedOut && facts.fd >= 0 && facts.closeCount == 1)
+        #expect(facts.closedFD == facts.fd && facts.closeStatus == 0)
+        if stage == .open { #expect(facts.workerCancelled) }
+        if let reader = facts.reader {
+            await expectSemanticReadFailure(reader, path: "chapter.xhtml", error: .closed)
+        } else { #expect(stage == .open) }
+    }
+
 }

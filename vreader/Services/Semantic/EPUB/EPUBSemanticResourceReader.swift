@@ -13,17 +13,21 @@ actor EPUBSemanticResourceReader {
     }
 
     static func open(fileURL: URL, expectedArchiveSHA256: String? = nil,
-                     limits: EPUBSemanticLimits = EPUBSemanticLimits()) async throws -> EPUBSemanticResourceReader {
+                     limits: EPUBSemanticLimits = EPUBSemanticLimits(),
+                     observation: EPUBSourceLoadObservation? = nil) async throws -> EPUBSemanticResourceReader {
         try Task.checkCancellation()
         let worker = Task.detached {
             let snapshot = try EPUBSourceSnapshot.load(fileURL: fileURL,
-                                                      expectedSHA256: expectedArchiveSHA256, limits: limits)
+                                                      expectedSHA256: expectedArchiveSHA256, limits: limits,
+                                                      descriptorObserved: { observation?.opened($0) },
+                                                      descriptorClosed: { observation?.closed($0, $1) })
             let index = try EPUBSourceZIPIndex(snapshot: snapshot.bytes, limits: limits)
             try Task.checkCancellation()
             return EPUBSemanticResourceReader(snapshot: snapshot, index: index, limits: limits)
         }
         return try await withTaskCancellationHandler {
             let reader = try await worker.value
+            observation?.beforePublication(reader)
             do { try Task.checkCancellation(); return reader }
             catch { await reader.close(); throw error }
         } onCancel: { worker.cancel() }

@@ -126,10 +126,28 @@ jobs:
           python3 - <<'PY'
           import json
           d = json.load(open('preparation/test-summary.json'))
-          counts = [d.get(key) for key in ['totalTestCount', 'passedTests', 'failedTests']]
-          if any(type(value) is not int for value in counts) or counts[0] <= 0 or counts[1] <= 0 or counts[2] != 0:
+          counts = [d.get(key) for key in ['totalTestCount', 'passedTests', 'failedTests', 'skippedTests']]
+          if any(type(value) is not int for value in counts) or counts[0] <= 0 or counts[1] <= 0 or counts[2] != 0 or counts[3] != 0:
               raise SystemExit('Expected executed passing native tests and complete count fields')
-          print('Native tests:', counts[0], 'passed:', counts[1])
+          def nodes(value):
+              if isinstance(value, dict):
+                  yield value
+                  for child in value.values():
+                      yield from nodes(child)
+              elif isinstance(value, list):
+                  for child in value:
+                      yield from nodes(child)
+          tree = json.load(open('preparation/test-tree.json'))
+          aliases = [
+              ('EPUBSemanticResourceReaderTests', 'Semantic EPUB resources'),
+              ('EPUBSourceZIPValidationTests', 'Semantic EPUB ZIP grammar'),
+              ('EPUBSourceBudgetTests', 'Semantic EPUB budgets and cancellation'),
+          ]
+          for names in aliases:
+              found = [n for n in nodes(tree) if any(name in str(n.get('name', '')) or name in str(n.get('nodeIdentifier', '')) for name in names)]
+              if not any(n.get('result') == 'Passed' for n in found):
+                  raise SystemExit('Missing executed passing source suite: ' + names[0])
+          print('Native tests:', counts[0], 'passed:', counts[1], 'all three new suites executed')
           PY
       - name: Save compiler and test evidence
         if: always()
