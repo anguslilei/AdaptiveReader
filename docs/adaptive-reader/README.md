@@ -31,3 +31,8 @@ It retains source structure without claiming OPF/spine, browser DOM/source-map
 or CFI compatibility. See [plan](../../dev-docs/plans/20261003-feature-179-bounded-semantic-xml.md).
 
 See [verification evidence](../../dev-docs/verification/feature-179-20261003.md).
+
+Next: [feature180's audited package/spine plan](../../dev-docs/plans/20261003-feature-180-native-epub-package.md),
+Gate2 PASS2. It composes the native byte/XML utilities with strict local URL
+resolution and a non-inflating resource catalog. Implementation is blocked until
+features178/179 are merged/DONE. No package/chapter/AI code is delivered by the plan.

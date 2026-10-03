@@ -231,6 +231,7 @@ Before setting a feature to `PLANNED`, fill in these fields in a sub-section und
 | 177 | EPUB original-byte/source-map reference feasibility | developer-tooling | Medium | DONE | Merged PR #1 at main95b5ec0; Gate 2/4 PASS; 43 reference tests GREEN; native compiler blocker fixed by PR #2; [plan](../dev-docs/plans/20261003-feature-177-epub-semantic-source-spike.md). GH mirror blocked: Issues disabled (410). Native integration pending. |
 | 178 | Native bounded EPUB source resource reader | Semantic/EPUB | Medium | IN PROGRESS | Gate2 PASS2 / Gate4 PASS3; source4264fee: Mac33 and iOS126 passed, Debug/Release GREEN; [evidence](../dev-docs/verification/feature-178-20261003.md); [plan](../dev-docs/plans/20261003-feature-178-native-epub-source-reader.md). GH mirror unavailable: Issues disabled. |
 | 179 | Bounded native XML structural parser | Semantic/XML | Medium | IN PROGRESS | Gate2 PASS3; Gate4 PASS2. Mac29/iOS155 atd0c16a0; Debug/Release pass. [plan](../dev-docs/plans/20261003-feature-179-bounded-semantic-xml.md); [evidence](../dev-docs/verification/feature-179-20261003.md). Independent Data-only utility; no OPF/spine/source-map/UI wiring. Stacked on PR3; Issues disabled. |
+| 180 | Native EPUB package and spine resolution | Semantic/Package | Medium | PLANNED | Gate2 PASS2; [plan](../dev-docs/plans/20261003-feature-180-native-epub-package.md). Gate3 blocked until178/179 merged/DONE. Non-inflating catalog, strict root-relative/OPF-relative URL resolution, ordered immutable spine. No chapter/AI/UI wiring; Issues disabled (has_issues=false). |
 
 ### Feature #44 — DebugBridge — Plan
 
@@ -486,3 +487,13 @@ Before setting a feature to `PLANNED`, fill in these fields in a sub-section und
 - **Acceptance criteria**: Deterministic valid immutable tree/raw-byte hash, fail-closed security/limits/cancellation, clean audits, generated version tail.
 - **Dependencies**: Data-only API imports no178 types; independent implementation may proceed on stacked branch. Later package/session work waits for178+179 merge.
 - **Gate record**: Gate2 PASS3; [plan audit](../.claude/codex-audits/plan-feature-179-gate2-audit.md). Gate4 PASS2; [implementation audit](../.claude/codex-audits/impl-feature-179-gate4-audit.md). Mac29/iOS155 atd0c16a0; Debug/Release pass. [Evidence](../dev-docs/verification/feature-179-20261003.md). Remains IN PROGRESS until merge. Issues disabled (prior410); no fabricated issue reference.
+
+### Feature #180 — Plan
+
+- **Problem**: Verified bytes and logical XML do not yet identify a native package or ordered chapter references.
+- **Scope**: Real178+179 composition, non-inflating source catalog, bounded container/OPF/local URLs, immutable digest-pinned manifest/spine; no chapter extraction or production route.
+- **Edge cases**: Rootfile archive-root URLs versus OPF-relative hrefs, encoded delimiter/dot/directory intent, literal Unicode identity, missing/duplicate metadata, repeated occurrence preservation, budgets and cancellation/close.
+- **Test plan**: Future compile-capable behavioral RED/GREEN, actual archive+Foundation integration, Mac3 package suites and iOS9 semantic suite guards, Debug/Release.
+- **Acceptance criteria**: Deterministic validated package/order, no asset inflation for existence, complete failure cleanup/no partial publish, source identity, clean audits and actual generated tail.
+- **Dependencies**: Feature178 and179 must be merged/DONE before Gate3 (rule48); currently both unmerged. Planning/audit only; source/test implementation not started.
+- **Gate record**: Gate2 PASS2; [audit](../.claude/codex-audits/plan-feature-180-gate2-audit.md). Initial rootfile-literal assumption corrected from primary W3C text. Repeated idrefs deliberately retained as nonconforming source fidelity. No runtime evidence or delivery claim; Issues disabled in fork (checked2026-10-03).
