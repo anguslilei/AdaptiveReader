@@ -1,0 +1,11 @@
+2026-10-03T22:14:31.2772600Z Build complete! (15.36s)
+2026-10-03T22:14:31.7432900Z ✘ Test immutableValueEqualityKeepsLiteralIdentifiers() recorded an issue at EPUBPackageDecoderTests.swift:119:9: Expectation failed: (a != b && a != c → false) && (a != d → <not evaluated>)
+2026-10-03T22:14:31.7436880Z ✘ Test immutableValueEqualityKeepsLiteralIdentifiers() recorded an issue at EPUBPackageDecoderTests.swift:120:9: Expectation failed: EPUBSemanticSpineEntry(occurrence: 0, manifestIndex: 0, linear: true, properties: ["é"]) != (EPUBSemanticSpineEntry(occurrence: 0, manifestIndex: 0, linear: true, properties: ["e\u{301}"]) → EPUBSemanticSpineEntry(occurrence: 0, manifestIndex: 0, linear: true, properties: ["é"]))
+2026-10-03T22:14:31.7438670Z ✘ Test immutableValueEqualityKeepsLiteralIdentifiers() failed after 0.009 seconds with 2 issues.
+2026-10-03T22:14:31.7440230Z ✘ Test trailingXMLWhitespaceDoesNotConsumePropertySlots(_:_:) recorded an issue with 2 arguments cap → 1, forSpine → false at EPUBPackageDecoderTests.swift:105:6: Caught error: metadataLimit
+2026-10-03T22:14:31.7441660Z ✘ Test trailingXMLWhitespaceDoesNotConsumePropertySlots(_:_:) recorded an issue with 2 arguments cap → 1, forSpine → true at EPUBPackageDecoderTests.swift:105:6: Caught error: metadataLimit
+2026-10-03T22:14:31.7442950Z ✘ Test trailingXMLWhitespaceDoesNotConsumePropertySlots(_:_:) recorded an issue with 2 arguments cap → 64, forSpine → true at EPUBPackageDecoderTests.swift:105:6: Caught error: metadataLimit
+2026-10-03T22:14:31.7444220Z ✘ Test trailingXMLWhitespaceDoesNotConsumePropertySlots(_:_:) recorded an issue with 2 arguments cap → 64, forSpine → false at EPUBPackageDecoderTests.swift:105:6: Caught error: metadataLimit
+2026-10-03T22:14:31.7448480Z ✘ Test trailingXMLWhitespaceDoesNotConsumePropertySlots(_:_:) with 4 test cases failed after 0.011 seconds with 4 issues.
+2026-10-03T22:14:31.7621090Z ✘ Suite "EPUB package manifest and spine" failed after 0.017 seconds with 6 issues.
+2026-10-03T22:14:31.7665090Z ✘ Test run with 30 tests in 3 suites failed after 0.035 seconds with 6 issues.

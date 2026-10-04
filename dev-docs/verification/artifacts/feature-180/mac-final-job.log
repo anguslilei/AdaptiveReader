@@ -1,0 +1,461 @@
+﻿2026-10-03T23:03:47.2988590Z Current runner version: '2.337.0'
+2026-10-03T23:03:47.3003260Z ##[group]Runner Image Provisioner
+2026-10-03T23:03:47.3003850Z Hosted Compute Agent
+2026-10-03T23:03:47.3004260Z Version: 20260828.587
+2026-10-03T23:03:47.3004690Z Commit: abac92662cab4cc7352de4f9f9d2e2419aad9c29
+2026-10-03T23:03:47.3005240Z Build Date: 2026-08-28T16:44:25Z
+2026-10-03T23:03:47.3005690Z Worker ID: {eb53f60f-592d-46e9-b3cb-4951cc64a8d2}
+2026-10-03T23:03:47.3006150Z Azure Region: westus
+2026-10-03T23:03:47.3006530Z ##[endgroup]
+2026-10-03T23:03:47.3007520Z ##[group]Operating System
+2026-10-03T23:03:47.3007910Z macOS
+2026-10-03T23:03:47.3008240Z 15.7.9
+2026-10-03T23:03:47.3008570Z 24G830
+2026-10-03T23:03:47.3008910Z ##[endgroup]
+2026-10-03T23:03:47.3009260Z ##[group]Runner Image
+2026-10-03T23:03:47.3009660Z Image: macos-15-arm64
+2026-10-03T23:03:47.3010040Z Version: 20260907.0337.1
+2026-10-03T23:03:47.3010870Z Included Software: https://github.com/actions/runner-images/blob/macos-15-arm64/20260907.0337/images/macos/macos-15-arm64-Readme.md
+2026-10-03T23:03:47.3011910Z Image Release: https://github.com/actions/runner-images/releases/tag/macos-15-arm64%2F20260907.0337
+2026-10-03T23:03:47.3012570Z ##[endgroup]
+2026-10-03T23:03:47.3013310Z ##[group]GITHUB_TOKEN Permissions
+2026-10-03T23:03:47.3014600Z Contents: read
+2026-10-03T23:03:47.3014960Z Metadata: read
+2026-10-03T23:03:47.3015320Z ##[endgroup]
+2026-10-03T23:03:47.3016620Z Secret source: Actions
+2026-10-03T23:03:47.3017200Z Cache mode: write
+2026-10-03T23:03:47.3017630Z Prepare workflow directory
+2026-10-03T23:03:47.3239420Z Prepare all required actions
+2026-10-03T23:03:47.3272960Z Getting action download info
+2026-10-03T23:03:47.4730580Z Download action repository 'actions/checkout@11d5960a326750d5838078e36cf38b85af677262' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-03T23:03:47.7429940Z Download action repository 'actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-10-03T23:03:47.9589510Z Complete job name: contract
+2026-10-03T23:03:48.0231820Z ##[group]Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+2026-10-03T23:03:48.0232530Z with:
+2026-10-03T23:03:48.0232870Z   persist-credentials: false
+2026-10-03T23:03:48.0233270Z   repository: anguslilei/AdaptiveReader
+2026-10-03T23:03:48.0236260Z   token: ***
+2026-10-03T23:03:48.0236580Z   ssh-strict: true
+2026-10-03T23:03:48.0236920Z   ssh-user: git
+2026-10-03T23:03:48.0237250Z   clean: true
+2026-10-03T23:03:48.0237590Z   sparse-checkout-cone-mode: true
+2026-10-03T23:03:48.0237990Z   fetch-depth: 1
+2026-10-03T23:03:48.0238310Z   fetch-tags: false
+2026-10-03T23:03:48.0238650Z   show-progress: true
+2026-10-03T23:03:48.0238990Z   lfs: false
+2026-10-03T23:03:48.0239300Z   submodules: false
+2026-10-03T23:03:48.0239650Z   set-safe-directory: true
+2026-10-03T23:03:48.0240120Z   allow-unsafe-pr-checkout: false
+2026-10-03T23:03:48.0240680Z ##[endgroup]
+2026-10-03T23:03:48.3932370Z Syncing repository: anguslilei/AdaptiveReader
+2026-10-03T23:03:48.3934310Z ##[group]Getting Git version info
+2026-10-03T23:03:48.3935250Z Working directory is '/Users/runner/work/AdaptiveReader/AdaptiveReader'
+2026-10-03T23:03:48.3936160Z [command]/opt/homebrew/bin/git version
+2026-10-03T23:03:48.4441060Z git version 2.55.0
+2026-10-03T23:03:48.4456370Z ##[endgroup]
+2026-10-03T23:03:48.4462860Z Copying '/Users/runner/.gitconfig' to '/Users/runner/work/_temp/2b2e8d26-c1e0-4fff-8887-384e9c67175e/.gitconfig'
+2026-10-03T23:03:48.4471430Z Temporarily overriding HOME='/Users/runner/work/_temp/2b2e8d26-c1e0-4fff-8887-384e9c67175e' before making global git config changes
+2026-10-03T23:03:48.4474130Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-03T23:03:48.4478730Z [command]/opt/homebrew/bin/git config --global --add safe.directory /Users/runner/work/AdaptiveReader/AdaptiveReader
+2026-10-03T23:03:48.4610820Z Deleting the contents of '/Users/runner/work/AdaptiveReader/AdaptiveReader'
+2026-10-03T23:03:48.4612920Z ##[group]Initializing the repository
+2026-10-03T23:03:48.4616170Z [command]/opt/homebrew/bin/git init /Users/runner/work/AdaptiveReader/AdaptiveReader
+2026-10-03T23:03:48.4897070Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-03T23:03:48.4899160Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-03T23:03:48.4900050Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-03T23:03:48.4900870Z hint: call:
+2026-10-03T23:03:48.4901280Z hint:
+2026-10-03T23:03:48.4901760Z hint: 	git config --global init.defaultBranch <name>
+2026-10-03T23:03:48.4902350Z hint:
+2026-10-03T23:03:48.4902870Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-03T23:03:48.4904070Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-03T23:03:48.4904670Z hint:
+2026-10-03T23:03:48.4905280Z hint: 	git branch -m <name>
+2026-10-03T23:03:48.4905700Z hint:
+2026-10-03T23:03:48.4906330Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-03T23:03:48.4929010Z Initialized empty Git repository in /Users/runner/work/AdaptiveReader/AdaptiveReader/.git/
+2026-10-03T23:03:48.4930900Z [command]/opt/homebrew/bin/git remote add origin https://github.com/anguslilei/AdaptiveReader
+2026-10-03T23:03:48.5038410Z ##[endgroup]
+2026-10-03T23:03:48.5040450Z ##[group]Disabling automatic garbage collection
+2026-10-03T23:03:48.5042400Z [command]/opt/homebrew/bin/git config --local gc.auto 0
+2026-10-03T23:03:48.5111320Z ##[endgroup]
+2026-10-03T23:03:48.5113140Z ##[group]Setting up auth
+2026-10-03T23:03:48.5115310Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-03T23:03:48.5262110Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-03T23:03:48.6384380Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-03T23:03:48.6450380Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-03T23:03:48.7293960Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-03T23:03:48.7349700Z [command]/opt/homebrew/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-03T23:03:48.8183320Z [command]/opt/homebrew/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-03T23:03:48.8369600Z ##[endgroup]
+2026-10-03T23:03:48.8372900Z ##[group]Fetching the repository
+2026-10-03T23:03:48.8380610Z [command]/opt/homebrew/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +fda86fbb6f90500ce9449bb5c0d5bd302da10b0a:refs/remotes/origin/feature/180-native-epub-package
+2026-10-03T23:04:00.6510720Z From https://github.com/anguslilei/AdaptiveReader
+2026-10-03T23:04:00.6512860Z  * [new ref]         fda86fbb6f90500ce9449bb5c0d5bd302da10b0a -> origin/feature/180-native-epub-package
+2026-10-03T23:04:00.6516790Z ##[endgroup]
+2026-10-03T23:04:00.6517840Z ##[group]Determining the checkout info
+2026-10-03T23:04:00.6518710Z ##[endgroup]
+2026-10-03T23:04:00.6527920Z [command]/opt/homebrew/bin/git sparse-checkout disable
+2026-10-03T23:04:00.6634560Z [command]/opt/homebrew/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-03T23:04:00.6810030Z ##[group]Checking out the ref
+2026-10-03T23:04:00.6811250Z [command]/opt/homebrew/bin/git checkout --progress --force -B feature/180-native-epub-package refs/remotes/origin/feature/180-native-epub-package
+2026-10-03T23:04:01.7879520Z Updating files:  46% (2495/5338)
+2026-10-03T23:04:01.8796640Z Updating files:  47% (2509/5338)
+2026-10-03T23:04:01.9623810Z Updating files:  48% (2563/5338)
+2026-10-03T23:04:02.0711270Z Updating files:  49% (2616/5338)
+2026-10-03T23:04:02.1482670Z Updating files:  50% (2669/5338)
+2026-10-03T23:04:02.2591950Z Updating files:  51% (2723/5338)
+2026-10-03T23:04:02.3188100Z Updating files:  52% (2776/5338)
+2026-10-03T23:04:02.3971600Z Updating files:  53% (2830/5338)
+2026-10-03T23:04:02.5007120Z Updating files:  54% (2883/5338)
+2026-10-03T23:04:02.5845420Z Updating files:  55% (2936/5338)
+2026-10-03T23:04:02.6987440Z Updating files:  56% (2990/5338)
+2026-10-03T23:04:02.7189580Z Updating files:  56% (3036/5338)
+2026-10-03T23:04:02.9188930Z Updating files:  57% (3043/5338)
+2026-10-03T23:04:02.9240630Z Updating files:  58% (3097/5338)
+2026-10-03T23:04:02.9288050Z Updating files:  59% (3150/5338)
+2026-10-03T23:04:02.9364270Z Updating files:  60% (3203/5338)
+2026-10-03T23:04:02.9445810Z Updating files:  61% (3257/5338)
+2026-10-03T23:04:02.9515030Z Updating files:  62% (3310/5338)
+2026-10-03T23:04:02.9590880Z Updating files:  63% (3363/5338)
+2026-10-03T23:04:02.9656180Z Updating files:  64% (3417/5338)
+2026-10-03T23:04:02.9841330Z Updating files:  65% (3470/5338)
+2026-10-03T23:04:02.9971470Z Updating files:  66% (3524/5338)
+2026-10-03T23:04:03.0026490Z Updating files:  67% (3577/5338)
+2026-10-03T23:04:03.0252950Z Updating files:  68% (3630/5338)
+2026-10-03T23:04:03.0312570Z Updating files:  69% (3684/5338)
+2026-10-03T23:04:03.0384050Z Updating files:  70% (3737/5338)
+2026-10-03T23:04:03.0460280Z Updating files:  71% (3790/5338)
+2026-10-03T23:04:03.0526290Z Updating files:  72% (3844/5338)
+2026-10-03T23:04:03.0617360Z Updating files:  73% (3897/5338)
+2026-10-03T23:04:03.0690720Z Updating files:  74% (3951/5338)
+2026-10-03T23:04:03.0745890Z Updating files:  75% (4004/5338)
+2026-10-03T23:04:03.0801960Z Updating files:  76% (4057/5338)
+2026-10-03T23:04:03.0860910Z Updating files:  77% (4111/5338)
+2026-10-03T23:04:03.0927720Z Updating files:  78% (4164/5338)
+2026-10-03T23:04:03.0986030Z Updating files:  79% (4218/5338)
+2026-10-03T23:04:03.1059350Z Updating files:  80% (4271/5338)
+2026-10-03T23:04:03.1127300Z Updating files:  81% (4324/5338)
+2026-10-03T23:04:03.1196160Z Updating files:  82% (4378/5338)
+2026-10-03T23:04:03.1254530Z Updating files:  83% (4431/5338)
+2026-10-03T23:04:03.1319700Z Updating files:  84% (4484/5338)
+2026-10-03T23:04:03.1381350Z Updating files:  85% (4538/5338)
+2026-10-03T23:04:03.1444440Z Updating files:  86% (4591/5338)
+2026-10-03T23:04:03.1530530Z Updating files:  87% (4645/5338)
+2026-10-03T23:04:03.1612470Z Updating files:  88% (4698/5338)
+2026-10-03T23:04:03.1689040Z Updating files:  89% (4751/5338)
+2026-10-03T23:04:03.1771450Z Updating files:  90% (4805/5338)
+2026-10-03T23:04:03.1849880Z Updating files:  91% (4858/5338)
+2026-10-03T23:04:03.1965270Z Updating files:  92% (4911/5338)
+2026-10-03T23:04:03.2100450Z Updating files:  93% (4965/5338)
+2026-10-03T23:04:03.2163110Z Updating files:  94% (5018/5338)
+2026-10-03T23:04:03.2227600Z Updating files:  95% (5072/5338)
+2026-10-03T23:04:03.2289570Z Updating files:  96% (5125/5338)
+2026-10-03T23:04:03.2351560Z Updating files:  97% (5178/5338)
+2026-10-03T23:04:03.2450290Z Updating files:  98% (5232/5338)
+2026-10-03T23:04:03.2525490Z Updating files:  99% (5285/5338)
+2026-10-03T23:04:03.2526640Z Updating files: 100% (5338/5338)
+2026-10-03T23:04:03.2527840Z Updating files: 100% (5338/5338), done.
+2026-10-03T23:04:03.2624470Z Switched to a new branch 'feature/180-native-epub-package'
+2026-10-03T23:04:03.2637300Z branch 'feature/180-native-epub-package' set up to track 'origin/feature/180-native-epub-package'.
+2026-10-03T23:04:03.2659400Z ##[endgroup]
+2026-10-03T23:04:03.2852730Z [command]/opt/homebrew/bin/git log -1 --format=%H
+2026-10-03T23:04:03.2943610Z fda86fbb6f90500ce9449bb5c0d5bd302da10b0a
+2026-10-03T23:04:03.2960480Z ##[group]Removing auth
+2026-10-03T23:04:03.2971080Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-03T23:04:03.3038730Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-03T23:04:03.4060150Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-03T23:04:03.4116520Z http.https://github.com/.extraheader
+2026-10-03T23:04:03.4124630Z [command]/opt/homebrew/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-03T23:04:03.4219820Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-03T23:04:03.5103640Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-03T23:04:03.5170520Z [command]/opt/homebrew/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-03T23:04:03.6252620Z ##[endgroup]
+2026-10-03T23:04:03.6484020Z ##[group]Run python3 - <<'PY'
+2026-10-03T23:04:03.6484310Z [36;1mpython3 - <<'PY'[0m
+2026-10-03T23:04:03.6484590Z [36;1mfrom pathlib import Path[0m
+2026-10-03T23:04:03.6484830Z [36;1mimport re, os[0m
+2026-10-03T23:04:03.6485380Z [36;1mpaths = [(tuple(map(int, m[1].split('.'))), p) for p in Path('/Applications').glob('Xcode_*.app') if (m := re.fullmatch(r'Xcode_([0-9.]+)\.app', p.name))][0m
+2026-10-03T23:04:03.6485950Z [36;1mwith open(os.environ['GITHUB_ENV'], 'a') as f:[0m
+2026-10-03T23:04:03.6486460Z [36;1m    f.write(f'DEVELOPER_DIR={max(paths)[1]}/Contents/Developer\n')[0m
+2026-10-03T23:04:03.6486780Z [36;1mPY[0m
+2026-10-03T23:04:03.6725530Z shell: /bin/bash -e {0}
+2026-10-03T23:04:03.6725770Z ##[endgroup]
+2026-10-03T23:04:03.9666150Z ##[group]Run set -o pipefail
+2026-10-03T23:04:03.9666400Z [36;1mset -o pipefail[0m
+2026-10-03T23:04:03.9666570Z [36;1mmkdir -p evidence[0m
+2026-10-03T23:04:03.9666860Z [36;1mgit rev-parse HEAD > evidence/input-commit.txt[0m
+2026-10-03T23:04:03.9667510Z [36;1mxcodebuild -version > evidence/xcode-version.txt[0m
+2026-10-03T23:04:03.9668080Z [36;1mxcrun swift --version > evidence/swift-version.txt[0m
+2026-10-03T23:04:03.9668550Z [36;1mbash scripts/test-epub-package-contract.sh 2>&1 | tee evidence/contract.log[0m
+2026-10-03T23:04:03.9668990Z [36;1mpython3 - <<'PY'[0m
+2026-10-03T23:04:03.9669150Z [36;1mimport re[0m
+2026-10-03T23:04:03.9669480Z [36;1ms = open('evidence/contract.log').read()[0m
+2026-10-03T23:04:03.9669860Z [36;1mmatches = re.findall(r'Test run with (\d+) tests.*passed', s)[0m
+2026-10-03T23:04:03.9670390Z [36;1mif not matches or int(matches[-1]) <= 0:[0m
+2026-10-03T23:04:03.9670960Z [36;1m    raise SystemExit('Expected actual passing Swift Testing execution')[0m
+2026-10-03T23:04:03.9671550Z [36;1mfor suite in ['EPUB package local references', 'EPUB package manifest and spine', 'EPUB package source lifecycle']:[0m
+2026-10-03T23:04:03.9672190Z [36;1m    if not re.search(r'Suite \"' + re.escape(suite) + r'\" passed', s):[0m
+2026-10-03T23:04:03.9672610Z [36;1m        raise SystemExit('Missing passing suite: ' + suite)[0m
+2026-10-03T23:04:03.9672960Z [36;1mPY[0m
+2026-10-03T23:04:03.9712850Z shell: /bin/bash -e {0}
+2026-10-03T23:04:03.9713040Z env:
+2026-10-03T23:04:03.9713300Z   DEVELOPER_DIR: /Applications/Xcode_26.3.0.app/Contents/Developer
+2026-10-03T23:04:03.9713670Z ##[endgroup]
+2026-10-03T23:04:12.4885300Z Building for debugging...
+2026-10-03T23:04:12.4922840Z [0/7] /private/var/folders/nj/vtw8zd2j31d1gdrtntc5y4600000gn/T/epub-package-contract.XXXXXX.NulhhfJ5ca/.build/arm64-apple-macosx/debug/EPUBPackageContractPackageTests.derived/runner.swift
+2026-10-03T23:04:12.4924350Z [0/7] Write sources
+2026-10-03T23:04:12.5973870Z [4/7] Write swift-version-1977FEB4D2752686.txt
+2026-10-03T23:04:17.9057250Z [6/22] Emitting module vreader
+2026-10-03T23:04:17.9193020Z [7/22] Compiling vreader EPUBSemanticPackageTypes.swift
+2026-10-03T23:04:17.9278760Z [8/22] Compiling vreader EPUBSemanticResourceReader.swift
+2026-10-03T23:04:17.9279340Z [9/22] Compiling vreader EPUBSemanticSourceTypes.swift
+2026-10-03T23:04:17.9285650Z [10/22] Compiling vreader EPUBSourceInflater.swift
+2026-10-03T23:04:17.9285990Z [11/22] Compiling vreader EPUBSourceSnapshot.swift
+2026-10-03T23:04:17.9286370Z [12/22] Compiling vreader EPUBSourceZIPBytes.swift
+2026-10-03T23:04:17.9286710Z [13/22] Compiling vreader EPUBSourceZIPIndex.swift
+2026-10-03T23:04:17.9287150Z [14/22] Compiling vreader EPUBContainerDecoder.swift
+2026-10-03T23:04:17.9287490Z [15/22] Compiling vreader EPUBPackageDecoder.swift
+2026-10-03T23:04:17.9287920Z [16/22] Compiling vreader EPUBPackageLiteralKey.swift
+2026-10-03T23:04:17.9288260Z [17/22] Compiling vreader EPUBPackageReference.swift
+2026-10-03T23:04:17.9288670Z [18/22] Compiling vreader EPUBPackageXMLAccess.swift
+2026-10-03T23:04:17.9289010Z [19/22] Compiling vreader EPUBSemanticPackageLimits.swift
+2026-10-03T23:04:17.9289460Z [20/22] Compiling vreader EPUBSemanticPackageLoader.swift
+2026-10-03T23:04:18.7297520Z [21/29] Compiling vreader SemanticXMLBuilder.swift
+2026-10-03T23:04:18.7298220Z [22/29] Compiling vreader SemanticXMLLimits.swift
+2026-10-03T23:04:18.7298760Z [23/29] Compiling vreader SemanticXMLNamespace.swift
+2026-10-03T23:04:18.7299290Z [24/29] Compiling vreader SemanticXMLParser.swift
+2026-10-03T23:04:18.7299740Z [25/29] Compiling vreader SemanticXMLPreflight.swift
+2026-10-03T23:04:18.7300430Z [26/29] Compiling vreader SemanticXMLStartTags.swift
+2026-10-03T23:04:18.7308550Z [27/29] Compiling vreader SemanticXMLTypes.swift
+2026-10-03T23:04:21.9816430Z [28/34] Compiling vreaderTests EPUBPackageDecoderTests.swift
+2026-10-03T23:04:21.9916430Z [29/34] Compiling vreaderTests EPUBPackageFixture.swift
+2026-10-03T23:04:22.0993140Z [30/35] Compiling vreaderTests EPUBPackageLoaderTests.swift
+2026-10-03T23:04:22.1025000Z [31/35] Compiling vreaderTests EPUBPackageReferenceTests.swift
+2026-10-03T23:04:22.1025780Z [32/35] Emitting module vreaderTests
+2026-10-03T23:04:22.3561760Z [33/35] Compiling vreaderTests EPUBSemanticZIPFixture.swift
+2026-10-03T23:04:23.0889900Z [34/37] Compiling EPUBPackageContractPackageTests runner.swift
+2026-10-03T23:04:23.0890730Z [35/37] Emitting module EPUBPackageContractPackageTests
+2026-10-03T23:04:23.0916630Z [35/37] Write Objects.LinkFileList
+2026-10-03T23:04:23.4666770Z [36/37] Linking EPUBPackageContractPackageTests
+2026-10-03T23:04:23.4683510Z Build complete! (11.03s)
+2026-10-03T23:04:23.8339500Z Test Suite 'All tests' started at 2026-10-03 23:04:23.781.
+2026-10-03T23:04:23.8343140Z Test Suite 'All tests' passed at 2026-10-03 23:04:23.783.
+2026-10-03T23:04:23.8343870Z 	 Executed 0 tests, with 0 failures (0 unexpected) in 0.000 (0.002) seconds
+2026-10-03T23:04:23.8347040Z ◇ Test run started.
+2026-10-03T23:04:23.8347820Z ↳ Testing Library Version: 1501
+2026-10-03T23:04:23.8348490Z ↳ Target Platform: arm64e-apple-macos14.0
+2026-10-03T23:04:23.8348990Z ◇ Suite "EPUB package manifest and spine" started.
+2026-10-03T23:04:23.8349570Z ◇ Suite "EPUB package source lifecycle" started.
+2026-10-03T23:04:23.8350420Z ◇ Test packageRejectsInvalidStructures(_:_:) started.
+2026-10-03T23:04:23.8351130Z ◇ Test propertyXMLWhitespaceIncludesAdjacentCRLFReferences() started.
+2026-10-03T23:04:23.8351860Z ◇ Test trailingXMLWhitespaceDoesNotConsumePropertySlots(_:_:) started.
+2026-10-03T23:04:23.8352540Z ◇ Test literalIDsAndPropertyTokens() started.
+2026-10-03T23:04:23.8352960Z ◇ Suite "EPUB package local references" started.
+2026-10-03T23:04:23.8353480Z ◇ Test assetsAndMediaCasingAndOpaqueMetadata() started.
+2026-10-03T23:04:23.8354070Z ◇ Test immutableValueEqualityKeepsLiteralIdentifiers() started.
+2026-10-03T23:04:23.8354510Z ◇ Test orderedRepeatedAndAuxiliarySpine(_:) started.
+2026-10-03T23:04:23.8354960Z ◇ Test exactAndExceededIndependentBudgets() started.
+2026-10-03T23:04:23.8355360Z ◇ Test duplicateIDsAndNormalizedPathsReject() started.
+2026-10-03T23:04:23.8355870Z ◇ Test containerURLIsRootRelativeAndDecodedOnce(_:) started.
+2026-10-03T23:04:23.8356350Z ◇ Test validNestedWrappersCannotReplaceDirectWrappers() started.
+2026-10-03T23:04:23.8356860Z ◇ Test containerRejectsInvalidStructures(_:_:) started.
+2026-10-03T23:04:23.8361050Z ◇ Test fileLookupCannotUseCanonicalEquivalence() started.
+2026-10-03T23:04:23.8361750Z ◇ Test case passing 2 arguments old → "version='3.0'", new → "version='4.0'" to packageRejectsInvalidStructures(_:_:) started.
+2026-10-03T23:04:23.8362470Z ◇ Test case passing 2 arguments old → "version='3.0'", new → "" to packageRejectsInvalidStructures(_:_:) started.
+2026-10-03T23:04:23.8363170Z ◇ Test prefixedContainerAndPackageAndIgnoredDocumentNodes() started.
+2026-10-03T23:04:23.8363920Z ◇ Test case passing 2 arguments old → "http://www.idpf.org/2007/opf", new → "urn:spoof" to packageRejectsInvalidStructures(_:_:) started.
+2026-10-03T23:04:23.8364820Z ◇ Test case passing 2 arguments old → "<manifest>", new → "<wrapper><manifest>" to packageRejectsInvalidStructures(_:_:) started.
+2026-10-03T23:04:23.8365600Z ◇ Test case passing 2 arguments old → "</spine>", new → "</spine><spine/>" to packageRejectsInvalidStructures(_:_:) started.
+2026-10-03T23:04:23.8366560Z ◇ Test case passing 2 arguments old → "id='c'", new → "xmlns:x='urn:x' x:id='c'" to packageRejectsInvalidStructures(_:_:) started.
+2026-10-03T23:04:23.8367400Z ◇ Test case passing 2 arguments cap → 1, forSpine → false to trailingXMLWhitespaceDoesNotConsumePropertySlots(_:_:) started.
+2026-10-03T23:04:23.8368120Z ◇ Test case passing 2 arguments old → "id='c'", new → "id=''" to packageRejectsInvalidStructures(_:_:) started.
+2026-10-03T23:04:23.8368940Z ◇ Test case passing 2 arguments cap → 1, forSpine → true to trailingXMLWhitespaceDoesNotConsumePropertySlots(_:_:) started.
+2026-10-03T23:04:23.8370040Z ◇ Test case passing 2 arguments old → "id='c'", new → "id='a b'" to packageRejectsInvalidStructures(_:_:) started.
+2026-10-03T23:04:23.8370990Z ◇ Test case passing 2 arguments cap → 64, forSpine → false to trailingXMLWhitespaceDoesNotConsumePropertySlots(_:_:) started.
+2026-10-03T23:04:23.8371930Z ◇ Test case passing 2 arguments old → "href='chapter.xhtml'", new → "href='missing.xhtml'" to packageRejectsInvalidStructures(_:_:) started.
+2026-10-03T23:04:23.8372740Z ◇ Test case passing 2 arguments cap → 64, forSpine → true to trailingXMLWhitespaceDoesNotConsumePropertySlots(_:_:) started.
+2026-10-03T23:04:23.8373660Z ◇ Test case passing 2 arguments old → "href='chapter.xhtml'", new → "href='Chapter.xhtml'" to packageRejectsInvalidStructures(_:_:) started.
+2026-10-03T23:04:23.8374590Z ◇ Test case passing 2 arguments old → "media-type='application/xhtml+xml'", new → "media-type='image/svg+xml'" to packageRejectsInvalidStructures(_:_:) started.
+2026-10-03T23:04:23.8375710Z ◇ Test case passing 2 arguments old → "media-type='application/xhtml+xml'", new → "media-type='text/html; charset=UTF-8'" to packageRejectsInvalidStructures(_:_:) started.
+2026-10-03T23:04:23.8376600Z ◇ Test case passing 2 arguments old → "</manifest>", new → "</manifest><manifest/>" to packageRejectsInvalidStructures(_:_:) started.
+2026-10-03T23:04:23.8377460Z ◇ Test case passing 2 arguments old → "<item id=", new → "<item fallback='' id=" to packageRejectsInvalidStructures(_:_:) started.
+2026-10-03T23:04:23.8378350Z ◇ Test case passing 2 arguments old → "<manifest>", new → "<manifest xml:base='sub/'>" to packageRejectsInvalidStructures(_:_:) started.
+2026-10-03T23:04:23.8379120Z ◇ Test case passing 2 arguments old → "<itemref idref='c'/>", new → "" to packageRejectsInvalidStructures(_:_:) started.
+2026-10-03T23:04:23.8380030Z ◇ Test case passing 2 arguments old → "<itemref idref='c'/>", new → "<itemref idref='x'/>" to packageRejectsInvalidStructures(_:_:) started.
+2026-10-03T23:04:23.8380970Z ◇ Test case passing 2 arguments old → "media-type='application/xhtml+xml'", new → "media-type='text//html'" to packageRejectsInvalidStructures(_:_:) started.
+2026-10-03T23:04:23.8381870Z ◇ Test case passing 2 arguments old → "<itemref idref='c'/>", new → "<itemref idref='c' linear='true'/>" to packageRejectsInvalidStructures(_:_:) started.
+2026-10-03T23:04:23.8382880Z ◇ Test case passing 2 arguments old → "<itemref idref='c'/>", new → "<itemref idref='c' properties='a a'/>" to packageRejectsInvalidStructures(_:_:) started.
+2026-10-03T23:04:23.8384040Z ◇ Test case passing 2 arguments old → "<item id=", new → "<item properties='a a' id=" to packageRejectsInvalidStructures(_:_:) started.
+2026-10-03T23:04:23.8384880Z ◇ Test case passing 1 argument version → "2.0" to orderedRepeatedAndAuxiliarySpine(_:) started.
+2026-10-03T23:04:23.8385630Z ◇ Test case passing 1 argument version → "3.0" to orderedRepeatedAndAuxiliarySpine(_:) started.
+2026-10-03T23:04:23.8386510Z ◇ Test case passing 1 argument path → "OPS/%E4%B8%AD.opf" to containerURLIsRootRelativeAndDecodedOnce(_:) started.
+2026-10-03T23:04:23.8387260Z ◇ Test case passing 1 argument path → "OPS/100%25done.opf" to containerURLIsRootRelativeAndDecodedOnce(_:) started.
+2026-10-03T23:04:23.8388100Z ◇ Test case passing 2 arguments old → "version='1.0'", new → "version='2.0'" to containerRejectsInvalidStructures(_:_:) started.
+2026-10-03T23:04:23.8388840Z ◇ Test case passing 2 arguments old → "version='1.0'", new → "" to containerRejectsInvalidStructures(_:_:) started.
+2026-10-03T23:04:23.8389790Z ◇ Test case passing 2 arguments old → "<itemref idref='c'/>", new → "<itemref idref='c' linear='no'/>" to packageRejectsInvalidStructures(_:_:) started.
+2026-10-03T23:04:23.8390630Z ◇ Test case passing 2 arguments old → "<rootfiles>", new → "<wrapper><rootfiles>" to containerRejectsInvalidStructures(_:_:) started.
+2026-10-03T23:04:23.8391640Z ◇ Test case passing 2 arguments old → "urn:oasis:names:tc:opendocument:xmlns:container", new → "urn:spoof" to containerRejectsInvalidStructures(_:_:) started.
+2026-10-03T23:04:23.8392760Z ◇ Test case passing 2 arguments old → "</rootfiles>", new → "</rootfiles><rootfiles/>" to containerRejectsInvalidStructures(_:_:) started.
+2026-10-03T23:04:23.8393920Z ◇ Test case passing 2 arguments old → "application/oebps-package+xml", new → "text/xml" to containerRejectsInvalidStructures(_:_:) started.
+2026-10-03T23:04:23.8394740Z ◇ Test originalDigestsAndClosedReaderAfterSuccess() started.
+2026-10-03T23:04:23.8395380Z ◇ Test case passing 2 arguments old → "OPS/book.opf", new → "missing.opf" to containerRejectsInvalidStructures(_:_:) started.
+2026-10-03T23:04:23.8396340Z ◇ Test case passing 2 arguments old → "OPS/book.opf", new → "OPS/book.opf/" to containerRejectsInvalidStructures(_:_:) started.
+2026-10-03T23:04:23.8397110Z ◇ Test case passing 2 arguments old → "OPS/book.opf", new → "OPS/child/.." to containerRejectsInvalidStructures(_:_:) started.
+2026-10-03T23:04:23.8397960Z ◇ Test case passing 2 arguments old → "<rootfiles>", new → "<rootfiles xml:base='x'>" to containerRejectsInvalidStructures(_:_:) started.
+2026-10-03T23:04:23.8399100Z ◇ Test case passing 2 arguments old → "<rootfiles>", new → "<rootfiles><xi:include xmlns:xi='http://www.w3.org/2001/XInclude' href='x'/>" to containerRejectsInvalidStructures(_:_:) started.
+2026-10-03T23:04:23.8400330Z ◇ Test case passing 2 arguments old → "</rootfiles>", new → "<rootfile full-path='OPS/book.opf' media-type='application/oebps-package+xml'/></rootfiles>" to containerRejectsInvalidStructures(_:_:) started.
+2026-10-03T23:04:23.8401610Z ◇ Test case passing 2 arguments old → "full-path=", new → "xmlns:x='urn:x' x:full-path=" to containerRejectsInvalidStructures(_:_:) started.
+2026-10-03T23:04:23.8402330Z ◇ Test resolvesWithinArchive(_:_:) started.
+2026-10-03T23:04:23.8402680Z ◇ Test rootAndLiteralBaseAreNotDecodedAgain() started.
+2026-10-03T23:04:23.8403130Z ◇ Test rejectsUnsupportedOrUnsafe(_:) started.
+2026-10-03T23:04:23.8403470Z ◇ Test UnicodeAndCaseStayLiteral() started.
+2026-10-03T23:04:23.8403940Z ◇ Test separatorsRemainSeparatorsBeforeCombiningMarks() started.
+2026-10-03T23:04:23.8404520Z ✔ Test immutableValueEqualityKeepsLiteralIdentifiers() passed after 0.007 seconds.
+2026-10-03T23:04:23.8405320Z ◇ Test case passing 2 arguments href → "chapter.xhtml", expected → "OPS/chapter.xhtml" to resolvesWithinArchive(_:_:) started.
+2026-10-03T23:04:23.8406150Z ◇ Test case passing 2 arguments href → "sub/a.xhtml", expected → "OPS/sub/a.xhtml" to resolvesWithinArchive(_:_:) started.
+2026-10-03T23:04:23.8407060Z ◇ Test case passing 2 arguments href → "../a.xhtml", expected → "a.xhtml" to resolvesWithinArchive(_:_:) started.
+2026-10-03T23:04:23.8407810Z ◇ Test case passing 2 arguments href → "./a.xhtml", expected → "OPS/a.xhtml" to resolvesWithinArchive(_:_:) started.
+2026-10-03T23:04:23.8408550Z ◇ Test case passing 2 arguments href → "sub/../a.xhtml", expected → "OPS/a.xhtml" to resolvesWithinArchive(_:_:) started.
+2026-10-03T23:04:23.8409350Z ◇ Test case passing 2 arguments href → "%2e%2e/a.xhtml", expected → "a.xhtml" to resolvesWithinArchive(_:_:) started.
+2026-10-03T23:04:23.8410610Z ◇ Test case passing 2 arguments href → "中文 😀.xhtml", expected → "OPS/中文 😀.xhtml" to resolvesWithinArchive(_:_:) started.
+2026-10-03T23:04:23.8411430Z ◇ Test case passing 2 arguments href → "%E4%B8%AD.xhtml", expected → "OPS/中.xhtml" to resolvesWithinArchive(_:_:) started.
+2026-10-03T23:04:23.8412450Z ◇ Test case passing 2 arguments href → "e%CC%81.xhtml", expected → "OPS/é.xhtml" to resolvesWithinArchive(_:_:) started.
+2026-10-03T23:04:23.8413350Z ◇ Test case passing 2 arguments href → "שלום.xhtml", expected → "OPS/שלום.xhtml" to resolvesWithinArchive(_:_:) started.
+2026-10-03T23:04:23.8414390Z ◇ Test case passing 2 arguments href → "100%25done.xhtml", expected → "OPS/100%done.xhtml" to resolvesWithinArchive(_:_:) started.
+2026-10-03T23:04:23.8416000Z ◇ Test case passing 2 arguments href → "a b.xhtml", expected → "OPS/a b.xhtml" to resolvesWithinArchive(_:_:) started.
+2026-10-03T23:04:23.8416880Z ◇ Test case passing 1 argument href → "" to rejectsUnsupportedOrUnsafe(_:) started.
+2026-10-03T23:04:23.8417480Z ◇ Test case passing 1 argument href → "/a" to rejectsUnsupportedOrUnsafe(_:) started.
+2026-10-03T23:04:23.8418440Z ◇ Test case passing 1 argument href → "//a" to rejectsUnsupportedOrUnsafe(_:) started.
+2026-10-03T23:04:23.8419080Z ◇ Test case passing 1 argument href → "http:a" to rejectsUnsupportedOrUnsafe(_:) started.
+2026-10-03T23:04:23.8419650Z ◇ Test case passing 1 argument href → "data:x" to rejectsUnsupportedOrUnsafe(_:) started.
+2026-10-03T23:04:23.8420350Z ◇ Test case passing 1 argument href → "file:a" to rejectsUnsupportedOrUnsafe(_:) started.
+2026-10-03T23:04:23.8420930Z ◇ Test case passing 1 argument href → "C:/a" to rejectsUnsupportedOrUnsafe(_:) started.
+2026-10-03T23:04:23.8421890Z ◇ Test case passing 1 argument href → "a:b" to rejectsUnsupportedOrUnsafe(_:) started.
+2026-10-03T23:04:23.8423170Z ◇ Test case passing 1 argument href → "a%3Ab" to rejectsUnsupportedOrUnsafe(_:) started.
+2026-10-03T23:04:23.8424410Z ◇ Test case passing 1 argument href → "a%3ab" to rejectsUnsupportedOrUnsafe(_:) started.
+2026-10-03T23:04:23.8425780Z ◇ Test case passing 1 argument href → "a\b" to rejectsUnsupportedOrUnsafe(_:) started.
+2026-10-03T23:04:23.8426640Z ◇ Test case passing 1 argument href → "a?b" to rejectsUnsupportedOrUnsafe(_:) started.
+2026-10-03T23:04:23.8427830Z ◇ Test case passing 1 argument href → "a#b" to rejectsUnsupportedOrUnsafe(_:) started.
+2026-10-03T23:04:23.8428530Z ◇ Test case passing 1 argument href → " a" to rejectsUnsupportedOrUnsafe(_:) started.
+2026-10-03T23:04:23.8429650Z ◇ Test case passing 1 argument href → "a	" to rejectsUnsupportedOrUnsafe(_:) started.
+2026-10-03T23:04:23.8430190Z ◇ Test case passing 1 argument href → "a
+2026-10-03T23:04:23.8431150Z " to rejectsUnsupportedOrUnsafe(_:) started.
+2026-10-03T23:04:23.8431990Z ◇ Test case passing 1 argument href → "a" to rejectsUnsupportedOrUnsafe(_:) started.
+2026-10-03T23:04:23.8432940Z ◇ Test case passing 1 argument href → "a%00b" to rejectsUnsupportedOrUnsafe(_:) started.
+2026-10-03T23:04:23.8435750Z ◇ Test case passing 1 argument href → "a%01b" to rejectsUnsupportedOrUnsafe(_:) started.
+2026-10-03T23:04:23.8436540Z ◇ Test case passing 1 argument href → "a%7fb" to rejectsUnsupportedOrUnsafe(_:) started.
+2026-10-03T23:04:23.8439500Z ◇ Test case passing 1 argument href → "a%2fb" to rejectsUnsupportedOrUnsafe(_:) started.
+2026-10-03T23:04:23.8440670Z ◇ Test case passing 1 argument href → "a%2Fb" to rejectsUnsupportedOrUnsafe(_:) started.
+2026-10-03T23:04:23.8442800Z ◇ Test case passing 1 argument href → "a%5cb" to rejectsUnsupportedOrUnsafe(_:) started.
+2026-10-03T23:04:23.8443710Z ◇ Test case passing 1 argument href → "a%3fb" to rejectsUnsupportedOrUnsafe(_:) started.
+2026-10-03T23:04:23.8444450Z ◇ Test case passing 1 argument href → "a%23b" to rejectsUnsupportedOrUnsafe(_:) started.
+2026-10-03T23:04:23.8445170Z ◇ Test case passing 1 argument href → "a%" to rejectsUnsupportedOrUnsafe(_:) started.
+2026-10-03T23:04:23.8445790Z ◇ Test case passing 1 argument href → "a%0" to rejectsUnsupportedOrUnsafe(_:) started.
+2026-10-03T23:04:23.8567070Z ◇ Test case passing 1 argument href → "a%GG" to rejectsUnsupportedOrUnsafe(_:) started.
+2026-10-03T23:04:23.8568020Z ◇ Test case passing 1 argument href → "a%FF" to rejectsUnsupportedOrUnsafe(_:) started.
+2026-10-03T23:04:23.8568670Z ◇ Test case passing 1 argument href → "a%C0%AF" to rejectsUnsupportedOrUnsafe(_:) started.
+2026-10-03T23:04:23.8569220Z ◇ Test case passing 1 argument href → "a%2520b" to rejectsUnsupportedOrUnsafe(_:) started.
+2026-10-03T23:04:23.8569810Z ◇ Test case passing 1 argument href → "../../a" to rejectsUnsupportedOrUnsafe(_:) started.
+2026-10-03T23:04:23.8571900Z ◇ Test case passing 1 argument href → "a//b" to rejectsUnsupportedOrUnsafe(_:) started.
+2026-10-03T23:04:23.8572490Z ◇ Test case passing 1 argument href → "a/" to rejectsUnsupportedOrUnsafe(_:) started.
+2026-10-03T23:04:23.8573000Z ◇ Test case passing 1 argument href → "." to rejectsUnsupportedOrUnsafe(_:) started.
+2026-10-03T23:04:23.8573470Z ◇ Test case passing 1 argument href → ".." to rejectsUnsupportedOrUnsafe(_:) started.
+2026-10-03T23:04:23.8574330Z ◇ Test case passing 1 argument href → "child/.." to rejectsUnsupportedOrUnsafe(_:) started.
+2026-10-03T23:04:23.8574930Z ◇ Test case passing 1 argument href → "%2e" to rejectsUnsupportedOrUnsafe(_:) started.
+2026-10-03T23:04:23.8575510Z ◇ Test case passing 1 argument href → "%2E%2e" to rejectsUnsupportedOrUnsafe(_:) started.
+2026-10-03T23:04:23.8576060Z ◇ Test case passing 1 argument href → "child/%2e%2e" to rejectsUnsupportedOrUnsafe(_:) started.
+2026-10-03T23:04:23.8576600Z ◇ Test case passing 1 argument href → "child/%2e" to rejectsUnsupportedOrUnsafe(_:) started.
+2026-10-03T23:04:23.8577120Z ◇ Test case passing 1 argument href → "child/." to rejectsUnsupportedOrUnsafe(_:) started.
+2026-10-03T23:04:23.8577810Z ✔ Test propertyXMLWhitespaceIncludesAdjacentCRLFReferences() passed after 0.014 seconds.
+2026-10-03T23:04:23.8578450Z ✔ Test literalIDsAndPropertyTokens() passed after 0.014 seconds.
+2026-10-03T23:04:23.8579920Z ✔ Test trailingXMLWhitespaceDoesNotConsumePropertySlots(_:_:) with 4 test cases passed after 0.014 seconds.
+2026-10-03T23:04:23.8580830Z ✔ Test packageRejectsInvalidStructures(_:_:) with 22 test cases passed after 0.014 seconds.
+2026-10-03T23:04:23.8581450Z ✔ Test rootAndLiteralBaseAreNotDecodedAgain() passed after 0.008 seconds.
+2026-10-03T23:04:23.8582000Z ✔ Test resolvesWithinArchive(_:_:) with 12 test cases passed after 0.009 seconds.
+2026-10-03T23:04:23.8582560Z ✔ Test UnicodeAndCaseStayLiteral() passed after 0.008 seconds.
+2026-10-03T23:04:23.8583080Z ✔ Test rejectsUnsupportedOrUnsafe(_:) with 42 test cases passed after 0.008 seconds.
+2026-10-03T23:04:23.8583700Z ✔ Test orderedRepeatedAndAuxiliarySpine(_:) with 2 test cases passed after 0.015 seconds.
+2026-10-03T23:04:23.8584320Z ✔ Test separatorsRemainSeparatorsBeforeCombiningMarks() passed after 0.007 seconds.
+2026-10-03T23:04:23.8585030Z ✔ Test containerURLIsRootRelativeAndDecodedOnce(_:) with 2 test cases passed after 0.015 seconds.
+2026-10-03T23:04:23.8585770Z ✔ Test containerRejectsInvalidStructures(_:_:) with 13 test cases passed after 0.015 seconds.
+2026-10-03T23:04:23.8586420Z ✔ Test fileLookupCannotUseCanonicalEquivalence() passed after 0.015 seconds.
+2026-10-03T23:04:23.8586980Z ✔ Suite "EPUB package local references" passed after 0.015 seconds.
+2026-10-03T23:04:23.8588590Z ✔ Test duplicateIDsAndNormalizedPathsReject() passed after 0.015 seconds.
+2026-10-03T23:04:23.8589250Z ✔ Test validNestedWrappersCannotReplaceDirectWrappers() passed after 0.015 seconds.
+2026-10-03T23:04:23.8590160Z ✔ Test assetsAndMediaCasingAndOpaqueMetadata() passed after 0.015 seconds.
+2026-10-03T23:04:23.8590810Z ✔ Test prefixedContainerAndPackageAndIgnoredDocumentNodes() passed after 0.015 seconds.
+2026-10-03T23:04:23.8591520Z ✔ Test originalDigestsAndClosedReaderAfterSuccess() passed after 0.015 seconds.
+2026-10-03T23:04:23.8592090Z ◇ Test catalogIsFileOnlySortedAndDoesNotConsumeReadBudget() started.
+2026-10-03T23:04:23.8592770Z ✔ Test catalogIsFileOnlySortedAndDoesNotConsumeReadBudget() passed after 0.001 seconds.
+2026-10-03T23:04:23.8593260Z ◇ Test cancelledCatalogClosesActualReader() started.
+2026-10-03T23:04:23.8593790Z ✔ Test cancelledCatalogClosesActualReader() passed after 0.001 seconds.
+2026-10-03T23:04:23.8594340Z ◇ Test assetsAreCheckedWithoutInflatingOrClaimingTheirIntegrity() started.
+2026-10-03T23:04:23.8594960Z ✔ Test exactAndExceededIndependentBudgets() passed after 0.018 seconds.
+2026-10-03T23:04:23.8595540Z ✔ Suite "EPUB package manifest and spine" passed after 0.019 seconds.
+2026-10-03T23:04:23.8597030Z ✔ Test assetsAreCheckedWithoutInflatingOrClaimingTheirIntegrity() passed after 0.001 seconds.
+2026-10-03T23:04:23.8597700Z ◇ Test metadataCRCFailurePropagatesAndClosesReader() started.
+2026-10-03T23:04:23.8598230Z ✔ Test metadataCRCFailurePropagatesAndClosesReader() passed after 0.001 seconds.
+2026-10-03T23:04:23.8598870Z ◇ Test XMLFailureAndPackageFailurePropagateAndCloseReader() started.
+2026-10-03T23:04:23.8599540Z ✔ Test XMLFailureAndPackageFailurePropagateAndCloseReader() passed after 0.002 seconds.
+2026-10-03T23:04:23.8600140Z ◇ Test cancellationWithholdsPackageAndClosesReader(_:) started.
+2026-10-03T23:04:23.8600970Z ◇ Test case passing 1 argument point → .worker to cancellationWithholdsPackageAndClosesReader(_:) started.
+2026-10-03T23:04:23.8601700Z ◇ Test case passing 1 argument point → .reader to cancellationWithholdsPackageAndClosesReader(_:) started.
+2026-10-03T23:04:23.8602610Z ◇ Test case passing 1 argument point → .stage(vreader.EPUBPackageStage.containerDecoded) to cancellationWithholdsPackageAndClosesReader(_:) started.
+2026-10-03T23:04:23.8603530Z ◇ Test case passing 1 argument point → .stage(vreader.EPUBPackageStage.opfDecoded) to cancellationWithholdsPackageAndClosesReader(_:) started.
+2026-10-03T23:04:23.8616560Z ◇ Test case passing 1 argument point → .stage(vreader.EPUBPackageStage.manifestItem(0)) to cancellationWithholdsPackageAndClosesReader(_:) started.
+2026-10-03T23:04:23.8617780Z ◇ Test case passing 1 argument point → .stage(vreader.EPUBPackageStage.spineEntry(0)) to cancellationWithholdsPackageAndClosesReader(_:) started.
+2026-10-03T23:04:23.8618740Z ◇ Test case passing 1 argument point → .publication to cancellationWithholdsPackageAndClosesReader(_:) started.
+2026-10-03T23:04:23.8619500Z ✔ Test cancellationWithholdsPackageAndClosesReader(_:) with 7 test cases passed after 0.008 seconds.
+2026-10-03T23:04:23.8620140Z ◇ Test cancellationBeforeOpenAndInvalidLimitsBeforeIO() started.
+2026-10-03T23:04:23.8623380Z ✔ Test cancellationBeforeOpenAndInvalidLimitsBeforeIO() passed after 0.001 seconds.
+2026-10-03T23:04:23.8625130Z ◇ Test independentConcurrentLoads() started.
+2026-10-03T23:04:23.8625800Z ✔ Test independentConcurrentLoads() passed after 0.001 seconds.
+2026-10-03T23:04:23.8627510Z ◇ Test snapshotSurvivesPathReplacementAndExpectedRevisionRejectsNextOpen() started.
+2026-10-03T23:04:23.8628280Z ✔ Test snapshotSurvivesPathReplacementAndExpectedRevisionRejectsNextOpen() passed after 0.001 seconds.
+2026-10-03T23:04:23.8629040Z ◇ Test deflatedMetadataUsesSameRealSubsystems() started.
+2026-10-03T23:04:23.8631470Z ✔ Test deflatedMetadataUsesSameRealSubsystems() passed after 0.001 seconds.
+2026-10-03T23:04:23.8632180Z ✔ Suite "EPUB package source lifecycle" passed after 0.037 seconds.
+2026-10-03T23:04:23.8632750Z ✔ Test run with 30 tests in 3 suites passed after 0.037 seconds.
+2026-10-03T23:04:24.0976340Z swift-driver version: 1.127.15 
+2026-10-03T23:04:24.1072610Z ##[group]Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+2026-10-03T23:04:24.1073110Z with:
+2026-10-03T23:04:24.1073340Z   name: epub-package-contract-fda86fbb6f90500ce9449bb5c0d5bd302da10b0a
+2026-10-03T23:04:24.1073630Z   path: evidence/
+2026-10-03T23:04:24.1073760Z   retention-days: 7
+2026-10-03T23:04:24.1073910Z   if-no-files-found: warn
+2026-10-03T23:04:24.1074080Z   compression-level: 6
+2026-10-03T23:04:24.1074220Z   overwrite: false
+2026-10-03T23:04:24.1074370Z   include-hidden-files: false
+2026-10-03T23:04:24.1074540Z env:
+2026-10-03T23:04:24.1074730Z   DEVELOPER_DIR: /Applications/Xcode_26.3.0.app/Contents/Developer
+2026-10-03T23:04:24.1074990Z ##[endgroup]
+2026-10-03T23:04:24.4425770Z (node:1545) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-03T23:04:24.4426570Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-03T23:04:24.4465770Z With the provided path, there will be 4 files uploaded
+2026-10-03T23:04:24.4467530Z Artifact name is valid!
+2026-10-03T23:04:24.4467900Z Root directory input is valid!
+2026-10-03T23:04:24.6692770Z Beginning upload of artifact content to blob storage
+2026-10-03T23:04:24.6908680Z (node:1545) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-03T23:04:24.7108680Z Uploaded bytes 3601
+2026-10-03T23:04:24.7234690Z Finished uploading artifact content to blob storage!
+2026-10-03T23:04:24.7235390Z SHA256 digest of uploaded artifact zip is d950296f9c417746ba846f70f1c9e05d7a374a8568b4ab78365fc015082cc449
+2026-10-03T23:04:24.7237170Z Finalizing artifact upload
+2026-10-03T23:04:24.9113610Z Artifact epub-package-contract-fda86fbb6f90500ce9449bb5c0d5bd302da10b0a.zip successfully finalized. Artifact ID 11287283737
+2026-10-03T23:04:24.9114650Z Artifact epub-package-contract-fda86fbb6f90500ce9449bb5c0d5bd302da10b0a has been successfully uploaded! Final size is 3601 bytes. Artifact ID is 11287283737
+2026-10-03T23:04:24.9118850Z Artifact download URL: https://github.com/anguslilei/AdaptiveReader/actions/runs/37160519904/artifacts/11287283737
+2026-10-03T23:04:24.9277700Z Post job cleanup.
+2026-10-03T23:04:25.0326740Z [command]/opt/homebrew/bin/git version
+2026-10-03T23:04:25.0685070Z git version 2.55.0
+2026-10-03T23:04:25.0701710Z Copying '/Users/runner/.gitconfig' to '/Users/runner/work/_temp/a0b1ad99-319f-4c26-b1b0-44f315bfa730/.gitconfig'
+2026-10-03T23:04:25.0708320Z Temporarily overriding HOME='/Users/runner/work/_temp/a0b1ad99-319f-4c26-b1b0-44f315bfa730' before making global git config changes
+2026-10-03T23:04:25.0709040Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-03T23:04:25.0710900Z [command]/opt/homebrew/bin/git config --global --add safe.directory /Users/runner/work/AdaptiveReader/AdaptiveReader
+2026-10-03T23:04:25.0809100Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-03T23:04:25.0861430Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-03T23:04:25.1586720Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-03T23:04:25.1637960Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-03T23:04:25.2594950Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-03T23:04:25.2649890Z [command]/opt/homebrew/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-03T23:04:25.3794380Z Cleaning up orphan processes
+2026-10-03T23:04:25.4885420Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

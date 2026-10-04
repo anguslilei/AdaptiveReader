@@ -1,0 +1,12 @@
+2026-10-03T22:03:49.3916940Z [36;1mmatches = re.findall(r'Test run with (\d+) tests.*passed', s)[0m
+2026-10-03T22:04:08.1084200Z Build complete! (11.61s)
+2026-10-03T22:04:08.5043230Z ◇ Test separatorsRemainSeparatorsBeforeCombiningMarks() started.
+2026-10-03T22:04:08.5057290Z ✘ Test separatorsRemainSeparatorsBeforeCombiningMarks() recorded an issue at EPUBPackageReferenceTests.swift:39:9: Expectation failed: try EPUBPackageReference.resolve(href: "sub/\u{301}x/../a.xhtml", packagePath: "OPS/book.opf") == "OPS/sub/a.xhtml"
+2026-10-03T22:04:08.5059710Z ✘ Test separatorsRemainSeparatorsBeforeCombiningMarks() recorded an issue at EPUBPackageReferenceTests.swift:40:9: Expectation failed: try EPUBPackageReference.resolve(href: "a.xhtml", packagePath: "OPS/\u{301}book.opf") == "OPS/a.xhtml"
+2026-10-03T22:04:08.5085770Z ✘ Test separatorsRemainSeparatorsBeforeCombiningMarks() failed after 0.002 seconds with 2 issues.
+2026-10-03T22:04:08.5091810Z ◇ Test propertyXMLWhitespaceIncludesAdjacentCRLFReferences() started.
+2026-10-03T22:04:08.5148860Z ✘ Suite "EPUB package local references" failed after 0.010 seconds with 2 issues.
+2026-10-03T22:04:08.5149640Z ✘ Test propertyXMLWhitespaceIncludesAdjacentCRLFReferences() recorded an issue at EPUBPackageDecoderTests.swift:93:6: Caught error: invalidPackage
+2026-10-03T22:04:08.5154050Z ✘ Test propertyXMLWhitespaceIncludesAdjacentCRLFReferences() failed after 0.009 seconds with 1 issue.
+2026-10-03T22:04:08.5162480Z ✘ Suite "EPUB package manifest and spine" failed after 0.017 seconds with 1 issue.
+2026-10-03T22:04:08.5257420Z ✘ Test run with 28 tests in 3 suites failed after 0.034 seconds with 3 issues.

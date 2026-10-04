@@ -1,8 +1,8 @@
 # Feature180 — bounded native EPUB package and spine resolution
 
-Status: PLANNED; Gate2 PASS2; Gate3 ready. Reconciled main55719b2 after user-authorized PR3/PR4 merges.
+Status: IN PROGRESS; implementation and foundational integration pass, awaiting PR review/merge. Gate2 PASS2; Gate4 PASS3.
 Prerequisites: feature178 and feature179 are merged/DONE; their APIs/contracts are unchanged from reviewed b0c0a249.
-No Gate2 repeat needed for ancestry/status reconciliation; implementation may now begin.
+The Gate2 sections below record historical plan checkpoints; actual implementation evidence is appended at the end. Interfaces remain within the audited plan.
 
 ## Problem and scope
 
@@ -319,3 +319,52 @@ PR4 retargeted main and merged55719b27c62c0f0d37556618d4525a0ea8e1135e. Exact he
 had passing final native/compiler/reference/Mac checks; merged tree equals reviewed
 b0c0a249 tree. Feature178/179 marked DONE in this reconciliation commit. Interfaces
 unchanged, Gate2 PASS2 remains applicable. Gate3 may proceed; no release/tag made.
+
+
+## Implementation and verification2026-10-04
+
+Functional source40af655; final independently audited harness fda86fbb.
+Native behavioral RED/GREEN and Unicode/property/literal-equality regressions are
+recorded with immutable run/source identities in
+[verification](../verification/feature-180-20261004.md).
+Initial stub RED25 tests/83 issues; scalar RED28/3 issues; audit RED30/6 issues.
+Corrected source Mac30 tests/3 suites passes. Final rerun37160519904 also passes30;
+reference regression43 and preparation compiler run37160519891 succeed.
+
+Gate4 round1 FAIL: Medium property-cap trailing whitespace; Low canonical DTO
+equality. Both confirmed by actual native RED then corrected; round2 PASS.
+Round3 reviews only sequential native lane ownership and bounded own-CI evidence
+export; PASS with zero open findings. Source and tests unchanged from40af655.
+All findings/dispositions and rejected/disproven assumptions are enumerated in
+[Gate4 audit](../../.claude/codex-audits/feature-180-gate4-audit.md). No remedy rejected.
+
+Initial combined native run37157905091 passed Debug/Release but failed2 observer
+start assertions. Cooperative-pool contention is an inference; no production
+defect claim, omitted tests or relaxed deadlines. Final sequential native
+run37160519963 build/test steps pass 155 base +30 package distinct tests in separate
+completed bundles, all nine semantic suites explicitly Passed, failed/skipped0,
+and Debug/Release succeed. Original watchdog wrapper and same isolated UDID used.
+
+Real ZIP/XML deterministic fixtures use the explicit CI/exact-structure exception;
+no real-book or production reachability claim. Rule47 foundational integration is
+satisfied by real source/XML integration/native tests/audit. Chapter extraction,
+semantic blocks/source map, production import/renderer/UI/AI remain later WIs.
+
+Actual XcodeGen-generated3.67.12(1054) project.yml/PBX pair from the passing own run is
+copied exactly as the last two-file version commit. Local workspace went offline;
+selected evidence text was recovered via the fixed own-CI exporter and independently
+byte/SHA256/Gitblob verified. Artifact ZIP digest is GitHub metadata, not a claim of
+local download/unpack verification. See evidence manifest for exact provenance.
+
+Tracker remains IN PROGRESS until merge, then DONE; no VERIFIED/release/tag.
+Issues are disabled, so no fabricated GitHub issue reference. User authorization
+covers development-branch commits and PR creation; PR5 merge awaits authorization.
+
+
+Post-audit correction: native run37160519963 passed both compilers and155+30
+real tests, but its exporter failed an unmatched Python parenthesis. A single
+trailing parenthesis was removed and verified in own recovery CI at
+1f97fa8daed2bfd27be56fa4bc04a210877bb667 (run37162305962). No application/test changes. Gate4 PASS3
+is historical atfda86fbb; no fourth audit was run. Rule47's three-round ceiling
+requires escalation, so the PR is a draft with this post-audit correction pending
+explicit acceptance before merge. Evidence is partial; no VERIFIED claim.

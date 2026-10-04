@@ -1,0 +1,31 @@
+{
+  "base": "40af65502ff0fa5109e254785394b3a0d69b6568",
+  "head": "fda86fbb6f90500ce9449bb5c0d5bd302da10b0a",
+  "files": [
+    {
+      "filename": ".github/workflows/native-reader-check.yml",
+      "status": "modified",
+      "sha": "be223e751d979319743fc89b938b069b67523f1e"
+    },
+    {
+      "filename": "scripts/export-native-package-evidence.py",
+      "status": "added",
+      "sha": "341356a01166b0091316c10bc0674762b953d271"
+    },
+    {
+      "filename": "scripts/test-native-semantic-foundations.sh",
+      "status": "added",
+      "sha": "ab05e14e0d07b8680f897eb6dd7e960475394c3f"
+    }
+  ],
+  "commits": [
+    {
+      "sha": "fda86fbb6f90500ce9449bb5c0d5bd302da10b0a",
+      "author": {
+        "name": "anguslilei",
+        "email": "anguslilei@163.com",
+        "date": "2026-10-03T23:03:31Z"
+      }
+    }
+  ]
+}

@@ -32,8 +32,29 @@ or CFI compatibility. See [plan](../../dev-docs/plans/20261003-feature-179-bound
 
 See [verification evidence](../../dev-docs/verification/feature-179-20261003.md).
 
-Next: [feature180's audited package/spine plan](../../dev-docs/plans/20261003-feature-180-native-epub-package.md),
-Gate2 PASS2. It composes the native byte/XML utilities with strict local URL
-resolution and a non-inflating resource catalog. Prerequisites178/179 are merged/DONE onmain55719b2; implementation may now begin. No package/chapter/AI code is delivered by the plan.
+Feature180 implements the native package/spine foundation by composing the real
+byte reader and XML utility. A non-inflating resource catalog, strict local URL
+resolution and immutable archive/container/OPF identities preserve ordered manifest
+and spine occurrences. Repeated idrefs intentionally retain nonconforming input;
+this is a bounded subset, not an EPUB conformance claim.
 
-PR3 and PR4 merged at user confirmation2026-10-03; native foundations are DONE.
+Mac30 contracts pass. Native run37160519963 passes 155 base +30 package
+distinct tests in two sequential completed bundles; all nine semantic suites pass,
+zero failures/skips, Debug/Release builds pass. Gate2 PASS2 and Gate4 PASS3, zero
+open findings. See [plan](../../dev-docs/plans/20261003-feature-180-native-epub-package.md)
+and [evidence](../../dev-docs/verification/feature-180-20261004.md).
+
+PR3/4 merged at user confirmation2026-10-03; foundations178/179 are DONE.
+Feature180 remains IN PROGRESS pending its PR merge. No production reader/import,
+chapter extraction, SemanticDocument/source-map/CFI, renderer or AI entry point is
+introduced. Chapter semantic extraction is the next implementation boundary;
+real-book compatibility and user-visible adaptive reading remain later verification.
+
+
+Post-audit correction: native run37160519963 passed both compilers and155+30
+real tests, but its exporter failed an unmatched Python parenthesis. A single
+trailing parenthesis was removed and verified in own recovery CI at
+1f97fa8daed2bfd27be56fa4bc04a210877bb667 (run37162305962). No application/test changes. Gate4 PASS3
+is historical atfda86fbb; no fourth audit was run. Rule47's three-round ceiling
+requires escalation, so the PR is a draft with this post-audit correction pending
+explicit acceptance before merge. Evidence is partial; no VERIFIED claim.
