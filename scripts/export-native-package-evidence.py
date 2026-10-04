@@ -24,7 +24,7 @@ source_paths = sorted(set(
     [Path('vreaderTests/Helpers') / n for n in ['EPUBPackageFixture.swift', 'EPUBSemanticZIPFixture.swift', 'SemanticXMLProbe.swift']] +
     [Path(n) for n in ['scripts/test-epub-package-contract.sh', 'scripts/test-native-semantic-foundations.sh',
                       'scripts/export-native-package-evidence.py', '.github/workflows/epub-package-contract.yml',
-                      '.github/workflows/native-reader-check.yml']])))
+                      '.github/workflows/native-reader-check.yml']]))
 source = subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip()
 manifest = dict(source_commit=source, members=members, missing_members=missing,
                 source_files={str(p): facts(p) for p in source_paths})
