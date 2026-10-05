@@ -232,6 +232,7 @@ Before setting a feature to `PLANNED`, fill in these fields in a sub-section und
 | 178 | Native bounded EPUB source resource reader | Semantic/EPUB | Medium | DONE | Gate2 PASS2 / Gate4 PASS3; source4264fee: Mac33 and iOS126 passed, Debug/Release GREEN; [evidence](../dev-docs/verification/feature-178-20261003.md); [plan](../dev-docs/plans/20261003-feature-178-native-epub-source-reader.md). GH mirror unavailable: Issues disabled. Merged PR3 atb0904ea; foundational utility complete. |
 | 179 | Bounded native XML structural parser | Semantic/XML | Medium | DONE | Gate2 PASS3; Gate4 PASS2. Mac29/iOS155 atd0c16a0; Debug/Release pass. [plan](../dev-docs/plans/20261003-feature-179-bounded-semantic-xml.md); [evidence](../dev-docs/verification/feature-179-20261003.md). Independent Data-only utility; no OPF/spine/source-map/UI wiring. Stacked on PR3; Issues disabled.  Merged PR4 at55719b2; foundational utility complete. |
 | 180 | Native EPUB package and spine resolution | Semantic/Package | Medium | DONE | Gate2 PASS2; Gate4 PASS3, zero open findings. Mac30; native155+30 distinct tests in two real sequential bundles, zero failed/skipped; Debug/Release pass atfda86fbb. [Plan](../dev-docs/plans/20261003-feature-180-native-epub-package.md); [evidence](../dev-docs/verification/feature-180-20261004.md). Implementation complete; user accepted exporter correction2026-10-05, all final PR CI pass; merge-gate ready in PR5; no production/chapter/AI/UI wiring or VERIFIED claim. Issues disabled (has_issues=false). |
+| 181 | Native semantic identities and logical source anchors | Models/Semantic | Medium | PLANNED | Deps:[feat:#180] ID reserved by scripts/reserve-id.sh; [plan](../dev-docs/plans/20261005-feature-181-native-semantic-identities.md). Gate1 complete, Gate2 PASS2 zero open findings; [audit](../.claude/codex-audits/plan-feature-181-gate2-audit.md); Gate3 waits for PR5 merge. Pure validated values and deterministic IDs; no extraction, CFI, UI or AI wiring. Issues disabled. |
 
 ### Feature #44 — DebugBridge — Plan
 
@@ -529,3 +530,13 @@ main55719b27c62c0f0d37556618d4525a0ea8e1135e and retains the added package secti
 The prior closeout accidentally prefixed the addition with “undefined” and omitted
 the inherited document. This documentation-only recovery is not covered by the
 exporter exception and needs no additional code audit under the docs-only scope.
+
+### Feature #181 — Plan
+
+- **Problem**: Native package/bytes/XML do not provide validated deterministic semantic revision/IDs or logical source-anchor values.
+- **Scope**: Pure immutable Codable/Sendable models, explicit canonical identity bytes, literal paths and UTF16 logical ranges; no chapter extraction, source-map builder, CFI/resolver, production entry or UI/AI.
+- **Edge cases**: Canonical-equivalent spellings, delimiter/percent names, repeated spine occurrences, UInt32 overflow, schema versions, root/deep logical paths, surrogate boundaries, malformed decoding and stored-value caps.
+- **Test plan**: Compile-capable native RED/GREEN; independent fixed canonical vectors; three Mac and native model suites, prior nine semantic suites, Debug/Release and actual source/tool/generated evidence.
+- **Acceptance criteria**: Deterministic source-bound identities, validated Codable round trips with no bypass, explicit logical-only coordinate semantics, finite preimages, clean independent audits and native proof; actual generated version tail before PR.
+- **Dependencies**: Feature180 must be merged/DONE before TDD; current plan work is permitted while PR5 closeout checks run.
+- **Gate record**: Gate1 complete; [plan](../dev-docs/plans/20261005-feature-181-native-semantic-identities.md). Gate2 pending. No implementation/runtime claim. Fork Issues disabled.
