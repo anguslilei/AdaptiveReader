@@ -1,6 +1,6 @@
 # Feature #178 — native bounded EPUB source resource reader
 
-Status: IN PROGRESS; Gate2 PASS2, Gate4 PASS3, foundational Gate5 passed. Baseline main95b5ec0 (PR #2→#1 merged at user request).
+Status: DONE after PR3 merge b0904eaae1572321c12b1ba9aa08b4b2199cd39f; Gate2 PASS2, Gate4 PASS3, foundational Gate5 passed. Baseline main95b5ec0 (PR #2→#1 merged at user request).
 Feature177 now merged; its reference algorithms and both compiler fixes are on main.
 
 ## Problem / scope

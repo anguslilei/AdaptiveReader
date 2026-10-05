@@ -1,0 +1,14 @@
+Own native run37160519963/job111312824769 atfda86fbb6f90500ce9449bb5c0d5bd302da10b0a.
+Debug/Release and both real native lanes passed. Overall job failed only export syntax.
+
+2026-10-03T23:07:36.7603410Z ** BUILD SUCCEEDED **
+2026-10-03T23:17:27.5209720Z ** BUILD SUCCEEDED **
+2026-10-03T23:29:47.1533610Z ✔ Test run with 124 tests in 15 suites passed after 0.492 seconds.
+2026-10-03T23:29:47.2356930Z RUN-TESTS RESULT: SUCCEEDED
+2026-10-03T23:29:50.4609280Z Native lane: base tests: 155 passed: 155 semantic suites: 6
+2026-10-03T23:30:34.1455940Z ✔ Test run with 30 tests in 3 suites passed after 0.250 seconds.
+2026-10-03T23:30:34.3069610Z RUN-TESTS RESULT: SUCCEEDED
+2026-10-03T23:30:34.8901560Z Native lane: package tests: 30 passed: 30 semantic suites: 3
+2026-10-03T23:30:34.9202390Z All nine semantic suites passed in two sequential disjoint lanes; distinct tests: 185
+2026-10-03T23:30:35.3164550Z   File "/Users/runner/work/AdaptiveReader/AdaptiveReader/scripts/export-native-package-evidence.py", line 27
+2026-10-03T23:30:35.3501940Z SyntaxError: unmatched ')'

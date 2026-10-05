@@ -229,8 +229,9 @@ Before setting a feature to `PLANNED`, fill in these fields in a sub-section und
 | 176| **Android standalone notes can be stored, restored and imported — but a user cannot CREATE one.** `AnnotationsRepository.addNote(bookKey, content, locator, anchor)` is defined at `AnnotationsRepository.kt:70` and has **ZERO call sites in `android/app/src/main`** — every reference is a test. So Android ships the whole standalone-note pipeline except its entry point: the Room table, the backup `notes` section, the #165 import path, and the Notes-sheet render all handle them, and a note that arrives by WebDAV restore or annotation import displays correctly — but no reader, on any of the five formats, offers a way to write one. What EPUB/TXT call "Note" in the selection popover is a note **attached to a highlight** (NOTE mode routes to `createHighlight`/`updateHighlight`), which is a different record. iOS has both, with a dedicated card (`vreader/Views/Reader/Annotations/StandaloneNoteCard.swift`). **Scope**: a production entry point for composing a standalone note + wiring to the existing `addNote`; the storage, backup, import and render halves already exist and are out of scope. Design: `standalone-note-editor-artboards.jsx` + `VReader Standalone Note Editor Canvas.html` (COMMITTED) — verify the artboards depict an ANDROID entry point before building, since #157 and #166 both turned out to cite designs that depicted no such surface. iOS parity: the standalone-note half of #11/#55. | android/app/.../annotations (entry point + wiring to the existing repository call) | Medium | TODO | Filed 2026-08-06 from feature #142's Gate-2 round 1. The auditor flagged #142's acceptance for requiring a standalone note with no entry point to create one; checking WHY produced this row. **Orchestrator-verified**: `rg addNote android/app/src/main` returns the definition and nothing else. #142 correctly dropped standalone notes from its scope rather than inventing a control — the gap is app-wide, not AZW3's, exactly like [#175]. **This is a reachability gap of the #114/#118/#120/#122 class**: shipped, tested, backed up, and unreachable. |
 
 | 177 | EPUB original-byte/source-map reference feasibility | developer-tooling | Medium | DONE | Merged PR #1 at main95b5ec0; Gate 2/4 PASS; 43 reference tests GREEN; native compiler blocker fixed by PR #2; [plan](../dev-docs/plans/20261003-feature-177-epub-semantic-source-spike.md). GH mirror blocked: Issues disabled (410). Native integration pending. |
-| 178 | Native bounded EPUB source resource reader | Semantic/EPUB | Medium | IN PROGRESS | Gate2 PASS2 / Gate4 PASS3; source4264fee: Mac33 and iOS126 passed, Debug/Release GREEN; [evidence](../dev-docs/verification/feature-178-20261003.md); [plan](../dev-docs/plans/20261003-feature-178-native-epub-source-reader.md). GH mirror unavailable: Issues disabled. |
-| 179 | Bounded native XML structural parser | Semantic/XML | Medium | IN PROGRESS | Gate2 PASS3; Gate4 PASS2. Mac29/iOS155 atd0c16a0; Debug/Release pass. [plan](../dev-docs/plans/20261003-feature-179-bounded-semantic-xml.md); [evidence](../dev-docs/verification/feature-179-20261003.md). Independent Data-only utility; no OPF/spine/source-map/UI wiring. Stacked on PR3; Issues disabled. |
+| 178 | Native bounded EPUB source resource reader | Semantic/EPUB | Medium | DONE | Gate2 PASS2 / Gate4 PASS3; source4264fee: Mac33 and iOS126 passed, Debug/Release GREEN; [evidence](../dev-docs/verification/feature-178-20261003.md); [plan](../dev-docs/plans/20261003-feature-178-native-epub-source-reader.md). GH mirror unavailable: Issues disabled. Merged PR3 atb0904ea; foundational utility complete. |
+| 179 | Bounded native XML structural parser | Semantic/XML | Medium | DONE | Gate2 PASS3; Gate4 PASS2. Mac29/iOS155 atd0c16a0; Debug/Release pass. [plan](../dev-docs/plans/20261003-feature-179-bounded-semantic-xml.md); [evidence](../dev-docs/verification/feature-179-20261003.md). Independent Data-only utility; no OPF/spine/source-map/UI wiring. Stacked on PR3; Issues disabled.  Merged PR4 at55719b2; foundational utility complete. |
+| 180 | Native EPUB package and spine resolution | Semantic/Package | Medium | DONE | Gate2 PASS2; Gate4 PASS3, zero open findings. Mac30; native155+30 distinct tests in two real sequential bundles, zero failed/skipped; Debug/Release pass atfda86fbb. [Plan](../dev-docs/plans/20261003-feature-180-native-epub-package.md); [evidence](../dev-docs/verification/feature-180-20261004.md). Implementation complete; user accepted exporter correction2026-10-05, all final PR CI pass; merge-gate ready in PR5; no production/chapter/AI/UI wiring or VERIFIED claim. Issues disabled (has_issues=false). |
 
 ### Feature #44 — DebugBridge — Plan
 
@@ -475,7 +476,7 @@ Before setting a feature to `PLANNED`, fill in these fields in a sub-section und
 - **Test plan**: Native behavioral RED/GREEN, actual temporary ZIP integration, Swift6 macOS harness and iOS Debug/Release/targeted suites.
 - **Acceptance criteria**: Exact bytes/digests, bounded corruption rejection, no partial publish, clean independent audits, generated tail bump before PR.
 - **Dependencies**: Feature177 and bug376 merged to main95b5ec0. No unresolved dependency.
-- **Gate record**: Gate2 PASS2 rounds; [plan audit](../.claude/codex-audits/plan-feature-178-gate2-audit.md). Gate4 PASS3 rounds; [implementation audit](../.claude/codex-audits/impl-feature-178-gate4-audit.md). Mac33 and actual iOS126 pass at4264fee; [evidence](../dev-docs/verification/feature-178-20261003.md). Foundational Gate5 passed; feature remains IN PROGRESS until merge. Issues disabled in fork (prior410).
+- **Gate record**: Gate2 PASS2 rounds; [plan audit](../.claude/codex-audits/plan-feature-178-gate2-audit.md). Gate4 PASS3 rounds; [implementation audit](../.claude/codex-audits/impl-feature-178-gate4-audit.md). Mac33 and actual iOS126 pass at4264fee; [evidence](../dev-docs/verification/feature-178-20261003.md). Foundational Gate5 passed; feature DONE after PR3 merge b0904ea. Issues disabled in fork (prior410).
 
 ### Feature #179 — Plan
 
@@ -485,4 +486,46 @@ Before setting a feature to `PLANNED`, fill in these fields in a sub-section und
 - **Test plan**: Compile-capable behavioral native RED/GREEN; actual Mac/iOS Foundation parsing, native Debug/Release, all3 new suites explicit Passed.
 - **Acceptance criteria**: Deterministic valid immutable tree/raw-byte hash, fail-closed security/limits/cancellation, clean audits, generated version tail.
 - **Dependencies**: Data-only API imports no178 types; independent implementation may proceed on stacked branch. Later package/session work waits for178+179 merge.
-- **Gate record**: Gate2 PASS3; [plan audit](../.claude/codex-audits/plan-feature-179-gate2-audit.md). Gate4 PASS2; [implementation audit](../.claude/codex-audits/impl-feature-179-gate4-audit.md). Mac29/iOS155 atd0c16a0; Debug/Release pass. [Evidence](../dev-docs/verification/feature-179-20261003.md). Remains IN PROGRESS until merge. Issues disabled (prior410); no fabricated issue reference.
+- **Gate record**: Gate2 PASS3; [plan audit](../.claude/codex-audits/plan-feature-179-gate2-audit.md). Gate4 PASS2; [implementation audit](../.claude/codex-audits/impl-feature-179-gate4-audit.md). Mac29/iOS155 atd0c16a0; Debug/Release pass. [Evidence](../dev-docs/verification/feature-179-20261003.md). DONE after PR4 merge55719b2. Issues disabled (prior410); no fabricated issue reference.
+
+### Feature #180 — Plan
+
+- **Problem**: Verified bytes and logical XML do not yet identify a native package or ordered chapter references.
+- **Scope**: Real178+179 composition, non-inflating source catalog, bounded container/OPF/local URLs, immutable digest-pinned manifest/spine; no chapter extraction or production route.
+- **Edge cases**: Rootfile archive-root URLs versus OPF-relative hrefs, encoded delimiter/dot/directory intent, literal Unicode identity, missing/duplicate metadata, repeated occurrence preservation, budgets and cancellation/close.
+- **Test plan**: Compile-capable native behavioral RED/GREEN and scalar/property/literal-equality regressions completed; Mac30 tests/3 suites pass. iOS155 base +30 package distinct tests in two completed bundles pass, all9 semantic suites explicitly Passed, zero failed/skipped; Debug/Release pass. Actual source/XML integration; no mocks or real-book claim.
+- **Acceptance criteria**: Deterministic validated package/order, no asset inflation for existence, complete failure cleanup/no partial publish, source identity, clean audits and actual generated tail.
+- **Dependencies**: Feature178 and179 merged/DONE onmain55719b2 (rule48 satisfied); implementation composes their real reader/parser with no production call site.
+- **Gate record**: Gate2 PASS2; [plan audit](../.claude/codex-audits/plan-feature-180-gate2-audit.md). Gate4 PASS3; [implementation audit](../.claude/codex-audits/feature-180-gate4-audit.md), both R1 findings confirmed by native RED then resolved. Foundational Gate5 core integration passes atfda86fbb; [evidence](../dev-docs/verification/feature-180-20261004.md). Initial rootfile-literal assumption corrected from primary W3C text; repeated idrefs retained as nonconforming source fidelity. Final generated1054 pair copied from passing own CI; awaiting PR merge. Issues disabled in fork (checked2026-10-03).
+
+
+Post-audit correction: native run37160519963 passed both compilers and155+30
+real tests, but its exporter failed an unmatched Python parenthesis. A single
+trailing parenthesis was removed and verified in own recovery CI at
+1f97fa8daed2bfd27be56fa4bc04a210877bb667 (run37162305962). No application/test changes. Gate4 PASS3
+is historical atfda86fbb; no fourth audit was run. Rule47's three-round ceiling
+requires escalation, so the PR is a draft with this post-audit correction pending
+explicit acceptance before merge. Evidence is partial; no VERIFIED claim.
+
+
+## User acceptance and final native proof2026-10-05
+
+User confirmation2026-10-05T11:07:49+08:00: “好的 确认 然后继续推进开发”.
+This explicitly accepts the post-round3 one-character exporter correction and
+continues the previously described PR5 closeout/dependent development. It does
+not claim a fourth independent audit. Gate2 PASS2 and historical Gate4 PASS3
+remain; the exact one-character exception is accepted by the user.
+
+Final PR input ab60ac6bf4184b4e4c9b1af880411172aaed4c9b:
+all five pull_request workflows completed successfully, including native run
+37177554340 (Debug/Release, two real lanes and corrected evidence exporter),
+source37177554363, XML37177554309, package37177554297 and foundation37177554310.
+The earlier cancelled push-native run was superseded by this successful PR run,
+not counted as a pass. Foundational acceptance is complete; no production
+entry point, real-book compatibility or VERIFIED/release/tag claim.
+
+Closeout also restores the complete pre-PR architecture document verbatim from
+main55719b27c62c0f0d37556618d4525a0ea8e1135e and retains the added package section.
+The prior closeout accidentally prefixed the addition with “undefined” and omitted
+the inherited document. This documentation-only recovery is not covered by the
+exporter exception and needs no additional code audit under the docs-only scope.

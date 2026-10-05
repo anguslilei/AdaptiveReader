@@ -1,0 +1,122 @@
+{
+  "kind": "derived inspection of two actual disjoint result bundles (not a merged xcresult)",
+  "native_source_commit": "fda86fbb6f90500ce9449bb5c0d5bd302da10b0a",
+  "recovery_source_commit": "1f97fa8daed2bfd27be56fa4bc04a210877bb667",
+  "counts": {
+    "base": 155,
+    "package": 30
+  },
+  "derived_distinct_test_total": 185,
+  "paths": [
+    "/Users/runner/Library/Developer/Xcode/DerivedData/vreader-czakmjxnxcejyjbvvbadvbjgnehb/Logs/Test/Test-vreader-2026.10.03_23-20-36-+0000.xcresult",
+    "/Users/runner/Library/Developer/Xcode/DerivedData/vreader-czakmjxnxcejyjbvvbadvbjgnehb/Logs/Test/Test-vreader-2026.10.03_23-29-53-+0000.xcresult"
+  ],
+  "selected_udid": "E952A9B0-CC78-435C-BF08-06AD47FE1076",
+  "semantic_suite_nodes": {
+    "base": [
+      {
+        "expected": "EPUBSemanticResourceReaderTests",
+        "name": "Semantic EPUB resources",
+        "result": "Passed"
+      },
+      {
+        "expected": "EPUBSourceZIPValidationTests",
+        "name": "Semantic EPUB ZIP grammar",
+        "result": "Passed"
+      },
+      {
+        "expected": "EPUBSourceBudgetTests",
+        "name": "Semantic EPUB budgets and cancellation",
+        "result": "Passed"
+      },
+      {
+        "expected": "SemanticXMLParserTests",
+        "name": "Semantic XML logical structure",
+        "result": "Passed"
+      },
+      {
+        "expected": "SemanticXMLSafetyTests",
+        "name": "Semantic XML safety and budgets",
+        "result": "Passed"
+      },
+      {
+        "expected": "SemanticXMLCancellationTests",
+        "name": "Semantic XML cancellation",
+        "result": "Passed"
+      }
+    ],
+    "package": [
+      {
+        "expected": "EPUBPackageReferenceTests",
+        "name": "EPUB package local references",
+        "result": "Passed"
+      },
+      {
+        "expected": "EPUBPackageDecoderTests",
+        "name": "EPUB package manifest and spine",
+        "result": "Passed"
+      },
+      {
+        "expected": "EPUBPackageLoaderTests",
+        "name": "EPUB package source lifecycle",
+        "result": "Passed"
+      }
+    ]
+  },
+  "original_command_status": {
+    "base": 0,
+    "package": 0
+  },
+  "device_counts": {
+    "base": [
+      {
+        "device": {
+          "architecture": "arm64",
+          "deviceId": "E952A9B0-CC78-435C-BF08-06AD47FE1076",
+          "deviceName": "iPhone 17 Pro",
+          "modelName": "iPhone 17 Pro",
+          "osBuildNumber": "23C54",
+          "osVersion": "26.2",
+          "platform": "iOS Simulator"
+        },
+        "expectedFailures": 0,
+        "failedTests": 0,
+        "passedTests": 213,
+        "skippedTests": 0,
+        "testPlanConfiguration": {
+          "configurationId": "1",
+          "configurationName": "All"
+        }
+      }
+    ],
+    "package": [
+      {
+        "device": {
+          "architecture": "arm64",
+          "deviceId": "E952A9B0-CC78-435C-BF08-06AD47FE1076",
+          "deviceName": "iPhone 17 Pro",
+          "modelName": "iPhone 17 Pro",
+          "osBuildNumber": "23C54",
+          "osVersion": "26.2",
+          "platform": "iOS Simulator"
+        },
+        "expectedFailures": 0,
+        "failedTests": 0,
+        "passedTests": 126,
+        "skippedTests": 0,
+        "testPlanConfiguration": {
+          "configurationId": "1",
+          "configurationName": "All"
+        }
+      }
+    ]
+  },
+  "raw_summary_files": [
+    "base-test-summary.json",
+    "package-test-summary.json"
+  ],
+  "raw_tree_files": [
+    "base-test-tree.json",
+    "package-test-tree.json"
+  ]
+}

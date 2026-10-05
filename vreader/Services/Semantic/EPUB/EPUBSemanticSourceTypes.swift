@@ -38,6 +38,11 @@ struct EPUBSemanticResource: Sendable {
     let archiveSHA256: String
 }
 
+struct EPUBSemanticResourceCatalog: Sendable {
+    let archiveSHA256: String
+    let paths: [String]
+}
+
 enum EPUBSemanticSourceError: Error, Sendable, Equatable {
     case invalidLimits, invalidDigest, invalidArchive, unsafePath, duplicatePath
     case unsupportedEntry, limitExceeded, integrityMismatch, resourceNotFound

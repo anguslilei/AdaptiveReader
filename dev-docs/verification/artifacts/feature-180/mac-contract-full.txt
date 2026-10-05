@@ -1,0 +1,215 @@
+Building for debugging...
+[0/7] /private/var/folders/nj/vtw8zd2j31d1gdrtntc5y4600000gn/T/epub-package-contract.XXXXXX.WZfGelKf79/.build/arm64-apple-macosx/debug/EPUBPackageContractPackageTests.derived/runner.swift
+[0/7] Write sources
+[4/7] Write swift-version-1977FEB4D2752686.txt
+[6/22] Compiling vreader EPUBContainerDecoder.swift
+[7/22] Compiling vreader EPUBPackageDecoder.swift
+[8/22] Compiling vreader EPUBPackageLiteralKey.swift
+[9/22] Compiling vreader EPUBPackageReference.swift
+[10/22] Compiling vreader EPUBPackageXMLAccess.swift
+[11/22] Compiling vreader EPUBSemanticPackageLimits.swift
+[12/22] Compiling vreader EPUBSemanticPackageLoader.swift
+[13/22] Emitting module vreader
+[14/29] Compiling vreader EPUBSemanticPackageTypes.swift
+[15/29] Compiling vreader EPUBSemanticResourceReader.swift
+[16/29] Compiling vreader EPUBSemanticSourceTypes.swift
+[17/29] Compiling vreader EPUBSourceInflater.swift
+[18/29] Compiling vreader EPUBSourceSnapshot.swift
+[19/29] Compiling vreader EPUBSourceZIPBytes.swift
+[20/29] Compiling vreader EPUBSourceZIPIndex.swift
+[21/29] Compiling vreader SemanticXMLBuilder.swift
+[22/29] Compiling vreader SemanticXMLLimits.swift
+[23/29] Compiling vreader SemanticXMLNamespace.swift
+[24/29] Compiling vreader SemanticXMLParser.swift
+[25/29] Compiling vreader SemanticXMLPreflight.swift
+[26/29] Compiling vreader SemanticXMLStartTags.swift
+[27/29] Compiling vreader SemanticXMLTypes.swift
+[28/34] Emitting module vreaderTests
+[29/34] Compiling vreaderTests EPUBPackageLoaderTests.swift
+[30/34] Compiling vreaderTests EPUBPackageReferenceTests.swift
+[31/34] Compiling vreaderTests EPUBPackageDecoderTests.swift
+[32/34] Compiling vreaderTests EPUBPackageFixture.swift
+[33/35] Compiling vreaderTests EPUBSemanticZIPFixture.swift
+[34/37] Compiling EPUBPackageContractPackageTests runner.swift
+[35/37] Emitting module EPUBPackageContractPackageTests
+[35/37] Write Objects.LinkFileList
+[36/37] Linking EPUBPackageContractPackageTests
+Build complete! (19.30s)
+Test Suite 'All tests' started at 2026-10-03 22:18:01.321.
+Test Suite 'All tests' passed at 2026-10-03 22:18:01.323.
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.000 (0.003) seconds
+◇ Test run started.
+↳ Testing Library Version: 1501
+↳ Target Platform: arm64e-apple-macos14.0
+◇ Suite "EPUB package local references" started.
+◇ Suite "EPUB package manifest and spine" started.
+◇ Test resolvesWithinArchive(_:_:) started.
+◇ Test UnicodeAndCaseStayLiteral() started.
+◇ Test rejectsUnsupportedOrUnsafe(_:) started.
+◇ Test separatorsRemainSeparatorsBeforeCombiningMarks() started.
+◇ Test rootAndLiteralBaseAreNotDecodedAgain() started.
+◇ Test case passing 2 arguments href → "chapter.xhtml", expected → "OPS/chapter.xhtml" to resolvesWithinArchive(_:_:) started.
+◇ Test case passing 2 arguments href → "sub/a.xhtml", expected → "OPS/sub/a.xhtml" to resolvesWithinArchive(_:_:) started.
+◇ Suite "EPUB package source lifecycle" started.
+◇ Test case passing 2 arguments href → "../a.xhtml", expected → "a.xhtml" to resolvesWithinArchive(_:_:) started.
+◇ Test case passing 2 arguments href → "./a.xhtml", expected → "OPS/a.xhtml" to resolvesWithinArchive(_:_:) started.
+◇ Test case passing 2 arguments href → "sub/../a.xhtml", expected → "OPS/a.xhtml" to resolvesWithinArchive(_:_:) started.
+◇ Test case passing 2 arguments href → "%2e%2e/a.xhtml", expected → "a.xhtml" to resolvesWithinArchive(_:_:) started.
+◇ Test case passing 2 arguments href → "中文 😀.xhtml", expected → "OPS/中文 😀.xhtml" to resolvesWithinArchive(_:_:) started.
+◇ Test case passing 2 arguments href → "%E4%B8%AD.xhtml", expected → "OPS/中.xhtml" to resolvesWithinArchive(_:_:) started.
+◇ Test case passing 2 arguments href → "e%CC%81.xhtml", expected → "OPS/é.xhtml" to resolvesWithinArchive(_:_:) started.
+◇ Test case passing 2 arguments href → "שלום.xhtml", expected → "OPS/שלום.xhtml" to resolvesWithinArchive(_:_:) started.
+◇ Test case passing 2 arguments href → "100%25done.xhtml", expected → "OPS/100%done.xhtml" to resolvesWithinArchive(_:_:) started.
+◇ Test case passing 2 arguments href → "a b.xhtml", expected → "OPS/a b.xhtml" to resolvesWithinArchive(_:_:) started.
+◇ Test case passing 1 argument href → "/a" to rejectsUnsupportedOrUnsafe(_:) started.
+◇ Test case passing 1 argument href → "//a" to rejectsUnsupportedOrUnsafe(_:) started.
+◇ Test case passing 1 argument href → "" to rejectsUnsupportedOrUnsafe(_:) started.
+◇ Test case passing 1 argument href → "http:a" to rejectsUnsupportedOrUnsafe(_:) started.
+◇ Test case passing 1 argument href → "data:x" to rejectsUnsupportedOrUnsafe(_:) started.
+◇ Test case passing 1 argument href → "file:a" to rejectsUnsupportedOrUnsafe(_:) started.
+◇ Test case passing 1 argument href → "C:/a" to rejectsUnsupportedOrUnsafe(_:) started.
+◇ Test case passing 1 argument href → "a:b" to rejectsUnsupportedOrUnsafe(_:) started.
+◇ Test case passing 1 argument href → "a%3Ab" to rejectsUnsupportedOrUnsafe(_:) started.
+◇ Test case passing 1 argument href → "a%3ab" to rejectsUnsupportedOrUnsafe(_:) started.
+◇ Test case passing 1 argument href → "a\b" to rejectsUnsupportedOrUnsafe(_:) started.
+◇ Test case passing 1 argument href → "a?b" to rejectsUnsupportedOrUnsafe(_:) started.
+◇ Test case passing 1 argument href → "a#b" to rejectsUnsupportedOrUnsafe(_:) started.
+◇ Test case passing 1 argument href → " a" to rejectsUnsupportedOrUnsafe(_:) started.
+◇ Test case passing 1 argument href → "a	" to rejectsUnsupportedOrUnsafe(_:) started.
+◇ Test case passing 1 argument href → "a
+" to rejectsUnsupportedOrUnsafe(_:) started.
+◇ Test case passing 1 argument href → "a" to rejectsUnsupportedOrUnsafe(_:) started.
+◇ Test case passing 1 argument href → "a%00b" to rejectsUnsupportedOrUnsafe(_:) started.
+◇ Test case passing 1 argument href → "a%01b" to rejectsUnsupportedOrUnsafe(_:) started.
+◇ Test case passing 1 argument href → "a%7fb" to rejectsUnsupportedOrUnsafe(_:) started.
+◇ Test case passing 1 argument href → "a%2fb" to rejectsUnsupportedOrUnsafe(_:) started.
+◇ Test case passing 1 argument href → "a%2Fb" to rejectsUnsupportedOrUnsafe(_:) started.
+◇ Test case passing 1 argument href → "a%5cb" to rejectsUnsupportedOrUnsafe(_:) started.
+◇ Test case passing 1 argument href → "a%3fb" to rejectsUnsupportedOrUnsafe(_:) started.
+◇ Test case passing 1 argument href → "a%23b" to rejectsUnsupportedOrUnsafe(_:) started.
+◇ Test case passing 1 argument href → "a%" to rejectsUnsupportedOrUnsafe(_:) started.
+◇ Test case passing 1 argument href → "a%0" to rejectsUnsupportedOrUnsafe(_:) started.
+◇ Test case passing 1 argument href → "a%GG" to rejectsUnsupportedOrUnsafe(_:) started.
+◇ Test case passing 1 argument href → "a%FF" to rejectsUnsupportedOrUnsafe(_:) started.
+◇ Test case passing 1 argument href → "a%C0%AF" to rejectsUnsupportedOrUnsafe(_:) started.
+◇ Test case passing 1 argument href → "a%2520b" to rejectsUnsupportedOrUnsafe(_:) started.
+◇ Test case passing 1 argument href → "a//b" to rejectsUnsupportedOrUnsafe(_:) started.
+◇ Test case passing 1 argument href → "../../a" to rejectsUnsupportedOrUnsafe(_:) started.
+◇ Test case passing 1 argument href → "." to rejectsUnsupportedOrUnsafe(_:) started.
+◇ Test case passing 1 argument href → ".." to rejectsUnsupportedOrUnsafe(_:) started.
+◇ Test case passing 1 argument href → "a/" to rejectsUnsupportedOrUnsafe(_:) started.
+◇ Test case passing 1 argument href → "child/.." to rejectsUnsupportedOrUnsafe(_:) started.
+◇ Test case passing 1 argument href → "child/." to rejectsUnsupportedOrUnsafe(_:) started.
+◇ Test case passing 1 argument href → "%2E%2e" to rejectsUnsupportedOrUnsafe(_:) started.
+◇ Test case passing 1 argument href → "%2e" to rejectsUnsupportedOrUnsafe(_:) started.
+◇ Test case passing 1 argument href → "child/%2e%2e" to rejectsUnsupportedOrUnsafe(_:) started.
+◇ Test case passing 1 argument href → "child/%2e" to rejectsUnsupportedOrUnsafe(_:) started.
+◇ Test exactAndExceededIndependentBudgets() started.
+◇ Test containerURLIsRootRelativeAndDecodedOnce(_:) started.
+◇ Test trailingXMLWhitespaceDoesNotConsumePropertySlots(_:_:) started.
+◇ Test assetsAndMediaCasingAndOpaqueMetadata() started.
+◇ Test propertyXMLWhitespaceIncludesAdjacentCRLFReferences() started.
+◇ Test orderedRepeatedAndAuxiliarySpine(_:) started.
+◇ Test prefixedContainerAndPackageAndIgnoredDocumentNodes() started.
+◇ Test duplicateIDsAndNormalizedPathsReject() started.
+◇ Test literalIDsAndPropertyTokens() started.
+◇ Test fileLookupCannotUseCanonicalEquivalence() started.
+◇ Test validNestedWrappersCannotReplaceDirectWrappers() started.
+◇ Test immutableValueEqualityKeepsLiteralIdentifiers() started.
+◇ Test packageRejectsInvalidStructures(_:_:) started.
+✔ Test resolvesWithinArchive(_:_:) with 12 test cases passed after 0.004 seconds.
+✔ Test UnicodeAndCaseStayLiteral() passed after 0.004 seconds.
+✔ Test rejectsUnsupportedOrUnsafe(_:) with 42 test cases passed after 0.004 seconds.
+✔ Test separatorsRemainSeparatorsBeforeCombiningMarks() passed after 0.004 seconds.
+✔ Test rootAndLiteralBaseAreNotDecodedAgain() passed after 0.004 seconds.
+◇ Test case passing 1 argument path → "OPS/%E4%B8%AD.opf" to containerURLIsRootRelativeAndDecodedOnce(_:) started.
+◇ Test containerRejectsInvalidStructures(_:_:) started.
+◇ Test case passing 1 argument path → "OPS/100%25done.opf" to containerURLIsRootRelativeAndDecodedOnce(_:) started.
+◇ Test case passing 2 arguments cap → 1, forSpine → false to trailingXMLWhitespaceDoesNotConsumePropertySlots(_:_:) started.
+◇ Test case passing 2 arguments cap → 1, forSpine → true to trailingXMLWhitespaceDoesNotConsumePropertySlots(_:_:) started.
+◇ Test case passing 2 arguments cap → 64, forSpine → false to trailingXMLWhitespaceDoesNotConsumePropertySlots(_:_:) started.
+◇ Test case passing 2 arguments cap → 64, forSpine → true to trailingXMLWhitespaceDoesNotConsumePropertySlots(_:_:) started.
+◇ Test case passing 1 argument version → "2.0" to orderedRepeatedAndAuxiliarySpine(_:) started.
+◇ Test case passing 1 argument version → "3.0" to orderedRepeatedAndAuxiliarySpine(_:) started.
+◇ Test case passing 2 arguments old → "version='3.0'", new → "version='4.0'" to packageRejectsInvalidStructures(_:_:) started.
+◇ Test case passing 2 arguments old → "version='3.0'", new → "" to packageRejectsInvalidStructures(_:_:) started.
+◇ Test case passing 2 arguments old → "http://www.idpf.org/2007/opf", new → "urn:spoof" to packageRejectsInvalidStructures(_:_:) started.
+◇ Test case passing 2 arguments old → "</manifest>", new → "</manifest><manifest/>" to packageRejectsInvalidStructures(_:_:) started.
+◇ Test case passing 2 arguments old → "id='c'", new → "xmlns:x='urn:x' x:id='c'" to packageRejectsInvalidStructures(_:_:) started.
+◇ Test case passing 2 arguments old → "</spine>", new → "</spine><spine/>" to packageRejectsInvalidStructures(_:_:) started.
+◇ Test originalDigestsAndClosedReaderAfterSuccess() started.
+◇ Test case passing 2 arguments old → "id='c'", new → "id='a b'" to packageRejectsInvalidStructures(_:_:) started.
+◇ Test case passing 2 arguments old → "id='c'", new → "id=''" to packageRejectsInvalidStructures(_:_:) started.
+◇ Test case passing 2 arguments old → "<manifest>", new → "<wrapper><manifest>" to packageRejectsInvalidStructures(_:_:) started.
+◇ Test case passing 2 arguments old → "href='chapter.xhtml'", new → "href='Chapter.xhtml'" to packageRejectsInvalidStructures(_:_:) started.
+◇ Test case passing 2 arguments old → "media-type='application/xhtml+xml'", new → "media-type='text/html; charset=UTF-8'" to packageRejectsInvalidStructures(_:_:) started.
+◇ Test case passing 2 arguments old → "media-type='application/xhtml+xml'", new → "media-type='text//html'" to packageRejectsInvalidStructures(_:_:) started.
+◇ Test case passing 2 arguments old → "media-type='application/xhtml+xml'", new → "media-type='image/svg+xml'" to packageRejectsInvalidStructures(_:_:) started.
+◇ Test case passing 2 arguments old → "<item id=", new → "<item fallback='' id=" to packageRejectsInvalidStructures(_:_:) started.
+◇ Test case passing 2 arguments old → "<manifest>", new → "<manifest xml:base='sub/'>" to packageRejectsInvalidStructures(_:_:) started.
+◇ Test case passing 2 arguments old → "href='chapter.xhtml'", new → "href='missing.xhtml'" to packageRejectsInvalidStructures(_:_:) started.
+◇ Test case passing 2 arguments old → "<itemref idref='c'/>", new → "" to packageRejectsInvalidStructures(_:_:) started.
+◇ Test case passing 2 arguments old → "<itemref idref='c'/>", new → "<itemref idref='c' linear='no'/>" to packageRejectsInvalidStructures(_:_:) started.
+◇ Test case passing 2 arguments old → "<itemref idref='c'/>", new → "<itemref idref='c' linear='true'/>" to packageRejectsInvalidStructures(_:_:) started.
+◇ Test case passing 2 arguments old → "<itemref idref='c'/>", new → "<itemref idref='c' properties='a a'/>" to packageRejectsInvalidStructures(_:_:) started.
+◇ Test case passing 2 arguments old → "version='1.0'", new → "version='2.0'" to containerRejectsInvalidStructures(_:_:) started.
+◇ Test case passing 2 arguments old → "<item id=", new → "<item properties='a a' id=" to packageRejectsInvalidStructures(_:_:) started.
+◇ Test case passing 2 arguments old → "<itemref idref='c'/>", new → "<itemref idref='x'/>" to packageRejectsInvalidStructures(_:_:) started.
+◇ Test case passing 2 arguments old → "version='1.0'", new → "" to containerRejectsInvalidStructures(_:_:) started.
+◇ Test case passing 2 arguments old → "urn:oasis:names:tc:opendocument:xmlns:container", new → "urn:spoof" to containerRejectsInvalidStructures(_:_:) started.
+◇ Test case passing 2 arguments old → "<rootfiles>", new → "<wrapper><rootfiles>" to containerRejectsInvalidStructures(_:_:) started.
+◇ Test case passing 2 arguments old → "</rootfiles>", new → "</rootfiles><rootfiles/>" to containerRejectsInvalidStructures(_:_:) started.
+◇ Test case passing 2 arguments old → "application/oebps-package+xml", new → "text/xml" to containerRejectsInvalidStructures(_:_:) started.
+◇ Test case passing 2 arguments old → "full-path=", new → "xmlns:x='urn:x' x:full-path=" to containerRejectsInvalidStructures(_:_:) started.
+◇ Test case passing 2 arguments old → "OPS/book.opf", new → "missing.opf" to containerRejectsInvalidStructures(_:_:) started.
+◇ Test case passing 2 arguments old → "OPS/book.opf", new → "OPS/book.opf/" to containerRejectsInvalidStructures(_:_:) started.
+◇ Test case passing 2 arguments old → "OPS/book.opf", new → "OPS/child/.." to containerRejectsInvalidStructures(_:_:) started.
+◇ Test case passing 2 arguments old → "<rootfiles>", new → "<rootfiles xml:base='x'>" to containerRejectsInvalidStructures(_:_:) started.
+◇ Test case passing 2 arguments old → "<rootfiles>", new → "<rootfiles><xi:include xmlns:xi='http://www.w3.org/2001/XInclude' href='x'/>" to containerRejectsInvalidStructures(_:_:) started.
+◇ Test case passing 2 arguments old → "</rootfiles>", new → "<rootfile full-path='OPS/book.opf' media-type='application/oebps-package+xml'/></rootfiles>" to containerRejectsInvalidStructures(_:_:) started.
+✔ Test immutableValueEqualityKeepsLiteralIdentifiers() passed after 0.007 seconds.
+✔ Suite "EPUB package local references" passed after 0.012 seconds.
+✔ Test trailingXMLWhitespaceDoesNotConsumePropertySlots(_:_:) with 4 test cases passed after 0.019 seconds.
+✔ Test propertyXMLWhitespaceIncludesAdjacentCRLFReferences() passed after 0.019 seconds.
+✔ Test orderedRepeatedAndAuxiliarySpine(_:) with 2 test cases passed after 0.019 seconds.
+✔ Test containerURLIsRootRelativeAndDecodedOnce(_:) with 2 test cases passed after 0.019 seconds.
+✔ Test fileLookupCannotUseCanonicalEquivalence() passed after 0.019 seconds.
+✔ Test packageRejectsInvalidStructures(_:_:) with 22 test cases passed after 0.019 seconds.
+✔ Test literalIDsAndPropertyTokens() passed after 0.020 seconds.
+✔ Test containerRejectsInvalidStructures(_:_:) with 13 test cases passed after 0.020 seconds.
+✔ Test duplicateIDsAndNormalizedPathsReject() passed after 0.021 seconds.
+✔ Test prefixedContainerAndPackageAndIgnoredDocumentNodes() passed after 0.021 seconds.
+✔ Test validNestedWrappersCannotReplaceDirectWrappers() passed after 0.021 seconds.
+✔ Test assetsAndMediaCasingAndOpaqueMetadata() passed after 0.024 seconds.
+✔ Test exactAndExceededIndependentBudgets() passed after 0.025 seconds.
+✔ Test originalDigestsAndClosedReaderAfterSuccess() passed after 0.023 seconds.
+✔ Suite "EPUB package manifest and spine" passed after 0.029 seconds.
+◇ Test catalogIsFileOnlySortedAndDoesNotConsumeReadBudget() started.
+✔ Test catalogIsFileOnlySortedAndDoesNotConsumeReadBudget() passed after 0.001 seconds.
+◇ Test cancelledCatalogClosesActualReader() started.
+✔ Test cancelledCatalogClosesActualReader() passed after 0.001 seconds.
+◇ Test assetsAreCheckedWithoutInflatingOrClaimingTheirIntegrity() started.
+✔ Test assetsAreCheckedWithoutInflatingOrClaimingTheirIntegrity() passed after 0.003 seconds.
+◇ Test metadataCRCFailurePropagatesAndClosesReader() started.
+✔ Test metadataCRCFailurePropagatesAndClosesReader() passed after 0.001 seconds.
+◇ Test XMLFailureAndPackageFailurePropagateAndCloseReader() started.
+✔ Test XMLFailureAndPackageFailurePropagateAndCloseReader() passed after 0.004 seconds.
+◇ Test cancellationWithholdsPackageAndClosesReader(_:) started.
+◇ Test case passing 1 argument point → .worker to cancellationWithholdsPackageAndClosesReader(_:) started.
+◇ Test case passing 1 argument point → .reader to cancellationWithholdsPackageAndClosesReader(_:) started.
+◇ Test case passing 1 argument point → .stage(vreader.EPUBPackageStage.containerDecoded) to cancellationWithholdsPackageAndClosesReader(_:) started.
+◇ Test case passing 1 argument point → .stage(vreader.EPUBPackageStage.opfDecoded) to cancellationWithholdsPackageAndClosesReader(_:) started.
+◇ Test case passing 1 argument point → .stage(vreader.EPUBPackageStage.manifestItem(0)) to cancellationWithholdsPackageAndClosesReader(_:) started.
+◇ Test case passing 1 argument point → .stage(vreader.EPUBPackageStage.spineEntry(0)) to cancellationWithholdsPackageAndClosesReader(_:) started.
+◇ Test case passing 1 argument point → .publication to cancellationWithholdsPackageAndClosesReader(_:) started.
+✔ Test cancellationWithholdsPackageAndClosesReader(_:) with 7 test cases passed after 0.022 seconds.
+◇ Test cancellationBeforeOpenAndInvalidLimitsBeforeIO() started.
+✔ Test cancellationBeforeOpenAndInvalidLimitsBeforeIO() passed after 0.001 seconds.
+◇ Test independentConcurrentLoads() started.
+✔ Test independentConcurrentLoads() passed after 0.004 seconds.
+◇ Test snapshotSurvivesPathReplacementAndExpectedRevisionRejectsNextOpen() started.
+✔ Test snapshotSurvivesPathReplacementAndExpectedRevisionRejectsNextOpen() passed after 0.003 seconds.
+◇ Test deflatedMetadataUsesSameRealSubsystems() started.
+✔ Test deflatedMetadataUsesSameRealSubsystems() passed after 0.004 seconds.
+✔ Suite "EPUB package source lifecycle" passed after 0.079 seconds.
+✔ Test run with 30 tests in 3 suites passed after 0.079 seconds.

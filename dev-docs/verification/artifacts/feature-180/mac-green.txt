@@ -1,0 +1,5 @@
+2026-10-03T22:06:57.6428130Z Build complete! (17.91s)
+2026-10-03T22:06:58.0903550Z ✔ Suite "EPUB package local references" passed after 0.024 seconds.
+2026-10-03T22:06:58.0917650Z ✔ Suite "EPUB package manifest and spine" passed after 0.029 seconds.
+2026-10-03T22:06:58.0933200Z ✔ Suite "EPUB package source lifecycle" passed after 0.048 seconds.
+2026-10-03T22:06:58.0933580Z ✔ Test run with 28 tests in 3 suites passed after 0.049 seconds.

@@ -1,0 +1,23 @@
+{
+  "id": 11287283737,
+  "name": "epub-package-contract-fda86fbb6f90500ce9449bb5c0d5bd302da10b0a",
+  "size_in_bytes": 3601,
+  "url": "https://api.github.com/repos/anguslilei/AdaptiveReader/actions/artifacts/11287283737",
+  "archive_download_url": "https://api.github.com/repos/anguslilei/AdaptiveReader/actions/artifacts/11287283737/zip",
+  "expired": false,
+  "created_at": "2026-10-03T23:04:25Z",
+  "expires_at": "2026-10-10T23:04:24Z",
+  "updated_at": "2026-10-03T23:04:25Z",
+  "digest": "sha256:d950296f9c417746ba846f70f1c9e05d7a374a8568b4ab78365fc015082cc449",
+  "workflow_run": {
+    "id": 37160519904,
+    "repository_id": 1402516830,
+    "head_repository_id": 1402516830,
+    "head_branch": "feature/180-native-epub-package",
+    "head_sha": "fda86fbb6f90500ce9449bb5c0d5bd302da10b0a"
+  },
+  "artifact_zip_digest_verification": "GitHub metadata only; local workspace offline; not downloaded",
+  "job_id": 111312824371,
+  "observed_log": "mac-final-job.log",
+  "observed_footer": "30 tests in 3 suites passed after 0.037 seconds"
+}

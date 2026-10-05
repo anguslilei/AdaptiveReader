@@ -1,0 +1,1014 @@
+{
+  "devices" : [
+    {
+      "architecture" : "arm64",
+      "deviceId" : "E952A9B0-CC78-435C-BF08-06AD47FE1076",
+      "deviceName" : "iPhone 17 Pro",
+      "modelName" : "iPhone 17 Pro",
+      "osBuildNumber" : "23C54",
+      "osVersion" : "26.2",
+      "platform" : "iOS Simulator"
+    }
+  ],
+  "testNodes" : [
+    {
+      "children" : [
+        {
+          "children" : [
+            {
+              "children" : [
+                {
+                  "name" : "propertyXMLWhitespaceIncludesAdjacentCRLFReferences()",
+                  "nodeIdentifier" : "EPUBPackageDecoderTests/propertyXMLWhitespaceIncludesAdjacentCRLFReferences()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBPackageDecoderTests/propertyXMLWhitespaceIncludesAdjacentCRLFReferences()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "exactAndExceededIndependentBudgets()",
+                  "nodeIdentifier" : "EPUBPackageDecoderTests/exactAndExceededIndependentBudgets()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBPackageDecoderTests/exactAndExceededIndependentBudgets()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "assetsAndMediaCasingAndOpaqueMetadata()",
+                  "nodeIdentifier" : "EPUBPackageDecoderTests/assetsAndMediaCasingAndOpaqueMetadata()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBPackageDecoderTests/assetsAndMediaCasingAndOpaqueMetadata()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "duplicateIDsAndNormalizedPathsReject()",
+                  "nodeIdentifier" : "EPUBPackageDecoderTests/duplicateIDsAndNormalizedPathsReject()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBPackageDecoderTests/duplicateIDsAndNormalizedPathsReject()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "fileLookupCannotUseCanonicalEquivalence()",
+                  "nodeIdentifier" : "EPUBPackageDecoderTests/fileLookupCannotUseCanonicalEquivalence()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBPackageDecoderTests/fileLookupCannotUseCanonicalEquivalence()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "validNestedWrappersCannotReplaceDirectWrappers()",
+                  "nodeIdentifier" : "EPUBPackageDecoderTests/validNestedWrappersCannotReplaceDirectWrappers()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBPackageDecoderTests/validNestedWrappersCannotReplaceDirectWrappers()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "prefixedContainerAndPackageAndIgnoredDocumentNodes()",
+                  "nodeIdentifier" : "EPUBPackageDecoderTests/prefixedContainerAndPackageAndIgnoredDocumentNodes()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBPackageDecoderTests/prefixedContainerAndPackageAndIgnoredDocumentNodes()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "literalIDsAndPropertyTokens()",
+                  "nodeIdentifier" : "EPUBPackageDecoderTests/literalIDsAndPropertyTokens()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBPackageDecoderTests/literalIDsAndPropertyTokens()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "immutableValueEqualityKeepsLiteralIdentifiers()",
+                  "nodeIdentifier" : "EPUBPackageDecoderTests/immutableValueEqualityKeepsLiteralIdentifiers()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBPackageDecoderTests/immutableValueEqualityKeepsLiteralIdentifiers()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "children" : [
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"</rootfiles>\", \"</rootfiles><rootfiles/>\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"</rootfiles>\", \"<rootfile full-path='OPS/book.opf' media-type='application/oebps-package+xml'/></rootfiles>\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"<rootfiles>\", \"<rootfiles xml:base='x'>\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"<rootfiles>\", \"<rootfiles><xi:include xmlns:xi='http://www.w3.org/2001/XInclude' href='x'/>\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"<rootfiles>\", \"<wrapper><rootfiles>\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"application/oebps-package+xml\", \"text/xml\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"full-path=\", \"xmlns:x='urn:x' x:full-path=\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"OPS/book.opf\", \"missing.opf\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"OPS/book.opf\", \"OPS/book.opf/\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"OPS/book.opf\", \"OPS/child/..\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"urn:oasis:names:tc:opendocument:xmlns:container\", \"urn:spoof\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"version='1.0'\", \"\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"version='1.0'\", \"version='2.0'\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    }
+                  ],
+                  "name" : "containerRejectsInvalidStructures(_:_:)",
+                  "nodeIdentifier" : "EPUBPackageDecoderTests/containerRejectsInvalidStructures(_:_:)",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBPackageDecoderTests/containerRejectsInvalidStructures(_:_:)",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "children" : [
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"</manifest>\", \"</manifest><manifest/>\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"</spine>\", \"</spine><spine/>\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"<item id=\", \"<item fallback='' id=\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"<item id=\", \"<item properties='a a' id=\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"<itemref idref='c'/>\", \"\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"<itemref idref='c'/>\", \"<itemref idref='c' linear='no'/>\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"<itemref idref='c'/>\", \"<itemref idref='c' linear='true'/>\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"<itemref idref='c'/>\", \"<itemref idref='c' properties='a a'/>\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"<itemref idref='c'/>\", \"<itemref idref='x'/>\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"<manifest>\", \"<manifest xml:base='sub/'>\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"<manifest>\", \"<wrapper><manifest>\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"href='chapter.xhtml'\", \"href='Chapter.xhtml'\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"href='chapter.xhtml'\", \"href='missing.xhtml'\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"http://www.idpf.org/2007/opf\", \"urn:spoof\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"id='c'\", \"id=''\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"id='c'\", \"id='a b'\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"id='c'\", \"xmlns:x='urn:x' x:id='c'\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"media-type='application/xhtml+xml'\", \"media-type='image/svg+xml'\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"media-type='application/xhtml+xml'\", \"media-type='text//html'\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"media-type='application/xhtml+xml'\", \"media-type='text/html; charset=UTF-8'\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"version='3.0'\", \"\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"version='3.0'\", \"version='4.0'\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    }
+                  ],
+                  "name" : "packageRejectsInvalidStructures(_:_:)",
+                  "nodeIdentifier" : "EPUBPackageDecoderTests/packageRejectsInvalidStructures(_:_:)",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBPackageDecoderTests/packageRejectsInvalidStructures(_:_:)",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "children" : [
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"2.0\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"3.0\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    }
+                  ],
+                  "name" : "orderedRepeatedAndAuxiliarySpine(_:)",
+                  "nodeIdentifier" : "EPUBPackageDecoderTests/orderedRepeatedAndAuxiliarySpine(_:)",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBPackageDecoderTests/orderedRepeatedAndAuxiliarySpine(_:)",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "children" : [
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"OPS/%E4%B8%AD.opf\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"OPS/100%25done.opf\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    }
+                  ],
+                  "name" : "containerURLIsRootRelativeAndDecodedOnce(_:)",
+                  "nodeIdentifier" : "EPUBPackageDecoderTests/containerURLIsRootRelativeAndDecodedOnce(_:)",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBPackageDecoderTests/containerURLIsRootRelativeAndDecodedOnce(_:)",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "children" : [
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "1, false",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "1, true",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "64, false",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "64, true",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    }
+                  ],
+                  "name" : "trailingXMLWhitespaceDoesNotConsumePropertySlots(_:_:)",
+                  "nodeIdentifier" : "EPUBPackageDecoderTests/trailingXMLWhitespaceDoesNotConsumePropertySlots(_:_:)",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBPackageDecoderTests/trailingXMLWhitespaceDoesNotConsumePropertySlots(_:_:)",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                }
+              ],
+              "name" : "EPUB package manifest and spine",
+              "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBPackageDecoderTests",
+              "nodeType" : "Test Suite",
+              "result" : "Passed"
+            },
+            {
+              "children" : [
+                {
+                  "name" : "originalDigestsAndClosedReaderAfterSuccess()",
+                  "nodeIdentifier" : "EPUBPackageLoaderTests/originalDigestsAndClosedReaderAfterSuccess()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBPackageLoaderTests/originalDigestsAndClosedReaderAfterSuccess()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "catalogIsFileOnlySortedAndDoesNotConsumeReadBudget()",
+                  "nodeIdentifier" : "EPUBPackageLoaderTests/catalogIsFileOnlySortedAndDoesNotConsumeReadBudget()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBPackageLoaderTests/catalogIsFileOnlySortedAndDoesNotConsumeReadBudget()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "cancelledCatalogClosesActualReader()",
+                  "nodeIdentifier" : "EPUBPackageLoaderTests/cancelledCatalogClosesActualReader()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBPackageLoaderTests/cancelledCatalogClosesActualReader()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "assetsAreCheckedWithoutInflatingOrClaimingTheirIntegrity()",
+                  "nodeIdentifier" : "EPUBPackageLoaderTests/assetsAreCheckedWithoutInflatingOrClaimingTheirIntegrity()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBPackageLoaderTests/assetsAreCheckedWithoutInflatingOrClaimingTheirIntegrity()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "metadataCRCFailurePropagatesAndClosesReader()",
+                  "nodeIdentifier" : "EPUBPackageLoaderTests/metadataCRCFailurePropagatesAndClosesReader()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBPackageLoaderTests/metadataCRCFailurePropagatesAndClosesReader()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "XMLFailureAndPackageFailurePropagateAndCloseReader()",
+                  "nodeIdentifier" : "EPUBPackageLoaderTests/XMLFailureAndPackageFailurePropagateAndCloseReader()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBPackageLoaderTests/XMLFailureAndPackageFailurePropagateAndCloseReader()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "children" : [
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : ".publication",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : ".reader",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : ".stage(vreader.EPUBPackageStage.containerDecoded)",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : ".stage(vreader.EPUBPackageStage.manifestItem(0))",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : ".stage(vreader.EPUBPackageStage.opfDecoded)",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : ".stage(vreader.EPUBPackageStage.spineEntry(0))",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : ".worker",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    }
+                  ],
+                  "name" : "cancellationWithholdsPackageAndClosesReader(_:)",
+                  "nodeIdentifier" : "EPUBPackageLoaderTests/cancellationWithholdsPackageAndClosesReader(_:)",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBPackageLoaderTests/cancellationWithholdsPackageAndClosesReader(_:)",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "cancellationBeforeOpenAndInvalidLimitsBeforeIO()",
+                  "nodeIdentifier" : "EPUBPackageLoaderTests/cancellationBeforeOpenAndInvalidLimitsBeforeIO()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBPackageLoaderTests/cancellationBeforeOpenAndInvalidLimitsBeforeIO()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "independentConcurrentLoads()",
+                  "nodeIdentifier" : "EPUBPackageLoaderTests/independentConcurrentLoads()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBPackageLoaderTests/independentConcurrentLoads()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "snapshotSurvivesPathReplacementAndExpectedRevisionRejectsNextOpen()",
+                  "nodeIdentifier" : "EPUBPackageLoaderTests/snapshotSurvivesPathReplacementAndExpectedRevisionRejectsNextOpen()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBPackageLoaderTests/snapshotSurvivesPathReplacementAndExpectedRevisionRejectsNextOpen()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "deflatedMetadataUsesSameRealSubsystems()",
+                  "nodeIdentifier" : "EPUBPackageLoaderTests/deflatedMetadataUsesSameRealSubsystems()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBPackageLoaderTests/deflatedMetadataUsesSameRealSubsystems()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                }
+              ],
+              "name" : "EPUB package source lifecycle",
+              "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBPackageLoaderTests",
+              "nodeType" : "Test Suite",
+              "result" : "Passed"
+            },
+            {
+              "children" : [
+                {
+                  "name" : "separatorsRemainSeparatorsBeforeCombiningMarks()",
+                  "nodeIdentifier" : "EPUBPackageReferenceTests/separatorsRemainSeparatorsBeforeCombiningMarks()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBPackageReferenceTests/separatorsRemainSeparatorsBeforeCombiningMarks()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "rootAndLiteralBaseAreNotDecodedAgain()",
+                  "nodeIdentifier" : "EPUBPackageReferenceTests/rootAndLiteralBaseAreNotDecodedAgain()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBPackageReferenceTests/rootAndLiteralBaseAreNotDecodedAgain()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "UnicodeAndCaseStayLiteral()",
+                  "nodeIdentifier" : "EPUBPackageReferenceTests/UnicodeAndCaseStayLiteral()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBPackageReferenceTests/UnicodeAndCaseStayLiteral()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "children" : [
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"../a.xhtml\", \"a.xhtml\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"./a.xhtml\", \"OPS/a.xhtml\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"%2e%2e/a.xhtml\", \"a.xhtml\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"%E4%B8%AD.xhtml\", \"OPS/中.xhtml\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"100%25done.xhtml\", \"OPS/100%done.xhtml\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"a b.xhtml\", \"OPS/a b.xhtml\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"chapter.xhtml\", \"OPS/chapter.xhtml\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"e%CC%81.xhtml\", \"OPS/é.xhtml\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"sub/../a.xhtml\", \"OPS/a.xhtml\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"sub/a.xhtml\", \"OPS/sub/a.xhtml\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"שלום.xhtml\", \"OPS/שלום.xhtml\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"中文 😀.xhtml\", \"OPS/中文 😀.xhtml\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    }
+                  ],
+                  "name" : "resolvesWithinArchive(_:_:)",
+                  "nodeIdentifier" : "EPUBPackageReferenceTests/resolvesWithinArchive(_:_:)",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBPackageReferenceTests/resolvesWithinArchive(_:_:)",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "children" : [
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\" a\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"..\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"../../a\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\".\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"//a\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"/a\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"%2e\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"%2E%2e\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"a\t\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"a \"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"a:b\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"a?b\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"a\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"a/\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"a//b\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"a\\b\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"a#b\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"a%\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"a%0\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"a%00b\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"a%01b\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"a%2fb\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"a%2Fb\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"a%3ab\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"a%3Ab\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"a%3fb\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"a%5cb\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"a%7fb\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"a%23b\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"a%2520b\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"a%C0%AF\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"a%FF\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"a%GG\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"C:/a\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"child/..\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"child/.\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"child/%2e\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"child/%2e%2e\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"data:x\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"file:a\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"http:a\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    }
+                  ],
+                  "name" : "rejectsUnsupportedOrUnsafe(_:)",
+                  "nodeIdentifier" : "EPUBPackageReferenceTests/rejectsUnsupportedOrUnsafe(_:)",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBPackageReferenceTests/rejectsUnsupportedOrUnsafe(_:)",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                }
+              ],
+              "name" : "EPUB package local references",
+              "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/EPUBPackageReferenceTests",
+              "nodeType" : "Test Suite",
+              "result" : "Passed"
+            }
+          ],
+          "name" : "vreaderTests",
+          "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests",
+          "nodeType" : "Unit test bundle",
+          "result" : "Passed"
+        }
+      ],
+      "name" : "All",
+      "nodeType" : "Test Plan",
+      "result" : "Passed"
+    }
+  ],
+  "testPlanConfigurations" : [
+    {
+      "configurationId" : "1",
+      "configurationName" : "All"
+    }
+  ]
+}

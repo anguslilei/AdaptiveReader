@@ -1,0 +1,238 @@
+﻿2026-10-03T23:03:44.0055685Z Current runner version: '2.337.0'
+2026-10-03T23:03:44.0087498Z ##[group]Runner Image Provisioner
+2026-10-03T23:03:44.0089184Z Hosted Compute Agent
+2026-10-03T23:03:44.0090179Z Version: 20260901.588
+2026-10-03T23:03:44.0091416Z Commit: f88ec8081b781fac6c440065ac7ff9e710ce3d0b
+2026-10-03T23:03:44.0092770Z Build Date: 2026-09-01T19:56:44Z
+2026-10-03T23:03:44.0093927Z Worker ID: {376fd788-1573-4578-882a-a99ecd89a336}
+2026-10-03T23:03:44.0095496Z Azure Region: eastus2
+2026-10-03T23:03:44.0096411Z ##[endgroup]
+2026-10-03T23:03:44.0099367Z ##[group]Operating System
+2026-10-03T23:03:44.0100649Z Ubuntu
+2026-10-03T23:03:44.0101532Z 24.04.5
+2026-10-03T23:03:44.0102540Z LTS
+2026-10-03T23:03:44.0103473Z ##[endgroup]
+2026-10-03T23:03:44.0104492Z ##[group]Runner Image
+2026-10-03T23:03:44.0105704Z Image: ubuntu-24.04
+2026-10-03T23:03:44.0106682Z Version: 20260927.320.1
+2026-10-03T23:03:44.0109306Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260927.320/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-03T23:03:44.0112093Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260927.320
+2026-10-03T23:03:44.0113849Z ##[endgroup]
+2026-10-03T23:03:44.0116058Z ##[group]GITHUB_TOKEN Permissions
+2026-10-03T23:03:44.0119313Z Contents: read
+2026-10-03T23:03:44.0120283Z Metadata: read
+2026-10-03T23:03:44.0121478Z ##[endgroup]
+2026-10-03T23:03:44.0124690Z Secret source: Actions
+2026-10-03T23:03:44.0127216Z Cache mode: write
+2026-10-03T23:03:44.0128900Z Prepare workflow directory
+2026-10-03T23:03:44.0476141Z Prepare all required actions
+2026-10-03T23:03:44.0525048Z Getting action download info
+2026-10-03T23:03:44.2880726Z Download action repository 'actions/checkout@11d5960a326750d5838078e36cf38b85af677262' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-03T23:03:44.4959085Z Complete job name: reference
+2026-10-03T23:03:44.5887688Z ##[group]Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+2026-10-03T23:03:44.5888870Z with:
+2026-10-03T23:03:44.5889361Z   persist-credentials: false
+2026-10-03T23:03:44.5890060Z   repository: anguslilei/AdaptiveReader
+2026-10-03T23:03:44.5893686Z   token: ***
+2026-10-03T23:03:44.5894130Z   ssh-strict: true
+2026-10-03T23:03:44.5894574Z   ssh-user: git
+2026-10-03T23:03:44.5895001Z   clean: true
+2026-10-03T23:03:44.5895452Z   sparse-checkout-cone-mode: true
+2026-10-03T23:03:44.5895982Z   fetch-depth: 1
+2026-10-03T23:03:44.5896427Z   fetch-tags: false
+2026-10-03T23:03:44.5896884Z   show-progress: true
+2026-10-03T23:03:44.5897618Z   lfs: false
+2026-10-03T23:03:44.5898048Z   submodules: false
+2026-10-03T23:03:44.5898523Z   set-safe-directory: true
+2026-10-03T23:03:44.5899038Z   allow-unsafe-pr-checkout: false
+2026-10-03T23:03:44.5899896Z ##[endgroup]
+2026-10-03T23:03:44.6910053Z Syncing repository: anguslilei/AdaptiveReader
+2026-10-03T23:03:44.6912072Z ##[group]Getting Git version info
+2026-10-03T23:03:44.6912939Z Working directory is '/home/runner/work/AdaptiveReader/AdaptiveReader'
+2026-10-03T23:03:44.6914124Z [command]/usr/bin/git version
+2026-10-03T23:03:44.7027993Z git version 2.55.0
+2026-10-03T23:03:44.7055082Z ##[endgroup]
+2026-10-03T23:03:44.7073736Z Temporarily overriding HOME='/home/runner/work/_temp/5f02a1a4-385d-46e9-a021-cc115f3ff49f' before making global git config changes
+2026-10-03T23:03:44.7080632Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-03T23:03:44.7082270Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/AdaptiveReader/AdaptiveReader
+2026-10-03T23:03:44.7140347Z Deleting the contents of '/home/runner/work/AdaptiveReader/AdaptiveReader'
+2026-10-03T23:03:44.7146605Z ##[group]Initializing the repository
+2026-10-03T23:03:44.7152123Z [command]/usr/bin/git init /home/runner/work/AdaptiveReader/AdaptiveReader
+2026-10-03T23:03:44.7288728Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-03T23:03:44.7290736Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-03T23:03:44.7292417Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-03T23:03:44.7294307Z hint: call:
+2026-10-03T23:03:44.7295357Z hint:
+2026-10-03T23:03:44.7296227Z hint: 	git config --global init.defaultBranch <name>
+2026-10-03T23:03:44.7297594Z hint:
+2026-10-03T23:03:44.7298693Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-03T23:03:44.7299781Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-03T23:03:44.7300528Z hint:
+2026-10-03T23:03:44.7300962Z hint: 	git branch -m <name>
+2026-10-03T23:03:44.7301441Z hint:
+2026-10-03T23:03:44.7302071Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-03T23:03:44.7303203Z Initialized empty Git repository in /home/runner/work/AdaptiveReader/AdaptiveReader/.git/
+2026-10-03T23:03:44.7309621Z [command]/usr/bin/git remote add origin https://github.com/anguslilei/AdaptiveReader
+2026-10-03T23:03:44.7366460Z ##[endgroup]
+2026-10-03T23:03:44.7368106Z ##[group]Disabling automatic garbage collection
+2026-10-03T23:03:44.7370485Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-03T23:03:44.7405169Z ##[endgroup]
+2026-10-03T23:03:44.7406657Z ##[group]Setting up auth
+2026-10-03T23:03:44.7413412Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-03T23:03:44.7454259Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-03T23:03:44.7843846Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-03T23:03:44.7880738Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-03T23:03:44.8106819Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-03T23:03:44.8143934Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-03T23:03:44.8366556Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-03T23:03:44.8407861Z ##[endgroup]
+2026-10-03T23:03:44.8408718Z ##[group]Fetching the repository
+2026-10-03T23:03:44.8417825Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +fda86fbb6f90500ce9449bb5c0d5bd302da10b0a:refs/remotes/origin/feature/180-native-epub-package
+2026-10-03T23:03:50.1071527Z From https://github.com/anguslilei/AdaptiveReader
+2026-10-03T23:03:50.1073360Z  * [new ref]         fda86fbb6f90500ce9449bb5c0d5bd302da10b0a -> origin/feature/180-native-epub-package
+2026-10-03T23:03:50.1077540Z ##[endgroup]
+2026-10-03T23:03:50.1079478Z ##[group]Determining the checkout info
+2026-10-03T23:03:50.1080881Z ##[endgroup]
+2026-10-03T23:03:50.1084710Z [command]/usr/bin/git sparse-checkout disable
+2026-10-03T23:03:50.1138953Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-03T23:03:50.1172720Z ##[group]Checking out the ref
+2026-10-03T23:03:50.1177576Z [command]/usr/bin/git checkout --progress --force -B feature/180-native-epub-package refs/remotes/origin/feature/180-native-epub-package
+2026-10-03T23:03:51.1795002Z Updating files:  54% (2899/5338)
+2026-10-03T23:03:51.2421160Z Updating files:  55% (2936/5338)
+2026-10-03T23:03:51.3213283Z Updating files:  56% (2990/5338)
+2026-10-03T23:03:51.3952301Z Updating files:  57% (3043/5338)
+2026-10-03T23:03:51.3999732Z Updating files:  58% (3097/5338)
+2026-10-03T23:03:51.4037690Z Updating files:  59% (3150/5338)
+2026-10-03T23:03:51.4089389Z Updating files:  60% (3203/5338)
+2026-10-03T23:03:51.4133873Z Updating files:  61% (3257/5338)
+2026-10-03T23:03:51.4175256Z Updating files:  62% (3310/5338)
+2026-10-03T23:03:51.4220307Z Updating files:  63% (3363/5338)
+2026-10-03T23:03:51.4257734Z Updating files:  64% (3417/5338)
+2026-10-03T23:03:51.4393549Z Updating files:  65% (3470/5338)
+2026-10-03T23:03:51.4469714Z Updating files:  66% (3524/5338)
+2026-10-03T23:03:51.4497978Z Updating files:  67% (3577/5338)
+2026-10-03T23:03:51.4665599Z Updating files:  68% (3630/5338)
+2026-10-03T23:03:51.4715179Z Updating files:  69% (3684/5338)
+2026-10-03T23:03:51.4767219Z Updating files:  70% (3737/5338)
+2026-10-03T23:03:51.4822299Z Updating files:  71% (3790/5338)
+2026-10-03T23:03:51.4869289Z Updating files:  72% (3844/5338)
+2026-10-03T23:03:51.4941023Z Updating files:  73% (3897/5338)
+2026-10-03T23:03:51.4994046Z Updating files:  74% (3951/5338)
+2026-10-03T23:03:51.5042318Z Updating files:  75% (4004/5338)
+2026-10-03T23:03:51.5086304Z Updating files:  76% (4057/5338)
+2026-10-03T23:03:51.5123788Z Updating files:  77% (4111/5338)
+2026-10-03T23:03:51.5158494Z Updating files:  78% (4164/5338)
+2026-10-03T23:03:51.5194891Z Updating files:  79% (4218/5338)
+2026-10-03T23:03:51.5239626Z Updating files:  80% (4271/5338)
+2026-10-03T23:03:51.5282976Z Updating files:  81% (4324/5338)
+2026-10-03T23:03:51.5325346Z Updating files:  82% (4378/5338)
+2026-10-03T23:03:51.5368715Z Updating files:  83% (4431/5338)
+2026-10-03T23:03:51.5407171Z Updating files:  84% (4484/5338)
+2026-10-03T23:03:51.5434877Z Updating files:  85% (4538/5338)
+2026-10-03T23:03:51.5466450Z Updating files:  86% (4591/5338)
+2026-10-03T23:03:51.5505902Z Updating files:  87% (4645/5338)
+2026-10-03T23:03:51.5547042Z Updating files:  88% (4698/5338)
+2026-10-03T23:03:51.5589331Z Updating files:  89% (4751/5338)
+2026-10-03T23:03:51.5623780Z Updating files:  90% (4805/5338)
+2026-10-03T23:03:51.5661468Z Updating files:  91% (4858/5338)
+2026-10-03T23:03:51.5699816Z Updating files:  92% (4911/5338)
+2026-10-03T23:03:51.5739076Z Updating files:  93% (4965/5338)
+2026-10-03T23:03:51.5775842Z Updating files:  94% (5018/5338)
+2026-10-03T23:03:51.5812765Z Updating files:  95% (5072/5338)
+2026-10-03T23:03:51.5848654Z Updating files:  96% (5125/5338)
+2026-10-03T23:03:51.5883098Z Updating files:  97% (5178/5338)
+2026-10-03T23:03:51.5923366Z Updating files:  98% (5232/5338)
+2026-10-03T23:03:51.5960132Z Updating files:  99% (5285/5338)
+2026-10-03T23:03:51.5960686Z Updating files: 100% (5338/5338)
+2026-10-03T23:03:51.5961141Z Updating files: 100% (5338/5338), done.
+2026-10-03T23:03:51.6026342Z Switched to a new branch 'feature/180-native-epub-package'
+2026-10-03T23:03:51.6034748Z branch 'feature/180-native-epub-package' set up to track 'origin/feature/180-native-epub-package'.
+2026-10-03T23:03:51.6080239Z ##[endgroup]
+2026-10-03T23:03:51.6135135Z [command]/usr/bin/git log -1 --format=%H
+2026-10-03T23:03:51.6174085Z fda86fbb6f90500ce9449bb5c0d5bd302da10b0a
+2026-10-03T23:03:51.6186927Z ##[group]Removing auth
+2026-10-03T23:03:51.6192682Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-03T23:03:51.6233602Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-03T23:03:51.6488661Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-03T23:03:51.6521764Z http.https://github.com/.extraheader
+2026-10-03T23:03:51.6528797Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-03T23:03:51.6563550Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-03T23:03:51.6791290Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-03T23:03:51.6826323Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-03T23:03:51.7052807Z ##[endgroup]
+2026-10-03T23:03:51.7255281Z ##[group]Run python3 -m pip install -r dev-docs/prototypes/epub-semantics/requirements.txt
+2026-10-03T23:03:51.7256270Z [36;1mpython3 -m pip install -r dev-docs/prototypes/epub-semantics/requirements.txt[0m
+2026-10-03T23:03:51.7257430Z [36;1mpython3 -m unittest discover -s dev-docs/prototypes/epub-semantics/tests -v[0m
+2026-10-03T23:03:51.7527233Z shell: /usr/bin/bash -e {0}
+2026-10-03T23:03:51.7527607Z ##[endgroup]
+2026-10-03T23:03:53.1638598Z Defaulting to user installation because normal site-packages is not writeable
+2026-10-03T23:03:54.3095278Z Collecting lxml==6.1.1 (from -r dev-docs/prototypes/epub-semantics/requirements.txt (line 1))
+2026-10-03T23:03:54.3520468Z   Downloading lxml-6.1.1-cp312-cp312-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl.metadata (3.5 kB)
+2026-10-03T23:03:54.3656378Z Downloading lxml-6.1.1-cp312-cp312-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl (5.2 MB)
+2026-10-03T23:03:54.5452865Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.2/5.2 MB 29.7 MB/s eta 0:00:00
+2026-10-03T23:03:54.8203974Z Installing collected packages: lxml
+2026-10-03T23:03:54.9454046Z Successfully installed lxml-6.1.1
+2026-10-03T23:03:55.1254775Z test_cli_interrupt_contract (test_extractor.ExtractionTests.test_cli_interrupt_contract) ... ok
+2026-10-03T23:03:55.5554206Z test_cli_success_failures (test_extractor.ExtractionTests.test_cli_success_failures) ... ok
+2026-10-03T23:03:55.5570331Z test_distinct_identity (test_extractor.ExtractionTests.test_distinct_identity) ... ok
+2026-10-03T23:03:55.5572884Z test_empty_cancel_and_invalid_root (test_extractor.ExtractionTests.test_empty_cancel_and_invalid_root) ... ok
+2026-10-03T23:03:55.5575402Z test_excluded_subtree_metadata (test_extractor.ExtractionTests.test_excluded_subtree_metadata) ... ok
+2026-10-03T23:03:55.5578246Z test_inline_separator_whitespace (test_extractor.ExtractionTests.test_inline_separator_whitespace) ... ok
+2026-10-03T23:03:55.5590480Z test_structure_and_roundtrip (test_extractor.ExtractionTests.test_structure_and_roundtrip) ... ok
+2026-10-03T23:03:55.5593374Z test_wrappers_opaque_and_no_duplicate (test_extractor.ExtractionTests.test_wrappers_opaque_and_no_duplicate) ... ok
+2026-10-03T23:03:55.5607888Z test_aggregate_and_failed_read_closes (test_resources.ResourceTests.test_aggregate_and_failed_read_closes) ... ok
+2026-10-03T23:03:55.5622629Z test_bad_zip_and_crc (test_resources.ResourceTests.test_bad_zip_and_crc) ... ok
+2026-10-03T23:03:55.5638760Z test_bounds (test_resources.ResourceTests.test_bounds) ... ok
+2026-10-03T23:03:55.5651321Z test_bytes_identity_and_spine (test_resources.ResourceTests.test_bytes_identity_and_spine) ... ok
+2026-10-03T23:03:55.5656635Z test_cancellation (test_resources.ResourceTests.test_cancellation) ... ok
+2026-10-03T23:03:55.5662465Z test_changed_source (test_resources.ResourceTests.test_changed_source) ... ok
+2026-10-03T23:03:55.5673762Z test_declared_size_mismatch (test_resources.ResourceTests.test_declared_size_mismatch) ... ok
+2026-10-03T23:03:55.5678488Z test_expected_mismatch (test_resources.ResourceTests.test_expected_mismatch) ... ok
+2026-10-03T23:03:55.5683501Z test_failed_open_descriptor_cleanup (test_resources.ResourceTests.test_failed_open_descriptor_cleanup) ... ok
+2026-10-03T23:03:55.5702368Z test_forged_prefix_length_and_crc (test_resources.ResourceTests.test_forged_prefix_length_and_crc) ... ok
+2026-10-03T23:03:55.5710893Z test_href_contract (test_resources.ResourceTests.test_href_contract) ... ok
+2026-10-03T23:03:55.5716440Z test_interrupted_read_closes (test_resources.ResourceTests.test_interrupted_read_closes) ... ok
+2026-10-03T23:03:55.5732051Z test_late_hash_stream_cancel (test_resources.ResourceTests.test_late_hash_stream_cancel) ... ok
+2026-10-03T23:03:55.5788752Z test_manifest_rejections (test_resources.ResourceTests.test_manifest_rejections) ... ok
+2026-10-03T23:03:55.5822765Z test_missing_duplicate_package_parts (test_resources.ResourceTests.test_missing_duplicate_package_parts) ... ok
+2026-10-03T23:03:55.5828751Z test_missing_read_closes (test_resources.ResourceTests.test_missing_read_closes) ... ok
+2026-10-03T23:03:55.5833517Z test_nested_context (test_resources.ResourceTests.test_nested_context) ... ok
+2026-10-03T23:03:55.5843375Z test_normal_deflate_roundtrip (test_resources.ResourceTests.test_normal_deflate_roundtrip) ... ok
+2026-10-03T23:03:55.5855237Z test_raw_nul_filename (test_resources.ResourceTests.test_raw_nul_filename) ... ok
+2026-10-03T23:03:55.5866172Z test_repeated_spine (test_resources.ResourceTests.test_repeated_spine) ... ok
+2026-10-03T23:03:55.5879262Z test_replacement_and_same_name_digest (test_resources.ResourceTests.test_replacement_and_same_name_digest) ... ok
+2026-10-03T23:03:55.5896584Z test_rootfile_ambiguity_and_namespace (test_resources.ResourceTests.test_rootfile_ambiguity_and_namespace) ... ok
+2026-10-03T23:03:55.5919122Z test_symlink_encryption_and_method (test_resources.ResourceTests.test_symlink_encryption_and_method) ... ok
+2026-10-03T23:03:55.5927238Z test_thread_and_reentrancy (test_resources.ResourceTests.test_thread_and_reentrancy) ... ok
+2026-10-03T23:03:55.5939189Z test_unicode_percent_href_lookup (test_resources.ResourceTests.test_unicode_percent_href_lookup) ... ok
+2026-10-03T23:03:55.6082911Z test_unsafe_entries (test_resources.ResourceTests.test_unsafe_entries) ... /usr/lib/python3.12/zipfile/__init__.py:1620: UserWarning: Duplicate name: 'OPS/chapter.xhtml'
+2026-10-03T23:03:55.6083882Z   return self._open_to_write(zinfo, force_zip64=force_zip64)
+2026-10-03T23:03:55.6086861Z ok
+2026-10-03T23:03:55.6088918Z test_bad_selectors (test_xml_source.XMLTests.test_bad_selectors) ... ok
+2026-10-03T23:03:55.6109822Z test_bomless_utf16_utf32_rejected (test_xml_source.XMLTests.test_bomless_utf16_utf32_rejected) ... ok
+2026-10-03T23:03:55.6113297Z test_cached_paths_match_original (test_xml_source.XMLTests.test_cached_paths_match_original) ... ok
+2026-10-03T23:03:55.6114965Z test_cancel_text_traversal_after_start (test_xml_source.XMLTests.test_cancel_text_traversal_after_start) ... ok
+2026-10-03T23:03:55.6116405Z test_consecutive_comment_tails (test_xml_source.XMLTests.test_consecutive_comment_tails) ... ok
+2026-10-03T23:03:55.6118953Z test_encoding (test_xml_source.XMLTests.test_encoding) ... ok
+2026-10-03T23:03:55.6120393Z test_rtl_and_late_cancel (test_xml_source.XMLTests.test_rtl_and_late_cancel) ... ok
+2026-10-03T23:03:55.6123059Z test_runs_unicode_comments_pi (test_xml_source.XMLTests.test_runs_unicode_comments_pi) ... ok
+2026-10-03T23:03:55.6125655Z test_unsafe_malformed_limits (test_xml_source.XMLTests.test_unsafe_malformed_limits) ... ok
+2026-10-03T23:03:55.6126313Z 
+2026-10-03T23:03:55.6126566Z ----------------------------------------------------------------------
+2026-10-03T23:03:55.6127139Z Ran 43 tests in 0.508s
+2026-10-03T23:03:55.6127291Z 
+2026-10-03T23:03:55.6127368Z OK
+2026-10-03T23:03:55.6473786Z Post job cleanup.
+2026-10-03T23:03:55.7321693Z [command]/usr/bin/git version
+2026-10-03T23:03:55.7364801Z git version 2.55.0
+2026-10-03T23:03:55.7404777Z Temporarily overriding HOME='/home/runner/work/_temp/49e5661b-5200-4849-ba37-f3c00a964187' before making global git config changes
+2026-10-03T23:03:55.7406193Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-03T23:03:55.7410721Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/AdaptiveReader/AdaptiveReader
+2026-10-03T23:03:55.7452666Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-03T23:03:55.7488375Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-03T23:03:55.7765451Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-03T23:03:55.7796541Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-03T23:03:55.8057676Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-03T23:03:55.8096911Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-03T23:03:55.8520323Z Cleaning up orphan processes
+2026-10-03T23:03:55.8818948Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

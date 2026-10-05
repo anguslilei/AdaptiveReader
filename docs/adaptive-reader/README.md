@@ -31,3 +31,53 @@ It retains source structure without claiming OPF/spine, browser DOM/source-map
 or CFI compatibility. See [plan](../../dev-docs/plans/20261003-feature-179-bounded-semantic-xml.md).
 
 See [verification evidence](../../dev-docs/verification/feature-179-20261003.md).
+
+Feature180 implements the native package/spine foundation by composing the real
+byte reader and XML utility. A non-inflating resource catalog, strict local URL
+resolution and immutable archive/container/OPF identities preserve ordered manifest
+and spine occurrences. Repeated idrefs intentionally retain nonconforming input;
+this is a bounded subset, not an EPUB conformance claim.
+
+Mac30 contracts pass. Native run37160519963 passes 155 base +30 package
+distinct tests in two sequential completed bundles; all nine semantic suites pass,
+zero failures/skips, Debug/Release builds pass. Gate2 PASS2 and Gate4 PASS3, zero
+open findings. See [plan](../../dev-docs/plans/20261003-feature-180-native-epub-package.md)
+and [evidence](../../dev-docs/verification/feature-180-20261004.md).
+
+PR3/4 merged at user confirmation2026-10-03; foundations178/179 are DONE.
+Feature180 remains IN PROGRESS pending its PR merge. No production reader/import,
+chapter extraction, SemanticDocument/source-map/CFI, renderer or AI entry point is
+introduced. Chapter semantic extraction is the next implementation boundary;
+real-book compatibility and user-visible adaptive reading remain later verification.
+
+
+Post-audit correction: native run37160519963 passed both compilers and155+30
+real tests, but its exporter failed an unmatched Python parenthesis. A single
+trailing parenthesis was removed and verified in own recovery CI at
+1f97fa8daed2bfd27be56fa4bc04a210877bb667 (run37162305962). No application/test changes. Gate4 PASS3
+is historical atfda86fbb; no fourth audit was run. Rule47's three-round ceiling
+requires escalation, so the PR is a draft with this post-audit correction pending
+explicit acceptance before merge. Evidence is partial; no VERIFIED claim.
+
+
+## User acceptance and final native proof2026-10-05
+
+User confirmation2026-10-05T11:07:49+08:00: “好的 确认 然后继续推进开发”.
+This explicitly accepts the post-round3 one-character exporter correction and
+continues the previously described PR5 closeout/dependent development. It does
+not claim a fourth independent audit. Gate2 PASS2 and historical Gate4 PASS3
+remain; the exact one-character exception is accepted by the user.
+
+Final PR input ab60ac6bf4184b4e4c9b1af880411172aaed4c9b:
+all five pull_request workflows completed successfully, including native run
+37177554340 (Debug/Release, two real lanes and corrected evidence exporter),
+source37177554363, XML37177554309, package37177554297 and foundation37177554310.
+The earlier cancelled push-native run was superseded by this successful PR run,
+not counted as a pass. Foundational acceptance is complete; no production
+entry point, real-book compatibility or VERIFIED/release/tag claim.
+
+Closeout also restores the complete pre-PR architecture document verbatim from
+main55719b27c62c0f0d37556618d4525a0ea8e1135e and retains the added package section.
+The prior closeout accidentally prefixed the addition with “undefined” and omitted
+the inherited document. This documentation-only recovery is not covered by the
+exporter exception and needs no additional code audit under the docs-only scope.

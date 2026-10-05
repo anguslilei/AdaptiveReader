@@ -53,4 +53,15 @@ actor EPUBSemanticResourceReader {
         }
     }
     func close() { snapshot = nil; index.removeAll(keepingCapacity: false) }
+
+    func catalog() throws -> EPUBSemanticResourceCatalog {
+        guard let snapshot else { throw EPUBSemanticSourceError.closed }
+        do {
+            try Task.checkCancellation()
+            let paths = index.values.filter { !$0.path.hasSuffix("/") }.map(\.path)
+                .sorted { $0.utf8.lexicographicallyPrecedes($1.utf8) }
+            try Task.checkCancellation()
+            return EPUBSemanticResourceCatalog(archiveSHA256: snapshot.sha256, paths: paths)
+        } catch { close(); throw error }
+    }
 }

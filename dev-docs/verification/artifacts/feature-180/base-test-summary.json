@@ -1,0 +1,49 @@
+{
+  "devicesAndConfigurations" : [
+    {
+      "device" : {
+        "architecture" : "arm64",
+        "deviceId" : "E952A9B0-CC78-435C-BF08-06AD47FE1076",
+        "deviceName" : "iPhone 17 Pro",
+        "modelName" : "iPhone 17 Pro",
+        "osBuildNumber" : "23C54",
+        "osVersion" : "26.2",
+        "platform" : "iOS Simulator"
+      },
+      "expectedFailures" : 0,
+      "failedTests" : 0,
+      "passedTests" : 213,
+      "skippedTests" : 0,
+      "testPlanConfiguration" : {
+        "configurationId" : "1",
+        "configurationName" : "All"
+      }
+    }
+  ],
+  "environmentDescription" : "All · Built with macOS 15.7.9",
+  "expectedFailures" : 0,
+  "failedTests" : 0,
+  "finishTime" : 1791070181.974,
+  "passedTests" : 155,
+  "result" : "Passed",
+  "skippedTests" : 0,
+  "startTime" : 1791069636.254,
+  "statistics" : [
+    {
+      "subtitle" : "71 test runs",
+      "title" : "13 tests ran with dynamic parameters"
+    }
+  ],
+  "testFailures" : [
+
+  ],
+  "title" : "Test - vreader",
+  "topInsights" : [
+    {
+      "category" : "Longest Test Runs",
+      "impact" : "99% of duration",
+      "text" : "17 longest test runs with outlier durations exceeding 0.89s (three standard deviations)"
+    }
+  ],
+  "totalTestCount" : 155
+}

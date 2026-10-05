@@ -1,0 +1,16 @@
+[run-tests] targets=-only-testing:vreaderTests/EPUBPackageReferenceTests -only-testing:vreaderTests/EPUBPackageDecoderTests -only-testing:vreaderTests/EPUBPackageLoaderTests udid=E952A9B0-CC78-435C-BF08-06AD47FE1076 timeout=1800s log=/var/folders/nj/vtw8zd2j31d1gdrtntc5y4600000gn/T/run-tests.XXXXXX.2b2tB8oVlD
+----- last log lines -----
+✔ Suite "EPUB package source lifecycle" passed after 0.250 seconds.
+✔ Test run with 30 tests in 3 suites passed after 0.250 seconds.
+2026-10-03 23:30:31.998 xcodebuild[62743:161542] [MT] IDETestOperationsObserverDebug: 27.236 elapsed -- Testing started completed.
+2026-10-03 23:30:31.998 xcodebuild[62743:161542] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-03 23:30:31.998 xcodebuild[62743:161542] [MT] IDETestOperationsObserverDebug: 27.236 sec, +27.236 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/runner/Library/Developer/Xcode/DerivedData/vreader-czakmjxnxcejyjbvvbadvbjgnehb/Logs/Test/Test-vreader-2026.10.03_23-29-53-+0000.xcresult
+
+** TEST SUCCEEDED **
+
+Testing started
+--------------------------
+RUN-TESTS RESULT: SUCCEEDED

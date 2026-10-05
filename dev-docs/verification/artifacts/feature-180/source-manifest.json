@@ -1,0 +1,216 @@
+{
+  "source_commit": "1f97fa8daed2bfd27be56fa4bc04a210877bb667",
+  "native_evidence_commit": "fda86fbb6f90500ce9449bb5c0d5bd302da10b0a",
+  "functional_source_commit": "40af65502ff0fa5109e254785394b3a0d69b6568",
+  "files": {
+    ".github/workflows/epub-package-contract.yml": {
+      "bytes": 2417,
+      "sha256": "12c3882b0764b0382ce27b618e0ca14241abbd4aec23b5d2d31db00e49b715af",
+      "git_blob_sha": "c2fbfa33272da760d8eb8f563f59f953136cfdd9"
+    },
+    ".github/workflows/native-reader-check.yml": {
+      "bytes": 4771,
+      "sha256": "e25b0e69e21b3134c28d20faea3ddd4e9fb2cc76148991a0fc8f8e502df51002",
+      "git_blob_sha": "be223e751d979319743fc89b938b069b67523f1e"
+    },
+    "scripts/export-native-package-evidence.py": {
+      "bytes": 2797,
+      "sha256": "e989728bf392ac53f2918a2e1637ed85c9b37be9bc40f0be0dccaa5604f082ca",
+      "git_blob_sha": "15aa66c1c8689042280fecd93636e3f740b34ccf"
+    },
+    "scripts/test-epub-package-contract.sh": {
+      "bytes": 1229,
+      "sha256": "d5daa7a7c92e6cc79a2a1492c9341d405b18ae3443e9e7b34c98f4ad6d25f17f",
+      "git_blob_sha": "9b6563dfcde9b01fe32529bab1c85fdbc9a3732a"
+    },
+    "scripts/test-native-semantic-foundations.sh": {
+      "bytes": 6222,
+      "sha256": "cd86833fcb0f9023b1feb8e0606544f515f1319faa409cf5ce85862e277487e2",
+      "git_blob_sha": "ab05e14e0d07b8680f897eb6dd7e960475394c3f"
+    },
+    "vreader/Services/Semantic/EPUB/EPUBSemanticResourceReader.swift": {
+      "bytes": 3402,
+      "sha256": "70d5828c9de033582e77dba2d8f4c0eac9d1faf2066ad56aa4e9d837ea257227",
+      "git_blob_sha": "6a44f37c84f38db9e859341c6728b03ccfb1bb39"
+    },
+    "vreader/Services/Semantic/EPUB/EPUBSemanticSourceTypes.swift": {
+      "bytes": 1786,
+      "sha256": "014adf33ed6045e268ea2df863bf9625eca3a5ed89b1b0fafc7811a37bce7372",
+      "git_blob_sha": "f342df21fdfdbedfd855aef79e9895118ad6cdd4"
+    },
+    "vreader/Services/Semantic/EPUB/EPUBSourceInflater.swift": {
+      "bytes": 3119,
+      "sha256": "a4b5e50e55691c271e93ac50f30ad7e2244b6b5aaca4a6ba3abbe0803bdcd495",
+      "git_blob_sha": "1443b3320a6c8f109eb23757ab95310486f56d4d"
+    },
+    "vreader/Services/Semantic/EPUB/EPUBSourceSnapshot.swift": {
+      "bytes": 4228,
+      "sha256": "8ce34a1eed9eb13146b484bc3baef6fa3cf97faeed32ce55996f4ecf26c7cb7f",
+      "git_blob_sha": "bbcb261edba9f1ab68e2ff0a91d9c2b3a07fd9e1"
+    },
+    "vreader/Services/Semantic/EPUB/EPUBSourceZIPBytes.swift": {
+      "bytes": 1881,
+      "sha256": "c3c7e960fe056b4972174b0fde8fa304cdfe0d9f881d5311b77a57ad2d048cb5",
+      "git_blob_sha": "55ec9908a6c252851b082b895ebcbe2924211c97"
+    },
+    "vreader/Services/Semantic/EPUB/EPUBSourceZIPIndex.swift": {
+      "bytes": 7255,
+      "sha256": "7bb183c6cb23b7e8ee764dbef7089a90db3eb31a81e75468335955ff824bfef4",
+      "git_blob_sha": "ef52691e55c4245111e41324312d0061d34c1207"
+    },
+    "vreader/Services/Semantic/Package/EPUBContainerDecoder.swift": {
+      "bytes": 1873,
+      "sha256": "b60b992f4e1513279e1ab7beeeda2f224dc6a5b1d005f802c67fab98377d9530",
+      "git_blob_sha": "98f35e66d602d00f7daf0638664116e0aaaae284"
+    },
+    "vreader/Services/Semantic/Package/EPUBPackageDecoder.swift": {
+      "bytes": 5130,
+      "sha256": "b06208b03cc7d0bf22a31bd2f57f4b91414c945a414131b65f214d8f59350c58",
+      "git_blob_sha": "8df1fe8397429244c0701e12efd34b24a7a1e838"
+    },
+    "vreader/Services/Semantic/Package/EPUBPackageLiteralKey.swift": {
+      "bytes": 595,
+      "sha256": "fc67e15b2f68354d40651ccf49c494777e9abca5793d0242726b9c2952a03bda",
+      "git_blob_sha": "67eb62b11d91a213bb45126d208fe1b55b68d3a1"
+    },
+    "vreader/Services/Semantic/Package/EPUBPackageReference.swift": {
+      "bytes": 3815,
+      "sha256": "4b0cb2c2b2edf9dbe1e45c999e7d1452aefbea961fbd240a4e487ce1cace77d9",
+      "git_blob_sha": "89807825d417bd62d682a3c8e268b9f3d3c73189"
+    },
+    "vreader/Services/Semantic/Package/EPUBPackageXMLAccess.swift": {
+      "bytes": 5291,
+      "sha256": "294b490d9b3d3bf9ad939cd4ed31a2422df1bfbb1f5b414ac082ae96941b1954",
+      "git_blob_sha": "80df507fd99bf5b6dd61f02df4dd268bf11255c6"
+    },
+    "vreader/Services/Semantic/Package/EPUBSemanticPackageLimits.swift": {
+      "bytes": 1087,
+      "sha256": "3acf4c9f2f07ce3727b8ea77cf176ca5e1fba1c4afb5f8b87cdd96843febc17d",
+      "git_blob_sha": "87ba177b8a24ddf31e2770db444deca3d1126f59"
+    },
+    "vreader/Services/Semantic/Package/EPUBSemanticPackageLoader.swift": {
+      "bytes": 3385,
+      "sha256": "302a3309c94124500aec76b1f1df197990966446fa78079c8d1eb5d24a1ab66f",
+      "git_blob_sha": "b6e7e3d075265e49e2220f98e802b15789b508fc"
+    },
+    "vreader/Services/Semantic/Package/EPUBSemanticPackageTypes.swift": {
+      "bytes": 3277,
+      "sha256": "e6a784a4f46b28d281f819fdc589f2f7933fb3341ae384a980ab626fedd8f372",
+      "git_blob_sha": "a1ac3ff7635b5de6f59be5ba409ddcd679b9a4b6"
+    },
+    "vreader/Services/Semantic/XML/SemanticXMLBuilder.swift": {
+      "bytes": 9221,
+      "sha256": "a7ea51bea04b622486ca24a2daf756d5ff06b01970f157593e44b54d1cd3447f",
+      "git_blob_sha": "463acbdbf7c00f10c52041cd5075bcbf7d93342f"
+    },
+    "vreader/Services/Semantic/XML/SemanticXMLLimits.swift": {
+      "bytes": 1104,
+      "sha256": "3e63d6aaa169cce3a0eb0e0d71c91f5f9507e78d69df424166c32ecf4c938f2f",
+      "git_blob_sha": "09bf1c2ac8a7dff7716eda425bad524385dafb10"
+    },
+    "vreader/Services/Semantic/XML/SemanticXMLNamespace.swift": {
+      "bytes": 3931,
+      "sha256": "cb3696606ffc5d4ec288653a9c2c82bd3e17915bf7046027290160e0431ec510",
+      "git_blob_sha": "98f6e075621d215eb021690fbac11192de78d51f"
+    },
+    "vreader/Services/Semantic/XML/SemanticXMLParser.swift": {
+      "bytes": 2223,
+      "sha256": "11d7dc2230ef316322d49c27ebbc716046776320a4c9c6df58708b126fee8974",
+      "git_blob_sha": "07654ee4bbfdfbde956a35a4f61a27379e9b2162"
+    },
+    "vreader/Services/Semantic/XML/SemanticXMLPreflight.swift": {
+      "bytes": 4262,
+      "sha256": "19ce44bcd7e912e38692dbfcea78788d9696808b191d5ac0460584960cbe5ffa",
+      "git_blob_sha": "1ad6afa3efe5da4afd2c3c9563e66fd64920f9bd"
+    },
+    "vreader/Services/Semantic/XML/SemanticXMLStartTags.swift": {
+      "bytes": 3328,
+      "sha256": "70d0832b3343e07cc6dbe28db7080a50cc39a0305cbcef6f96ffbb26911d39c2",
+      "git_blob_sha": "6086560c06c21856f4596734043f4f82e87a3478"
+    },
+    "vreader/Services/Semantic/XML/SemanticXMLTypes.swift": {
+      "bytes": 1619,
+      "sha256": "dabb3b28ddedb6144404856f4d3a28ffd3091bc40a7742221bbf9cd864b715e8",
+      "git_blob_sha": "1a170d9995e805c762f3b89398a097c20b10549c"
+    },
+    "vreaderTests/Helpers/EPUBPackageFixture.swift": {
+      "bytes": 4414,
+      "sha256": "7f47df4772f661baa6e4fb98946207b1fcd3e2862682b419e19a440d5c5f409e",
+      "git_blob_sha": "f72102d35f2e04fd8033b082fbb864a27a6742e1"
+    },
+    "vreaderTests/Helpers/EPUBSemanticZIPFixture.swift": {
+      "bytes": 6293,
+      "sha256": "f3e51233c1f8081078b0e324e8c703acdf4674c79425383e13ac5be820ba20c4",
+      "git_blob_sha": "8c0f1bfd6b72d2b81c96dc508c5b884ffbb6a4df"
+    },
+    "vreaderTests/Helpers/SemanticXMLProbe.swift": {
+      "bytes": 1330,
+      "sha256": "8f383be3daa8dae31e06460db0afe08f50efc855aa98ea4ca18085d4ca2dcac3",
+      "git_blob_sha": "ab0e98cf290a78c8bf1bde7e38718915b8d32fda"
+    },
+    "vreaderTests/Services/Semantic/EPUB/EPUBSemanticResourceReaderTests.swift": {
+      "bytes": 6530,
+      "sha256": "208c657222cf31035c985558a19f12023047bd3007f661f603f0ecf2861e5a94",
+      "git_blob_sha": "c8c817f7c0a728f73ba536c063fd9e763bc17a91"
+    },
+    "vreaderTests/Services/Semantic/EPUB/EPUBSourceBudgetTests.swift": {
+      "bytes": 9628,
+      "sha256": "24bf1a4241d3dda0c9b8b01937efb6a0f3b8ff6f6c5de85c259d54084e09c47a",
+      "git_blob_sha": "02dfbb73979a5b937f508a2b4dce65850098d117"
+    },
+    "vreaderTests/Services/Semantic/EPUB/EPUBSourceZIPValidationTests.swift": {
+      "bytes": 5095,
+      "sha256": "06c201568e6d11e8a5da596500bb69b33900d0a116f0e19c6b78d24c95ebef3e",
+      "git_blob_sha": "65437c49d3fc7aa54b6efb1ed83d9c5432fadb56"
+    },
+    "vreaderTests/Services/Semantic/Package/EPUBPackageDecoderTests.swift": {
+      "bytes": 11905,
+      "sha256": "55dd6be8a611a055798b219e744152be076f18bf101814a3477a5e80accfd5cc",
+      "git_blob_sha": "6c75d3ec87adf789d107e6e9b7f19faac5df10f6"
+    },
+    "vreaderTests/Services/Semantic/Package/EPUBPackageLoaderTests.swift": {
+      "bytes": 10754,
+      "sha256": "10835d63737759d2ad0fe3e83b7e7ceb8b37e3f26b3e6e3fecb70b71678fc3b8",
+      "git_blob_sha": "5bbfdc3575782805bda0d271b62820bf7ad0ce3a"
+    },
+    "vreaderTests/Services/Semantic/Package/EPUBPackageReferenceTests.swift": {
+      "bytes": 3009,
+      "sha256": "c4c35ee800c436246d50cfc5e700e5208ab44b738b89c46c899a0e9558ef8590",
+      "git_blob_sha": "b061d684823d2b371edf082a5e39d634cb1287bc"
+    },
+    "vreaderTests/Services/Semantic/XML/SemanticXMLCancellationTests.swift": {
+      "bytes": 2708,
+      "sha256": "11513ac9a838a4ff8633e4f0b3ef009a4e9e612cc597db0bae182d7fbf9b53fa",
+      "git_blob_sha": "b0257b32052fdd6f0242cff1a485a90590377505"
+    },
+    "vreaderTests/Services/Semantic/XML/SemanticXMLParserTests.swift": {
+      "bytes": 6159,
+      "sha256": "b565f0b188650f8c577d2c9d2438f833ee99a667c2bc02c0499719504308f149",
+      "git_blob_sha": "8b28fa62ac37b62eee1b8155a4146945e69b1560"
+    },
+    "vreaderTests/Services/Semantic/XML/SemanticXMLSafetyTests.swift": {
+      "bytes": 6308,
+      "sha256": "e423166ebc8170690fdac67c5e605d5de08d80d18b4743e7288c41fd6da211e3",
+      "git_blob_sha": "78c7d7a5105ebfaee5ba16ffcaa5652d361ce0bd"
+    }
+  },
+  "unchanged_functional_files": [
+    ".github/workflows/epub-package-contract.yml",
+    "scripts/test-epub-package-contract.sh",
+    "vreader/Services/Semantic/EPUB/EPUBSemanticResourceReader.swift",
+    "vreader/Services/Semantic/EPUB/EPUBSemanticSourceTypes.swift",
+    "vreader/Services/Semantic/Package/EPUBContainerDecoder.swift",
+    "vreader/Services/Semantic/Package/EPUBPackageDecoder.swift",
+    "vreader/Services/Semantic/Package/EPUBPackageLiteralKey.swift",
+    "vreader/Services/Semantic/Package/EPUBPackageReference.swift",
+    "vreader/Services/Semantic/Package/EPUBPackageXMLAccess.swift",
+    "vreader/Services/Semantic/Package/EPUBSemanticPackageLimits.swift",
+    "vreader/Services/Semantic/Package/EPUBSemanticPackageLoader.swift",
+    "vreader/Services/Semantic/Package/EPUBSemanticPackageTypes.swift",
+    "vreaderTests/Helpers/EPUBPackageFixture.swift",
+    "vreaderTests/Services/Semantic/Package/EPUBPackageDecoderTests.swift",
+    "vreaderTests/Services/Semantic/Package/EPUBPackageLoaderTests.swift",
+    "vreaderTests/Services/Semantic/Package/EPUBPackageReferenceTests.swift"
+  ],
+  "post_audit_correction": "exactly one unmatched trailing right parenthesis removed from exporter; independently verified Python syntax and own evidence export, not an additional audit round"
+}

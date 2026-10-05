@@ -1,0 +1,27 @@
+{
+  "source_commit": "40af65502ff0fa5109e254785394b3a0d69b6568",
+  "run_id": 37157905100,
+  "job_id": 111305069763,
+  "artifact_id": 11285444482,
+  "artifact_zip_sha256": "71069a8bb2c0e7c1d8f7f903c6cae06fd51482e4a881bdc82d5e5b9fef706ad8",
+  "xcode": "Xcode 26.3\nBuild version 17C529",
+  "swift": "Apple Swift version 6.2.4 (swiftlang-6.2.4.1.4 clang-1700.6.4.2)\nTarget: arm64-apple-macosx15.0",
+  "members": {
+    "contract.log": {
+      "bytes": 19586,
+      "sha256": "ce418574f411766fe2254727ab054131bf4fbfadafe10f5f44a94aa3bab9a887"
+    },
+    "input-commit.txt": {
+      "bytes": 41,
+      "sha256": "da53a350e4c2cc8ff141da4ab518e0e9aa5f61261064b8eabefc96263e0818e4"
+    },
+    "swift-version.txt": {
+      "bytes": 96,
+      "sha256": "068bbf5a239131acb3231a0fa67c33dc6fd5e8d3c34d56e89bea559f52751b66"
+    },
+    "xcode-version.txt": {
+      "bytes": 32,
+      "sha256": "bb7fc9a8f5e063e81975b33054b3a526c91bcccff263ad11d5bd8bcdbe8f0973"
+    }
+  }
+}

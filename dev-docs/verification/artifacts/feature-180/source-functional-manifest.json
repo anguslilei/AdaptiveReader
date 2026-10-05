@@ -1,0 +1,73 @@
+{
+  "source_commit": "40af65502ff0fa5109e254785394b3a0d69b6568",
+  "files": {
+    ".github/workflows/epub-package-contract.yml": {
+      "bytes": 2417,
+      "sha256": "12c3882b0764b0382ce27b618e0ca14241abbd4aec23b5d2d31db00e49b715af"
+    },
+    ".github/workflows/native-reader-check.yml": {
+      "bytes": 9690,
+      "sha256": "02aab632f730023d02de4e69b515b13e58bd1fa09251d8a33eb28ce4d45a8ddc"
+    },
+    "scripts/test-epub-package-contract.sh": {
+      "bytes": 1229,
+      "sha256": "d5daa7a7c92e6cc79a2a1492c9341d405b18ae3443e9e7b34c98f4ad6d25f17f"
+    },
+    "vreader/Services/Semantic/EPUB/EPUBSemanticResourceReader.swift": {
+      "bytes": 3402,
+      "sha256": "70d5828c9de033582e77dba2d8f4c0eac9d1faf2066ad56aa4e9d837ea257227"
+    },
+    "vreader/Services/Semantic/EPUB/EPUBSemanticSourceTypes.swift": {
+      "bytes": 1786,
+      "sha256": "014adf33ed6045e268ea2df863bf9625eca3a5ed89b1b0fafc7811a37bce7372"
+    },
+    "vreader/Services/Semantic/Package/EPUBContainerDecoder.swift": {
+      "bytes": 1873,
+      "sha256": "b60b992f4e1513279e1ab7beeeda2f224dc6a5b1d005f802c67fab98377d9530"
+    },
+    "vreader/Services/Semantic/Package/EPUBPackageDecoder.swift": {
+      "bytes": 5130,
+      "sha256": "b06208b03cc7d0bf22a31bd2f57f4b91414c945a414131b65f214d8f59350c58"
+    },
+    "vreader/Services/Semantic/Package/EPUBPackageLiteralKey.swift": {
+      "bytes": 595,
+      "sha256": "fc67e15b2f68354d40651ccf49c494777e9abca5793d0242726b9c2952a03bda"
+    },
+    "vreader/Services/Semantic/Package/EPUBPackageReference.swift": {
+      "bytes": 3815,
+      "sha256": "4b0cb2c2b2edf9dbe1e45c999e7d1452aefbea961fbd240a4e487ce1cace77d9"
+    },
+    "vreader/Services/Semantic/Package/EPUBPackageXMLAccess.swift": {
+      "bytes": 5291,
+      "sha256": "294b490d9b3d3bf9ad939cd4ed31a2422df1bfbb1f5b414ac082ae96941b1954"
+    },
+    "vreader/Services/Semantic/Package/EPUBSemanticPackageLimits.swift": {
+      "bytes": 1087,
+      "sha256": "3acf4c9f2f07ce3727b8ea77cf176ca5e1fba1c4afb5f8b87cdd96843febc17d"
+    },
+    "vreader/Services/Semantic/Package/EPUBSemanticPackageLoader.swift": {
+      "bytes": 3385,
+      "sha256": "302a3309c94124500aec76b1f1df197990966446fa78079c8d1eb5d24a1ab66f"
+    },
+    "vreader/Services/Semantic/Package/EPUBSemanticPackageTypes.swift": {
+      "bytes": 3277,
+      "sha256": "e6a784a4f46b28d281f819fdc589f2f7933fb3341ae384a980ab626fedd8f372"
+    },
+    "vreaderTests/Helpers/EPUBPackageFixture.swift": {
+      "bytes": 4414,
+      "sha256": "7f47df4772f661baa6e4fb98946207b1fcd3e2862682b419e19a440d5c5f409e"
+    },
+    "vreaderTests/Services/Semantic/Package/EPUBPackageDecoderTests.swift": {
+      "bytes": 11905,
+      "sha256": "55dd6be8a611a055798b219e744152be076f18bf101814a3477a5e80accfd5cc"
+    },
+    "vreaderTests/Services/Semantic/Package/EPUBPackageLoaderTests.swift": {
+      "bytes": 10754,
+      "sha256": "10835d63737759d2ad0fe3e83b7e7ceb8b37e3f26b3e6e3fecb70b71678fc3b8"
+    },
+    "vreaderTests/Services/Semantic/Package/EPUBPackageReferenceTests.swift": {
+      "bytes": 3009,
+      "sha256": "c4c35ee800c436246d50cfc5e700e5208ab44b738b89c46c899a0e9558ef8590"
+    }
+  }
+}
