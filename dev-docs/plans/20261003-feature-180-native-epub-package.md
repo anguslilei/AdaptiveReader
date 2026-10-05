@@ -1,6 +1,6 @@
 # Feature180 — bounded native EPUB package and spine resolution
 
-Status: IN PROGRESS; implementation and foundational integration pass, awaiting PR review/merge. Gate2 PASS2; Gate4 PASS3.
+Status: DONE (implementation/merge gate); Gate2 PASS2, Gate4 PASS3 plus user-accepted one-character correction. PR5 closeout2026-10-05; merge pending.
 Prerequisites: feature178 and feature179 are merged/DONE; their APIs/contracts are unchanged from reviewed b0c0a249.
 The Gate2 sections below record historical plan checkpoints; actual implementation evidence is appended at the end. Interfaces remain within the audited plan.
 
@@ -368,3 +368,26 @@ trailing parenthesis was removed and verified in own recovery CI at
 is historical atfda86fbb; no fourth audit was run. Rule47's three-round ceiling
 requires escalation, so the PR is a draft with this post-audit correction pending
 explicit acceptance before merge. Evidence is partial; no VERIFIED claim.
+
+
+## User acceptance and final native proof2026-10-05
+
+User confirmation2026-10-05T11:07:49+08:00: “好的 确认 然后继续推进开发”.
+This explicitly accepts the post-round3 one-character exporter correction and
+continues the previously described PR5 closeout/dependent development. It does
+not claim a fourth independent audit. Gate2 PASS2 and historical Gate4 PASS3
+remain; the exact one-character exception is accepted by the user.
+
+Final PR input ab60ac6bf4184b4e4c9b1af880411172aaed4c9b:
+all five pull_request workflows completed successfully, including native run
+37177554340 (Debug/Release, two real lanes and corrected evidence exporter),
+source37177554363, XML37177554309, package37177554297 and foundation37177554310.
+The earlier cancelled push-native run was superseded by this successful PR run,
+not counted as a pass. Foundational acceptance is complete; no production
+entry point, real-book compatibility or VERIFIED/release/tag claim.
+
+Closeout also restores the complete pre-PR architecture document verbatim from
+main55719b27c62c0f0d37556618d4525a0ea8e1135e and retains the added package section.
+The prior closeout accidentally prefixed the addition with “undefined” and omitted
+the inherited document. This documentation-only recovery is not covered by the
+exporter exception and needs no additional code audit under the docs-only scope.

@@ -231,7 +231,7 @@ Before setting a feature to `PLANNED`, fill in these fields in a sub-section und
 | 177 | EPUB original-byte/source-map reference feasibility | developer-tooling | Medium | DONE | Merged PR #1 at main95b5ec0; Gate 2/4 PASS; 43 reference tests GREEN; native compiler blocker fixed by PR #2; [plan](../dev-docs/plans/20261003-feature-177-epub-semantic-source-spike.md). GH mirror blocked: Issues disabled (410). Native integration pending. |
 | 178 | Native bounded EPUB source resource reader | Semantic/EPUB | Medium | DONE | Gate2 PASS2 / Gate4 PASS3; source4264fee: Mac33 and iOS126 passed, Debug/Release GREEN; [evidence](../dev-docs/verification/feature-178-20261003.md); [plan](../dev-docs/plans/20261003-feature-178-native-epub-source-reader.md). GH mirror unavailable: Issues disabled. Merged PR3 atb0904ea; foundational utility complete. |
 | 179 | Bounded native XML structural parser | Semantic/XML | Medium | DONE | Gate2 PASS3; Gate4 PASS2. Mac29/iOS155 atd0c16a0; Debug/Release pass. [plan](../dev-docs/plans/20261003-feature-179-bounded-semantic-xml.md); [evidence](../dev-docs/verification/feature-179-20261003.md). Independent Data-only utility; no OPF/spine/source-map/UI wiring. Stacked on PR3; Issues disabled.  Merged PR4 at55719b2; foundational utility complete. |
-| 180 | Native EPUB package and spine resolution | Semantic/Package | Medium | IN PROGRESS | Gate2 PASS2; Gate4 PASS3, zero open findings. Mac30; native155+30 distinct tests in two real sequential bundles, zero failed/skipped; Debug/Release pass atfda86fbb. [Plan](../dev-docs/plans/20261003-feature-180-native-epub-package.md); [evidence](../dev-docs/verification/feature-180-20261004.md). Awaiting PR merge, then DONE; no production/chapter/AI/UI wiring or VERIFIED claim. Issues disabled (has_issues=false). |
+| 180 | Native EPUB package and spine resolution | Semantic/Package | Medium | DONE | Gate2 PASS2; Gate4 PASS3, zero open findings. Mac30; native155+30 distinct tests in two real sequential bundles, zero failed/skipped; Debug/Release pass atfda86fbb. [Plan](../dev-docs/plans/20261003-feature-180-native-epub-package.md); [evidence](../dev-docs/verification/feature-180-20261004.md). Implementation complete; user accepted exporter correction2026-10-05, all final PR CI pass; merge-gate ready in PR5; no production/chapter/AI/UI wiring or VERIFIED claim. Issues disabled (has_issues=false). |
 
 ### Feature #44 — DebugBridge — Plan
 
@@ -506,3 +506,26 @@ trailing parenthesis was removed and verified in own recovery CI at
 is historical atfda86fbb; no fourth audit was run. Rule47's three-round ceiling
 requires escalation, so the PR is a draft with this post-audit correction pending
 explicit acceptance before merge. Evidence is partial; no VERIFIED claim.
+
+
+## User acceptance and final native proof2026-10-05
+
+User confirmation2026-10-05T11:07:49+08:00: “好的 确认 然后继续推进开发”.
+This explicitly accepts the post-round3 one-character exporter correction and
+continues the previously described PR5 closeout/dependent development. It does
+not claim a fourth independent audit. Gate2 PASS2 and historical Gate4 PASS3
+remain; the exact one-character exception is accepted by the user.
+
+Final PR input ab60ac6bf4184b4e4c9b1af880411172aaed4c9b:
+all five pull_request workflows completed successfully, including native run
+37177554340 (Debug/Release, two real lanes and corrected evidence exporter),
+source37177554363, XML37177554309, package37177554297 and foundation37177554310.
+The earlier cancelled push-native run was superseded by this successful PR run,
+not counted as a pass. Foundational acceptance is complete; no production
+entry point, real-book compatibility or VERIFIED/release/tag claim.
+
+Closeout also restores the complete pre-PR architecture document verbatim from
+main55719b27c62c0f0d37556618d4525a0ea8e1135e and retains the added package section.
+The prior closeout accidentally prefixed the addition with “undefined” and omitted
+the inherited document. This documentation-only recovery is not covered by the
+exporter exception and needs no additional code audit under the docs-only scope.

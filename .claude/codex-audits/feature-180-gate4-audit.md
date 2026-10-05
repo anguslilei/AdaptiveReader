@@ -4,10 +4,10 @@ kind: implementation-audit
 feature: 180
 plan: dev-docs/plans/20261003-feature-180-native-epub-package.md
 rounds: 3
-final_verdict: ESCALATED
+final_verdict: PASS
 audited_verdict: PASS
 reviewed_commit: fda86fbb6f90500ce9449bb5c0d5bd302da10b0a
-post_audit_status: awaiting-explicit-acceptance
+post_audit_status: accepted-by-user
 ---
 
 Author root; independent read-only package180_implementation_audit context.
@@ -143,3 +143,26 @@ Historical R3 PASS remains attached to fda86fbb. Final status is ESCALATED for
 explicit acceptance of this narrow post-audit correction; PR remains draft and
 cannot be represented as merge-ready. No unresolved functional defect identified,
 but the current-source audit acceptance boundary remains pending.
+
+
+## User acceptance and final native proof2026-10-05
+
+User confirmation2026-10-05T11:07:49+08:00: “好的 确认 然后继续推进开发”.
+This explicitly accepts the post-round3 one-character exporter correction and
+continues the previously described PR5 closeout/dependent development. It does
+not claim a fourth independent audit. Gate2 PASS2 and historical Gate4 PASS3
+remain; the exact one-character exception is accepted by the user.
+
+Final PR input ab60ac6bf4184b4e4c9b1af880411172aaed4c9b:
+all five pull_request workflows completed successfully, including native run
+37177554340 (Debug/Release, two real lanes and corrected evidence exporter),
+source37177554363, XML37177554309, package37177554297 and foundation37177554310.
+The earlier cancelled push-native run was superseded by this successful PR run,
+not counted as a pass. Foundational acceptance is complete; no production
+entry point, real-book compatibility or VERIFIED/release/tag claim.
+
+Closeout also restores the complete pre-PR architecture document verbatim from
+main55719b27c62c0f0d37556618d4525a0ea8e1135e and retains the added package section.
+The prior closeout accidentally prefixed the addition with “undefined” and omitted
+the inherited document. This documentation-only recovery is not covered by the
+exporter exception and needs no additional code audit under the docs-only scope.
