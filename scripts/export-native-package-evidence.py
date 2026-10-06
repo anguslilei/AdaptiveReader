@@ -6,7 +6,7 @@ root = Path('preparation')
 common = ['debug-build.log', 'release-build.log', 'devices.json', 'generator-version.txt',
           'input-commit.txt', 'project.pbxproj', 'project.yml', 'test-udid.txt',
           'xcode-version.txt', 'test-xcode-version.txt', 'version-baseline-sha.txt',
-          'version-baseline.yml', 'version-allocation.json']
+          'version-baseline.yml', 'version-allocation.json', 'pyyaml-version.txt']
 lane_files = [f'{lane}-test-{suffix}' for lane in ['base', 'package', 'model']
               for suffix in ['command-status.txt', 'full.log', 'result-path.txt',
                              'start.txt', 'summary.json', 'tree.json', 'wrapper.log']]

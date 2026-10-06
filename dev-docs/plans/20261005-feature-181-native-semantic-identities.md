@@ -48,7 +48,8 @@ Primary prior art:
 Reject random UUIDs, text-only IDs, delimiter-joined strings, Swift Hasher output
 as persisted IDs, JSONEncoder byte order as a canonical preimage, and normalization
 of source paths. Reject reusing AnnotationAnchor/XPath/CFI for unproven selectors.
-No new dependency: Foundation + platform CryptoKit on native Apple lanes.
+No new Apple dependency: Foundation + platform CryptoKit on native model lanes.
+Version tooling alone uses pinned PyYAML6.0.3 in isolated CI virtual environments.
 
 ## Files / exact interfaces
 
@@ -170,7 +171,7 @@ No local Swift/Xcode available; own Mac CI is the compile/execution lane.
 | dev-docs/verification/artifacts/feature-181/identity-vectors.json | fixed explicit inputs, full preimage hex and SHA256 for revision/section/block, including Unicode/nil/zero and boundary cases; Swift tests embed corresponding constants, no runtime fixture lookup |
 | scripts/test-semantic-model-contract.sh | copies exact nine production model files and three tests to temporary SwiftPM Swift6 package; no dependencies beyond Foundation/CryptoKit; original command status and full log retained, checks positive executed tests and all three suite pass footers |
 | .github/workflows/semantic-model-contract.yml | pinned checkout/upload actions, contents read, macos15; push `feature/181-native-semantic-identities`, PR to main; path filters cover Models/Semantic, model tests, this harness/workflow and vector script/JSON; uploads source commit, tool versions and unmodified full logs on success/failure |
-| scripts/prepare-semantic-version.py | stdlib CLI `--baseline-yml --baseline-sha --input-yml --output-dir`; validates exactly one marketing/build field, positive integers, baseline patch/build +1, and input equals baseline or candidate; writes candidate project.yml plus baseline SHA/YML and version-allocation JSON; AST/positive/idempotency/unexpected-input checks before CI publication |
+| scripts/prepare-semantic-version.py | Python CLI (CI-only pinned PyYAML6.0.3) `--baseline-yml --baseline-sha --input-yml --output-dir`; validates exactly one marketing/build field, positive integers, baseline patch/build +1, and input equals baseline or candidate; writes candidate project.yml plus baseline SHA/YML and version-allocation JSON; AST/positive/idempotency/unexpected-input checks before CI publication |
 | .github/workflows/native-reader-check.yml | add exact feature181 push branch; replace fixed1054 generation for this branch with pinned merged-main allocation below; preserve existing old branch behavior, Debug/Release, original watchdog, isolated simulator and upload steps |
 | scripts/test-native-semantic-foundations.sh | append model lane after validated base/package; exact selectors above; expected suite aliases as above; all three completed xcresult paths distinct; original device/count/status/footer guards unchanged |
 | scripts/export-native-package-evidence.py | add Models/Semantic/**/*.swift, model tests/**/*.swift, all named new script/workflow/vector paths to source_paths; add six model text console members and baseline/allocation files to bounded explicit allowlist; model full log remains artifact-only |
@@ -242,3 +243,20 @@ pair tail before PR. Foundational Gate5 is pure/native tests+audit, not a user U
 verification. Feature remains IN PROGRESS until merge, DONE afterward, never VERIFIED
 without a later production-reachable feature. Fork Issues remain disabled; no
 invented GH issue/Refs181. Maximum3 plan and implementation audit rounds apply.
+
+Round2: one Medium remained for explicit/anchored YAML mapping keys; no waiver.
+Round3 remedy: replaced ad hoc key scanning with pinned PyYAML6.0.3 parse/compose
+BaseLoader representation nodes, preserving duplicate entries without Python object
+construction. Reject aliases, complex/merged keys, multiple/invalid documents and
+noncanonical/multiline version scalars. Raw YAML <=2MiB; accepted source is one
+project mapping. Mapping keys are counted semantically before canonical numeric
+validation. Added explicit/anchored/tagged/aliased/merged/complex keys, multiline
+scalar, document and literal-script-string cases:12 regression tests pass locally.
+Both static round2 bypasses were reproduced against the prior script and rejected
+after this fix; no XcodeGen override execution claim. Pipeline installs exactly
+PyYAML6.0.3 in RUNNER_TEMP venvs for wrapper and native version preparation, records
+preparation/pyyaml-version.txt in the bounded source-pinned export. No packaged
+Apple dependency; source-only Mac model harness still Foundation/CryptoKit only.
+Primary parser specification: https://pyyaml.org/wiki/PyYAMLDocumentation (Nodes,
+compose/BaseLoader); pinned release https://pypi.org/project/PyYAML/6.0.3/.
+Final independent Gate4 round3 pending; maximum3 rounds remains binding.

@@ -45,6 +45,34 @@ class VersionAllocationTests(unittest.TestCase):
                 with self.assertRaises(ValueError):
                     API['prepare'](source, source, SHA)
 
+    def test_explicit_anchored_aliased_and_complex_yaml_keys(self):
+        for key, value in [('MARKETING_VERSION', '9.0.0'), ('CURRENT_PROJECT_VERSION', '9999')]:
+            for addition in [f'  ? {key}\n  : "{value}"\n',
+                             f'  &version {key}: "{value}"\n',
+                             f'  !!str {key}: "{value}"\n',
+                             f'  ? &version {key}\n  : "{value}"\n',
+                             f'  first: &version {key}\n  *version: "{value}"\n',
+                             f'  <<: {{{key}: "{value}"}}\n',
+                             f'  ? [{key}]\n  : "{value}"\n']:
+                with self.subTest(addition=addition):
+                    with self.assertRaises(ValueError):
+                        API['prepare'](BASELINE, BASELINE + '\nextra:\n' + addition, SHA)
+
+    def test_yaml_strings_are_not_mapping_keys(self):
+        source = BASELINE + 'script: |\n  print("{MARKETING_VERSION: 9.0.0}")\n'
+        self.assertEqual(API['pair'](source), ((3, 67, 12), 1054))
+
+    def test_multiple_documents_and_invalid_yaml_rejected(self):
+        for source in [BASELINE + '---\nMARKETING_VERSION: 9.0.0\n', BASELINE + 'bad: [\n']:
+            with self.assertRaises(ValueError):
+                API['prepare'](BASELINE, source, SHA)
+
+    def test_multiline_plain_version_cannot_hide_a_continuation(self):
+        for source in [BASELINE.replace('MARKETING_VERSION: 3.67.12\n', 'MARKETING_VERSION: 3.67.12\n          9.0.0\n'),
+                       BASELINE.replace('CURRENT_PROJECT_VERSION: 1054\n', 'CURRENT_PROJECT_VERSION: 1054\n          9999\n')]:
+            with self.assertRaises(ValueError):
+                API['prepare'](BASELINE, source, SHA)
+
     def test_missing_fields_and_mixed_pairs(self):
         for source in [BASELINE.replace('        MARKETING_VERSION: 3.67.12\n', ''),
                        BASELINE.replace('1054', '1055'), BASELINE.replace('3.67.12', '3.67.13'),

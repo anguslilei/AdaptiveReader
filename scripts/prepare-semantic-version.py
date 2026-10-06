@@ -3,28 +3,41 @@ from pathlib import Path
 import argparse
 import json
 import re
+import yaml
 
 LIMIT = 2147483647
 
 def version_fields(text):
-    # Count keys before validating values; quotes/comments cannot hide duplicates.
-    # Support the block mappings used by project.yml and detect flow overrides too.
-    keys = re.compile(r"""(?:^[ \t]*|[{,][ \t]*)([A-Za-z_][A-Za-z0-9_]*|"(?:[^"\\]|\\.)*"|'(?:[^']|'')*')[ \t]*:""")
+    # Inspect YAML nodes, not a dict: composing retains duplicate mapping entries.
+    # BaseLoader composes scalar/mapping/sequence nodes without object construction.
+    if len(text.encode('utf-8')) > 2 * 1024 * 1024:
+        raise ValueError('Version input exceeds the bounded YAML ceiling')
+    try:
+        if any(isinstance(event, yaml.events.AliasEvent) for event in yaml.parse(text, Loader=yaml.BaseLoader)):
+            raise ValueError('YAML aliases are unsupported for exact version allocation')
+        document = yaml.compose(text, Loader=yaml.BaseLoader)
+    except (yaml.YAMLError, RecursionError) as error:
+        raise ValueError('Expected one valid YAML document') from error
+    if not isinstance(document, yaml.nodes.MappingNode):
+        raise ValueError('Expected a YAML project mapping')
+    lines = text.splitlines()
     fields = {'MARKETING_VERSION': [], 'CURRENT_PROJECT_VERSION': []}
-    for line in text.splitlines():
-        if line.lstrip().startswith('#'):
-            continue
-        for match in keys.finditer(line):
-            key = match[1]
-            if key.startswith('"'):
-                try:
-                    key = json.loads(key)
-                except ValueError as error:
-                    raise ValueError('Unsupported quoted mapping key') from error
-            elif key.startswith("'"):
-                key = key[1:-1].replace("''", "'")
-            if key in fields:
-                fields[key].append(line)
+    pending = [document]
+    while pending:
+        node = pending.pop()
+        if isinstance(node, yaml.nodes.MappingNode):
+            for key, value in node.value:
+                if not isinstance(key, yaml.nodes.ScalarNode) or key.value == '<<':
+                    raise ValueError('Complex/merged YAML keys are unsupported')
+                if key.value in fields:
+                    if (not isinstance(value, yaml.nodes.ScalarNode) or value.style is not None or
+                            value.start_mark.line != key.start_mark.line or
+                            value.end_mark.line != key.start_mark.line):
+                        raise ValueError('Version value must occupy one canonical scalar line')
+                    fields[key.value].append(lines[key.start_mark.line])
+                pending.append(value)
+        elif isinstance(node, yaml.nodes.SequenceNode):
+            pending.extend(node.value)
     return fields
 
 def pair(text):
