@@ -1,8 +1,8 @@
 # Feature181 — native semantic identities and logical source anchors
 
 Status: PLANNED (Gate1+Gate2 PASS, two independent rounds). ID181 reserved by the actual
-scripts/reserve-id.sh feature on2026-10-05. Prerequisite180 must be merged/DONE
-before Gate3; its closeout PR5 is currently awaiting final checks. No code yet.
+scripts/reserve-id.sh feature on2026-10-05. Prerequisite180 merged/DONE at54930d465d57cdce5699f36cf9edd14b222e3655
+(PR5); Gate3 ready. Version allocation baseline is exactly this merge SHA.
 
 ## Problem / tier / boundaries
 
@@ -210,7 +210,7 @@ GREEN and native positive suite/count guards remain required, not syntax alone.
   No rejected findings or disproven-by-measurement claims.
 - Round2: PASS, zero open findings of any severity. Independent audit confirmed
   both remedies and the model/anchor contract. Full committed audit artifact:
-  .claude/codex-audits/plan-feature-181-gate2-audit.md. Gate3 still waits for PR5.
+  .claude/codex-audits/plan-feature-181-gate2-audit.md. Gate3 prerequisite subsequently satisfied by PR5 merge.
 
 ## Risks / compatibility / acceptance
 
