@@ -19,6 +19,7 @@ jobs:
           persist-credentials: false
       - run: bash scripts/__tests__/run-tests-xcode-selection.test.sh
       - run: bash scripts/__tests__/run-tests-watchdog.test.sh
+      - run: python3 scripts/__tests__/prepare-semantic-version.test.py
   native:
     runs-on: macos-15
     timeout-minutes: 75

@@ -29,7 +29,7 @@ source_paths = sorted(set(
                       'scripts/export-native-package-evidence.py', '.github/workflows/epub-package-contract.yml',
                       '.github/workflows/native-reader-check.yml', 'scripts/test-semantic-model-contract.sh',
                       '.github/workflows/semantic-model-contract.yml', 'scripts/semantic-model-vectors.py',
-                      'scripts/prepare-semantic-version.py',
+                      'scripts/prepare-semantic-version.py', 'scripts/__tests__/prepare-semantic-version.test.py',
                       'dev-docs/verification/artifacts/feature-181/identity-vectors.json']]))
 expected_models = ['SemanticModelError', 'SemanticSHA256', 'SemanticArchivePath',
                    'SemanticRevision', 'SemanticResourceIdentity', 'SemanticUTF16Range',

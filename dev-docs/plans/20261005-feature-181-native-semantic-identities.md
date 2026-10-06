@@ -212,6 +212,18 @@ GREEN and native positive suite/count guards remain required, not syntax alone.
   both remedies and the model/anchor contract. Full committed audit artifact:
   .claude/codex-audits/plan-feature-181-gate2-audit.md. Gate3 prerequisite subsequently satisfied by PR5 merge.
 
+### Gate4 audit-driven tooling addition
+
+Round1 found one Medium in version-field uniqueness: numeric-only regex counts
+missed duplicate quoted/commented fields. Fixed by counting mapping keys before
+validating canonical numeric block values, including quoted/escaped keys and flow
+overrides. Added scripts/__tests__/prepare-semantic-version.test.py (stdlib eight
+tests,18 duplicate variants plus bounds/mixed pairs/real CLI/idempotency), run by
+the existing Ubuntu native wrapper job and included in exporter source facts.
+Actual pre-fix acceptance reproduced and post-fix rejection observed locally;
+this is tooling regression evidence, not an XcodeGen override reproduction.
+No model/API scope change; Gate4 round2 pending. No rejected finding or waiver.
+
 ## Risks / compatibility / acceptance
 
 No storage/schema migration, persisted reader anchor change or user-facing

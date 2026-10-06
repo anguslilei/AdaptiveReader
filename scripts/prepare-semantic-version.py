@@ -6,16 +6,40 @@ import re
 
 LIMIT = 2147483647
 
+def version_fields(text):
+    # Count keys before validating values; quotes/comments cannot hide duplicates.
+    # Support the block mappings used by project.yml and detect flow overrides too.
+    keys = re.compile(r"""(?:^[ \t]*|[{,][ \t]*)([A-Za-z_][A-Za-z0-9_]*|"(?:[^"\\]|\\.)*"|'(?:[^']|'')*')[ \t]*:""")
+    fields = {'MARKETING_VERSION': [], 'CURRENT_PROJECT_VERSION': []}
+    for line in text.splitlines():
+        if line.lstrip().startswith('#'):
+            continue
+        for match in keys.finditer(line):
+            key = match[1]
+            if key.startswith('"'):
+                try:
+                    key = json.loads(key)
+                except ValueError as error:
+                    raise ValueError('Unsupported quoted mapping key') from error
+            elif key.startswith("'"):
+                key = key[1:-1].replace("''", "'")
+            if key in fields:
+                fields[key].append(line)
+    return fields
+
 def pair(text):
-    marketing = re.findall(r'(?m)^([ \t]*)MARKETING_VERSION: ([0-9]+\.[0-9]+\.[0-9]+)[ \t]*$', text)
-    builds = re.findall(r'(?m)^([ \t]*)CURRENT_PROJECT_VERSION: ([0-9]+)[ \t]*$', text)
-    if len(marketing) != 1 or len(builds) != 1:
+    fields = version_fields(text)
+    if any(len(lines) != 1 for lines in fields.values()):
         raise ValueError('Expected exactly one unquoted marketing/build field')
-    version = tuple(map(int, marketing[0][1].split('.')))
-    build = int(builds[0][1])
+    marketing = re.fullmatch(r'[ \t]*MARKETING_VERSION: ([0-9]+\.[0-9]+\.[0-9]+)[ \t]*', fields['MARKETING_VERSION'][0])
+    builds = re.fullmatch(r'[ \t]*CURRENT_PROJECT_VERSION: ([0-9]+)[ \t]*', fields['CURRENT_PROJECT_VERSION'][0])
+    if not marketing or not builds:
+        raise ValueError('Version fields must use canonical unquoted numeric block syntax')
+    version = tuple(map(int, marketing[1].split('.')))
+    build = int(builds[1])
     if any(n < 0 or n > LIMIT for n in version) or not 1 <= build <= LIMIT:
         raise ValueError('Invalid version number bounds')
-    if '.'.join(map(str, version)) != marketing[0][1] or str(build) != builds[0][1]:
+    if '.'.join(map(str, version)) != marketing[1] or str(build) != builds[1]:
         raise ValueError('Noncanonical version fields')
     return version, build
 
