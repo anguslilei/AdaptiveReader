@@ -31,6 +31,8 @@ jobs:
           PY
       - name: Real semantic model contracts
         run: bash scripts/test-semantic-model-contract.sh
+      - name: Independent identity vectors
+        run: python3 scripts/semantic-model-vectors.py --check
       - name: Keep unmodified contract evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
