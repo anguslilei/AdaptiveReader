@@ -1,7 +1,7 @@
 name: Reader and semantic source native regression
 on:
   push:
-    branches: ['fix/376-epub-view-typecheck', 'feature/178-native-epub-source-reader', 'feature/179-bounded-semantic-xml', 'feature/180-native-epub-package']
+    branches: ['fix/376-epub-view-typecheck', 'feature/178-native-epub-source-reader', 'feature/179-bounded-semantic-xml', 'feature/180-native-epub-package', 'feature/181-native-semantic-identities']
   pull_request:
     branches: ['feature/177-epub-semantic-source-spike', 'feature/178-native-epub-source-reader', main]
 permissions:
@@ -22,6 +22,9 @@ jobs:
   native:
     runs-on: macos-15
     timeout-minutes: 75
+    env:
+      SOURCE_BRANCH: ${{ github.head_ref || github.ref_name }}
+      SEMANTIC_VERSION_BASELINE: 54930d465d57cdce5699f36cf9edd14b222e3655
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
@@ -44,6 +47,19 @@ jobs:
           xcodebuild -version > preparation/xcode-version.txt
           xcodegen --version > preparation/generator-version.txt
           git rev-parse HEAD > preparation/input-commit.txt
+          if [ "$SOURCE_BRANCH" = 'feature/181-native-semantic-identities' ]; then
+            git fetch --no-tags --depth=1 origin main
+            SEMANTIC_BASELINE_SHA="$(git rev-parse FETCH_HEAD)"
+            if [ "$SEMANTIC_BASELINE_SHA" != "$SEMANTIC_VERSION_BASELINE" ]; then
+              echo 'Merged-main baseline advanced; reconcile explicit version allocation'
+              exit 1
+            fi
+            git show "$SEMANTIC_BASELINE_SHA:project.yml" > preparation/version-baseline.yml
+            python3 scripts/prepare-semantic-version.py \
+              --baseline-yml preparation/version-baseline.yml \
+              --baseline-sha "$SEMANTIC_BASELINE_SHA" \
+              --input-yml project.yml --output-dir preparation
+          else
           python3 - <<'PY'
           from pathlib import Path
           import re
@@ -55,6 +71,7 @@ jobs:
               raise SystemExit('Unexpected candidate version baseline')
           p.write_text(s)
           PY
+          fi
           xcodegen generate
           cp project.yml preparation/project.yml
           cp vreader.xcodeproj/project.pbxproj preparation/project.pbxproj

@@ -5,8 +5,9 @@ import base64, hashlib, json, subprocess
 root = Path('preparation')
 common = ['debug-build.log', 'release-build.log', 'devices.json', 'generator-version.txt',
           'input-commit.txt', 'project.pbxproj', 'project.yml', 'test-udid.txt',
-          'xcode-version.txt', 'test-xcode-version.txt']
-lane_files = [f'{lane}-test-{suffix}' for lane in ['base', 'package']
+          'xcode-version.txt', 'test-xcode-version.txt', 'version-baseline-sha.txt',
+          'version-baseline.yml', 'version-allocation.json']
+lane_files = [f'{lane}-test-{suffix}' for lane in ['base', 'package', 'model']
               for suffix in ['command-status.txt', 'full.log', 'result-path.txt',
                              'start.txt', 'summary.json', 'tree.json', 'wrapper.log']]
 members, missing = {}, []
@@ -21,10 +22,23 @@ for name in common + lane_files:
 source_paths = sorted(set(
     list(Path('vreader/Services/Semantic').rglob('*.swift')) +
     list(Path('vreaderTests/Services/Semantic').rglob('*.swift')) +
+    list(Path('vreader/Models/Semantic').glob('*.swift')) +
+    list(Path('vreaderTests/Models/Semantic').glob('*.swift')) +
     [Path('vreaderTests/Helpers') / n for n in ['EPUBPackageFixture.swift', 'EPUBSemanticZIPFixture.swift', 'SemanticXMLProbe.swift']] +
     [Path(n) for n in ['scripts/test-epub-package-contract.sh', 'scripts/test-native-semantic-foundations.sh',
                       'scripts/export-native-package-evidence.py', '.github/workflows/epub-package-contract.yml',
-                      '.github/workflows/native-reader-check.yml']]))
+                      '.github/workflows/native-reader-check.yml', 'scripts/test-semantic-model-contract.sh',
+                      '.github/workflows/semantic-model-contract.yml', 'scripts/semantic-model-vectors.py',
+                      'scripts/prepare-semantic-version.py',
+                      'dev-docs/verification/artifacts/feature-181/identity-vectors.json']]))
+expected_models = ['SemanticModelError', 'SemanticSHA256', 'SemanticArchivePath',
+                   'SemanticRevision', 'SemanticResourceIdentity', 'SemanticUTF16Range',
+                   'SemanticNodePath', 'SemanticLogicalAnchor', 'SemanticID']
+expected_tests = ['SemanticIdentityTests', 'SemanticSourceAnchorTests', 'SemanticModelCodableTests']
+required = ([Path('vreader/Models/Semantic') / (n + '.swift') for n in expected_models] +
+            [Path('vreaderTests/Models/Semantic') / (n + '.swift') for n in expected_tests])
+if any(not p.is_file() for p in source_paths + required):
+    raise SystemExit('Missing named source/tool/vector evidence path')
 source = subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip()
 manifest = dict(source_commit=source, members=members, missing_members=missing,
                 source_files={str(p): facts(p) for p in source_paths})

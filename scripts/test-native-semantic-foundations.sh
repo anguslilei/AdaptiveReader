@@ -75,7 +75,10 @@ aliases = {
              ('SemanticXMLCancellationTests', 'Semantic XML cancellation')],
     'package': [('EPUBPackageReferenceTests', 'EPUB package local references'),
                 ('EPUBPackageDecoderTests', 'EPUB package manifest and spine'),
-                ('EPUBPackageLoaderTests', 'EPUB package source lifecycle')]
+                ('EPUBPackageLoaderTests', 'EPUB package source lifecycle')],
+    'model': [('SemanticIdentityTests', 'Semantic identity canonical bytes'),
+              ('SemanticSourceAnchorTests', 'Semantic logical source anchors'),
+              ('SemanticModelCodableTests', 'Semantic model validated decoding')]
 }[lane]
 tree = json.loads(Path(f'preparation/{lane}-test-tree.json').read_text())
 for names in aliases:
@@ -109,12 +112,16 @@ run_lane package \
   vreaderTests/EPUBPackageReferenceTests \
   vreaderTests/EPUBPackageDecoderTests \
   vreaderTests/EPUBPackageLoaderTests
+run_lane model \
+  vreaderTests/SemanticIdentityTests \
+  vreaderTests/SemanticSourceAnchorTests \
+  vreaderTests/SemanticModelCodableTests
 python3 - <<'PY'
 from pathlib import Path
 import json
-paths = [Path(f'preparation/{lane}-test-result-path.txt').read_text() for lane in ['base', 'package']]
-if paths[0] == paths[1]:
+paths = [Path(f'preparation/{lane}-test-result-path.txt').read_text() for lane in ['base', 'package', 'model']]
+if len(set(paths)) != 3:
     raise SystemExit('Lanes must have distinct completed result bundles')
-summaries = [json.loads(Path(f'preparation/{lane}-test-summary.json').read_text()) for lane in ['base', 'package']]
-print('All nine semantic suites passed in two sequential disjoint lanes; distinct tests:', sum(s['totalTestCount'] for s in summaries))
+summaries = [json.loads(Path(f'preparation/{lane}-test-summary.json').read_text()) for lane in ['base', 'package', 'model']]
+print('All twelve semantic suites passed in three sequential disjoint lanes; distinct tests:', sum(s['totalTestCount'] for s in summaries))
 PY
