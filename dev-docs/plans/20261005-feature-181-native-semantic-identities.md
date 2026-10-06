@@ -223,7 +223,7 @@ tests,18 duplicate variants plus bounds/mixed pairs/real CLI/idempotency), run b
 the existing Ubuntu native wrapper job and included in exporter source facts.
 Actual pre-fix acceptance reproduced and post-fix rejection observed locally;
 this is tooling regression evidence, not an XcodeGen override reproduction.
-No model/API scope change; Gate4 round2 pending. No rejected finding or waiver.
+No model/API scope change; round2 subsequently found the mapping-key gap below. No rejected finding or waiver.
 
 ## Risks / compatibility / acceptance
 
@@ -259,4 +259,11 @@ preparation/pyyaml-version.txt in the bounded source-pinned export. No packaged
 Apple dependency; source-only Mac model harness still Foundation/CryptoKit only.
 Primary parser specification: https://pyyaml.org/wiki/PyYAMLDocumentation (Nodes,
 compose/BaseLoader); pinned release https://pypi.org/project/PyYAML/6.0.3/.
-Final independent Gate4 round3 pending; maximum3 rounds remains binding.
+Final independent Gate4 round3 subsequently passed as recorded below; maximum3 rounds remains binding.
+
+Gate4 final round3 PASS (zero open Critical/High/Medium), one Low accepted with
+pinned-baseline rationale in .claude/codex-audits/feature-181-gate4-audit.md.
+No fourth audit or code patch. Audited locala2dd1ee and published9550a347 share
+source tree00b31ca85e8a13538aa5630e60a579a7a7ba60e1. Models/tests unchanged from
+actual Mac GREEN d749c8a (32 tests/3 suites +10 independent vectors).
+Native full proof and generated version tail pending; no UI/production claim.

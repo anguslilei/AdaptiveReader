@@ -81,3 +81,32 @@ main55719b27c62c0f0d37556618d4525a0ea8e1135e and retains the added package secti
 The prior closeout accidentally prefixed the addition with “undefined” and omitted
 the inherited document. This documentation-only recovery is not covered by the
 exporter exception and needs no additional code audit under the docs-only scope.
+
+Final closeout checkpoint: PR5 subsequently passed all five workflows at
+review head236c0145a7aec775505bdcda5b53c4a8f1609302 and merged as
+54930d465d57cdce5699f36cf9edd14b222e3655. Native run37258668628 executed
+Debug/Release and155 base +30 package distinct passing tests, all nine suite guards,
+zero failed/skipped; artifact11324671453 ZIP digest0466173f1248aed9ef64d6a14706fe8224ece18c26f0f522929e3bd277f0377a
+was recomputed and all24 manifest members verified. The earlier pending paragraphs
+above are historical checkpoints; feature180 is now DONE, enabling feature181.
+
+## Native semantic identity foundation — feature181
+
+Nine dormant immutable Swift values add exact archive/resource revisions, literal
+UTF8 archive filenames, bounded logical XML child-slot paths, UTF16 ranges and
+source-bound deterministic SHA256 IDs. Canonical bytes include domain/kind, raw
+digests, version numbers, length-prefixed paths, spine occurrence, child slots,
+optional range presence, frozen role tag and ordinal. Layout/reader goal/text alone
+cannot determine identity. Validated decoders enforce the same constructor rules.
+
+Logical anchors represent syntax; they do not resolve source nodes or promise
+exact original-reader positioning, browser DOM, XPath or CFI. Models are dormant:
+no chapter extraction, UI, renderer, AI, session or persistence integration.
+The next native slice is bounded XHTML-to-semantic-block extraction using these
+values, followed by source mapping/resolution and production integration.
+
+[Plan](../../dev-docs/plans/20261005-feature-181-native-semantic-identities.md),
+[Gate4 audit](../../.claude/codex-audits/feature-181-gate4-audit.md): three rounds,
+zero open Critical/High/Medium, one explicit accepted Low in CI version tooling.
+Actual source-only Mac GREEN32/3 and ten independent vectors pass; native proof
+is recorded separately when complete.

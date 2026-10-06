@@ -1,0 +1,217 @@
+Building for debugging...
+[0/7] /private/var/folders/nj/vtw8zd2j31d1gdrtntc5y4600000gn/T/semantic-model-contract.XXXXXX.03XEkpbZLv/.build/arm64-apple-macosx/debug/SemanticModelContractPackageTests.derived/runner.swift
+[0/7] Write sources
+[4/7] Write swift-version-1977FEB4D2752686.txt
+[6/14] Compiling vreader SemanticModelError.swift
+[7/14] Compiling vreader SemanticNodePath.swift
+[8/14] Compiling vreader SemanticResourceIdentity.swift
+[9/14] Emitting module vreader
+[10/14] Compiling vreader SemanticArchivePath.swift
+[11/14] Compiling vreader SemanticID.swift
+[12/14] Compiling vreader SemanticLogicalAnchor.swift
+[13/17] Compiling vreader SemanticRevision.swift
+[14/17] Compiling vreader SemanticSHA256.swift
+[15/17] Compiling vreader SemanticUTF16Range.swift
+[16/20] Compiling vreaderTests SemanticIdentityTests.swift
+[17/20] Compiling vreaderTests SemanticModelCodableTests.swift
+[18/20] Emitting module vreaderTests
+[19/21] Compiling vreaderTests SemanticSourceAnchorTests.swift
+[20/23] Compiling SemanticModelContractPackageTests runner.swift
+[21/23] Emitting module SemanticModelContractPackageTests
+[21/23] Write Objects.LinkFileList
+[22/23] Linking SemanticModelContractPackageTests
+Build complete! (13.29s)
+Test Suite 'All tests' started at 2026-10-06 00:12:31.894.
+Test Suite 'All tests' passed at 2026-10-06 00:12:31.896.
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.000 (0.002) seconds
+◇ Test run started.
+↳ Testing Library Version: 1501
+↳ Target Platform: arm64e-apple-macos14.0
+◇ Suite "Semantic logical source anchors" started.
+◇ Suite "Semantic model validated decoding" started.
+◇ Suite "Semantic identity canonical bytes" started.
+◇ Test pathByteCeilingAndLiteralEquality() started.
+◇ Test invalidAndMissingRevisionFieldsRejected() started.
+◇ Test alreadyResolvedFilenamesRetainLiteralBytes(_:) started.
+◇ Test invalidPathsRejected(_:) started.
+◇ Test surrogateSplitsRejectedButScalarBoundariesAllowed() started.
+◇ Test allModelsRoundTripWithLiteralUnicode() started.
+◇ Test malformedDigestAndIDCannotDecode(_:) started.
+◇ Test unknownSchemaRejected(_:) started.
+◇ Test boundedNodeDecoderRejectsInvalidSlotsAndLength() started.
+◇ Test anchorDecodeAndDerivedCoordinateSystem() started.
+◇ Test validLookingIDIsOnlyValidatedSpelling() started.
+◇ Test frozenRolesAndUnknownTags() started.
+◇ Test rangeSyntaxAtBounds(_:_:) started.
+◇ Test malformedPathsCannotDecode(_:) started.
+◇ Test boundedChildSlotsAndRoot() started.
+◇ Test anchorsRemainLogicalSyntax() started.
+◇ Test rangeDecodeRunsValidation(_:) started.
+◇ Test invalidRangeSyntax(_:_:) started.
+◇ Test maximumTextRangeIsAccepted() started.
+◇ Test digestPayloadIsExactly32RawBytes() started.
+◇ Test digestRejectsNoncanonicalSpelling(_:) started.
+◇ Test invalidExtractorVersion(_:) started.
+◇ Test case passing 1 argument path → "OPS/章节😀.xhtml" to alreadyResolvedFilenamesRetainLiteralBytes(_:) started.
+✘ Test pathByteCeilingAndLiteralEquality() recorded an issue at SemanticSourceAnchorTests.swift:30:6: Caught error: invalidPath
+✘ Test alreadyResolvedFilenamesRetainLiteralBytes(_:) recorded an issue with 1 argument path → "OPS/章节😀.xhtml" at SemanticSourceAnchorTests.swift:25:6: Caught error: invalidPath
+◇ Test case passing 1 argument path → "OPS/שלום.xhtml" to alreadyResolvedFilenamesRetainLiteralBytes(_:) started.
+◇ Test case passing 1 argument path → "a%2Fb%20c" to alreadyResolvedFilenamesRetainLiteralBytes(_:) started.
+✘ Test alreadyResolvedFilenamesRetainLiteralBytes(_:) recorded an issue with 1 argument path → "OPS/שלום.xhtml" at SemanticSourceAnchorTests.swift:25:6: Caught error: invalidPath
+✘ Test alreadyResolvedFilenamesRetainLiteralBytes(_:) recorded an issue with 1 argument path → "a%2Fb%20c" at SemanticSourceAnchorTests.swift:25:6: Caught error: invalidPath
+◇ Test case passing 1 argument path → "a?#b" to alreadyResolvedFilenamesRetainLiteralBytes(_:) started.
+◇ Test case passing 1 argument path → "a/.. /b" to alreadyResolvedFilenamesRetainLiteralBytes(_:) started.
+✘ Test alreadyResolvedFilenamesRetainLiteralBytes(_:) recorded an issue with 1 argument path → "a/.. /b" at SemanticSourceAnchorTests.swift:25:6: Caught error: invalidPath
+✘ Test alreadyResolvedFilenamesRetainLiteralBytes(_:) recorded an issue with 1 argument path → "a?#b" at SemanticSourceAnchorTests.swift:25:6: Caught error: invalidPath
+◇ Test case passing 1 argument path → "a/́b" to alreadyResolvedFilenamesRetainLiteralBytes(_:) started.
+◇ Test case passing 1 argument path → "a b" to alreadyResolvedFilenamesRetainLiteralBytes(_:) started.
+✘ Test alreadyResolvedFilenamesRetainLiteralBytes(_:) recorded an issue with 1 argument path → "a b" at SemanticSourceAnchorTests.swift:25:6: Caught error: invalidPath
+✘ Test alreadyResolvedFilenamesRetainLiteralBytes(_:) recorded an issue with 1 argument path → "a/́b" at SemanticSourceAnchorTests.swift:25:6: Caught error: invalidPath
+◇ Test case passing 1 argument path → "A/a" to alreadyResolvedFilenamesRetainLiteralBytes(_:) started.
+✘ Test alreadyResolvedFilenamesRetainLiteralBytes(_:) recorded an issue with 1 argument path → "A/a" at SemanticSourceAnchorTests.swift:25:6: Caught error: invalidPath
+✘ Test allModelsRoundTripWithLiteralUnicode() recorded an issue at SemanticModelCodableTests.swift:17:6: Caught error: invalidDigest
+◇ Test case passing 1 argument json → "null" to malformedDigestAndIDCannotDecode(_:) started.
+✘ Test surrogateSplitsRejectedButScalarBoundariesAllowed() recorded an issue at SemanticSourceAnchorTests.swift:54:6: Caught error: invalidRange
+◇ Test case passing 1 argument json → "12" to malformedDigestAndIDCannotDecode(_:) started.
+◇ Test case passing 1 argument json → "{}" to malformedDigestAndIDCannotDecode(_:) started.
+◇ Test case passing 1 argument json → """" to malformedDigestAndIDCannotDecode(_:) started.
+◇ Test case passing 1 argument json → ""AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"" to malformedDigestAndIDCannotDecode(_:) started.
+◇ Test case passing 1 argument json → ""gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg"" to malformedDigestAndIDCannotDecode(_:) started.
+◇ Test case passing 1 argument n → 0 to unknownSchemaRejected(_:) started.
+✘ Test unknownSchemaRejected(_:) recorded an issue with 1 argument n → 0 at SemanticSourceAnchorTests.swift:93:6: Caught error: invalidDigest
+◇ Test case passing 1 argument n → 2 to unknownSchemaRejected(_:) started.
+✘ Test unknownSchemaRejected(_:) recorded an issue with 1 argument n → 2 at SemanticSourceAnchorTests.swift:93:6: Caught error: invalidDigest
+✘ Test validLookingIDIsOnlyValidatedSpelling() recorded an issue at SemanticModelCodableTests.swift:92:6: Caught error: invalidDigest
+◇ Test case passing 1 argument n → -1 to unknownSchemaRejected(_:) started.
+✘ Test unknownSchemaRejected(_:) recorded an issue with 1 argument n → -1 at SemanticSourceAnchorTests.swift:93:6: Caught error: invalidDigest
+✘ Test boundedNodeDecoderRejectsInvalidSlotsAndLength() recorded an issue at SemanticModelCodableTests.swift:61:6: Caught error: typeMismatch(Swift.Dictionary<Swift.String, Any>, Swift.DecodingError.Context(codingPath: [], debugDescription: "Expected to decode Dictionary<String, Any> but found an array instead.", underlyingError: nil))
+◇ Test case passing 1 argument n → 9223372036854775807 to unknownSchemaRejected(_:) started.
+✘ Test unknownSchemaRejected(_:) recorded an issue with 1 argument n → 9223372036854775807 at SemanticSourceAnchorTests.swift:93:6: Caught error: invalidDigest
+◇ Test case passing 2 arguments lower → 0, upper → 0 to rangeSyntaxAtBounds(_:_:) started.
+✘ Test rangeSyntaxAtBounds(_:_:) recorded an issue with 2 arguments lower → 0, upper → 0 at SemanticSourceAnchorTests.swift:46:6: Caught error: invalidRange
+◇ Test case passing 2 arguments lower → 0, upper → 2097152 to rangeSyntaxAtBounds(_:_:) started.
+✘ Test rangeSyntaxAtBounds(_:_:) recorded an issue with 2 arguments lower → 0, upper → 2097152 at SemanticSourceAnchorTests.swift:46:6: Caught error: invalidRange
+◇ Test case passing 2 arguments lower → 2097152, upper → 2097152 to rangeSyntaxAtBounds(_:_:) started.
+✘ Test rangeSyntaxAtBounds(_:_:) recorded an issue with 2 arguments lower → 2097152, upper → 2097152 at SemanticSourceAnchorTests.swift:46:6: Caught error: invalidRange
+◇ Test case passing 1 argument path → "" to invalidPathsRejected(_:) started.
+◇ Test case passing 1 argument path → "/a" to invalidPathsRejected(_:) started.
+◇ Test case passing 1 argument json → "null" to malformedPathsCannotDecode(_:) started.
+✘ Test anchorDecodeAndDerivedCoordinateSystem() recorded an issue at SemanticModelCodableTests.swift:69:6: Caught error: typeMismatch(Swift.Dictionary<Swift.String, Any>, Swift.DecodingError.Context(codingPath: [CodingKeys(stringValue: "resource", intValue: nil), CodingKeys(stringValue: "path", intValue: nil)], debugDescription: "Expected to decode Dictionary<String, Any> but found a string instead.", underlyingError: nil))
+◇ Test case passing 1 argument path → "a/" to invalidPathsRejected(_:) started.
+◇ Test case passing 1 argument path → "a//b" to invalidPathsRejected(_:) started.
+◇ Test case passing 1 argument path → "." to invalidPathsRejected(_:) started.
+◇ Test case passing 1 argument path → ".." to invalidPathsRejected(_:) started.
+◇ Test case passing 1 argument json → "42" to malformedPathsCannotDecode(_:) started.
+◇ Test case passing 1 argument path → "a/./b" to invalidPathsRejected(_:) started.
+◇ Test case passing 1 argument path → "a/../b" to invalidPathsRejected(_:) started.
+◇ Test case passing 1 argument path → "a\b" to invalidPathsRejected(_:) started.
+◇ Test case passing 1 argument path → "a:b" to invalidPathsRejected(_:) started.
+◇ Test case passing 1 argument json → "{}" to malformedPathsCannotDecode(_:) started.
+◇ Test case passing 1 argument path → "a◇ Test case passing 1 argument path → "ab" to invalidPathsRejected(_:) started.
+◇ Test case passing 1 argument path → "ab" to invalidPathsRejected(_:) started.
+◇ Test case passing 1 argument json → """" to malformedPathsCannotDecode(_:) started.
+◇ Test case passing 1 argument path → "/́a" to invalidPathsRejected(_:) started.
+◇ Test case passing 1 argument path → "a//́b" to invalidPathsRejected(_:) started.
+◇ Test case passing 1 argument path → "a/.. /../b" to invalidPathsRejected(_:) started.
+✘ Test boundedChildSlotsAndRoot() recorded an issue at SemanticSourceAnchorTests.swift:39:6: Caught error: invalidNodePath
+◇ Test case passing 1 argument json → ""/a"" to malformedPathsCannotDecode(_:) started.
+◇ Test case passing 1 argument json → ""a//b"" to malformedPathsCannotDecode(_:) started.
+✘ Test anchorsRemainLogicalSyntax() recorded an issue at SemanticSourceAnchorTests.swift:75:6: Caught error: invalidPath
+◇ Test case passing 1 argument json → ""a/../b"" to malformedPathsCannotDecode(_:) started.
+◇ Test case passing 1 argument json → "{}" to rangeDecodeRunsValidation(_:) started.
+◇ Test case passing 1 argument json → "null" to rangeDecodeRunsValidation(_:) started.
+◇ Test case passing 1 argument json → "{"lowerBound":-1,"upperBound":0}" to rangeDecodeRunsValidation(_:) started.
+✘ Test rangeDecodeRunsValidation(_:) recorded an issue with 1 argument json → "{"lowerBound":-1,"upperBound":0}" at SemanticModelCodableTests.swift:15:9: Expectation failed: an error was expected but none was thrown and "SemanticUTF16Range(lowerBound: -1, upperBound: 0)" was returned
+◇ Test case passing 1 argument json → "{"lowerBound":3,"upperBound":2}" to rangeDecodeRunsValidation(_:) started.
+✘ Test rangeDecodeRunsValidation(_:) recorded an issue with 1 argument json → "{"lowerBound":3,"upperBound":2}" at SemanticModelCodableTests.swift:15:9: Expectation failed: an error was expected but none was thrown and "SemanticUTF16Range(lowerBound: 3, upperBound: 2)" was returned
+◇ Test case passing 2 arguments lower → -1, upper → 0 to invalidRangeSyntax(_:_:) started.
+◇ Test case passing 1 argument json → "{"lowerBound":0,"upperBound":2097153}" to rangeDecodeRunsValidation(_:) started.
+✘ Test rangeDecodeRunsValidation(_:) recorded an issue with 1 argument json → "{"lowerBound":0,"upperBound":2097153}" at SemanticModelCodableTests.swift:15:9: Expectation failed: an error was expected but none was thrown and "SemanticUTF16Range(lowerBound: 0, upperBound: 2097153)" was returned
+◇ Test case passing 2 arguments lower → 2, upper → 1 to invalidRangeSyntax(_:_:) started.
+◇ Test case passing 1 argument json → "{"lowerBound":0,"upperBound":9223372036854775808}" to rangeDecodeRunsValidation(_:) started.
+◇ Test case passing 2 arguments lower → 0, upper → 2097153 to invalidRangeSyntax(_:_:) started.
+◇ Test case passing 2 arguments lower → 0, upper → 9223372036854775807 to invalidRangeSyntax(_:_:) started.
+✘ Test maximumTextRangeIsAccepted() recorded an issue at SemanticSourceAnchorTests.swift:71:6: Caught error: invalidRange
+◇ Test case passing 1 argument json → "{"lowerBound":null,"upperBound":1}" to rangeDecodeRunsValidation(_:) started.
+◇ Test case passing 1 argument json → "{"lowerBound":0,"upperBound":"1"}" to rangeDecodeRunsValidation(_:) started.
+✘ Test digestPayloadIsExactly32RawBytes() recorded an issue at SemanticSourceAnchorTests.swift:15:6: Caught error: invalidDigest
+◇ Test independentSectionVector() started.
+◇ Test repeatableConcurrentFactories() started.
+◇ Test invalidSectionOccurrenceRejected(_:) started.
+◇ Test case passing 1 argument value → "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" to digestRejectsNoncanonicalSpelling(_:) started.
+◇ Test unicodeDelimiterAndNumericMaximumVector() started.
+◇ Test case passing 1 argument value → "" to digestRejectsNoncanonicalSpelling(_:) started.
+◇ Test independentRevisionVector() started.
+◇ Test case passing 1 argument value → "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" to digestRejectsNoncanonicalSpelling(_:) started.
+◇ Test everyTupleFieldSeparatesCanonicalIdentity() started.
+◇ Test case passing 1 argument value → "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" to digestRejectsNoncanonicalSpelling(_:) started.
+◇ Test literalUnicodeNormalizationHasSeparateIdentity() started.
+◇ Test case passing 1 argument value → "gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg" to digestRejectsNoncanonicalSpelling(_:) started.
+◇ Test independentBlockVector() started.
+◇ Test case passing 1 argument value → "éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé" to digestRejectsNoncanonicalSpelling(_:) started.
+◇ Test nilAndEmptyRangesAreDifferentTuples() started.
+◇ Test invalidOrdinalRejected(_:) started.
+◇ Test case passing 1 argument n → 0 to invalidExtractorVersion(_:) started.
+◇ Test case passing 1 argument n → -1 to invalidExtractorVersion(_:) started.
+✘ Test invalidExtractorVersion(_:) recorded an issue with 1 argument n → 0 at SemanticSourceAnchorTests.swift:88:6: Caught error: invalidDigest
+✘ Test invalidExtractorVersion(_:) recorded an issue with 1 argument n → -1 at SemanticSourceAnchorTests.swift:88:6: Caught error: invalidDigest
+◇ Test case passing 1 argument n → 9223372036854775807 to invalidExtractorVersion(_:) started.
+✘ Test invalidExtractorVersion(_:) recorded an issue with 1 argument n → 9223372036854775807 at SemanticSourceAnchorTests.swift:88:6: Caught error: invalidDigest
+◇ Test case passing 1 argument n → 4294967296 to invalidExtractorVersion(_:) started.
+✘ Test pathByteCeilingAndLiteralEquality() failed after 0.008 seconds with 1 issue.
+✘ Test alreadyResolvedFilenamesRetainLiteralBytes(_:) with 8 test cases failed after 0.008 seconds with 8 issues.
+✘ Test allModelsRoundTripWithLiteralUnicode() failed after 0.008 seconds with 1 issue.
+✘ Test surrogateSplitsRejectedButScalarBoundariesAllowed() failed after 0.008 seconds with 1 issue.
+✔ Test malformedDigestAndIDCannotDecode(_:) with 6 test cases passed after 0.008 seconds.
+✔ Test invalidAndMissingRevisionFieldsRejected() passed after 0.008 seconds.
+✘ Test invalidExtractorVersion(_:) recorded an issue with 1 argument n → 4294967296 at SemanticSourceAnchorTests.swift:88:6: Caught error: invalidDigest
+✘ Test validLookingIDIsOnlyValidatedSpelling() failed after 0.008 seconds with 1 issue.
+✘ Test unknownSchemaRejected(_:) with 4 test cases failed after 0.008 seconds with 4 issues.
+✘ Test boundedNodeDecoderRejectsInvalidSlotsAndLength() failed after 0.008 seconds with 1 issue.
+✘ Test anchorDecodeAndDerivedCoordinateSystem() failed after 0.008 seconds with 1 issue.
+✔ Test invalidPathsRejected(_:) with 16 test cases passed after 0.008 seconds.
+✔ Test malformedPathsCannotDecode(_:) with 7 test cases passed after 0.008 seconds.
+✘ Test rangeSyntaxAtBounds(_:_:) with 3 test cases failed after 0.008 seconds with 3 issues.
+✘ Test boundedChildSlotsAndRoot() failed after 0.008 seconds with 1 issue.
+✘ Test anchorsRemainLogicalSyntax() failed after 0.008 seconds with 1 issue.
+✘ Test rangeDecodeRunsValidation(_:) with 8 test cases failed after 0.008 seconds with 3 issues.
+✔ Test invalidRangeSyntax(_:_:) with 4 test cases passed after 0.008 seconds.
+✘ Test digestPayloadIsExactly32RawBytes() failed after 0.008 seconds with 1 issue.
+✘ Test maximumTextRangeIsAccepted() failed after 0.008 seconds with 1 issue.
+✘ Test independentSectionVector() recorded an issue at SemanticIdentityTests.swift:29:6: Caught error: invalidDigest
+✔ Test frozenRolesAndUnknownTags() passed after 0.008 seconds.
+◇ Test case passing 1 argument n → 4096 to invalidSectionOccurrenceRejected(_:) started.
+◇ Test case passing 1 argument n → -1 to invalidSectionOccurrenceRejected(_:) started.
+✘ Test repeatableConcurrentFactories() recorded an issue at SemanticIdentityTests.swift:83:6: Caught error: invalidDigest
+✘ Test invalidSectionOccurrenceRejected(_:) recorded an issue with 1 argument n → 4096 at SemanticIdentityTests.swift:104:6: Caught error: invalidDigest
+◇ Test case passing 1 argument n → 9223372036854775807 to invalidSectionOccurrenceRejected(_:) started.
+✘ Test invalidSectionOccurrenceRejected(_:) recorded an issue with 1 argument n → 9223372036854775807 at SemanticIdentityTests.swift:104:6: Caught error: invalidDigest
+✔ Test digestRejectsNoncanonicalSpelling(_:) with 6 test cases passed after 0.008 seconds.
+✘ Test invalidSectionOccurrenceRejected(_:) recorded an issue with 1 argument n → -1 at SemanticIdentityTests.swift:104:6: Caught error: invalidDigest
+✘ Test independentRevisionVector() recorded an issue at SemanticIdentityTests.swift:24:6: Caught error: invalidDigest
+✘ Test unicodeDelimiterAndNumericMaximumVector() recorded an issue at SemanticIdentityTests.swift:46:6: Caught error: invalidPath
+✘ Test everyTupleFieldSeparatesCanonicalIdentity() recorded an issue at SemanticIdentityTests.swift:62:6: Caught error: invalidDigest
+✘ Test literalUnicodeNormalizationHasSeparateIdentity() recorded an issue at SemanticIdentityTests.swift:55:6: Caught error: invalidDigest
+◇ Test case passing 1 argument n → -1 to invalidOrdinalRejected(_:) started.
+✘ Test nilAndEmptyRangesAreDifferentTuples() recorded an issue at SemanticIdentityTests.swift:40:6: Caught error: invalidDigest
+✘ Test invalidOrdinalRejected(_:) recorded an issue with 1 argument n → -1 at SemanticIdentityTests.swift:97:6: Caught error: invalidDigest
+◇ Test case passing 1 argument n → 4294967296 to invalidOrdinalRejected(_:) started.
+✘ Test independentBlockVector() recorded an issue at SemanticIdentityTests.swift:34:6: Caught error: invalidDigest
+✘ Test invalidOrdinalRejected(_:) recorded an issue with 1 argument n → 4294967296 at SemanticIdentityTests.swift:97:6: Caught error: invalidDigest
+◇ Test case passing 1 argument n → 9223372036854775807 to invalidOrdinalRejected(_:) started.
+✘ Test invalidOrdinalRejected(_:) recorded an issue with 1 argument n → 9223372036854775807 at SemanticIdentityTests.swift:97:6: Caught error: invalidDigest
+✘ Test independentSectionVector() failed after 0.001 seconds with 1 issue.
+✘ Test repeatableConcurrentFactories() failed after 0.001 seconds with 1 issue.
+✘ Test invalidExtractorVersion(_:) with 4 test cases failed after 0.009 seconds with 4 issues.
+✘ Test independentRevisionVector() failed after 0.001 seconds with 1 issue.
+✘ Test invalidSectionOccurrenceRejected(_:) with 3 test cases failed after 0.001 seconds with 3 issues.
+✘ Test everyTupleFieldSeparatesCanonicalIdentity() failed after 0.001 seconds with 1 issue.
+✘ Test unicodeDelimiterAndNumericMaximumVector() failed after 0.001 seconds with 1 issue.
+✘ Test nilAndEmptyRangesAreDifferentTuples() failed after 0.001 seconds with 1 issue.
+✘ Test independentBlockVector() failed after 0.001 seconds with 1 issue.
+✘ Test literalUnicodeNormalizationHasSeparateIdentity() failed after 0.001 seconds with 1 issue.
+✘ Test invalidOrdinalRejected(_:) with 3 test cases failed after 0.001 seconds with 3 issues.
+✘ Suite "Semantic model validated decoding" failed after 0.010 seconds with 7 issues.
+✘ Suite "Semantic logical source anchors" failed after 0.010 seconds with 25 issues.
+✘ Suite "Semantic identity canonical bytes" failed after 0.010 seconds with 14 issues.
+✘ Test run with 32 tests in 3 suites failed after 0.010 seconds with 46 issues.

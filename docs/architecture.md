@@ -958,3 +958,25 @@ canonically equivalent distinct filenames; literal package lookup prevents
 substitution without widening that acceptance. Chapter extraction is a later WI.
 See the [plan](../dev-docs/plans/20261003-feature-180-native-epub-package.md) and
 [verification](../dev-docs/verification/feature-180-20261004.md).
+
+## Native semantic identity and logical anchor values (feature181)
+
+`vreader/Models/Semantic` is a dormant Foundation/CryptoKit value layer, separate
+from reader AnnotationAnchor and SwiftData. SemanticRevision binds exact original
+archive digest and extraction-policy/schema versions. SemanticResourceIdentity
+binds a literal already-resolved archive path and original resource digest.
+SemanticLogicalAnchor adds a bounded spine occurrence and child-slot path from
+the original logical XML root, optionally a scalar-safe UTF16 range. All retained
+state is immutable and Sendable; custom decoding cannot bypass invariants.
+
+SemanticID hashes explicit v1 domain/kind-separated canonical bytes, never JSON
+formatting, Swift Hasher, random IDs or paragraph text alone. Path equality/hash
+uses literal UTF8, retaining NFC/NFD and percent-filename distinctions. Codable
+validates ID spelling, not source provenance. A future extractor/resolver must
+verify revision/resource/tree/range compatibility, node existence and uniqueness
+before publishing precise source navigation; no such production caller exists.
+
+This layer adds no chapter parser, normalized/source text map, byte-offset map,
+browser DOM/XPath/CFI, UI/AI/renderer route, storage migration or Android contract.
+Source-only Swift6 tests and the native model lane cover immutable contracts;
+production reader reachability requires a later behavioral feature.
