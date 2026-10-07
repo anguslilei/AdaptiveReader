@@ -1,0 +1,463 @@
+{
+  "source_commit": "9550a3470d29e481d9fff334815896372d1a26ab",
+  "members": {
+    "debug-build.log": {
+      "bytes": 1548737,
+      "sha256": "0aefcac5cf08d0a2bc0237c29a3d6a125b0e85fe299f65252393bbb25d84872d",
+      "git_blob_sha": "4042f508b3df1a99d7043e8ee13243f6c527731c"
+    },
+    "release-build.log": {
+      "bytes": 2265823,
+      "sha256": "615257d717f2d08464f1f9c64fe08aaaeb946076484c33df251bd6f895191b2a",
+      "git_blob_sha": "f70d78bd4e8ddeab42a6fc1d87fc0c04dc4b814c"
+    },
+    "devices.json": {
+      "bytes": 71890,
+      "sha256": "e33b983720174c7990e81276aa21d6fe07715c036855d2a80842545e48823ffd",
+      "git_blob_sha": "e0d5b8061b43322f01cc8c82db7eb750b92eb06b"
+    },
+    "generator-version.txt": {
+      "bytes": 16,
+      "sha256": "bf8aa757345fcd22d1fd26e760aa058f02991e2d930686b8eaf750cd6e5f8532",
+      "git_blob_sha": "2b715b362f9b3f148601aaed9444946a3e463c51"
+    },
+    "input-commit.txt": {
+      "bytes": 41,
+      "sha256": "bc8cac6b0ff09bcea21216984ac3a35963ed62edeaa428657d7a521862759b8b",
+      "git_blob_sha": "09abcb68a10256657a3c8e10c76a3c8b34426503"
+    },
+    "project.pbxproj": {
+      "bytes": 924272,
+      "sha256": "8b03403b96f9db523760af5d13d0979a158166dd9353a44ea89b0b305e4cb814",
+      "git_blob_sha": "f3dddbb408352cca3a9a4a94f2da7c38c6519c30"
+    },
+    "project.yml": {
+      "bytes": 19678,
+      "sha256": "7ba99f6f8e41c516dabc671e56cd2ecff72c338889dc17a02551a62fd11260ca",
+      "git_blob_sha": "fd2bcd264c8b7ef3c036c9e4549b3c4f1d52ebd6"
+    },
+    "test-udid.txt": {
+      "bytes": 36,
+      "sha256": "3ef64c57b83279813dfd3d5401b5dfcf6184347f50e8441fdf64f6dda4188759",
+      "git_blob_sha": "69536e1ad2a9ec56bbb643d958fe8be125736433"
+    },
+    "xcode-version.txt": {
+      "bytes": 32,
+      "sha256": "bb7fc9a8f5e063e81975b33054b3a526c91bcccff263ad11d5bd8bcdbe8f0973",
+      "git_blob_sha": "105d0366588bd89a6d9c121e8742a7f59efc4f9c"
+    },
+    "test-xcode-version.txt": {
+      "bytes": 32,
+      "sha256": "bb7fc9a8f5e063e81975b33054b3a526c91bcccff263ad11d5bd8bcdbe8f0973",
+      "git_blob_sha": "105d0366588bd89a6d9c121e8742a7f59efc4f9c"
+    },
+    "version-baseline-sha.txt": {
+      "bytes": 41,
+      "sha256": "ff1b67141e04099670a6c901eec4c6f079aa719e085925f40544819b7d6d0d97",
+      "git_blob_sha": "a68e3faaf1ad0885cbef43b11f196d71b40f965c"
+    },
+    "version-baseline.yml": {
+      "bytes": 19678,
+      "sha256": "8d882994c1dae305fb5a49b5a85d467abb66a540e1c845269273cce5ef01df3b",
+      "git_blob_sha": "bbcc884d3407bff49acba20174ad53ca14db5ab1"
+    },
+    "version-allocation.json": {
+      "bytes": 272,
+      "sha256": "5a9a8da6606dbbc34c3d59e865e251ef9d5b51cbc7a979687c1eaa5e7d4a3ff1",
+      "git_blob_sha": "f9552d833350657bb190c5f419a913dd5f69f586"
+    },
+    "pyyaml-version.txt": {
+      "bytes": 6,
+      "sha256": "1f74ac9075fd39230aa56323c819e2db112b69906238b4ab3e5e97f8cd267b46",
+      "git_blob_sha": "090ea9dad19fcac569ba37f77519218863e4195a"
+    },
+    "base-test-command-status.txt": {
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "git_blob_sha": "573541ac9702dd3969c9bc859d2b91ec1f7e6e56"
+    },
+    "base-test-full.log": {
+      "bytes": 10417795,
+      "sha256": "99dc1bfcc550d378ec653a8dc91ac1a1f5c80ecec897e3288577913e0567ecf9",
+      "git_blob_sha": "fff85def0ca276f47865ee97c077ae49f0a0d1dc"
+    },
+    "base-test-result-path.txt": {
+      "bytes": 144,
+      "sha256": "47b585de0e9f0cb4f035c870c460f5f3fd51e5facb68ba71036a15276c035976",
+      "git_blob_sha": "4101f0f9c2ace46345aae475d867f81af3da3de9"
+    },
+    "base-test-start.txt": {
+      "bytes": 18,
+      "sha256": "dbdfc8ac614107d417de10b9b1240bf4b3c932b245216e2fc128c563191a88f6",
+      "git_blob_sha": "2a129a4a53d54151e09733c235d5b00e5eaa83b0"
+    },
+    "base-test-summary.json": {
+      "bytes": 1054,
+      "sha256": "977dabcb149cd4a0666e20ee4935beea90ca13eef066b2b5d1739516c7934547",
+      "git_blob_sha": "fe3a85dad6f39d6b084906a40142617739b9de79"
+    },
+    "base-test-tree.json": {
+      "bytes": 108130,
+      "sha256": "7b57448c7f96b91002f85eb962f927202ad37da4cd4b00fe9c5defa322769a98",
+      "git_blob_sha": "8c6c2cccd358aa35daf96e877ea411d0b69cfd73"
+    },
+    "base-test-wrapper.log": {
+      "bytes": 1947,
+      "sha256": "14b9d445fbc722713ce49c680ed57172da104941b0e3bbb7a4a3aed827acf221",
+      "git_blob_sha": "4c15f37bedf764ab5d7080d820f3dbfbc8433660"
+    },
+    "package-test-command-status.txt": {
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "git_blob_sha": "573541ac9702dd3969c9bc859d2b91ec1f7e6e56"
+    },
+    "package-test-full.log": {
+      "bytes": 146360,
+      "sha256": "b51e543658a70294ff30f3766621ef92fc7878a2277898fa24b792d745f4f9ef",
+      "git_blob_sha": "f9fdc31eabd58824c3db418ef526f3017a69c93e"
+    },
+    "package-test-result-path.txt": {
+      "bytes": 144,
+      "sha256": "737046746be29117b9724364d526f359f150e7422ef482fc6314fc6e169bee0d",
+      "git_blob_sha": "1ab83815d9dada103d088bd4233fdb20c2166ddd"
+    },
+    "package-test-start.txt": {
+      "bytes": 19,
+      "sha256": "d02aaa7071410fea715dc3f58bbbe4faa2b2c61c002e23cb1e496585a6ad4571",
+      "git_blob_sha": "2661e364b20788d689618229e9500d0ccde7c446"
+    },
+    "package-test-summary.json": {
+      "bytes": 1052,
+      "sha256": "1eb42caea6888dc982bf2f3e4f5289507750197231ebb1c42480af17b28da154",
+      "git_blob_sha": "c562e114ae31acd3e91fe3fcee686b17c066af8a"
+    },
+    "package-test-tree.json": {
+      "bytes": 45431,
+      "sha256": "8f4cd19c585401d153f7d6f135aa3d2e81b040b920fbbbdf2642fe6259a66b73",
+      "git_blob_sha": "9905bf0d182f060b941bd35d8264e68bf481d51a"
+    },
+    "package-test-wrapper.log": {
+      "bytes": 1128,
+      "sha256": "38e5d3eb9dee0dcbdacf34472e9b2905cedde629fc587526479b59b273c30267",
+      "git_blob_sha": "36fef117505cd349df64808ae5ce347a0f3ad4df"
+    },
+    "model-test-command-status.txt": {
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "git_blob_sha": "573541ac9702dd3969c9bc859d2b91ec1f7e6e56"
+    },
+    "model-test-full.log": {
+      "bytes": 84455,
+      "sha256": "9da3e3e30ba72ac0c36df3d757d3865365d9742f8903859fe627f328985d5346",
+      "git_blob_sha": "12a2adfcfa55bd164663c8679cd3a6bc135cd074"
+    },
+    "model-test-result-path.txt": {
+      "bytes": 144,
+      "sha256": "daedd9a19f0cd2698b8d412524edf56f3a44ce6dfcecfe687cb8d26ea707930e",
+      "git_blob_sha": "69c5df9d31b527179bd8e2348bdc7d742f590782"
+    },
+    "model-test-start.txt": {
+      "bytes": 18,
+      "sha256": "e695288ac2efc55bf7ea96cbf383b44bd5fa74c20f4b0cdde7e496e5615e48a3",
+      "git_blob_sha": "e5066b9009e28fd341975b363c7cf224948be1bd"
+    },
+    "model-test-summary.json": {
+      "bytes": 1051,
+      "sha256": "407cbb037ce0ee9936597086bbd7b055298f5f727e1103ae604b833b6edd22f2",
+      "git_blob_sha": "0e53527b2f89df0a1c18f1d68afa7145edc41df4"
+    },
+    "model-test-tree.json": {
+      "bytes": 36033,
+      "sha256": "8c362cd0440e1f19e611678442e2f3d2269373a02b9b91d37283dfd9f1a1eadf",
+      "git_blob_sha": "1520a7472a477f1975869ccbbde17709cdfc1c49"
+    },
+    "model-test-wrapper.log": {
+      "bytes": 1133,
+      "sha256": "2c53123939198241dba1ff307496d9b687055521af867952780085920eca2937",
+      "git_blob_sha": "e63d39846072bfc3dd3ea397971fda095fa8c8fd"
+    }
+  },
+  "missing_members": [],
+  "source_files": {
+    ".github/workflows/epub-package-contract.yml": {
+      "bytes": 2417,
+      "sha256": "12c3882b0764b0382ce27b618e0ca14241abbd4aec23b5d2d31db00e49b715af",
+      "git_blob_sha": "c2fbfa33272da760d8eb8f563f59f953136cfdd9"
+    },
+    ".github/workflows/native-reader-check.yml": {
+      "bytes": 6601,
+      "sha256": "9c9b8bffa00462b3d2af018b6f206dd338021da6fb83d2a33c6ab6df9733dbd3",
+      "git_blob_sha": "03b45d6213940468680f86bcb61025caa81ac0b1"
+    },
+    ".github/workflows/semantic-model-contract.yml": {
+      "bytes": 2071,
+      "sha256": "f23630dd993115db3eeb14865395ab77b6215165ad663bbe96ec50894dab1453",
+      "git_blob_sha": "06440e539e2a998e45999a5e62f98504943356ea"
+    },
+    "dev-docs/verification/artifacts/feature-181/identity-vectors.json": {
+      "bytes": 10044,
+      "sha256": "0b3a9de7ba02dc3076e7de3758e29b5fea04dce038ddcada03d78c2c7e311538",
+      "git_blob_sha": "5c87d3e37cc20d2370da8e5ee5a10283f592b25e"
+    },
+    "scripts/__tests__/prepare-semantic-version.test.py": {
+      "bytes": 6812,
+      "sha256": "281cc543c3fdaa0577b3aa9ae4f92f17660e992bd44816732e6f362e0037f7e7",
+      "git_blob_sha": "dffaa12576f85552a7ed5cdfc775677566a31df2"
+    },
+    "scripts/export-native-package-evidence.py": {
+      "bytes": 4061,
+      "sha256": "39ba707920a549df9dbc78aabe06b5a1392b43816d6b27b42517fe5a4385869f",
+      "git_blob_sha": "b7fe6a6a21bf3aa4b54380b9640fbffd0fcaf462"
+    },
+    "scripts/prepare-semantic-version.py": {
+      "bytes": 5310,
+      "sha256": "7ef37016278b73088ace81e1aabdd014da5fbc1ee89e13382eb1527211076717",
+      "git_blob_sha": "e0cb997e0eea83d491e780bce6caf3bc32665c63"
+    },
+    "scripts/semantic-model-vectors.py": {
+      "bytes": 2742,
+      "sha256": "b7ebb3c8f62083e059f667470439be006e68c94572a25aa23fa6393c816affca",
+      "git_blob_sha": "a5b262082ca2ac8b1577e8d9875bfc0df356e1bd"
+    },
+    "scripts/test-epub-package-contract.sh": {
+      "bytes": 1229,
+      "sha256": "d5daa7a7c92e6cc79a2a1492c9341d405b18ae3443e9e7b34c98f4ad6d25f17f",
+      "git_blob_sha": "9b6563dfcde9b01fe32529bab1c85fdbc9a3732a"
+    },
+    "scripts/test-native-semantic-foundations.sh": {
+      "bytes": 6625,
+      "sha256": "6a975955771db5202142e4cb84983bd4aa6114f2b4d86f04a767f1299484c4d0",
+      "git_blob_sha": "6a32a0822c54ff95dcac49070d5d86c6edc91b84"
+    },
+    "scripts/test-semantic-model-contract.sh": {
+      "bytes": 2544,
+      "sha256": "fcd2ff0bf75e5a30a7ecd4b0d774bad4d90632b364e233995edfb38fa3ee8ea8",
+      "git_blob_sha": "5ec94c7472fd24e4410e4d4eb11390f0ab47273e"
+    },
+    "vreader/Models/Semantic/SemanticArchivePath.swift": {
+      "bytes": 1367,
+      "sha256": "8d18a3137757d68a458ea7cb7039c033cda015c42b7acb480358ebc919414f5d",
+      "git_blob_sha": "ce6d2d45d701b297f4bea04cb2f8dbbb2e77a8ef"
+    },
+    "vreader/Models/Semantic/SemanticID.swift": {
+      "bytes": 3779,
+      "sha256": "fe955680455f02c3b2c9a43acaa837f91946e479e0beab9b4f6272c8974326e2",
+      "git_blob_sha": "07485d9bcff24f35e80afc3bbc103ab6da9bf3ed"
+    },
+    "vreader/Models/Semantic/SemanticLogicalAnchor.swift": {
+      "bytes": 1521,
+      "sha256": "c716b6c4d2dd6b1a012bbbdb330fa45bc707e3c64d433e6e0ac9e326cf2ce9e9",
+      "git_blob_sha": "905e0a833d77c2802f02365c3b2d2ad45e154d8b"
+    },
+    "vreader/Models/Semantic/SemanticModelError.swift": {
+      "bytes": 241,
+      "sha256": "d336058b200d86e148a573380e0b01c55e0f7ce609261d72adcb89f5c275bfd4",
+      "git_blob_sha": "1a12b0486aa7a5ac7efea5bdde4da1b8f0ed3e02"
+    },
+    "vreader/Models/Semantic/SemanticNodePath.swift": {
+      "bytes": 1084,
+      "sha256": "f4feb854ae56628248d0496bc571caef80e0f30012a4522e14cf5c3e46336979",
+      "git_blob_sha": "1dbbe04ec2228189395dce92eb73f7173f242e95"
+    },
+    "vreader/Models/Semantic/SemanticResourceIdentity.swift": {
+      "bytes": 322,
+      "sha256": "18472aac109761209410ecbe34b13f1e821dd325ead437bbf643a68a92a31079",
+      "git_blob_sha": "90d445b6cf36ef1f09aee755b5f02bdaa8d7e8c8"
+    },
+    "vreader/Models/Semantic/SemanticRevision.swift": {
+      "bytes": 1228,
+      "sha256": "25a8dc12094d13a994727d18807e6878e7b4f37347d8dfc0b5269d627930c449",
+      "git_blob_sha": "a5b4ed794eec91aea533b18e623b273486f06f0e"
+    },
+    "vreader/Models/Semantic/SemanticSHA256.swift": {
+      "bytes": 1284,
+      "sha256": "0f60263cd065415f29cc13edec212fb8ade7c5d02b732b642de850f65a7949da",
+      "git_blob_sha": "ba5810857c4ed602764a68afd4ada5cb03bede5d"
+    },
+    "vreader/Models/Semantic/SemanticUTF16Range.swift": {
+      "bytes": 1630,
+      "sha256": "b4c7de71deecf31b2f49f4c5418cdf0429f2090d342b1c804e392d6b5eec6c4a",
+      "git_blob_sha": "408e8ef0913904e19cbec6f59a8ae64a56b0b219"
+    },
+    "vreader/Services/Semantic/EPUB/EPUBSemanticResourceReader.swift": {
+      "bytes": 3402,
+      "sha256": "70d5828c9de033582e77dba2d8f4c0eac9d1faf2066ad56aa4e9d837ea257227",
+      "git_blob_sha": "6a44f37c84f38db9e859341c6728b03ccfb1bb39"
+    },
+    "vreader/Services/Semantic/EPUB/EPUBSemanticSourceTypes.swift": {
+      "bytes": 1786,
+      "sha256": "014adf33ed6045e268ea2df863bf9625eca3a5ed89b1b0fafc7811a37bce7372",
+      "git_blob_sha": "f342df21fdfdbedfd855aef79e9895118ad6cdd4"
+    },
+    "vreader/Services/Semantic/EPUB/EPUBSourceInflater.swift": {
+      "bytes": 3119,
+      "sha256": "a4b5e50e55691c271e93ac50f30ad7e2244b6b5aaca4a6ba3abbe0803bdcd495",
+      "git_blob_sha": "1443b3320a6c8f109eb23757ab95310486f56d4d"
+    },
+    "vreader/Services/Semantic/EPUB/EPUBSourceSnapshot.swift": {
+      "bytes": 4228,
+      "sha256": "8ce34a1eed9eb13146b484bc3baef6fa3cf97faeed32ce55996f4ecf26c7cb7f",
+      "git_blob_sha": "bbcb261edba9f1ab68e2ff0a91d9c2b3a07fd9e1"
+    },
+    "vreader/Services/Semantic/EPUB/EPUBSourceZIPBytes.swift": {
+      "bytes": 1881,
+      "sha256": "c3c7e960fe056b4972174b0fde8fa304cdfe0d9f881d5311b77a57ad2d048cb5",
+      "git_blob_sha": "55ec9908a6c252851b082b895ebcbe2924211c97"
+    },
+    "vreader/Services/Semantic/EPUB/EPUBSourceZIPIndex.swift": {
+      "bytes": 7255,
+      "sha256": "7bb183c6cb23b7e8ee764dbef7089a90db3eb31a81e75468335955ff824bfef4",
+      "git_blob_sha": "ef52691e55c4245111e41324312d0061d34c1207"
+    },
+    "vreader/Services/Semantic/Package/EPUBContainerDecoder.swift": {
+      "bytes": 1873,
+      "sha256": "b60b992f4e1513279e1ab7beeeda2f224dc6a5b1d005f802c67fab98377d9530",
+      "git_blob_sha": "98f35e66d602d00f7daf0638664116e0aaaae284"
+    },
+    "vreader/Services/Semantic/Package/EPUBPackageDecoder.swift": {
+      "bytes": 5130,
+      "sha256": "b06208b03cc7d0bf22a31bd2f57f4b91414c945a414131b65f214d8f59350c58",
+      "git_blob_sha": "8df1fe8397429244c0701e12efd34b24a7a1e838"
+    },
+    "vreader/Services/Semantic/Package/EPUBPackageLiteralKey.swift": {
+      "bytes": 595,
+      "sha256": "fc67e15b2f68354d40651ccf49c494777e9abca5793d0242726b9c2952a03bda",
+      "git_blob_sha": "67eb62b11d91a213bb45126d208fe1b55b68d3a1"
+    },
+    "vreader/Services/Semantic/Package/EPUBPackageReference.swift": {
+      "bytes": 3815,
+      "sha256": "4b0cb2c2b2edf9dbe1e45c999e7d1452aefbea961fbd240a4e487ce1cace77d9",
+      "git_blob_sha": "89807825d417bd62d682a3c8e268b9f3d3c73189"
+    },
+    "vreader/Services/Semantic/Package/EPUBPackageXMLAccess.swift": {
+      "bytes": 5291,
+      "sha256": "294b490d9b3d3bf9ad939cd4ed31a2422df1bfbb1f5b414ac082ae96941b1954",
+      "git_blob_sha": "80df507fd99bf5b6dd61f02df4dd268bf11255c6"
+    },
+    "vreader/Services/Semantic/Package/EPUBSemanticPackageLimits.swift": {
+      "bytes": 1087,
+      "sha256": "3acf4c9f2f07ce3727b8ea77cf176ca5e1fba1c4afb5f8b87cdd96843febc17d",
+      "git_blob_sha": "87ba177b8a24ddf31e2770db444deca3d1126f59"
+    },
+    "vreader/Services/Semantic/Package/EPUBSemanticPackageLoader.swift": {
+      "bytes": 3385,
+      "sha256": "302a3309c94124500aec76b1f1df197990966446fa78079c8d1eb5d24a1ab66f",
+      "git_blob_sha": "b6e7e3d075265e49e2220f98e802b15789b508fc"
+    },
+    "vreader/Services/Semantic/Package/EPUBSemanticPackageTypes.swift": {
+      "bytes": 3277,
+      "sha256": "e6a784a4f46b28d281f819fdc589f2f7933fb3341ae384a980ab626fedd8f372",
+      "git_blob_sha": "a1ac3ff7635b5de6f59be5ba409ddcd679b9a4b6"
+    },
+    "vreader/Services/Semantic/XML/SemanticXMLBuilder.swift": {
+      "bytes": 9221,
+      "sha256": "a7ea51bea04b622486ca24a2daf756d5ff06b01970f157593e44b54d1cd3447f",
+      "git_blob_sha": "463acbdbf7c00f10c52041cd5075bcbf7d93342f"
+    },
+    "vreader/Services/Semantic/XML/SemanticXMLLimits.swift": {
+      "bytes": 1104,
+      "sha256": "3e63d6aaa169cce3a0eb0e0d71c91f5f9507e78d69df424166c32ecf4c938f2f",
+      "git_blob_sha": "09bf1c2ac8a7dff7716eda425bad524385dafb10"
+    },
+    "vreader/Services/Semantic/XML/SemanticXMLNamespace.swift": {
+      "bytes": 3931,
+      "sha256": "cb3696606ffc5d4ec288653a9c2c82bd3e17915bf7046027290160e0431ec510",
+      "git_blob_sha": "98f6e075621d215eb021690fbac11192de78d51f"
+    },
+    "vreader/Services/Semantic/XML/SemanticXMLParser.swift": {
+      "bytes": 2223,
+      "sha256": "11d7dc2230ef316322d49c27ebbc716046776320a4c9c6df58708b126fee8974",
+      "git_blob_sha": "07654ee4bbfdfbde956a35a4f61a27379e9b2162"
+    },
+    "vreader/Services/Semantic/XML/SemanticXMLPreflight.swift": {
+      "bytes": 4262,
+      "sha256": "19ce44bcd7e912e38692dbfcea78788d9696808b191d5ac0460584960cbe5ffa",
+      "git_blob_sha": "1ad6afa3efe5da4afd2c3c9563e66fd64920f9bd"
+    },
+    "vreader/Services/Semantic/XML/SemanticXMLStartTags.swift": {
+      "bytes": 3328,
+      "sha256": "70d0832b3343e07cc6dbe28db7080a50cc39a0305cbcef6f96ffbb26911d39c2",
+      "git_blob_sha": "6086560c06c21856f4596734043f4f82e87a3478"
+    },
+    "vreader/Services/Semantic/XML/SemanticXMLTypes.swift": {
+      "bytes": 1619,
+      "sha256": "dabb3b28ddedb6144404856f4d3a28ffd3091bc40a7742221bbf9cd864b715e8",
+      "git_blob_sha": "1a170d9995e805c762f3b89398a097c20b10549c"
+    },
+    "vreaderTests/Helpers/EPUBPackageFixture.swift": {
+      "bytes": 4414,
+      "sha256": "7f47df4772f661baa6e4fb98946207b1fcd3e2862682b419e19a440d5c5f409e",
+      "git_blob_sha": "f72102d35f2e04fd8033b082fbb864a27a6742e1"
+    },
+    "vreaderTests/Helpers/EPUBSemanticZIPFixture.swift": {
+      "bytes": 6293,
+      "sha256": "f3e51233c1f8081078b0e324e8c703acdf4674c79425383e13ac5be820ba20c4",
+      "git_blob_sha": "8c0f1bfd6b72d2b81c96dc508c5b884ffbb6a4df"
+    },
+    "vreaderTests/Helpers/SemanticXMLProbe.swift": {
+      "bytes": 1330,
+      "sha256": "8f383be3daa8dae31e06460db0afe08f50efc855aa98ea4ca18085d4ca2dcac3",
+      "git_blob_sha": "ab0e98cf290a78c8bf1bde7e38718915b8d32fda"
+    },
+    "vreaderTests/Models/Semantic/SemanticIdentityTests.swift": {
+      "bytes": 8366,
+      "sha256": "30ac15960c8d29b979d6da62194fb996b86c82f276749cfc920c5856d565d04f",
+      "git_blob_sha": "cf1f84a8c9b2ef524edf867e11089e0980ad391b"
+    },
+    "vreaderTests/Models/Semantic/SemanticModelCodableTests.swift": {
+      "bytes": 6367,
+      "sha256": "d747b870327269cea1f4071d71305cbbfdd0815d23a8cd02384240ecead95d9a",
+      "git_blob_sha": "5182c1ad8bacc6480f90689187a59e3437eb5c14"
+    },
+    "vreaderTests/Models/Semantic/SemanticSourceAnchorTests.swift": {
+      "bytes": 5989,
+      "sha256": "8cbaade96be521b8c609be947af2966ae6425a65c5c86aa63a616c29fcfc33b5",
+      "git_blob_sha": "55585ade5902f5dbc2f0303790a4504caea7494c"
+    },
+    "vreaderTests/Services/Semantic/EPUB/EPUBSemanticResourceReaderTests.swift": {
+      "bytes": 6530,
+      "sha256": "208c657222cf31035c985558a19f12023047bd3007f661f603f0ecf2861e5a94",
+      "git_blob_sha": "c8c817f7c0a728f73ba536c063fd9e763bc17a91"
+    },
+    "vreaderTests/Services/Semantic/EPUB/EPUBSourceBudgetTests.swift": {
+      "bytes": 9628,
+      "sha256": "24bf1a4241d3dda0c9b8b01937efb6a0f3b8ff6f6c5de85c259d54084e09c47a",
+      "git_blob_sha": "02dfbb73979a5b937f508a2b4dce65850098d117"
+    },
+    "vreaderTests/Services/Semantic/EPUB/EPUBSourceZIPValidationTests.swift": {
+      "bytes": 5095,
+      "sha256": "06c201568e6d11e8a5da596500bb69b33900d0a116f0e19c6b78d24c95ebef3e",
+      "git_blob_sha": "65437c49d3fc7aa54b6efb1ed83d9c5432fadb56"
+    },
+    "vreaderTests/Services/Semantic/Package/EPUBPackageDecoderTests.swift": {
+      "bytes": 11905,
+      "sha256": "55dd6be8a611a055798b219e744152be076f18bf101814a3477a5e80accfd5cc",
+      "git_blob_sha": "6c75d3ec87adf789d107e6e9b7f19faac5df10f6"
+    },
+    "vreaderTests/Services/Semantic/Package/EPUBPackageLoaderTests.swift": {
+      "bytes": 10754,
+      "sha256": "10835d63737759d2ad0fe3e83b7e7ceb8b37e3f26b3e6e3fecb70b71678fc3b8",
+      "git_blob_sha": "5bbfdc3575782805bda0d271b62820bf7ad0ce3a"
+    },
+    "vreaderTests/Services/Semantic/Package/EPUBPackageReferenceTests.swift": {
+      "bytes": 3009,
+      "sha256": "c4c35ee800c436246d50cfc5e700e5208ab44b738b89c46c899a0e9558ef8590",
+      "git_blob_sha": "b061d684823d2b371edf082a5e39d634cb1287bc"
+    },
+    "vreaderTests/Services/Semantic/XML/SemanticXMLCancellationTests.swift": {
+      "bytes": 2708,
+      "sha256": "11513ac9a838a4ff8633e4f0b3ef009a4e9e612cc597db0bae182d7fbf9b53fa",
+      "git_blob_sha": "b0257b32052fdd6f0242cff1a485a90590377505"
+    },
+    "vreaderTests/Services/Semantic/XML/SemanticXMLParserTests.swift": {
+      "bytes": 6159,
+      "sha256": "b565f0b188650f8c577d2c9d2438f833ee99a667c2bc02c0499719504308f149",
+      "git_blob_sha": "8b28fa62ac37b62eee1b8155a4146945e69b1560"
+    },
+    "vreaderTests/Services/Semantic/XML/SemanticXMLSafetyTests.swift": {
+      "bytes": 6308,
+      "sha256": "e423166ebc8170690fdac67c5e605d5de08d80d18b4743e7288c41fd6da211e3",
+      "git_blob_sha": "78c7d7a5105ebfaee5ba16ffcaa5652d361ce0bd"
+    }
+  }
+}

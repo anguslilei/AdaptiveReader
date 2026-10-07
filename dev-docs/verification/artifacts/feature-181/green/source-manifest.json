@@ -1,0 +1,62 @@
+{
+  "vreader/Models/Semantic/SemanticArchivePath.swift": {
+    "bytes": 1367,
+    "sha256": "8d18a3137757d68a458ea7cb7039c033cda015c42b7acb480358ebc919414f5d",
+    "git_blob_sha": "ce6d2d45d701b297f4bea04cb2f8dbbb2e77a8ef"
+  },
+  "vreader/Models/Semantic/SemanticID.swift": {
+    "bytes": 3779,
+    "sha256": "fe955680455f02c3b2c9a43acaa837f91946e479e0beab9b4f6272c8974326e2",
+    "git_blob_sha": "07485d9bcff24f35e80afc3bbc103ab6da9bf3ed"
+  },
+  "vreader/Models/Semantic/SemanticLogicalAnchor.swift": {
+    "bytes": 1521,
+    "sha256": "c716b6c4d2dd6b1a012bbbdb330fa45bc707e3c64d433e6e0ac9e326cf2ce9e9",
+    "git_blob_sha": "905e0a833d77c2802f02365c3b2d2ad45e154d8b"
+  },
+  "vreader/Models/Semantic/SemanticModelError.swift": {
+    "bytes": 241,
+    "sha256": "d336058b200d86e148a573380e0b01c55e0f7ce609261d72adcb89f5c275bfd4",
+    "git_blob_sha": "1a12b0486aa7a5ac7efea5bdde4da1b8f0ed3e02"
+  },
+  "vreader/Models/Semantic/SemanticNodePath.swift": {
+    "bytes": 1084,
+    "sha256": "f4feb854ae56628248d0496bc571caef80e0f30012a4522e14cf5c3e46336979",
+    "git_blob_sha": "1dbbe04ec2228189395dce92eb73f7173f242e95"
+  },
+  "vreader/Models/Semantic/SemanticResourceIdentity.swift": {
+    "bytes": 322,
+    "sha256": "18472aac109761209410ecbe34b13f1e821dd325ead437bbf643a68a92a31079",
+    "git_blob_sha": "90d445b6cf36ef1f09aee755b5f02bdaa8d7e8c8"
+  },
+  "vreader/Models/Semantic/SemanticRevision.swift": {
+    "bytes": 1228,
+    "sha256": "25a8dc12094d13a994727d18807e6878e7b4f37347d8dfc0b5269d627930c449",
+    "git_blob_sha": "a5b4ed794eec91aea533b18e623b273486f06f0e"
+  },
+  "vreader/Models/Semantic/SemanticSHA256.swift": {
+    "bytes": 1284,
+    "sha256": "0f60263cd065415f29cc13edec212fb8ade7c5d02b732b642de850f65a7949da",
+    "git_blob_sha": "ba5810857c4ed602764a68afd4ada5cb03bede5d"
+  },
+  "vreader/Models/Semantic/SemanticUTF16Range.swift": {
+    "bytes": 1630,
+    "sha256": "b4c7de71deecf31b2f49f4c5418cdf0429f2090d342b1c804e392d6b5eec6c4a",
+    "git_blob_sha": "408e8ef0913904e19cbec6f59a8ae64a56b0b219"
+  },
+  "vreaderTests/Models/Semantic/SemanticIdentityTests.swift": {
+    "bytes": 8366,
+    "sha256": "30ac15960c8d29b979d6da62194fb996b86c82f276749cfc920c5856d565d04f",
+    "git_blob_sha": "cf1f84a8c9b2ef524edf867e11089e0980ad391b"
+  },
+  "vreaderTests/Models/Semantic/SemanticModelCodableTests.swift": {
+    "bytes": 6367,
+    "sha256": "d747b870327269cea1f4071d71305cbbfdd0815d23a8cd02384240ecead95d9a",
+    "git_blob_sha": "5182c1ad8bacc6480f90689187a59e3437eb5c14"
+  },
+  "vreaderTests/Models/Semantic/SemanticSourceAnchorTests.swift": {
+    "bytes": 5989,
+    "sha256": "8cbaade96be521b8c609be947af2966ae6425a65c5c86aa63a616c29fcfc33b5",
+    "git_blob_sha": "55585ade5902f5dbc2f0303790a4504caea7494c"
+  }
+}

@@ -1,0 +1,172 @@
+Building for debugging...
+[0/7] Write sources
+[0/7] /private/var/folders/nj/vtw8zd2j31d1gdrtntc5y4600000gn/T/semantic-model-contract.XXXXXX.XUFwAcVJTW/.build/arm64-apple-macosx/debug/SemanticModelContractPackageTests.derived/runner.swift
+[0/7] Write sources
+[4/7] Write swift-version-1977FEB4D2752686.txt
+[6/14] Compiling vreader SemanticModelError.swift
+[7/14] Compiling vreader SemanticNodePath.swift
+[8/14] Compiling vreader SemanticResourceIdentity.swift
+[9/17] Emitting module vreader
+[10/17] Compiling vreader SemanticArchivePath.swift
+[11/17] Compiling vreader SemanticID.swift
+[12/17] Compiling vreader SemanticLogicalAnchor.swift
+[13/17] Compiling vreader SemanticRevision.swift
+[14/17] Compiling vreader SemanticSHA256.swift
+[15/17] Compiling vreader SemanticUTF16Range.swift
+[16/20] Compiling vreaderTests SemanticIdentityTests.swift
+[17/20] Compiling vreaderTests SemanticModelCodableTests.swift
+[18/20] Emitting module vreaderTests
+[19/21] Compiling vreaderTests SemanticSourceAnchorTests.swift
+[20/23] Emitting module SemanticModelContractPackageTests
+[21/23] Compiling SemanticModelContractPackageTests runner.swift
+[21/23] Write Objects.LinkFileList
+[22/23] Linking SemanticModelContractPackageTests
+Build complete! (14.02s)
+Test Suite 'All tests' started at 2026-10-06 00:18:49.633.
+Test Suite 'All tests' passed at 2026-10-06 00:18:49.638.
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.000 (0.005) seconds
+◇ Test run started.
+↳ Testing Library Version: 1501
+↳ Target Platform: arm64e-apple-macos14.0
+◇ Suite "Semantic identity canonical bytes" started.
+◇ Suite "Semantic model validated decoding" started.
+◇ Suite "Semantic logical source anchors" started.
+◇ Test invalidOrdinalRejected(_:) started.
+◇ Test independentBlockVector() started.
+◇ Test literalUnicodeNormalizationHasSeparateIdentity() started.
+◇ Test nilAndEmptyRangesAreDifferentTuples() started.
+◇ Test unicodeDelimiterAndNumericMaximumVector() started.
+◇ Test invalidSectionOccurrenceRejected(_:) started.
+◇ Test independentRevisionVector() started.
+◇ Test everyTupleFieldSeparatesCanonicalIdentity() started.
+◇ Test repeatableConcurrentFactories() started.
+◇ Test independentSectionVector() started.
+◇ Test case passing 1 argument n → -1 to invalidOrdinalRejected(_:) started.
+◇ Test case passing 1 argument n → 9223372036854775807 to invalidOrdinalRejected(_:) started.
+◇ Test case passing 1 argument n → 4294967296 to invalidOrdinalRejected(_:) started.
+◇ Test frozenRolesAndUnknownTags() started.
+◇ Test maximumTextRangeIsAccepted() started.
+◇ Test rangeDecodeRunsValidation(_:) started.
+◇ Test anchorsRemainLogicalSyntax() started.
+◇ Test invalidPathsRejected(_:) started.
+◇ Test malformedPathsCannotDecode(_:) started.
+◇ Test case passing 1 argument n → -1 to invalidSectionOccurrenceRejected(_:) started.
+◇ Test anchorDecodeAndDerivedCoordinateSystem() started.
+◇ Test digestPayloadIsExactly32RawBytes() started.
+◇ Test boundedNodeDecoderRejectsInvalidSlotsAndLength() started.
+◇ Test rangeSyntaxAtBounds(_:_:) started.
+◇ Test unknownSchemaRejected(_:) started.
+◇ Test pathByteCeilingAndLiteralEquality() started.
+◇ Test malformedDigestAndIDCannotDecode(_:) started.
+◇ Test boundedChildSlotsAndRoot() started.
+◇ Test allModelsRoundTripWithLiteralUnicode() started.
+◇ Test case passing 1 argument n → 4096 to invalidSectionOccurrenceRejected(_:) started.
+◇ Test surrogateSplitsRejectedButScalarBoundariesAllowed() started.
+◇ Test validLookingIDIsOnlyValidatedSpelling() started.
+◇ Test invalidAndMissingRevisionFieldsRejected() started.
+◇ Test invalidRangeSyntax(_:_:) started.
+◇ Test alreadyResolvedFilenamesRetainLiteralBytes(_:) started.
+◇ Test case passing 1 argument n → 9223372036854775807 to invalidSectionOccurrenceRejected(_:) started.
+◇ Test invalidExtractorVersion(_:) started.
+◇ Test digestRejectsNoncanonicalSpelling(_:) started.
+✔ Test invalidOrdinalRejected(_:) with 3 test cases passed after 0.003 seconds.
+✔ Test nilAndEmptyRangesAreDifferentTuples() passed after 0.003 seconds.
+✔ Test independentBlockVector() passed after 0.003 seconds.
+✔ Test unicodeDelimiterAndNumericMaximumVector() passed after 0.003 seconds.
+✔ Test independentRevisionVector() passed after 0.003 seconds.
+✔ Test literalUnicodeNormalizationHasSeparateIdentity() passed after 0.003 seconds.
+◇ Test case passing 1 argument json → "{}" to rangeDecodeRunsValidation(_:) started.
+◇ Test case passing 1 argument json → "null" to rangeDecodeRunsValidation(_:) started.
+◇ Test case passing 1 argument json → "{"lowerBound":-1,"upperBound":0}" to rangeDecodeRunsValidation(_:) started.
+◇ Test case passing 1 argument json → "{"lowerBound":3,"upperBound":2}" to rangeDecodeRunsValidation(_:) started.
+◇ Test case passing 1 argument json → "{"lowerBound":0,"upperBound":2097153}" to rangeDecodeRunsValidation(_:) started.
+◇ Test case passing 1 argument json → "{"lowerBound":0,"upperBound":9223372036854775808}" to rangeDecodeRunsValidation(_:) started.
+◇ Test case passing 1 argument json → "{"lowerBound":null,"upperBound":1}" to rangeDecodeRunsValidation(_:) started.
+◇ Test case passing 1 argument json → "{"lowerBound":0,"upperBound":"1"}" to rangeDecodeRunsValidation(_:) started.
+◇ Test case passing 1 argument path → "" to invalidPathsRejected(_:) started.
+◇ Test case passing 1 argument path → "/a" to invalidPathsRejected(_:) started.
+◇ Test case passing 1 argument path → "a/" to invalidPathsRejected(_:) started.
+◇ Test case passing 1 argument path → "a//b" to invalidPathsRejected(_:) started.
+◇ Test case passing 1 argument path → "." to invalidPathsRejected(_:) started.
+◇ Test case passing 1 argument path → ".." to invalidPathsRejected(_:) started.
+◇ Test case passing 1 argument path → "a/./b" to invalidPathsRejected(_:) started.
+◇ Test case passing 1 argument path → "a/../b" to invalidPathsRejected(_:) started.
+◇ Test case passing 1 argument path → "a\b" to invalidPathsRejected(_:) started.
+◇ Test case passing 1 argument path → "a:b" to invalidPathsRejected(_:) started.
+◇ Test case passing 1 argument path → "a◇ Test case passing 1 argument path → "ab" to invalidPathsRejected(_:) started.
+◇ Test case passing 1 argument path → "ab" to invalidPathsRejected(_:) started.
+◇ Test case passing 1 argument path → "/́a" to invalidPathsRejected(_:) started.
+◇ Test case passing 1 argument path → "a//́b" to invalidPathsRejected(_:) started.
+◇ Test case passing 1 argument path → "a/.. /../b" to invalidPathsRejected(_:) started.
+◇ Test case passing 1 argument json → "null" to malformedPathsCannotDecode(_:) started.
+◇ Test case passing 1 argument json → "42" to malformedPathsCannotDecode(_:) started.
+◇ Test case passing 1 argument json → "{}" to malformedPathsCannotDecode(_:) started.
+◇ Test case passing 1 argument json → """" to malformedPathsCannotDecode(_:) started.
+◇ Test case passing 1 argument json → ""/a"" to malformedPathsCannotDecode(_:) started.
+◇ Test case passing 1 argument json → ""a//b"" to malformedPathsCannotDecode(_:) started.
+◇ Test case passing 1 argument json → ""a/../b"" to malformedPathsCannotDecode(_:) started.
+✔ Test invalidSectionOccurrenceRejected(_:) with 3 test cases passed after 0.007 seconds.
+◇ Test case passing 2 arguments lower → 0, upper → 0 to rangeSyntaxAtBounds(_:_:) started.
+◇ Test case passing 2 arguments lower → 0, upper → 2097152 to rangeSyntaxAtBounds(_:_:) started.
+◇ Test case passing 2 arguments lower → 2097152, upper → 2097152 to rangeSyntaxAtBounds(_:_:) started.
+◇ Test case passing 1 argument n → 0 to unknownSchemaRejected(_:) started.
+◇ Test case passing 1 argument n → 2 to unknownSchemaRejected(_:) started.
+◇ Test case passing 1 argument n → -1 to unknownSchemaRejected(_:) started.
+◇ Test case passing 1 argument n → 9223372036854775807 to unknownSchemaRejected(_:) started.
+◇ Test case passing 1 argument json → "null" to malformedDigestAndIDCannotDecode(_:) started.
+◇ Test case passing 1 argument json → "12" to malformedDigestAndIDCannotDecode(_:) started.
+◇ Test case passing 1 argument json → "{}" to malformedDigestAndIDCannotDecode(_:) started.
+◇ Test case passing 1 argument json → """" to malformedDigestAndIDCannotDecode(_:) started.
+◇ Test case passing 1 argument json → ""AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"" to malformedDigestAndIDCannotDecode(_:) started.
+◇ Test case passing 1 argument json → ""gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg"" to malformedDigestAndIDCannotDecode(_:) started.
+✔ Test everyTupleFieldSeparatesCanonicalIdentity() passed after 0.010 seconds.
+◇ Test case passing 1 argument path → "OPS/章节😀.xhtml" to alreadyResolvedFilenamesRetainLiteralBytes(_:) started.
+◇ Test case passing 1 argument path → "OPS/שלום.xhtml" to alreadyResolvedFilenamesRetainLiteralBytes(_:) started.
+◇ Test case passing 2 arguments lower → -1, upper → 0 to invalidRangeSyntax(_:_:) started.
+◇ Test case passing 1 argument path → "a%2Fb%20c" to alreadyResolvedFilenamesRetainLiteralBytes(_:) started.
+◇ Test case passing 1 argument path → "a?#b" to alreadyResolvedFilenamesRetainLiteralBytes(_:) started.
+◇ Test case passing 2 arguments lower → 2, upper → 1 to invalidRangeSyntax(_:_:) started.
+◇ Test case passing 1 argument path → "a/.. /b" to alreadyResolvedFilenamesRetainLiteralBytes(_:) started.
+◇ Test case passing 1 argument path → "a/́b" to alreadyResolvedFilenamesRetainLiteralBytes(_:) started.
+◇ Test case passing 2 arguments lower → 0, upper → 2097153 to invalidRangeSyntax(_:_:) started.
+✔ Test independentSectionVector() passed after 0.011 seconds.
+◇ Test case passing 1 argument path → "a b" to alreadyResolvedFilenamesRetainLiteralBytes(_:) started.
+◇ Test case passing 2 arguments lower → 0, upper → 9223372036854775807 to invalidRangeSyntax(_:_:) started.
+◇ Test case passing 1 argument path → "A/a" to alreadyResolvedFilenamesRetainLiteralBytes(_:) started.
+◇ Test case passing 1 argument n → 0 to invalidExtractorVersion(_:) started.
+◇ Test case passing 1 argument n → -1 to invalidExtractorVersion(_:) started.
+◇ Test case passing 1 argument n → 4294967296 to invalidExtractorVersion(_:) started.
+◇ Test case passing 1 argument n → 9223372036854775807 to invalidExtractorVersion(_:) started.
+◇ Test case passing 1 argument value → "" to digestRejectsNoncanonicalSpelling(_:) started.
+◇ Test case passing 1 argument value → "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" to digestRejectsNoncanonicalSpelling(_:) started.
+◇ Test case passing 1 argument value → "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" to digestRejectsNoncanonicalSpelling(_:) started.
+◇ Test case passing 1 argument value → "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" to digestRejectsNoncanonicalSpelling(_:) started.
+◇ Test case passing 1 argument value → "gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg" to digestRejectsNoncanonicalSpelling(_:) started.
+◇ Test case passing 1 argument value → "éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé" to digestRejectsNoncanonicalSpelling(_:) started.
+✔ Test frozenRolesAndUnknownTags() passed after 0.009 seconds.
+✔ Test rangeDecodeRunsValidation(_:) with 8 test cases passed after 0.009 seconds.
+✔ Test anchorsRemainLogicalSyntax() passed after 0.009 seconds.
+✔ Test invalidPathsRejected(_:) with 16 test cases passed after 0.009 seconds.
+✔ Test malformedPathsCannotDecode(_:) with 7 test cases passed after 0.009 seconds.
+✔ Test digestPayloadIsExactly32RawBytes() passed after 0.009 seconds.
+✔ Test anchorDecodeAndDerivedCoordinateSystem() passed after 0.009 seconds.
+✔ Test rangeSyntaxAtBounds(_:_:) with 3 test cases passed after 0.009 seconds.
+✔ Test unknownSchemaRejected(_:) with 4 test cases passed after 0.009 seconds.
+✔ Test pathByteCeilingAndLiteralEquality() passed after 0.009 seconds.
+✔ Test malformedDigestAndIDCannotDecode(_:) with 6 test cases passed after 0.009 seconds.
+✔ Test boundedNodeDecoderRejectsInvalidSlotsAndLength() passed after 0.009 seconds.
+✔ Test boundedChildSlotsAndRoot() passed after 0.009 seconds.
+✔ Test surrogateSplitsRejectedButScalarBoundariesAllowed() passed after 0.009 seconds.
+✔ Test validLookingIDIsOnlyValidatedSpelling() passed after 0.009 seconds.
+✔ Test allModelsRoundTripWithLiteralUnicode() passed after 0.009 seconds.
+✔ Test alreadyResolvedFilenamesRetainLiteralBytes(_:) with 8 test cases passed after 0.009 seconds.
+✔ Test invalidRangeSyntax(_:_:) with 4 test cases passed after 0.009 seconds.
+✔ Test invalidExtractorVersion(_:) with 4 test cases passed after 0.009 seconds.
+✔ Test digestRejectsNoncanonicalSpelling(_:) with 6 test cases passed after 0.009 seconds.
+✔ Test repeatableConcurrentFactories() passed after 0.012 seconds.
+✔ Test invalidAndMissingRevisionFieldsRejected() passed after 0.009 seconds.
+✔ Suite "Semantic identity canonical bytes" passed after 0.012 seconds.
+✔ Suite "Semantic model validated decoding" passed after 0.012 seconds.
+✔ Test maximumTextRangeIsAccepted() passed after 0.030 seconds.
+✔ Suite "Semantic logical source anchors" passed after 0.032 seconds.
+✔ Test run with 32 tests in 3 suites passed after 0.033 seconds.

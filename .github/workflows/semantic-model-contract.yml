@@ -1,0 +1,43 @@
+name: Native semantic model contract
+on:
+  push:
+    branches: ['feature/181-native-semantic-identities']
+    paths: ['vreader/Models/Semantic/**', 'vreaderTests/Models/Semantic/**', 'scripts/test-semantic-model-contract.sh', '.github/workflows/semantic-model-contract.yml', 'scripts/semantic-model-vectors.py', 'dev-docs/verification/artifacts/feature-181/identity-vectors.json']
+  pull_request:
+    branches: [main]
+    paths: ['vreader/Models/Semantic/**', 'vreaderTests/Models/Semantic/**', 'scripts/test-semantic-model-contract.sh', '.github/workflows/semantic-model-contract.yml', 'scripts/semantic-model-vectors.py', 'dev-docs/verification/artifacts/feature-181/identity-vectors.json']
+permissions:
+  contents: read
+concurrency:
+  group: semantic-model-${{ github.head_ref || github.ref_name }}
+  cancel-in-progress: true
+jobs:
+  contract:
+    runs-on: macos-15
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Select native Swift toolchain
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re, os
+          paths = [(tuple(map(int, m[1].split('.'))), p) for p in Path('/Applications').glob('Xcode_*.app') if (m := re.fullmatch(r'Xcode_([0-9.]+)\.app', p.name))]
+          if not paths: raise SystemExit('No stable Xcode toolchain')
+          with open(os.environ['GITHUB_ENV'], 'a') as f:
+              f.write(f'DEVELOPER_DIR={max(paths)[1]}/Contents/Developer\n')
+          PY
+      - name: Real semantic model contracts
+        run: bash scripts/test-semantic-model-contract.sh
+      - name: Independent identity vectors
+        run: python3 scripts/semantic-model-vectors.py --check
+      - name: Keep unmodified contract evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: semantic-model-contract-${{ github.sha }}
+          path: evidence/
+          retention-days: 7
+          if-no-files-found: error
