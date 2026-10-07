@@ -8,4 +8,12 @@ struct SemanticXHTMLLimits: Sendable {
          runs: Int = 16384, outputUTF16: Int = 2 * 1024 * 1024) {
         self.xml = xml; self.blocks = blocks; self.runs = runs; self.outputUTF16 = outputUTF16
     }
+    func validate() throws {
+        try xml.validate()
+        let caps = SemanticXHTMLLimits()
+        guard blocks > 0, blocks <= caps.blocks, runs > 0, runs <= caps.runs,
+              outputUTF16 > 0, outputUTF16 <= caps.outputUTF16 else {
+            throw SemanticXHTMLError.invalidLimits
+        }
+    }
 }
