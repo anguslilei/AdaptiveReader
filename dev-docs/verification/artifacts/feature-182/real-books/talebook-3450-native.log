@@ -1,0 +1,6 @@
+PACKAGE archive=8dad01c39ff23fb715259fe1ee4f435ebe28b2063d5c0eeee678a1a9598f674f spine=41
+CHAPTER occurrence=0 path=OEBPS/Text/titlepage.xhtml rejected=forbiddenDTD
+CHAPTER occurrence=1 path=OEBPS/Text/Section001.html rejected=forbiddenDTD
+CHAPTER occurrence=3 path=OEBPS/Text/Section003.xhtml rejected=forbiddenDTD
+CHAPTER occurrence=8 path=OEBPS/Text/Section008.xhtml rejected=forbiddenDTD
+CHAPTER occurrence=20 path=OEBPS/Text/Chapter012.html rejected=forbiddenDTD

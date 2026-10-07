@@ -980,3 +980,31 @@ This layer adds no chapter parser, normalized/source text map, byte-offset map,
 browser DOM/XPath/CFI, UI/AI/renderer route, storage migration or Android contract.
 Source-only Swift6 tests and the native model lane cover immutable contracts;
 production reader reachability requires a later behavioral feature.
+
+## Bounded single-resource XHTML extraction (feature182)
+
+`Services/Semantic/XHTML/SemanticXHTMLExtractor` consumes one original resource
+DTO from the semantic byte reader and a spine occurrence. A detached per-call
+worker validates finite lowerable XML/output limits, recomputes the raw resource
+digest through the real XML parser, and creates immutable section/block/text-run
+values using feature181 IDs. Cancellation forwards to actual parsing/traversal;
+failed or cancelled work publishes no partial section.
+
+A strict XHTML html/body structure yields flat preorder blocks with nearest emitted
+ancestor indices. Headings, paragraphs, quotes, lists/items, figures and captions
+are classified; transparent wrappers pass through. Unsupported/foreign elements
+(including tables, SVG, MathML, images and scripts) remain whole-node opaque
+references. Text runs preserve logical XML text and whole text-node UTF16 ranges,
+without normalization or duplicate ownership. Parent runs can surround child
+blocks; concatenated block text is not a rendered reading stream. Anchors count
+all logical child slots and are neither original byte offsets nor browser CFIs.
+Inline styling/link targets, list numbering, image metadata and CSS visibility
+are deliberately deferred. No asset/script/network execution occurs.
+
+XML caps remain4MiB input/50000 nodes/depth96/2Mi UTF16. Independent semantic
+caps are4096 blocks/16384 runs/2Mi retained textUTF16; callers may only lower them.
+These bound retained data and traversal, not exact RSS or wall time. A resource DTO
+alone cannot prove archive/spine membership; callers composing package→resource
+must reopen with the package's expected archive digest. No production reader,
+import, AI, UI, persistence or Android call site is added. The utility stays
+foundational, with its plan and evidence under feature182 in dev-docs/.

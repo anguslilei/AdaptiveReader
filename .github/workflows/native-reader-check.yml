@@ -1,7 +1,7 @@
 name: Reader and semantic source native regression
 on:
   push:
-    branches: ['fix/376-epub-view-typecheck', 'feature/178-native-epub-source-reader', 'feature/179-bounded-semantic-xml', 'feature/180-native-epub-package', 'feature/181-native-semantic-identities']
+    branches: ['fix/376-epub-view-typecheck', 'feature/178-native-epub-source-reader', 'feature/179-bounded-semantic-xml', 'feature/180-native-epub-package', 'feature/181-native-semantic-identities', 'codex/bounded-xhtml-semantics']
   pull_request:
     branches: ['feature/177-epub-semantic-source-spike', 'feature/178-native-epub-source-reader', main]
 permissions:
@@ -58,7 +58,10 @@ jobs:
           xcodegen --version > preparation/generator-version.txt
           git rev-parse HEAD > preparation/input-commit.txt
           "$SEMANTIC_VERSION_PYTHON" -c 'import yaml; print(yaml.__version__)' > preparation/pyyaml-version.txt
-          if [ "$SOURCE_BRANCH" = 'feature/181-native-semantic-identities' ]; then
+          if [ "$SOURCE_BRANCH" = 'codex/bounded-xhtml-semantics' ]; then
+            SEMANTIC_VERSION_BASELINE=bfe162c85ac2ef3349f97cfc5d0bea5885033eb1
+          fi
+          if [ "$SOURCE_BRANCH" = 'feature/181-native-semantic-identities' ] || [ "$SOURCE_BRANCH" = 'codex/bounded-xhtml-semantics' ]; then
             git fetch --no-tags --depth=1 origin main
             SEMANTIC_BASELINE_SHA="$(git rev-parse FETCH_HEAD)"
             if [ "$SEMANTIC_BASELINE_SHA" != "$SEMANTIC_VERSION_BASELINE" ]; then

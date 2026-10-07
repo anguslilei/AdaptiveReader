@@ -7,7 +7,7 @@ common = ['debug-build.log', 'release-build.log', 'devices.json', 'generator-ver
           'input-commit.txt', 'project.pbxproj', 'project.yml', 'test-udid.txt',
           'xcode-version.txt', 'test-xcode-version.txt', 'version-baseline-sha.txt',
           'version-baseline.yml', 'version-allocation.json', 'pyyaml-version.txt']
-lane_files = [f'{lane}-test-{suffix}' for lane in ['base', 'package', 'model']
+lane_files = [f'{lane}-test-{suffix}' for lane in ['base', 'package', 'model', 'xhtml']
               for suffix in ['command-status.txt', 'full.log', 'result-path.txt',
                              'start.txt', 'summary.json', 'tree.json', 'wrapper.log']]
 members, missing = {}, []
@@ -29,6 +29,7 @@ source_paths = sorted(set(
                       'scripts/export-native-package-evidence.py', '.github/workflows/epub-package-contract.yml',
                       '.github/workflows/native-reader-check.yml', 'scripts/test-semantic-model-contract.sh',
                       '.github/workflows/semantic-model-contract.yml', 'scripts/semantic-model-vectors.py',
+                      'scripts/test-semantic-xhtml-contract.sh', '.github/workflows/semantic-xhtml-contract.yml',
                       'scripts/prepare-semantic-version.py', 'scripts/__tests__/prepare-semantic-version.test.py',
                       'dev-docs/verification/artifacts/feature-181/identity-vectors.json']]))
 expected_models = ['SemanticModelError', 'SemanticSHA256', 'SemanticArchivePath',
@@ -37,6 +38,10 @@ expected_models = ['SemanticModelError', 'SemanticSHA256', 'SemanticArchivePath'
 expected_tests = ['SemanticIdentityTests', 'SemanticSourceAnchorTests', 'SemanticModelCodableTests']
 required = ([Path('vreader/Models/Semantic') / (n + '.swift') for n in expected_models] +
             [Path('vreaderTests/Models/Semantic') / (n + '.swift') for n in expected_tests])
+required += [Path('vreader/Services/Semantic/XHTML') / (n + '.swift') for n in
+             ['SemanticXHTMLTypes', 'SemanticXHTMLLimits', 'SemanticXHTMLExtractor', 'SemanticXHTMLWalker', 'SemanticXHTMLPolicy']]
+required += [Path('vreaderTests/Services/Semantic/XHTML') / (n + '.swift') for n in
+             ['SemanticXHTMLStructureTests', 'SemanticXHTMLSafetyTests', 'SemanticXHTMLIntegrationTests', 'SemanticXHTMLTestSupport']]
 if any(not p.is_file() for p in source_paths + required):
     raise SystemExit('Missing named source/tool/vector evidence path')
 source = subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip()

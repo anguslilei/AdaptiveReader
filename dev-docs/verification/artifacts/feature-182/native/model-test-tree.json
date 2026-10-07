@@ -1,0 +1,812 @@
+{
+  "devices" : [
+    {
+      "architecture" : "x86_64",
+      "deviceId" : "99BB5C6E-8128-407C-8EAF-A95572B81770",
+      "deviceName" : "iPhone 17 Pro",
+      "modelName" : "iPhone 17 Pro",
+      "osBuildNumber" : "23C54",
+      "osVersion" : "26.2",
+      "platform" : "iOS Simulator"
+    }
+  ],
+  "testNodes" : [
+    {
+      "children" : [
+        {
+          "children" : [
+            {
+              "children" : [
+                {
+                  "name" : "nilAndEmptyRangesAreDifferentTuples()",
+                  "nodeIdentifier" : "SemanticIdentityTests/nilAndEmptyRangesAreDifferentTuples()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticIdentityTests/nilAndEmptyRangesAreDifferentTuples()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "unicodeDelimiterAndNumericMaximumVector()",
+                  "nodeIdentifier" : "SemanticIdentityTests/unicodeDelimiterAndNumericMaximumVector()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticIdentityTests/unicodeDelimiterAndNumericMaximumVector()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "literalUnicodeNormalizationHasSeparateIdentity()",
+                  "nodeIdentifier" : "SemanticIdentityTests/literalUnicodeNormalizationHasSeparateIdentity()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticIdentityTests/literalUnicodeNormalizationHasSeparateIdentity()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "repeatableConcurrentFactories()",
+                  "nodeIdentifier" : "SemanticIdentityTests/repeatableConcurrentFactories()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticIdentityTests/repeatableConcurrentFactories()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "everyTupleFieldSeparatesCanonicalIdentity()",
+                  "nodeIdentifier" : "SemanticIdentityTests/everyTupleFieldSeparatesCanonicalIdentity()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticIdentityTests/everyTupleFieldSeparatesCanonicalIdentity()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "independentSectionVector()",
+                  "nodeIdentifier" : "SemanticIdentityTests/independentSectionVector()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticIdentityTests/independentSectionVector()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "independentRevisionVector()",
+                  "nodeIdentifier" : "SemanticIdentityTests/independentRevisionVector()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticIdentityTests/independentRevisionVector()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "independentBlockVector()",
+                  "nodeIdentifier" : "SemanticIdentityTests/independentBlockVector()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticIdentityTests/independentBlockVector()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "children" : [
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "-1",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "4294967296",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "9223372036854775807",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    }
+                  ],
+                  "name" : "invalidOrdinalRejected(_:)",
+                  "nodeIdentifier" : "SemanticIdentityTests/invalidOrdinalRejected(_:)",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticIdentityTests/invalidOrdinalRejected(_:)",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "children" : [
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "-1",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "4096",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "9223372036854775807",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    }
+                  ],
+                  "name" : "invalidSectionOccurrenceRejected(_:)",
+                  "nodeIdentifier" : "SemanticIdentityTests/invalidSectionOccurrenceRejected(_:)",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticIdentityTests/invalidSectionOccurrenceRejected(_:)",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                }
+              ],
+              "name" : "Semantic identity canonical bytes",
+              "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticIdentityTests",
+              "nodeType" : "Test Suite",
+              "result" : "Passed"
+            },
+            {
+              "children" : [
+                {
+                  "name" : "surrogateSplitsRejectedButScalarBoundariesAllowed()",
+                  "nodeIdentifier" : "SemanticSourceAnchorTests/surrogateSplitsRejectedButScalarBoundariesAllowed()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticSourceAnchorTests/surrogateSplitsRejectedButScalarBoundariesAllowed()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "digestPayloadIsExactly32RawBytes()",
+                  "nodeIdentifier" : "SemanticSourceAnchorTests/digestPayloadIsExactly32RawBytes()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticSourceAnchorTests/digestPayloadIsExactly32RawBytes()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "pathByteCeilingAndLiteralEquality()",
+                  "nodeIdentifier" : "SemanticSourceAnchorTests/pathByteCeilingAndLiteralEquality()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticSourceAnchorTests/pathByteCeilingAndLiteralEquality()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "maximumTextRangeIsAccepted()",
+                  "nodeIdentifier" : "SemanticSourceAnchorTests/maximumTextRangeIsAccepted()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticSourceAnchorTests/maximumTextRangeIsAccepted()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "anchorsRemainLogicalSyntax()",
+                  "nodeIdentifier" : "SemanticSourceAnchorTests/anchorsRemainLogicalSyntax()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticSourceAnchorTests/anchorsRemainLogicalSyntax()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "boundedChildSlotsAndRoot()",
+                  "nodeIdentifier" : "SemanticSourceAnchorTests/boundedChildSlotsAndRoot()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticSourceAnchorTests/boundedChildSlotsAndRoot()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "children" : [
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"a b\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"a?#b\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"a/.. /b\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"A/a\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"a/́b\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"a%2Fb%20c\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"OPS/章节😀.xhtml\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"OPS/שלום.xhtml\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    }
+                  ],
+                  "name" : "alreadyResolvedFilenamesRetainLiteralBytes(_:)",
+                  "nodeIdentifier" : "SemanticSourceAnchorTests/alreadyResolvedFilenamesRetainLiteralBytes(_:)",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticSourceAnchorTests/alreadyResolvedFilenamesRetainLiteralBytes(_:)",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "children" : [
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "-1",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "0",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "2",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "9223372036854775807",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    }
+                  ],
+                  "name" : "unknownSchemaRejected(_:)",
+                  "nodeIdentifier" : "SemanticSourceAnchorTests/unknownSchemaRejected(_:)",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticSourceAnchorTests/unknownSchemaRejected(_:)",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "children" : [
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "0, 0",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "0, 2097152",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "2097152, 2097152",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    }
+                  ],
+                  "name" : "rangeSyntaxAtBounds(_:_:)",
+                  "nodeIdentifier" : "SemanticSourceAnchorTests/rangeSyntaxAtBounds(_:_:)",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticSourceAnchorTests/rangeSyntaxAtBounds(_:_:)",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "children" : [
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "-1, 0",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "0, 2097153",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "0, 9223372036854775807",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "2, 1",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    }
+                  ],
+                  "name" : "invalidRangeSyntax(_:_:)",
+                  "nodeIdentifier" : "SemanticSourceAnchorTests/invalidRangeSyntax(_:_:)",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticSourceAnchorTests/invalidRangeSyntax(_:_:)",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "children" : [
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    }
+                  ],
+                  "name" : "digestRejectsNoncanonicalSpelling(_:)",
+                  "nodeIdentifier" : "SemanticSourceAnchorTests/digestRejectsNoncanonicalSpelling(_:)",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticSourceAnchorTests/digestRejectsNoncanonicalSpelling(_:)",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "children" : [
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"..\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\".\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"/a\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"/́a\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"a",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"a:b\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"a/.. /../b\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"a/../b\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"a/./b\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"a/\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"a//b\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"a//́b\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"a\\b\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"a\u001fb\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"ab\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    }
+                  ],
+                  "name" : "invalidPathsRejected(_:)",
+                  "nodeIdentifier" : "SemanticSourceAnchorTests/invalidPathsRejected(_:)",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticSourceAnchorTests/invalidPathsRejected(_:)",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "children" : [
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "-1",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "0",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "4294967296",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "9223372036854775807",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    }
+                  ],
+                  "name" : "invalidExtractorVersion(_:)",
+                  "nodeIdentifier" : "SemanticSourceAnchorTests/invalidExtractorVersion(_:)",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticSourceAnchorTests/invalidExtractorVersion(_:)",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                }
+              ],
+              "name" : "Semantic logical source anchors",
+              "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticSourceAnchorTests",
+              "nodeType" : "Test Suite",
+              "result" : "Passed"
+            },
+            {
+              "children" : [
+                {
+                  "name" : "allModelsRoundTripWithLiteralUnicode()",
+                  "nodeIdentifier" : "SemanticModelCodableTests/allModelsRoundTripWithLiteralUnicode()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticModelCodableTests/allModelsRoundTripWithLiteralUnicode()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "boundedNodeDecoderRejectsInvalidSlotsAndLength()",
+                  "nodeIdentifier" : "SemanticModelCodableTests/boundedNodeDecoderRejectsInvalidSlotsAndLength()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticModelCodableTests/boundedNodeDecoderRejectsInvalidSlotsAndLength()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "anchorDecodeAndDerivedCoordinateSystem()",
+                  "nodeIdentifier" : "SemanticModelCodableTests/anchorDecodeAndDerivedCoordinateSystem()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticModelCodableTests/anchorDecodeAndDerivedCoordinateSystem()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "validLookingIDIsOnlyValidatedSpelling()",
+                  "nodeIdentifier" : "SemanticModelCodableTests/validLookingIDIsOnlyValidatedSpelling()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticModelCodableTests/validLookingIDIsOnlyValidatedSpelling()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "invalidAndMissingRevisionFieldsRejected()",
+                  "nodeIdentifier" : "SemanticModelCodableTests/invalidAndMissingRevisionFieldsRejected()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticModelCodableTests/invalidAndMissingRevisionFieldsRejected()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "frozenRolesAndUnknownTags()",
+                  "nodeIdentifier" : "SemanticModelCodableTests/frozenRolesAndUnknownTags()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticModelCodableTests/frozenRolesAndUnknownTags()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "children" : [
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"\"\"\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"\"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\"\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"\"gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg\"\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"{}\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"12\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"null\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    }
+                  ],
+                  "name" : "malformedDigestAndIDCannotDecode(_:)",
+                  "nodeIdentifier" : "SemanticModelCodableTests/malformedDigestAndIDCannotDecode(_:)",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticModelCodableTests/malformedDigestAndIDCannotDecode(_:)",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "children" : [
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"\"\"\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"\"/a\"\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"\"a/../b\"\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"\"a//b\"\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"{}\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"42\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"null\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    }
+                  ],
+                  "name" : "malformedPathsCannotDecode(_:)",
+                  "nodeIdentifier" : "SemanticModelCodableTests/malformedPathsCannotDecode(_:)",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticModelCodableTests/malformedPathsCannotDecode(_:)",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "children" : [
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"{\"lowerBound\":-1,\"upperBound\":0}\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"{\"lowerBound\":0,\"upperBound\":\"1\"}\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"{\"lowerBound\":0,\"upperBound\":2097153}\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"{\"lowerBound\":0,\"upperBound\":9223372036854775808}\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"{\"lowerBound\":3,\"upperBound\":2}\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"{\"lowerBound\":null,\"upperBound\":1}\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"{}\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"null\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    }
+                  ],
+                  "name" : "rangeDecodeRunsValidation(_:)",
+                  "nodeIdentifier" : "SemanticModelCodableTests/rangeDecodeRunsValidation(_:)",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticModelCodableTests/rangeDecodeRunsValidation(_:)",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                }
+              ],
+              "name" : "Semantic model validated decoding",
+              "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticModelCodableTests",
+              "nodeType" : "Test Suite",
+              "result" : "Passed"
+            }
+          ],
+          "name" : "vreaderTests",
+          "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests",
+          "nodeType" : "Unit test bundle",
+          "result" : "Passed"
+        }
+      ],
+      "name" : "All",
+      "nodeType" : "Test Plan",
+      "result" : "Passed"
+    }
+  ],
+  "testPlanConfigurations" : [
+    {
+      "configurationId" : "1",
+      "configurationName" : "All"
+    }
+  ]
+}

@@ -78,7 +78,10 @@ aliases = {
                 ('EPUBPackageLoaderTests', 'EPUB package source lifecycle')],
     'model': [('SemanticIdentityTests', 'Semantic identity canonical bytes'),
               ('SemanticSourceAnchorTests', 'Semantic logical source anchors'),
-              ('SemanticModelCodableTests', 'Semantic model validated decoding')]
+              ('SemanticModelCodableTests', 'Semantic model validated decoding')],
+    'xhtml': [('SemanticXHTMLStructureTests', 'Semantic XHTML structure'),
+              ('SemanticXHTMLSafetyTests', 'Semantic XHTML safety'),
+              ('SemanticXHTMLIntegrationTests', 'Semantic XHTML integration')]
 }[lane]
 tree = json.loads(Path(f'preparation/{lane}-test-tree.json').read_text())
 for names in aliases:
@@ -116,12 +119,16 @@ run_lane model \
   vreaderTests/SemanticIdentityTests \
   vreaderTests/SemanticSourceAnchorTests \
   vreaderTests/SemanticModelCodableTests
+run_lane xhtml \
+  vreaderTests/SemanticXHTMLStructureTests \
+  vreaderTests/SemanticXHTMLSafetyTests \
+  vreaderTests/SemanticXHTMLIntegrationTests
 python3 - <<'PY'
 from pathlib import Path
 import json
-paths = [Path(f'preparation/{lane}-test-result-path.txt').read_text() for lane in ['base', 'package', 'model']]
-if len(set(paths)) != 3:
+paths = [Path(f'preparation/{lane}-test-result-path.txt').read_text() for lane in ['base', 'package', 'model', 'xhtml']]
+if len(set(paths)) != 4:
     raise SystemExit('Lanes must have distinct completed result bundles')
-summaries = [json.loads(Path(f'preparation/{lane}-test-summary.json').read_text()) for lane in ['base', 'package', 'model']]
-print('All twelve semantic suites passed in three sequential disjoint lanes; distinct tests:', sum(s['totalTestCount'] for s in summaries))
+summaries = [json.loads(Path(f'preparation/{lane}-test-summary.json').read_text()) for lane in ['base', 'package', 'model', 'xhtml']]
+print('All fifteen semantic suites passed in four sequential disjoint lanes; distinct tests:', sum(s['totalTestCount'] for s in summaries))
 PY

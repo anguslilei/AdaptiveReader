@@ -1,0 +1,168 @@
+Building for debugging...
+[0/7] /private/var/folders/qm/g5cmbn7s44b_qw4q626b7wnr0000gn/T/semantic-xhtml-contract.XXXXXX.vHTCfG4ODc/.build/x86_64-apple-macosx/debug/SemanticXHTMLContractPackageTests.derived/runner.swift
+[1/7] Write sources
+[4/7] Write swift-version--58304C5D6DBC2206.txt
+[6/37] Compiling vreader SemanticModelError.swift
+[7/37] Compiling vreader SemanticNodePath.swift
+[8/37] Compiling vreader SemanticResourceIdentity.swift
+[9/37] Compiling vreader SemanticRevision.swift
+[10/37] Compiling vreader EPUBContainerDecoder.swift
+[11/37] Compiling vreader EPUBPackageDecoder.swift
+[12/37] Compiling vreader EPUBPackageLiteralKey.swift
+[13/37] Compiling vreader EPUBPackageReference.swift
+[14/37] Compiling vreader EPUBPackageXMLAccess.swift
+[15/37] Emitting module vreader
+[16/37] Compiling vreader SemanticSHA256.swift
+[17/37] Compiling vreader SemanticUTF16Range.swift
+[18/37] Compiling vreader SemanticXHTMLExtractor.swift
+[19/37] Compiling vreader SemanticXHTMLLimits.swift
+[20/37] Compiling vreader EPUBSourceZIPIndex.swift
+[21/37] Compiling vreader SemanticArchivePath.swift
+[22/37] Compiling vreader SemanticID.swift
+[23/37] Compiling vreader SemanticLogicalAnchor.swift
+[24/37] Compiling vreader EPUBSemanticSourceTypes.swift
+[25/37] Compiling vreader EPUBSourceInflater.swift
+[26/37] Compiling vreader EPUBSourceSnapshot.swift
+[27/37] Compiling vreader EPUBSourceZIPBytes.swift
+[28/37] Compiling vreader SemanticXHTMLTypes.swift
+[29/37] Compiling vreader SemanticXMLBuilder.swift
+[30/37] Compiling vreader SemanticXMLLimits.swift
+[31/37] Compiling vreader SemanticXMLNamespace.swift
+[32/37] Compiling vreader EPUBSemanticPackageLimits.swift
+[33/37] Compiling vreader EPUBSemanticPackageLoader.swift
+[34/37] Compiling vreader EPUBSemanticPackageTypes.swift
+[35/37] Compiling vreader EPUBSemanticResourceReader.swift
+[36/41] Compiling vreader SemanticXMLParser.swift
+[37/41] Compiling vreader SemanticXMLPreflight.swift
+[38/41] Compiling vreader SemanticXMLStartTags.swift
+[39/41] Compiling vreader SemanticXMLTypes.swift
+[40/49] Compiling vreaderTests SemanticXHTMLTestSupport.swift
+[41/49] Compiling vreaderTests SemanticXMLProbe.swift
+[42/49] Compiling vreaderTests EPUBPackageFixture.swift
+[43/49] Compiling vreaderTests SemanticXHTMLSafetyTests.swift
+[44/49] Compiling vreaderTests EPUBSemanticZIPFixture.swift
+[45/49] Compiling vreaderTests SemanticXHTMLIntegrationTests.swift
+[46/49] Emitting module vreaderTests
+[47/49] Compiling vreaderTests SemanticXHTMLStructureTests.swift
+[48/51] Emitting module SemanticXHTMLContractPackageTests
+[49/51] Compiling SemanticXHTMLContractPackageTests runner.swift
+[49/51] Write Objects.LinkFileList
+[50/51] Linking SemanticXHTMLContractPackageTests
+Build complete! (21.60s)
+Test Suite 'All tests' started at 2026-10-07 22:51:58.093.
+Test Suite 'All tests' passed at 2026-10-07 22:51:58.096.
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.000 (0.003) seconds
+◇ Test run started.
+↳ Testing Library Version: 1501
+↳ Target Platform: x86_64-apple-macos14.0
+◇ Suite "Semantic XHTML structure" started.
+◇ Suite "Semantic XHTML integration" started.
+◇ Suite "Semantic XHTML safety" started.
+◇ Test transparentFallbackAndWhitespace() started.
+◇ Test retainedChildSlotsCountCommentsPIAndWhitespace() started.
+◇ Test unsupportedSubtreesAreOpaqueWithoutDescendantLeakage() started.
+◇ Test headingsAndInlineLogicalText() started.
+◇ Test failedExtractionDoesNotPoisonIndependentRequest() started.
+◇ Test replacementBetweenPackageAndReopenRejectsMixedRevision() started.
+◇ Test deterministicIDsBindSourceOccurrenceAndArchive() started.
+◇ Test emptyBodyAndEmptyBlocks() started.
+◇ Test mixedContentKeepsOwnershipWithoutDoubleCounting() started.
+◇ Test prefixedNamespaceAndCaseSensitiveUnknownTags() started.
+◇ Test nestedContainersHaveNearestEmittedParent() started.
+◇ Test unicodeEntitiesCDATAAndNewlinePreserveLogicalScalars() started.
+◇ Test pinnedPackageResourceAndEveryLogicalTextPath() started.
+✘ Test retainedChildSlotsCountCommentsPIAndWhitespace() recorded an issue at SemanticXHTMLStructureTests.swift:43:6: Caught error: invalidDocument
+✘ Test headingsAndInlineLogicalText() recorded an issue at SemanticXHTMLStructureTests.swift:17:6: Caught error: invalidDocument
+✘ Test transparentFallbackAndWhitespace() recorded an issue at SemanticXHTMLStructureTests.swift:61:6: Caught error: invalidDocument
+✘ Test deterministicIDsBindSourceOccurrenceAndArchive() recorded an issue at SemanticXHTMLStructureTests.swift:85:6: Caught error: invalidDocument
+✘ Test emptyBodyAndEmptyBlocks() recorded an issue at SemanticXHTMLStructureTests.swift:8:6: Caught error: invalidDocument
+✘ Test unsupportedSubtreesAreOpaqueWithoutDescendantLeakage() recorded an issue at SemanticXHTMLStructureTests.swift:51:6: Caught error: invalidDocument
+◇ Test invalidDocumentsFail(_:) started.
+✘ Test mixedContentKeepsOwnershipWithoutDoubleCounting() recorded an issue at SemanticXHTMLStructureTests.swift:34:6: Caught error: invalidDocument
+✘ Test prefixedNamespaceAndCaseSensitiveUnknownTags() recorded an issue at SemanticXHTMLStructureTests.swift:78:6: Caught error: invalidDocument
+✘ Test nestedContainersHaveNearestEmittedParent() recorded an issue at SemanticXHTMLStructureTests.swift:27:6: Caught error: invalidDocument
+✘ Test failedExtractionDoesNotPoisonIndependentRequest() recorded an issue at SemanticXHTMLIntegrationTests.swift:58:15: Expectation failed: expected error "blockLimit" of type SemanticXHTMLError, but "invalidDocument" of type SemanticXHTMLError was thrown instead
+✘ Test unicodeEntitiesCDATAAndNewlinePreserveLogicalScalars() recorded an issue at SemanticXHTMLStructureTests.swift:68:6: Caught error: invalidDocument
+✘ Test unsupportedSubtreesAreOpaqueWithoutDescendantLeakage() failed after 0.006 seconds with 1 issue.
+✘ Test emptyBodyAndEmptyBlocks() failed after 0.005 seconds with 1 issue.
+✘ Test failedExtractionDoesNotPoisonIndependentRequest() recorded an issue at SemanticXHTMLIntegrationTests.swift:57:6: Caught error: invalidDocument
+✘ Test headingsAndInlineLogicalText() failed after 0.006 seconds with 1 issue.
+◇ Test case passing 1 argument xml → "" to invalidDocumentsFail(_:) started.
+✘ Test prefixedNamespaceAndCaseSensitiveUnknownTags() failed after 0.005 seconds with 1 issue.
+✘ Test nestedContainersHaveNearestEmittedParent() failed after 0.005 seconds with 1 issue.
+✘ Test mixedContentKeepsOwnershipWithoutDoubleCounting() failed after 0.005 seconds with 1 issue.
+✘ Test unicodeEntitiesCDATAAndNewlinePreserveLogicalScalars() failed after 0.005 seconds with 1 issue.
+✘ Test transparentFallbackAndWhitespace() failed after 0.006 seconds with 1 issue.
+✘ Test retainedChildSlotsCountCommentsPIAndWhitespace() failed after 0.006 seconds with 1 issue.
+✘ Test deterministicIDsBindSourceOccurrenceAndArchive() failed after 0.006 seconds with 1 issue.
+✘ Test failedExtractionDoesNotPoisonIndependentRequest() failed after 0.006 seconds with 2 issues.
+✘ Suite "Semantic XHTML structure" failed after 0.007 seconds with 10 issues.
+◇ Test case passing 1 argument xml → "<html/>" to invalidDocumentsFail(_:) started.
+◇ Test case passing 1 argument xml → "<html xmlns='http://www.w3.org/1999/xhtml'/>" to invalidDocumentsFail(_:) started.
+◇ Test case passing 1 argument xml → "<html xmlns='http://www.w3.org/1999/xhtml'><body/><body/></html>" to invalidDocumentsFail(_:) started.
+◇ Test case passing 1 argument xml → "<html xmlns='http://www.w3.org/1999/xhtml'><body/><head/></html>" to invalidDocumentsFail(_:) started.
+◇ Test case passing 1 argument xml → "<html xmlns='http://www.w3.org/1999/xhtml'><head/><head/><body/></html>" to invalidDocumentsFail(_:) started.
+◇ Test case passing 1 argument xml → "<html xmlns='http://www.w3.org/1999/xhtml'>text<body/></html>" to invalidDocumentsFail(_:) started.
+◇ Test case passing 1 argument xml → "<html xmlns='http://www.w3.org/1999/xhtml'><other/><body/></html>" to invalidDocumentsFail(_:) started.
+◇ Test case passing 1 argument xml → "<!DOCTYPE html [<!ENTITY evil SYSTEM 'file:///etc/passwd'>]><html/>" to invalidDocumentsFail(_:) started.
+◇ Test case passing 1 argument xml → "<?xml version='1.0' encoding='ISO-8859-1'?><html/>" to invalidDocumentsFail(_:) started.
+◇ Test case passing 1 argument xml → "<html xmlns='http://www.w3.org/1999/xhtml'><body>&unknown;</body></html>" to invalidDocumentsFail(_:) started.
+◇ Test case passing 1 argument xml → "<html xmlns='http://www.w3.org/1999/xhtml'><body><p></body></html>" to invalidDocumentsFail(_:) started.
+✔ Test invalidDocumentsFail(_:) with 12 test cases passed after 0.005 seconds.
+◇ Test semanticInclusiveLimits() started.
+✘ Test semanticInclusiveLimits() recorded an issue at SemanticXHTMLSafetyTests.swift:24:6: Caught error: invalidDocument
+✘ Test semanticInclusiveLimits() failed after 0.001 seconds with 1 issue.
+◇ Test invalidLimits(_:) started.
+◇ Test case passing 1 argument n → 0 to invalidLimits(_:) started.
+✘ Test invalidLimits(_:) recorded an issue with 1 argument n → 0 at SemanticXHTMLSafetyTests.swift:40:19: Expectation failed: expected error "invalidLimits" of type SemanticXHTMLError, but "invalidDocument" of type SemanticXHTMLError was thrown instead
+✘ Test invalidLimits(_:) recorded an issue with 1 argument n → 0 at SemanticXHTMLSafetyTests.swift:40:19: Expectation failed: expected error "invalidLimits" of type SemanticXHTMLError, but "invalidDocument" of type SemanticXHTMLError was thrown instead
+✘ Test invalidLimits(_:) recorded an issue with 1 argument n → 0 at SemanticXHTMLSafetyTests.swift:40:19: Expectation failed: expected error "invalidLimits" of type SemanticXHTMLError, but "invalidDocument" of type SemanticXHTMLError was thrown instead
+✘ Test invalidLimits(_:) recorded an issue with 1 argument n → 0 at SemanticXHTMLSafetyTests.swift:42:15: Expectation failed: expected error "invalidLimits" of type SemanticXMLError, but "invalidDocument" of type SemanticXHTMLError was thrown instead
+◇ Test case passing 1 argument n → -1 to invalidLimits(_:) started.
+✘ Test invalidLimits(_:) recorded an issue with 1 argument n → -1 at SemanticXHTMLSafetyTests.swift:40:19: Expectation failed: expected error "invalidLimits" of type SemanticXHTMLError, but "invalidDocument" of type SemanticXHTMLError was thrown instead
+✘ Test invalidLimits(_:) recorded an issue with 1 argument n → -1 at SemanticXHTMLSafetyTests.swift:40:19: Expectation failed: expected error "invalidLimits" of type SemanticXHTMLError, but "invalidDocument" of type SemanticXHTMLError was thrown instead
+✘ Test pinnedPackageResourceAndEveryLogicalTextPath() recorded an issue at SemanticXHTMLIntegrationTests.swift:8:6: Caught error: invalidDocument
+✔ Test replacementBetweenPackageAndReopenRejectsMixedRevision() passed after 0.013 seconds.
+✘ Test pinnedPackageResourceAndEveryLogicalTextPath() failed after 0.013 seconds with 1 issue.
+✘ Suite "Semantic XHTML integration" failed after 0.014 seconds with 3 issues.
+✘ Test invalidLimits(_:) recorded an issue with 1 argument n → -1 at SemanticXHTMLSafetyTests.swift:40:19: Expectation failed: expected error "invalidLimits" of type SemanticXHTMLError, but "invalidDocument" of type SemanticXHTMLError was thrown instead
+✘ Test invalidLimits(_:) recorded an issue with 1 argument n → -1 at SemanticXHTMLSafetyTests.swift:42:15: Expectation failed: expected error "invalidLimits" of type SemanticXMLError, but "invalidDocument" of type SemanticXHTMLError was thrown instead
+◇ Test case passing 1 argument n → 9223372036854775807 to invalidLimits(_:) started.
+✘ Test invalidLimits(_:) recorded an issue with 1 argument n → 9223372036854775807 at SemanticXHTMLSafetyTests.swift:40:19: Expectation failed: expected error "invalidLimits" of type SemanticXHTMLError, but "invalidDocument" of type SemanticXHTMLError was thrown instead
+✘ Test invalidLimits(_:) recorded an issue with 1 argument n → 9223372036854775807 at SemanticXHTMLSafetyTests.swift:40:19: Expectation failed: expected error "invalidLimits" of type SemanticXHTMLError, but "invalidDocument" of type SemanticXHTMLError was thrown instead
+✘ Test invalidLimits(_:) recorded an issue with 1 argument n → 9223372036854775807 at SemanticXHTMLSafetyTests.swift:40:19: Expectation failed: expected error "invalidLimits" of type SemanticXHTMLError, but "invalidDocument" of type SemanticXHTMLError was thrown instead
+✘ Test invalidLimits(_:) recorded an issue with 1 argument n → 9223372036854775807 at SemanticXHTMLSafetyTests.swift:42:15: Expectation failed: expected error "invalidLimits" of type SemanticXMLError, but "invalidDocument" of type SemanticXHTMLError was thrown instead
+✘ Test invalidLimits(_:) with 3 test cases failed after 0.004 seconds with 12 issues.
+◇ Test xmlBudgetsAreEnforcedIndependently() started.
+✘ Test xmlBudgetsAreEnforcedIndependently() recorded an issue at SemanticXHTMLSafetyTests.swift:47:6: Caught error: invalidDocument
+✘ Test xmlBudgetsAreEnforcedIndependently() failed after 0.001 seconds with 1 issue.
+◇ Test sourceIdentityRejectsInvalidAndMismatchedInputs() started.
+✘ Test sourceIdentityRejectsInvalidAndMismatchedInputs() recorded an issue at SemanticXHTMLSafetyTests.swift:60:15: Expectation failed: expected error "inconsistentSource" of type SemanticXHTMLError, but "invalidDocument" of type SemanticXHTMLError was thrown instead
+✘ Test sourceIdentityRejectsInvalidAndMismatchedInputs() recorded an issue at SemanticXHTMLSafetyTests.swift:67:19: Expectation failed: expected error "invalidOccurrence" of type SemanticModelError, but "invalidDocument" of type SemanticXHTMLError was thrown instead
+✘ Test sourceIdentityRejectsInvalidAndMismatchedInputs() recorded an issue at SemanticXHTMLSafetyTests.swift:67:19: Expectation failed: expected error "invalidOccurrence" of type SemanticModelError, but "invalidDocument" of type SemanticXHTMLError was thrown instead
+✘ Test sourceIdentityRejectsInvalidAndMismatchedInputs() recorded an issue at SemanticXHTMLSafetyTests.swift:67:19: Expectation failed: expected error "invalidOccurrence" of type SemanticModelError, but "invalidDocument" of type SemanticXHTMLError was thrown instead
+✘ Test sourceIdentityRejectsInvalidAndMismatchedInputs() failed after 0.001 seconds with 4 issues.
+◇ Test cancellationBeforeEntry() started.
+✘ Test cancellationBeforeEntry() recorded an issue at SemanticXHTMLSafetyTests.swift:77:15: Expectation failed: expected error of type CancellationError, but "invalidDocument" of type SemanticXHTMLError was thrown instead
+✘ Test cancellationBeforeEntry() failed after 0.001 seconds with 1 issue.
+◇ Test cancellationAtWorkerTraversalAndPublication(_:) started.
+◇ Test case passing 1 argument stage → 0 to cancellationAtWorkerTraversalAndPublication(_:) started.
+✘ Test cancellationAtWorkerTraversalAndPublication(_:) recorded an issue with 1 argument stage → 0 at SemanticXHTMLSafetyTests.swift:91:9: Expectation failed: (probe → vreaderTests.SemanticXMLProbe).waitUntilBlocked()
+✘ Test cancellationAtWorkerTraversalAndPublication(_:) recorded an issue with 1 argument stage → 0 at SemanticXHTMLSafetyTests.swift:92:9: Expectation failed: (probe → vreaderTests.SemanticXMLProbe).waitUntilForwarded()
+✘ Test cancellationAtWorkerTraversalAndPublication(_:) recorded an issue with 1 argument stage → 0 at SemanticXHTMLSafetyTests.swift:93:15: Expectation failed: expected error of type CancellationError, but "invalidDocument" of type SemanticXHTMLError was thrown instead
+✘ Test cancellationAtWorkerTraversalAndPublication(_:) recorded an issue with 1 argument stage → 0 at SemanticXHTMLSafetyTests.swift:95:25: Expectation failed: (probe.result() → (timedOut: false, childCancelled: false)).childCancelled → false
+◇ Test case passing 1 argument stage → 1 to cancellationAtWorkerTraversalAndPublication(_:) started.
+✘ Test cancellationAtWorkerTraversalAndPublication(_:) recorded an issue with 1 argument stage → 1 at SemanticXHTMLSafetyTests.swift:91:9: Expectation failed: (probe → vreaderTests.SemanticXMLProbe).waitUntilBlocked()
+✘ Test cancellationAtWorkerTraversalAndPublication(_:) recorded an issue with 1 argument stage → 1 at SemanticXHTMLSafetyTests.swift:92:9: Expectation failed: (probe → vreaderTests.SemanticXMLProbe).waitUntilForwarded()
+✘ Test cancellationAtWorkerTraversalAndPublication(_:) recorded an issue with 1 argument stage → 1 at SemanticXHTMLSafetyTests.swift:93:15: Expectation failed: expected error of type CancellationError, but "invalidDocument" of type SemanticXHTMLError was thrown instead
+✘ Test cancellationAtWorkerTraversalAndPublication(_:) recorded an issue with 1 argument stage → 1 at SemanticXHTMLSafetyTests.swift:95:25: Expectation failed: (probe.result() → (timedOut: false, childCancelled: false)).childCancelled → false
+◇ Test case passing 1 argument stage → 2 to cancellationAtWorkerTraversalAndPublication(_:) started.
+✘ Test cancellationAtWorkerTraversalAndPublication(_:) recorded an issue with 1 argument stage → 2 at SemanticXHTMLSafetyTests.swift:91:9: Expectation failed: (probe → vreaderTests.SemanticXMLProbe).waitUntilBlocked()
+✘ Test cancellationAtWorkerTraversalAndPublication(_:) recorded an issue with 1 argument stage → 2 at SemanticXHTMLSafetyTests.swift:92:9: Expectation failed: (probe → vreaderTests.SemanticXMLProbe).waitUntilForwarded()
+✘ Test cancellationAtWorkerTraversalAndPublication(_:) recorded an issue with 1 argument stage → 2 at SemanticXHTMLSafetyTests.swift:93:15: Expectation failed: expected error of type CancellationError, but "invalidDocument" of type SemanticXHTMLError was thrown instead
+✘ Test cancellationAtWorkerTraversalAndPublication(_:) with 3 test cases failed after 30.052 seconds with 11 issues.
+◇ Test independentConcurrentCalls() started.
+✘ Test independentConcurrentCalls() recorded an issue at SemanticXHTMLSafetyTests.swift:98:6: Caught error: invalidDocument
+✘ Test independentConcurrentCalls() failed after 0.001 seconds with 1 issue.
+✘ Suite "Semantic XHTML safety" failed after 30.072 seconds with 31 issues.
+✘ Test run with 21 tests in 3 suites failed after 30.073 seconds with 44 issues.
