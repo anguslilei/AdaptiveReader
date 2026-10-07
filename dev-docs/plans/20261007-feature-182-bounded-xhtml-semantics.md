@@ -207,3 +207,13 @@ parent assertions. No rejected findings. Round2 PASS: all three findings resolve
 
 Issue mirror attempt2026-10-07: GitHub create_issue returned HTTP410, "Issues has
 been disabled in this repository." No settings changed and no GH handle invented.
+
+## Completion checkpoint2026-10-08
+
+Gate4 independent round1 PASS, zero findings. Actual compiled RED21/3 with44
+issues→GREEN21/3; native155+30+32+21=238 distinct passing tests, all15 suite
+guards, zero failed/skipped; local Debug/Release pass. Five unchanged real CJK
+resource probes pass, while sampled native archives expose existing compressed-
+directory/DTD subset limits. Full facts and provenance mappings in
+dev-docs/verification/feature-182-20261007.md. Final generated patch version
+3.67.14/build1056; no user-visible behavior, source policy widening or merge.

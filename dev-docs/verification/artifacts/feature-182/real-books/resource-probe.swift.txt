@@ -1,0 +1,32 @@
+import Foundation
+
+struct ProbeManifest: Decodable {
+    let archiveSHA256: String
+    let resources: [Resource]
+    struct Resource: Decodable { let occurrence: Int; let path: String; let file: String; let sha256: String; let bytes: Int }
+}
+@main struct Feature182ResourceProbe {
+    static func main() async throws {
+        let manifest = try JSONDecoder().decode(ProbeManifest.self, from: Data(contentsOf: URL(fileURLWithPath: CommandLine.arguments[1])))
+        for r in manifest.resources {
+            let bytes = try Data(contentsOf: URL(fileURLWithPath:r.file))
+            let resource = EPUBSemanticResource(path:r.path,bytes:bytes,sha256:r.sha256,archiveSHA256:manifest.archiveSHA256)
+            let start = ContinuousClock.now
+            do {
+                let s = try await SemanticXHTMLExtractor.extract(resource:resource,spineOccurrence:r.occurrence)
+                let tree = try await SemanticXMLParser.parse(bytes)
+                var count = 0
+                for b in s.blocks {
+                    for run in b.runs {
+                        var i=tree.rootIndex
+                        for slot in run.anchor.nodePath.components { i=tree.nodes[i].children[slot] }
+                        guard case .text(let text)=tree.nodes[i].kind, text.utf8.elementsEqual(run.text.utf8),
+                              run.anchor.textRange?.upperBound == text.utf16.count else { fatalError("source mismatch") }
+                        count += 1
+                    }
+                }
+                print("RAW-RESOURCE occurrence=\(r.occurrence) path=\(r.path) bytes=\(bytes.count) sha256=\(r.sha256) blocks=\(s.blocks.count) runs=\(count) opaque=\(s.blocks.filter{$0.role == .opaque}.count) duration=\(start.duration(to:.now)) verified=true")
+            } catch { print("RAW-RESOURCE occurrence=\(r.occurrence) rejected=\(error)") }
+        }
+    }
+}

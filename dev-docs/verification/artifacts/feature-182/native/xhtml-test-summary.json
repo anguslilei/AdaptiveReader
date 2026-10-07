@@ -1,0 +1,45 @@
+{
+  "devicesAndConfigurations" : [
+    {
+      "device" : {
+        "architecture" : "x86_64",
+        "deviceId" : "99BB5C6E-8128-407C-8EAF-A95572B81770",
+        "deviceName" : "iPhone 17 Pro",
+        "modelName" : "iPhone 17 Pro",
+        "osBuildNumber" : "23C54",
+        "osVersion" : "26.2",
+        "platform" : "iOS Simulator"
+      },
+      "expectedFailures" : 0,
+      "failedTests" : 0,
+      "passedTests" : 36,
+      "skippedTests" : 0,
+      "testPlanConfiguration" : {
+        "configurationId" : "1",
+        "configurationName" : "All"
+      }
+    }
+  ],
+  "environmentDescription" : "All · Built with macOS 15.7.7",
+  "expectedFailures" : 0,
+  "failedTests" : 0,
+  "finishTime" : 1791385562.716,
+  "passedTests" : 21,
+  "result" : "Passed",
+  "skippedTests" : 0,
+  "startTime" : 1791385511.324,
+  "statistics" : [
+    {
+      "subtitle" : "18 test runs",
+      "title" : "3 tests ran with dynamic parameters"
+    }
+  ],
+  "testFailures" : [
+
+  ],
+  "title" : "Test - vreader",
+  "topInsights" : [
+
+  ],
+  "totalTestCount" : 21
+}

@@ -1,0 +1,369 @@
+{
+  "devices" : [
+    {
+      "architecture" : "x86_64",
+      "deviceId" : "99BB5C6E-8128-407C-8EAF-A95572B81770",
+      "deviceName" : "iPhone 17 Pro",
+      "modelName" : "iPhone 17 Pro",
+      "osBuildNumber" : "23C54",
+      "osVersion" : "26.2",
+      "platform" : "iOS Simulator"
+    }
+  ],
+  "testNodes" : [
+    {
+      "children" : [
+        {
+          "children" : [
+            {
+              "children" : [
+                {
+                  "children" : [
+                    {
+                      "duration" : "1秒",
+                      "durationInSeconds" : 1,
+                      "name" : "\"\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"<!DOCTYPE html [<!ENTITY evil SYSTEM 'file:///etc/passwd'>]><html/>\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"<?xml version='1.0' encoding='ISO-8859-1'?><html/>\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"<html xmlns='http://www.w3.org/1999/xhtml'/>\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"<html xmlns='http://www.w3.org/1999/xhtml'><body/><body/></html>\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"<html xmlns='http://www.w3.org/1999/xhtml'><body/><head/></html>\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"<html xmlns='http://www.w3.org/1999/xhtml'><body>&unknown;</body></html>\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"<html xmlns='http://www.w3.org/1999/xhtml'><body><p></body></html>\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"<html xmlns='http://www.w3.org/1999/xhtml'><head/><head/><body/></html>\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"<html xmlns='http://www.w3.org/1999/xhtml'><other/><body/></html>\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"<html xmlns='http://www.w3.org/1999/xhtml'>text<body/></html>\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "\"<html/>\"",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    }
+                  ],
+                  "duration" : "1秒",
+                  "durationInSeconds" : 1,
+                  "name" : "invalidDocumentsFail(_:)",
+                  "nodeIdentifier" : "SemanticXHTMLSafetyTests/invalidDocumentsFail(_:)",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticXHTMLSafetyTests/invalidDocumentsFail(_:)",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "semanticInclusiveLimits()",
+                  "nodeIdentifier" : "SemanticXHTMLSafetyTests/semanticInclusiveLimits()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticXHTMLSafetyTests/semanticInclusiveLimits()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "children" : [
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "-1",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "0",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "9223372036854775807",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    }
+                  ],
+                  "name" : "invalidLimits(_:)",
+                  "nodeIdentifier" : "SemanticXHTMLSafetyTests/invalidLimits(_:)",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticXHTMLSafetyTests/invalidLimits(_:)",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "xmlBudgetsAreEnforcedIndependently()",
+                  "nodeIdentifier" : "SemanticXHTMLSafetyTests/xmlBudgetsAreEnforcedIndependently()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticXHTMLSafetyTests/xmlBudgetsAreEnforcedIndependently()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "sourceIdentityRejectsInvalidAndMismatchedInputs()",
+                  "nodeIdentifier" : "SemanticXHTMLSafetyTests/sourceIdentityRejectsInvalidAndMismatchedInputs()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticXHTMLSafetyTests/sourceIdentityRejectsInvalidAndMismatchedInputs()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "cancellationBeforeEntry()",
+                  "nodeIdentifier" : "SemanticXHTMLSafetyTests/cancellationBeforeEntry()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticXHTMLSafetyTests/cancellationBeforeEntry()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "children" : [
+                    {
+                      "children" : [
+                        {
+                          "name" : "SemanticXMLProbe.swift:24: Thread running at User-initiated quality-of-service class waiting on a lower QoS thread running at Default quality-of-service class. Investigate ways to avoid priority inversions",
+                          "nodeType" : "Runtime Warning"
+                        }
+                      ],
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "0",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "1",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0s",
+                      "durationInSeconds" : 0,
+                      "name" : "2",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    }
+                  ],
+                  "name" : "cancellationAtWorkerTraversalAndPublication(_:)",
+                  "nodeIdentifier" : "SemanticXHTMLSafetyTests/cancellationAtWorkerTraversalAndPublication(_:)",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticXHTMLSafetyTests/cancellationAtWorkerTraversalAndPublication(_:)",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "independentConcurrentCalls()",
+                  "nodeIdentifier" : "SemanticXHTMLSafetyTests/independentConcurrentCalls()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticXHTMLSafetyTests/independentConcurrentCalls()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                }
+              ],
+              "name" : "Semantic XHTML safety",
+              "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticXHTMLSafetyTests",
+              "nodeType" : "Test Suite",
+              "result" : "Passed"
+            },
+            {
+              "children" : [
+                {
+                  "duration" : "1秒",
+                  "durationInSeconds" : 1,
+                  "name" : "emptyBodyAndEmptyBlocks()",
+                  "nodeIdentifier" : "SemanticXHTMLStructureTests/emptyBodyAndEmptyBlocks()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticXHTMLStructureTests/emptyBodyAndEmptyBlocks()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "retainedChildSlotsCountCommentsPIAndWhitespace()",
+                  "nodeIdentifier" : "SemanticXHTMLStructureTests/retainedChildSlotsCountCommentsPIAndWhitespace()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticXHTMLStructureTests/retainedChildSlotsCountCommentsPIAndWhitespace()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "1秒",
+                  "durationInSeconds" : 1,
+                  "name" : "headingsAndInlineLogicalText()",
+                  "nodeIdentifier" : "SemanticXHTMLStructureTests/headingsAndInlineLogicalText()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticXHTMLStructureTests/headingsAndInlineLogicalText()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "name" : "nestedContainersHaveNearestEmittedParent()",
+                  "nodeIdentifier" : "SemanticXHTMLStructureTests/nestedContainersHaveNearestEmittedParent()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticXHTMLStructureTests/nestedContainersHaveNearestEmittedParent()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "1秒",
+                  "durationInSeconds" : 1,
+                  "name" : "transparentFallbackAndWhitespace()",
+                  "nodeIdentifier" : "SemanticXHTMLStructureTests/transparentFallbackAndWhitespace()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticXHTMLStructureTests/transparentFallbackAndWhitespace()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "1秒",
+                  "durationInSeconds" : 1,
+                  "name" : "unicodeEntitiesCDATAAndNewlinePreserveLogicalScalars()",
+                  "nodeIdentifier" : "SemanticXHTMLStructureTests/unicodeEntitiesCDATAAndNewlinePreserveLogicalScalars()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticXHTMLStructureTests/unicodeEntitiesCDATAAndNewlinePreserveLogicalScalars()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "1秒",
+                  "durationInSeconds" : 1,
+                  "name" : "deterministicIDsBindSourceOccurrenceAndArchive()",
+                  "nodeIdentifier" : "SemanticXHTMLStructureTests/deterministicIDsBindSourceOccurrenceAndArchive()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticXHTMLStructureTests/deterministicIDsBindSourceOccurrenceAndArchive()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "1秒",
+                  "durationInSeconds" : 1,
+                  "name" : "prefixedNamespaceAndCaseSensitiveUnknownTags()",
+                  "nodeIdentifier" : "SemanticXHTMLStructureTests/prefixedNamespaceAndCaseSensitiveUnknownTags()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticXHTMLStructureTests/prefixedNamespaceAndCaseSensitiveUnknownTags()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "1秒",
+                  "durationInSeconds" : 1,
+                  "name" : "mixedContentKeepsOwnershipWithoutDoubleCounting()",
+                  "nodeIdentifier" : "SemanticXHTMLStructureTests/mixedContentKeepsOwnershipWithoutDoubleCounting()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticXHTMLStructureTests/mixedContentKeepsOwnershipWithoutDoubleCounting()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "1秒",
+                  "durationInSeconds" : 1,
+                  "name" : "unsupportedSubtreesAreOpaqueWithoutDescendantLeakage()",
+                  "nodeIdentifier" : "SemanticXHTMLStructureTests/unsupportedSubtreesAreOpaqueWithoutDescendantLeakage()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticXHTMLStructureTests/unsupportedSubtreesAreOpaqueWithoutDescendantLeakage()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                }
+              ],
+              "name" : "Semantic XHTML structure",
+              "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticXHTMLStructureTests",
+              "nodeType" : "Test Suite",
+              "result" : "Passed"
+            },
+            {
+              "children" : [
+                {
+                  "duration" : "1秒",
+                  "durationInSeconds" : 1,
+                  "name" : "replacementBetweenPackageAndReopenRejectsMixedRevision()",
+                  "nodeIdentifier" : "SemanticXHTMLIntegrationTests/replacementBetweenPackageAndReopenRejectsMixedRevision()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticXHTMLIntegrationTests/replacementBetweenPackageAndReopenRejectsMixedRevision()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "1秒",
+                  "durationInSeconds" : 1,
+                  "name" : "failedExtractionDoesNotPoisonIndependentRequest()",
+                  "nodeIdentifier" : "SemanticXHTMLIntegrationTests/failedExtractionDoesNotPoisonIndependentRequest()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticXHTMLIntegrationTests/failedExtractionDoesNotPoisonIndependentRequest()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "1秒",
+                  "durationInSeconds" : 1,
+                  "name" : "pinnedPackageResourceAndEveryLogicalTextPath()",
+                  "nodeIdentifier" : "SemanticXHTMLIntegrationTests/pinnedPackageResourceAndEveryLogicalTextPath()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticXHTMLIntegrationTests/pinnedPackageResourceAndEveryLogicalTextPath()",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                }
+              ],
+              "name" : "Semantic XHTML integration",
+              "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests/SemanticXHTMLIntegrationTests",
+              "nodeType" : "Test Suite",
+              "result" : "Passed"
+            }
+          ],
+          "name" : "vreaderTests",
+          "nodeIdentifierURL" : "test://com.apple.xcode/vreader/vreaderTests",
+          "nodeType" : "Unit test bundle",
+          "result" : "Passed"
+        }
+      ],
+      "name" : "All",
+      "nodeType" : "Test Plan",
+      "result" : "Passed"
+    }
+  ],
+  "testPlanConfigurations" : [
+    {
+      "configurationId" : "1",
+      "configurationName" : "All"
+    }
+  ]
+}

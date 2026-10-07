@@ -1,0 +1,126 @@
+Building for debugging...
+[0/7] /private/var/folders/qm/g5cmbn7s44b_qw4q626b7wnr0000gn/T/semantic-xhtml-contract.XXXXXX.JsV8LPeGb9/.build/x86_64-apple-macosx/debug/SemanticXHTMLContractPackageTests.derived/runner.swift
+[1/7] Write sources
+[4/7] Write swift-version--58304C5D6DBC2206.txt
+[6/39] Compiling vreader EPUBSemanticPackageLimits.swift
+[7/39] Compiling vreader EPUBSemanticPackageLoader.swift
+[8/39] Compiling vreader EPUBSemanticPackageTypes.swift
+[9/39] Compiling vreader EPUBSemanticResourceReader.swift
+[10/39] Compiling vreader EPUBSemanticSourceTypes.swift
+[11/39] Compiling vreader SemanticXHTMLWalker.swift
+[12/39] Compiling vreader SemanticXMLBuilder.swift
+[13/39] Compiling vreader SemanticXMLLimits.swift
+[14/39] Compiling vreader SemanticXMLNamespace.swift
+[15/39] Emitting module vreader
+[16/39] Compiling vreader SemanticID.swift
+[17/39] Compiling vreader SemanticLogicalAnchor.swift
+[18/39] Compiling vreader SemanticModelError.swift
+[19/39] Compiling vreader SemanticNodePath.swift
+[20/39] Compiling vreader SemanticResourceIdentity.swift
+[21/39] Compiling vreader SemanticRevision.swift
+[22/39] Compiling vreader SemanticSHA256.swift
+[23/39] Compiling vreader SemanticUTF16Range.swift
+[24/39] Compiling vreader EPUBSourceInflater.swift
+[25/39] Compiling vreader EPUBSourceSnapshot.swift
+[26/39] Compiling vreader EPUBSourceZIPBytes.swift
+[27/39] Compiling vreader EPUBSourceZIPIndex.swift
+[28/39] Compiling vreader SemanticArchivePath.swift
+[29/39] Compiling vreader EPUBContainerDecoder.swift
+[30/39] Compiling vreader EPUBPackageDecoder.swift
+[31/39] Compiling vreader EPUBPackageLiteralKey.swift
+[32/39] Compiling vreader EPUBPackageReference.swift
+[33/39] Compiling vreader EPUBPackageXMLAccess.swift
+[34/39] Compiling vreader SemanticXHTMLExtractor.swift
+[35/39] Compiling vreader SemanticXHTMLLimits.swift
+[36/39] Compiling vreader SemanticXHTMLPolicy.swift
+[37/39] Compiling vreader SemanticXHTMLTypes.swift
+[38/43] Compiling vreader SemanticXMLParser.swift
+[39/43] Compiling vreader SemanticXMLPreflight.swift
+[40/43] Compiling vreader SemanticXMLStartTags.swift
+[41/43] Compiling vreader SemanticXMLTypes.swift
+[42/51] Compiling vreaderTests SemanticXHTMLTestSupport.swift
+[43/51] Emitting module vreaderTests
+[44/51] Compiling vreaderTests SemanticXHTMLStructureTests.swift
+[45/51] Compiling vreaderTests SemanticXMLProbe.swift
+[46/51] Compiling vreaderTests SemanticXHTMLSafetyTests.swift
+[47/51] Compiling vreaderTests EPUBPackageFixture.swift
+[48/51] Compiling vreaderTests EPUBSemanticZIPFixture.swift
+[49/51] Compiling vreaderTests SemanticXHTMLIntegrationTests.swift
+[50/53] Compiling SemanticXHTMLContractPackageTests runner.swift
+[51/53] Emitting module SemanticXHTMLContractPackageTests
+[51/53] Write Objects.LinkFileList
+[52/53] Linking SemanticXHTMLContractPackageTests
+Build complete! (20.33s)
+Test Suite 'All tests' started at 2026-10-07 22:54:54.515.
+Test Suite 'All tests' passed at 2026-10-07 22:54:54.520.
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.000 (0.004) seconds
+◇ Test run started.
+↳ Testing Library Version: 1501
+↳ Target Platform: x86_64-apple-macos14.0
+◇ Suite "Semantic XHTML integration" started.
+◇ Suite "Semantic XHTML structure" started.
+◇ Suite "Semantic XHTML safety" started.
+◇ Test pinnedPackageResourceAndEveryLogicalTextPath() started.
+◇ Test failedExtractionDoesNotPoisonIndependentRequest() started.
+◇ Test replacementBetweenPackageAndReopenRejectsMixedRevision() started.
+◇ Test headingsAndInlineLogicalText() started.
+◇ Test unicodeEntitiesCDATAAndNewlinePreserveLogicalScalars() started.
+◇ Test nestedContainersHaveNearestEmittedParent() started.
+◇ Test retainedChildSlotsCountCommentsPIAndWhitespace() started.
+◇ Test deterministicIDsBindSourceOccurrenceAndArchive() started.
+◇ Test transparentFallbackAndWhitespace() started.
+◇ Test prefixedNamespaceAndCaseSensitiveUnknownTags() started.
+◇ Test emptyBodyAndEmptyBlocks() started.
+◇ Test mixedContentKeepsOwnershipWithoutDoubleCounting() started.
+◇ Test unsupportedSubtreesAreOpaqueWithoutDescendantLeakage() started.
+◇ Test invalidDocumentsFail(_:) started.
+◇ Test case passing 1 argument xml → "" to invalidDocumentsFail(_:) started.
+✔ Test retainedChildSlotsCountCommentsPIAndWhitespace() passed after 0.007 seconds.
+✔ Test unicodeEntitiesCDATAAndNewlinePreserveLogicalScalars() passed after 0.007 seconds.
+✔ Test prefixedNamespaceAndCaseSensitiveUnknownTags() passed after 0.008 seconds.
+✔ Test nestedContainersHaveNearestEmittedParent() passed after 0.008 seconds.
+✔ Test transparentFallbackAndWhitespace() passed after 0.008 seconds.
+◇ Test case passing 1 argument xml → "<html/>" to invalidDocumentsFail(_:) started.
+✔ Test headingsAndInlineLogicalText() passed after 0.008 seconds.
+✔ Test mixedContentKeepsOwnershipWithoutDoubleCounting() passed after 0.008 seconds.
+✔ Test failedExtractionDoesNotPoisonIndependentRequest() passed after 0.009 seconds.
+◇ Test case passing 1 argument xml → "<html xmlns='http://www.w3.org/1999/xhtml'/>" to invalidDocumentsFail(_:) started.
+◇ Test case passing 1 argument xml → "<html xmlns='http://www.w3.org/1999/xhtml'><body/><body/></html>" to invalidDocumentsFail(_:) started.
+✔ Test emptyBodyAndEmptyBlocks() passed after 0.010 seconds.
+✔ Test unsupportedSubtreesAreOpaqueWithoutDescendantLeakage() passed after 0.011 seconds.
+◇ Test case passing 1 argument xml → "<html xmlns='http://www.w3.org/1999/xhtml'><body/><head/></html>" to invalidDocumentsFail(_:) started.
+✔ Test replacementBetweenPackageAndReopenRejectsMixedRevision() passed after 0.011 seconds.
+◇ Test case passing 1 argument xml → "<html xmlns='http://www.w3.org/1999/xhtml'><head/><head/><body/></html>" to invalidDocumentsFail(_:) started.
+✔ Test deterministicIDsBindSourceOccurrenceAndArchive() passed after 0.013 seconds.
+✔ Suite "Semantic XHTML structure" passed after 0.013 seconds.
+◇ Test case passing 1 argument xml → "<html xmlns='http://www.w3.org/1999/xhtml'>text<body/></html>" to invalidDocumentsFail(_:) started.
+◇ Test case passing 1 argument xml → "<html xmlns='http://www.w3.org/1999/xhtml'><other/><body/></html>" to invalidDocumentsFail(_:) started.
+◇ Test case passing 1 argument xml → "<!DOCTYPE html [<!ENTITY evil SYSTEM 'file:///etc/passwd'>]><html/>" to invalidDocumentsFail(_:) started.
+◇ Test case passing 1 argument xml → "<?xml version='1.0' encoding='ISO-8859-1'?><html/>" to invalidDocumentsFail(_:) started.
+✔ Test pinnedPackageResourceAndEveryLogicalTextPath() passed after 0.017 seconds.
+✔ Suite "Semantic XHTML integration" passed after 0.017 seconds.
+◇ Test case passing 1 argument xml → "<html xmlns='http://www.w3.org/1999/xhtml'><body>&unknown;</body></html>" to invalidDocumentsFail(_:) started.
+◇ Test case passing 1 argument xml → "<html xmlns='http://www.w3.org/1999/xhtml'><body><p></body></html>" to invalidDocumentsFail(_:) started.
+✔ Test invalidDocumentsFail(_:) with 12 test cases passed after 0.018 seconds.
+◇ Test semanticInclusiveLimits() started.
+✔ Test semanticInclusiveLimits() passed after 0.004 seconds.
+◇ Test invalidLimits(_:) started.
+◇ Test case passing 1 argument n → 0 to invalidLimits(_:) started.
+◇ Test case passing 1 argument n → -1 to invalidLimits(_:) started.
+◇ Test case passing 1 argument n → 9223372036854775807 to invalidLimits(_:) started.
+✔ Test invalidLimits(_:) with 3 test cases passed after 0.001 seconds.
+◇ Test xmlBudgetsAreEnforcedIndependently() started.
+✔ Test xmlBudgetsAreEnforcedIndependently() passed after 0.003 seconds.
+◇ Test sourceIdentityRejectsInvalidAndMismatchedInputs() started.
+✔ Test sourceIdentityRejectsInvalidAndMismatchedInputs() passed after 0.001 seconds.
+◇ Test cancellationBeforeEntry() started.
+✔ Test cancellationBeforeEntry() passed after 0.001 seconds.
+◇ Test cancellationAtWorkerTraversalAndPublication(_:) started.
+◇ Test case passing 1 argument stage → 0 to cancellationAtWorkerTraversalAndPublication(_:) started.
+◇ Test case passing 1 argument stage → 1 to cancellationAtWorkerTraversalAndPublication(_:) started.
+◇ Test case passing 1 argument stage → 2 to cancellationAtWorkerTraversalAndPublication(_:) started.
+✔ Test cancellationAtWorkerTraversalAndPublication(_:) with 3 test cases passed after 0.003 seconds.
+◇ Test independentConcurrentCalls() started.
+✔ Test independentConcurrentCalls() passed after 0.004 seconds.
+✔ Suite "Semantic XHTML safety" passed after 0.042 seconds.
+✔ Test run with 21 tests in 3 suites passed after 0.042 seconds.

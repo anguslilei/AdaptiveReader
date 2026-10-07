@@ -1,0 +1,40 @@
+{
+  "archiveSHA256": "c8bdc37a59723207135e63e86cfadd2d031ef96e92ef600b96d45908f1729963",
+  "resources": [
+    {
+      "occurrence": 0,
+      "path": "titlepage.xhtml",
+      "file": "/tmp/feature182-chapters/0.xhtml",
+      "sha256": "dfcfea9d7d5a1d63250e83b344e5bfd0cfcfceaba9273da92d1f0e4d89e0698f",
+      "bytes": 799
+    },
+    {
+      "occurrence": 1,
+      "path": "OEBPS/Text/000001.html",
+      "file": "/tmp/feature182-chapters/1.xhtml",
+      "sha256": "12223c128988c620565ff86c74675ab2540418ff543fc847dbf18ba224b63f80",
+      "bytes": 642
+    },
+    {
+      "occurrence": 3,
+      "path": "OEBPS/Text/000003.html",
+      "file": "/tmp/feature182-chapters/3.xhtml",
+      "sha256": "a7bfd77534de15d7fe38431f1e9dbe23b69ff65be5d3a3400110d7e8ed418112",
+      "bytes": 4524
+    },
+    {
+      "occurrence": 8,
+      "path": "OEBPS/Text/000008.html",
+      "file": "/tmp/feature182-chapters/8.xhtml",
+      "sha256": "ab1014cc9dd8ae895a299a92ad6ad0e670111fa5d3b4a4fe142423e9b08df9c4",
+      "bytes": 5193
+    },
+    {
+      "occurrence": 20,
+      "path": "OEBPS/Text/000020.html",
+      "file": "/tmp/feature182-chapters/20.xhtml",
+      "sha256": "9b56fd18bfa1a5f12cbd633833fc8bdb38b5f101d354cff96122555e7aa0ce36",
+      "bytes": 7324
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+[run-tests] targets=-only-testing:vreaderTests/SemanticXHTMLStructureTests -only-testing:vreaderTests/SemanticXHTMLSafetyTests -only-testing:vreaderTests/SemanticXHTMLIntegrationTests udid=99BB5C6E-8128-407C-8EAF-A95572B81770 timeout=1800s log=/var/folders/qm/g5cmbn7s44b_qw4q626b7wnr0000gn/T/run-tests.XXXXXX.8suOx2JJuj
+----- last log lines -----
+✔ Suite "Semantic XHTML safety" passed after 0.393 seconds.
+✔ Test run with 21 tests in 3 suites passed after 0.394 seconds.
+2026-10-07 23:06:02.705 xcodebuild[9533:189012] [MT] IDETestOperationsObserverDebug: 46.350 elapsed -- Testing started completed.
+2026-10-07 23:06:02.705 xcodebuild[9533:189012] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-07 23:06:02.705 xcodebuild[9533:189012] [MT] IDETestOperationsObserverDebug: 46.350 sec, +46.350 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/lilei/Library/Developer/Xcode/DerivedData/vreader-avlwmmeedtrlxvbsixfmvomevvfa/Logs/Test/Test-vreader-2026.10.07_23-05-11-+0800.xcresult
+
+** TEST SUCCEEDED **
+
+Testing started
+--------------------------
+RUN-TESTS RESULT: SUCCEEDED

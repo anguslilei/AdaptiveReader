@@ -120,3 +120,22 @@ and217 distinct tests passed, zero failed/skipped, all12 semantic suite guards.
 The verified generated3.67.13/build1055 pair is unchanged. Feature181 reaches DONE
 with the merge; its models remain dormant and no production/VERIFIED claim is made.
 Single-section bounded XHTML semantic extraction is the next dependent boundary.
+
+## Single-resource XHTML extraction — feature182
+
+The next foundational slice adds a bounded strict-XHTML extractor over the native
+resource/XML/identity utilities. Semantic blocks retain logical source anchors,
+unsupported subtrees stay opaque, and text runs preserve parser text without
+normalization. Limits and cancellation reject the whole result on failure.
+The API consumes one resource; archive sessions, production reader integration,
+inline metadata, source resolution/normalization maps and CFI remain follow-ups.
+
+[Plan](../../dev-docs/plans/20261007-feature-182-bounded-xhtml-semantics.md) passed
+independent Gate2 in two rounds. Local Swift6 actual behavioral RED was followed
+by GREEN21 tests/3 suites. Native238 distinct tests and Debug/Release builds pass;
+Gate4 PASS1 has zero findings. Five original real CJK resources pass extraction
+and logical text-anchor validation. Full native archive compatibility is limited
+by compressed directory entries and DTD rejection in the sampled corpus; see
+[evidence](../../dev-docs/verification/feature-182-20261007.md). This is not a
+production/VERIFIED claim. User-supplied TaleBook OPDS EPUBs are local-only
+integration inputs; no book content is committed.

@@ -1,0 +1,5 @@
+RAW-RESOURCE occurrence=0 path=titlepage.xhtml bytes=799 sha256=dfcfea9d7d5a1d63250e83b344e5bfd0cfcfceaba9273da92d1f0e4d89e0698f blocks=1 runs=0 opaque=1 duration=0.006966329 seconds verified=true
+RAW-RESOURCE occurrence=1 path=OEBPS/Text/000001.html bytes=642 sha256=12223c128988c620565ff86c74675ab2540418ff543fc847dbf18ba224b63f80 blocks=4 runs=2 opaque=1 duration=0.006064025 seconds verified=true
+RAW-RESOURCE occurrence=3 path=OEBPS/Text/000003.html bytes=4524 sha256=a7bfd77534de15d7fe38431f1e9dbe23b69ff65be5d3a3400110d7e8ed418112 blocks=15 runs=15 opaque=1 duration=0.008922005 seconds verified=true
+RAW-RESOURCE occurrence=8 path=OEBPS/Text/000008.html bytes=5193 sha256=ab1014cc9dd8ae895a299a92ad6ad0e670111fa5d3b4a4fe142423e9b08df9c4 blocks=9 runs=9 opaque=1 duration=0.009809546 seconds verified=true
+RAW-RESOURCE occurrence=20 path=OEBPS/Text/000020.html bytes=7324 sha256=9b56fd18bfa1a5f12cbd633833fc8bdb38b5f101d354cff96122555e7aa0ce36 blocks=19 runs=16 opaque=6 duration=0.01284077 seconds verified=true

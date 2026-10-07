@@ -1,0 +1,14 @@
+{
+  "project.yml": {
+    "bytes": 19678,
+    "sha256": "4dffb5fdfe39ec77e5399471256318170652acc03c5e71cf2d3d54a6d0fd8101"
+  },
+  "vreader.xcodeproj/project.pbxproj": {
+    "bytes": 929158,
+    "sha256": "c7339a1e81d8b3b2d081d0670d5d2cd228a65bb2a5bb0694738cf3bfa3f51b76"
+  },
+  "preparation/version-debug-build.log": {
+    "bytes": 941923,
+    "sha256": "ec0eea3f5fbe207dc4f4ad0c4f9bc6f134ef7974878f67b29f0c33bac1ca4c4f"
+  }
+}
