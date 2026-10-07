@@ -1,0 +1,16 @@
+[run-tests] targets=-only-testing:vreaderTests/SemanticIdentityTests -only-testing:vreaderTests/SemanticSourceAnchorTests -only-testing:vreaderTests/SemanticModelCodableTests udid=E952A9B0-CC78-435C-BF08-06AD47FE1076 timeout=1800s log=/var/folders/nj/vtw8zd2j31d1gdrtntc5y4600000gn/T/run-tests.XXXXXX.w2xBiwKz5m
+----- last log lines -----
+✔ Suite "Semantic identity canonical bytes" passed after 0.121 seconds.
+✔ Test run with 32 tests in 3 suites passed after 0.121 seconds.
+2026-10-06 01:14:46.741 xcodebuild[83114:207396] [MT] IDETestOperationsObserverDebug: 28.346 elapsed -- Testing started completed.
+2026-10-06 01:14:46.742 xcodebuild[83114:207396] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-06 01:14:46.742 xcodebuild[83114:207396] [MT] IDETestOperationsObserverDebug: 28.346 sec, +28.346 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/runner/Library/Developer/Xcode/DerivedData/vreader-czakmjxnxcejyjbvvbadvbjgnehb/Logs/Test/Test-vreader-2026.10.06_01-14-11-+0000.xcresult
+
+** TEST SUCCEEDED **
+
+Testing started
+--------------------------
+RUN-TESTS RESULT: SUCCEEDED

@@ -108,5 +108,7 @@ values, followed by source mapping/resolution and production integration.
 [Plan](../../dev-docs/plans/20261005-feature-181-native-semantic-identities.md),
 [Gate4 audit](../../.claude/codex-audits/feature-181-gate4-audit.md): three rounds,
 zero open Critical/High/Medium, one explicit accepted Low in CI version tooling.
-Actual source-only Mac GREEN32/3 and ten independent vectors pass; native proof
-is recorded separately when complete.
+Actual source-only Mac GREEN32/3 and ten independent vectors pass. Native
+Debug/Release and217 distinct tests pass (155 base +30 package +32 model),
+zero failed/skipped and all12 semantic suites. See [evidence](../../dev-docs/verification/feature-181-20261005.md).
+Actual generated version pair3.67.13/build1055 is retained for the final PR tail.

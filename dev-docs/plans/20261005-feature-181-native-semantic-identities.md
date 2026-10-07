@@ -266,4 +266,4 @@ pinned-baseline rationale in .claude/codex-audits/feature-181-gate4-audit.md.
 No fourth audit or code patch. Audited locala2dd1ee and published9550a347 share
 source tree00b31ca85e8a13538aa5630e60a579a7a7ba60e1. Models/tests unchanged from
 actual Mac GREEN d749c8a (32 tests/3 suites +10 independent vectors).
-Native full proof and generated version tail pending; no UI/production claim.
+Native full proof completed: Own run37394612276 / job112048201971 at9550a347: Debug/Release succeeded; 155 base +30 package +32 model = 217 distinct tests passed in three disjoint completed bundles; zero failed/skipped, all12 named suite guards passed. Actual generated pair3.67.13/build1055 copied byte-for-byte for the final version-only commit before PR. No UI/production claim.
